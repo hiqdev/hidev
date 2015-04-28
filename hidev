@@ -1,0 +1,66 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * Highly Integrated Development.
+ *
+ * @link      https://hiqdev.com/hidev
+ * @package   hidev
+ * @license   BSD 3-clause
+ * @copyright Copyright (c) 2015 HiQDev 
+ */
+
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+// fcgi doesn't have STDIN and STDOUT defined by default
+defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
+defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
+
+$autoload_path = __DIR__ . '/vendor/autoload.php';
+if (!file_exists($autoload_path)) {
+    system("composer install");
+}
+
+require($autoload_path);
+require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
+
+Yii::setLogger(Yii::createObject('hiqdev\hidev\components\Logger'));
+
+$application = new yii\console\Application([
+    'id'                    => 'hidev',
+    'name'                  => 'Highly Integrated Development',
+    'basePath'              => __DIR__,
+    'enableCoreCommands'    => false,
+    'controllerNamespace'   => 'hiqdev\\hidev\\controllers',
+    'vendorPath'            => __DIR__ . '/vendor',
+    'defaultRoute'          => 'default',
+    'bootstrap'             => ['log','config'],
+    'components'            => [
+        'log' => [
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning', 'info'],
+                ],
+            ],
+        ],
+        'config' => [
+            'class' => 'hiqdev\hidev\components\Config',
+        ],
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],
+    ],
+]);
+
+$exitCode = $application->run();
+exit($exitCode);
+
+function d ()
+{
+    foreach (func_get_args() as $a) {
+        var_dump($a);
+    }
+    die();
+}

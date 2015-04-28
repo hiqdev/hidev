@@ -1,0 +1,20 @@
+{
+    "package": {
+        "type": "package",
+        "name": "hidev",
+        "title": "HiDev - integrate your development",
+        "license": "BSD-3-clause",
+        "keywords": [
+            "hiqdev",
+            "tool",
+            "continuous integration",
+            "code generator"
+        ],
+        "description": "Mix all the tools to make your code shine",
+        "namespace": "hiqdev\\hidev"
+    },
+    "vendor": {
+        "name": "hiqdev",
+        "title": "HiQDev"
+    }
+}
