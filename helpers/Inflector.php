@@ -30,6 +30,6 @@ class Inflector extends \yii\helpers\BaseInflector
 
     public static function file2template($file, $separator = '-')
     {
-        return static::dot2sep($file, $separator);
+        return static::dot2sep(trim($file,'.'), $separator);
     }
 }
