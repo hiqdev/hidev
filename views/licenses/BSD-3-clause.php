@@ -1,7 +1,8 @@
-The HiDev package is free software.
+The <?= $config->package->label ?> <?= $config->package->type ?> is free software.
 It is released under the terms of the following BSD 3-clause License.
 
-Copyright © 2015 by HiQDev (http://hiqdev.com/).
+Copyright © <?= $config->package->years ?>, <?= $config->vendor->titleAndSite ?>
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -14,7 +15,7 @@ are met:
    notice, this list of conditions and the following disclaimer in
    the documentation and/or other materials provided with the
    distribution.
- * Neither the name of HiQDev nor HiDev nor the names of its
+ * Neither the name of <?= $config->vendor->title ?> nor <?= $config->package->label ?> nor the names of its
    contributors may be used to endorse or promote products derived
    from this software without specific prior written permission.
 

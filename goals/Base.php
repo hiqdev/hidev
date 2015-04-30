@@ -66,4 +66,9 @@ class Base extends \hiqdev\collection\Manager
         Yii::trace("Finished $this->name");
     }
 
+
+    public function getConfig()
+    {
+        return Yii::$app->get('config');
+    }
 }

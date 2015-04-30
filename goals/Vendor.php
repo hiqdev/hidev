@@ -29,8 +29,8 @@ class Vendor extends \hiqdev\collection\Model
         ];
     }
 
-    public function getBracedSite()
+    public function getTitleAndSite()
     {
-        return $this->site ? ' (' . $this->site . ')' : '';
+        return $this->title . ($this->site ? ' (' . $this->site . ')' : '');
     }
 }
