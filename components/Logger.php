@@ -34,7 +34,7 @@ class Logger extends \yii\log\Logger
      */
     public function log($message, $level, $category = 'application')
     {
-        if ($level <= static::LEVEL_INFO) {
+        if ($level <= static::LEVEL_TRACE) {
             //d(Console::ansiFormat($message, Console::FG_YELLOW));
             Console::stdout($message."\n");
         }

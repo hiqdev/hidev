@@ -24,6 +24,7 @@ class DefaultController extends \yii\console\Controller
      */
     public function actionIndex()
     {
+        Yii::$app->config->all->run();
         return 0;
     }
 }

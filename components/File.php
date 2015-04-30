@@ -14,12 +14,18 @@ namespace hiqdev\hidev\components;
 use Yii;
 use yii\base\Arrayable;
 use yii\base\InvalidParamException;
+use hiqdev\hidev\helpers\Inflector;
 
 /**
  * A file to be processed with hidev.
  */
 class File extends \yii\base\Object
 {
+
+    /**
+     * @var file hanler: renderer and parser
+     */
+    protected $_handler;
 
     /**
      * @var string absolute path
@@ -54,7 +60,7 @@ class File extends \yii\base\Object
     /**
      * @var string template
      */
-    protected $template;
+    public $template;
 
     /**
      * @var mixed data
@@ -91,38 +97,31 @@ class File extends \yii\base\Object
     public function setPath($path)
     {
         $info = pathinfo($path);
-        $this->setDirname($info['dirname']);
-        $this->setBasename($info['basename']);
-        $this->setFilename($info['filename']);
-        $this->setExtension($info['extension']);
+        $this->_path        = $path;
+        $this->_dirname     = $info['dirname'];
+        $this->_basename    = $info['basename'];
+        $this->_filename    = $info['filename'];
+        $this->_extension   = $info['extension'];
     }
 
     public function getPath()
     {
-        if ($this->_path === null) {
-            $this->_path = $this->dirname . '/' . $this->basename;
-        }
-
         return $this->_path;
     }
 
     public function setBasename($basename)
     {
-        $this->_basename = $basename;
+        $this->setPath($this->_dirname . '/' . $basename);
     }
 
     public function getBasename()
     {
-        if ($this->_basename === null) {
-            $this->_basename = $this->filename . '.' . $this->extension;
-        }
-
         return $this->_basename;
     }
 
     public function setDirname($dirname)
     {
-        $this->_dirname = $dirname;
+        $this->setPath($dirname . '/' . $this->_basename);
     }
 
     public function getDirname()
@@ -132,7 +131,7 @@ class File extends \yii\base\Object
 
     public function setFilename($filename)
     {
-        $this->_filename = $filename;
+        $this->setPath($this->_dirname . '/' . $filename . '.' . $this->_extension);
     }
 
     public function getFilename()
@@ -142,7 +141,7 @@ class File extends \yii\base\Object
 
     public function setExtension($extension)
     {
-        $this->_extension = $extension;
+        $this->setPath($this->_dirname . '/' . $this->_filename . '.' . $extension);
     }
 
     public function getExtension()
@@ -158,22 +157,15 @@ class File extends \yii\base\Object
     public function getType()
     {
         if (!$this->_type) {
-            $this->_type = static::getTypeByExtension($this->extension);
+            $this->_type = static::getTypeByExtension($this->extension) ?: 'template';
         }
+
         return $this->_type;
     }
 
-    public static function create($config)
+    public function getCtype()
     {
-        if (is_string($config)) {
-            $config = ['path' => $config];
-        } elseif (!is_array($config)) {
-            throw new InvalidParamException("Can't create file from: " . gettype($config));
-        }
-
-        return Yii::createObject(array_merge([
-            'class' => static::className(),
-        ], $config));
+        return Inflector::id2camel($this->getType());
     }
 
     public function save($data = null)
@@ -182,27 +174,24 @@ class File extends \yii\base\Object
             $this->data = $data;
         }
         
-        $this->write($this->render());
+        return $this->handler->renderPath($this->path,$this->data);
     }
 
-    /**
-     * Writes given conten to the file.
-     * TODO Creates intermediate directories when necessary.
-     */
-    protected function write($content)
+    public function load()
     {
-        Yii::info('Written file: '.$this->path,'file');
-        file_put_contents($this->path,$this->render());
+        return $this->data = $this->handler->parsePath($this->path);
     }
 
-    public function render($data = null)
+    public function getHandler()
     {
-        $renderer = Yii::createObject([
-            'class' => 'hiqdev\hidev\components\\' . ucfirst($this->type) . 'Renderer',
-            'template' => $this->template,
-        ]);
+        if (!is_object($this->_handler)) {
+            $this->_handler = Yii::createObject([
+                'class' => 'hiqdev\hidev\components\\' . $this->getCtype() . 'Handler',
+                'template' => $this->template,
+            ]);
+        }
 
-        return $renderer->render(is_null($data) ? $this->data : $data);
+        return $this->_handler;
     }
 
     public function exists()

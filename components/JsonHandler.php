@@ -15,9 +15,9 @@ use Yii;
 use yii\helpers\Json;
 
 /**
- * Renderer to JSON.
+ * Handler for JSON files.
  */
-class JsonRenderer extends BaseRenderer
+class JsonHandler extends BaseHandler
 {
 
     /**
@@ -28,4 +28,8 @@ class JsonRenderer extends BaseRenderer
         return Json::encode($data,JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)."\n";
     }
 
+    public function parse($json)
+    {
+        return Json::decode($json);
+    }
 }

@@ -2,6 +2,7 @@
     "package": {
         "type": "package",
         "name": "hidev",
+        "label": "HiDev",
         "title": "HiDev - integrate your development",
         "license": "BSD-3-clause",
         "keywords": [
@@ -11,10 +12,16 @@
             "code generator"
         ],
         "description": "Mix all the tools to make your code shine",
-        "namespace": "hiqdev\\hidev"
+        "namespace": "hiqdev\\hidev",
+        "year": 2015
     },
     "vendor": {
         "name": "hiqdev",
-        "title": "HiQDev"
-    }
+        "title": "HiQDev",
+        "site": "http://hiqdev.com/"
+    },
+    "all": {
+        "LICENSE.md": []
+    },
+    "LICENSE.md": []
 }

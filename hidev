@@ -7,7 +7,7 @@
  * @link      https://hiqdev.com/hidev
  * @package   hidev
  * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev 
+ * @copyright Copyright (c) 2015 HiQDev
  */
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
@@ -35,7 +35,7 @@ $application = new yii\console\Application([
     'controllerNamespace'   => 'hiqdev\\hidev\\controllers',
     'vendorPath'            => __DIR__ . '/vendor',
     'defaultRoute'          => 'default',
-    'bootstrap'             => ['log','config'],
+    'bootstrap'             => ['log', 'config'],
     'components'            => [
         'log' => [
             'targets' => [
@@ -46,7 +46,10 @@ $application = new yii\console\Application([
             ],
         ],
         'config' => [
-            'class' => 'hiqdev\hidev\components\Config',
+            'class' => 'hiqdev\hidev\goals\Config',
+        ],
+        'view' => [
+            'class' => 'hiqdev\hidev\components\View',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

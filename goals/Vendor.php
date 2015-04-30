@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\components;
+namespace hiqdev\hidev\goals;
 
 use Yii;
 
@@ -23,8 +23,14 @@ class Vendor extends \hiqdev\collection\Model
         return [
             ['type',            'safe'],
             ['name',            'safe'],
+            ['site',            'safe'],
             ['title',           'safe'],
             ['description',     'safe'],
         ];
+    }
+
+    public function getBracedSite()
+    {
+        return $this->site ? ' (' . $this->site . ')' : '';
     }
 }
