@@ -50,6 +50,13 @@ $application = new yii\console\Application([
         ],
         'view' => [
             'class' => 'hiqdev\hidev\components\View',
+            'theme' => [
+                'basePath' => '@config/templates',
+                'pathMap' => [
+                    '@app/views' => '@config/templates',
+                ],
+            ],
+
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

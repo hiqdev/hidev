@@ -66,6 +66,7 @@ class Config extends File implements BootstrapInterface, ViewContextInterface
         if (!$this->file->exists()) {
             throw new InvalidParamException("No config found. Use hidev init");
         }
+        Yii::setAlias('@config',getcwd() . '/' . $this->dirname);
         $this->mset($this->file->load());
     }
 

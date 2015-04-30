@@ -21,7 +21,8 @@
         "site": "http://hiqdev.com/"
     },
     "all": {
-        "LICENSE": []
+        "LICENSE": [],
+        ".gitignore": []
     },
     "LICENSE.md": []
 }
