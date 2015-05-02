@@ -1,7 +1,4 @@
-The <?= $config->package->label ?> <?= $config->package->type ?> is free software.
-It is released under the terms of the following BSD 3-clause License.
-
-Copyright © <?= $config->package->years ?>, <?= $config->vendor->titleAndSite ?>
+Copyright © <?= $config->package->years ?>, <?= $config->vendor->titleAndHomepage ?>
 
 All rights reserved.
 
