@@ -6,7 +6,7 @@
  * @link      https://hiqdev.com/hidev
  * @package   hidev
  * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev 
+ * @copyright Copyright (c) 2015 HiQDev
  */
 
 namespace hiqdev\hidev\components;
@@ -173,7 +173,7 @@ class File extends \yii\base\Object
         if ($data !== null) {
             $this->data = $data;
         }
-        
+
         return $this->handler->renderPath($this->path,$this->data);
     }
 
@@ -186,7 +186,7 @@ class File extends \yii\base\Object
     {
         if (!is_object($this->_handler)) {
             $this->_handler = Yii::createObject([
-                'class' => 'hiqdev\hidev\components\\' . $this->getCtype() . 'Handler',
+                'class' => 'hiqdev\hidev\handlers\\' . $this->getCtype(),
                 'template' => $this->template,
             ]);
         }

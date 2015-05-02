@@ -14,12 +14,12 @@ namespace hiqdev\hidev\goals;
 use Yii;
 
 /**
- * Goal for LICENSE.md
+ * Goal for README
  */
-class LicenseMd extends License
+class Changelog extends Template
 {
-    /**
-     * @var array|File
-     */
-    protected $_file = 'LICENSE.md';
+    public function getTemplate()
+    {
+        return 'CHANGELOG';
+    }
 }

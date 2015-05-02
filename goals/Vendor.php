@@ -23,14 +23,38 @@ class Vendor extends \hiqdev\collection\Model
         return [
             ['type',            'safe'],
             ['name',            'safe'],
-            ['site',            'safe'],
             ['title',           'safe'],
+            ['homepage',        'safe'],
             ['description',     'safe'],
         ];
     }
 
-    public function getTitleAndSite()
+    public function getTitleAndHomepage()
     {
-        return $this->title . ($this->site ? ' (' . $this->site . ')' : '');
+        return $this->title . ($this->homepage ? ' (' . $this->homepage . ')' : '');
     }
+
+    protected $_authors;
+
+    public function getAuthors()
+    {
+        if (!is_object($this->_authors)) {
+            $this->_authors = new Author(['items' => $this->_authors]);
+            /// XXX strangely later doesn't work :-/ investigate later
+            /// $this->_data = Author::createItem('', $this->_data);
+        }
+
+        return $this->_authors;
+    }
+
+    public function setAuthors($authors)
+    {
+        $this->_authors = $authors;
+    }
+
+    public function getConfig()
+    {
+        return Yii::$app->config;
+    }
+
 }

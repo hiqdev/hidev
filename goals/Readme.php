@@ -14,8 +14,12 @@ namespace hiqdev\hidev\goals;
 use Yii;
 
 /**
- * Goal for LICENSE
+ * Goal for README
  */
-class Gitignore extends Template
+class Readme extends Template
 {
+    public function getTemplate()
+    {
+        return 'README';
+    }
 }

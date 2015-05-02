@@ -37,7 +37,7 @@ class Config extends File implements BootstrapInterface, ViewContextInterface
             'title'         => 'Package Title',
             'license'       => 'BSD-3-clause',
             'keywords'      => ['example'],
-            'description'   => 'Package Desription',
+            'description'   => 'Package Description',
             'namespace'     => 'vendor\package',
         ],
         'vendor' => [
@@ -70,6 +70,17 @@ class Config extends File implements BootstrapInterface, ViewContextInterface
         $this->mset($this->file->load());
     }
 
+/*
+    public function setPackage($value)
+    {
+        return $this->setItem('package', $value);
+    }
+
+    public function setVendor($value)
+    {
+        return $this->setItem('vendor', $value);
+    }
+*/
 
     protected $_viewPath;
 

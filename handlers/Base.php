@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\components;
+namespace hiqdev\hidev\handlers;
 
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -18,7 +18,7 @@ use yii\helpers\ArrayHelper;
  * Base Handler.
  * Knows how to parse and render it's file type.
  */
-class BaseHandler extends \yii\base\Object
+class Base extends \yii\base\Object
 {
     /**
      * @var string template file name to be used for rendering
@@ -41,6 +41,7 @@ class BaseHandler extends \yii\base\Object
         if ($this->_view === null) {
             $this->_view = Yii::$app->getView();
         }
+
         return $this->_view;
     }
 
@@ -105,8 +106,13 @@ class BaseHandler extends \yii\base\Object
 
     public function read($path)
     {
-        Yii::trace('Read file: ' . $path,'file');
-        return file_get_contents($path);
+        if (file_exists($path)) {
+            Yii::trace('Read file: ' . $path,'file');
+            return file_get_contents($path);
+        } else {
+            Yii::info('Couldn\'t read file: ' . $path,'file');
+            return null;
+        }
     }
 
 }

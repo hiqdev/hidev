@@ -18,11 +18,6 @@ use Yii;
  */
 class License extends Template
 {
-    /**
-     * @var array|File
-     */
-    protected $_file = 'LICENSE';
-
     public function getTemplate()
     {
         return 'licenses/' . $this->config->package->license;

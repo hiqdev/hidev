@@ -1,28 +1,70 @@
 {
     "package": {
-        "type": "package",
-        "name": "hidev",
-        "label": "HiDev",
-        "title": "HiDev - integrate your development",
-        "license": "BSD-3-clause",
-        "keywords": [
-            "hiqdev",
-            "tool",
-            "continuous integration",
-            "code generator"
-        ],
-        "description": "Mix all the tools to make your code shine",
+        "name":     "hidev",
+        "label":    "HiDev",
+        "title":    "HiDev - integrate your development",
+        "type":     "project",
+        "features": "yii2, tool",
+        "license":  "BSD-3-Clause",
+        "source":   "https://github.com/hiqdev/hidev",
+        "forum":    "https://forum.hidev.com/",
+        "language": "PHP",
+        "homepage": "https://hidev.me/",
+        "keywords": "hiqdev, tool, continuous integration, code generator",
         "namespace": "hiqdev\\hidev",
+        "description": "Mix all the tools to make your code shine",
         "year": 2014
     },
     "vendor": {
-        "name": "hiqdev",
-        "title": "HiQDev",
-        "site": "http://hiqdev.com/"
+        "name":     "hiqdev",
+        "title":    "HiQDev",
+        "homepage": "http://hiqdev.com/",
+        "email":    "support@hiqdev.com",
+        "authors": {
+            "Andrii Vasyliev": {
+                "role":     "Project lead",
+                "email":    "sol@hiqdev.com",
+                "homepage": "https://hipanel.com/"
+            },
+            "Dmitry Naumenko": {
+                "role":     "Lead backend developer",
+                "email":    "silverfire@hiqdev.com",
+                "homepage": "http://silverfire.me/"
+            },
+            "Andrey Klochok": {
+                "role":     "Lead frontend developer",
+                "email":    "tafid@hiqdev.com",
+                "homepage": "https://hiqdev.com/"
+            },
+            "Yuriy Myronchuk": {
+                "role":     "QA Lead",
+                "email":    "bladeroot@hiqdev.com",
+                "homepage": "https://hiqdev.com/"
+            }
+        }
     },
     "all": {
-        "LICENSE": [],
-        ".gitignore": []
+        "LICENSE":                  [],
+        "composer":                 [],
+        ".gitignore":               [],
+        "README.md":                [],
+        "CHANGELOG.md":             []
     },
-    "LICENSE.md": []
+    "install": {
+        "composer self-update":     []
+    },
+    "composer.json": {
+        "data": {
+            "require": {
+                "yiisoft/yii2-gii":         "2.*",
+                "hiqdev/yii2-collection":   "*@dev"
+            },
+            "autoload": {
+                "psr-4": {
+                    "hiqdev\\hidev\\": ""
+                }
+            },
+            "bin": ["hidev"]
+        }
+    }
 }

@@ -1,0 +1,101 @@
+<?php
+
+/*
+ * Highy Integrated Development.
+ *
+ * @link      https://hiqdev.com/hidev
+ * @package   hidev
+ * @license   BSD 3-clause
+ * @copyright Copyright (c) 2015 HiQDev
+ */
+
+namespace hiqdev\hidev\goals;
+
+use Yii;
+use hiqdev\collection\Manager;
+
+/**
+ * Goal for composer.json
+ */
+class ComposerJson extends Template
+{
+    protected $_data;
+
+    public function setData($data)
+    {
+        $this->_data = $data;
+    }
+
+    public function getData()
+    {
+        if (!is_object($this->_data)) {
+            $this->_data = new Manager(['items' => $this->_data]);
+            /// XXX strangely later doesn't work :-/ investigate later
+            /// $this->_data = Manager::createItem('', $this->_data);
+        }
+
+        return $this->_data;
+    }
+
+    public function init()
+    {
+        $package = $this->config->package;
+        $this->data->add('support',[]);
+        $sets = [
+            'name'          => $this->fullName,
+            'type'          => $this->type,
+            'description'   => $package->title,
+            'keywords'      => $package->keywords,
+            'homepage'      => $package->homepage,
+            'license'       => $package->license,
+            'support'       => $this->support,
+            'authors'       => $this->authors,
+            'require'       => $this->data->require,
+            'autoload'      => $this->data->autoload,
+        ];
+        $this->data->smartSet($sets, 'first');
+    }
+
+    /**
+     * Converts hidev type to composer type.
+     * TODO package type can be different from composer type.
+     */
+    public function getType()
+    {
+        return $this->config->package->type;
+    }
+
+    public function getFullName()
+    {
+        return $this->config->vendor->name . '/' . $this->config->package->name;
+    }
+
+    public function getSupport()
+    {
+        $support = $this->data->support;
+        $package = $this->config->package;
+        $support->smartAdd([
+            'email'     => $this->config->vendor->email,
+            'source'    => $package->source,
+            'issues'    => $package->issues,
+            'wiki'      => $package->wiki,
+            'forum'     => $package->forum,
+        ],'first');
+        return $support;
+    }
+
+    public function getAuthors()
+    {
+        $res = [];
+        foreach ($this->config->package->authors->getItems() as $name => $data) {
+            $data['name'] = $name;
+            $res[] = array_merge(compact('name'), $data);
+        }
+        return $res;
+    }
+
+    public function make()
+    {
+        return $this->file->save($this->data);
+    }
+}

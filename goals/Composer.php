@@ -14,8 +14,12 @@ namespace hiqdev\hidev\goals;
 use Yii;
 
 /**
- * Goal for LICENSE
+ * Goal for Composer
  */
-class Gitignore extends Template
+class Composer extends Base
 {
+    public function init()
+    {
+        $this->add('composer.json', []);
+    }
 }

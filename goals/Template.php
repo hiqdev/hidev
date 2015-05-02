@@ -18,8 +18,4 @@ use Yii;
  */
 class Template extends File
 {
-    public function make()
-    {
-        $this->save();
-    }
 }

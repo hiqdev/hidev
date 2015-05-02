@@ -6,17 +6,17 @@
  * @link      https://hiqdev.com/hidev
  * @package   hidev
  * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev 
+ * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\components;
+namespace hiqdev\hidev\handlers;
 
 use Yii;
 
 /**
  * Handler for templated files.
  */
-class TemplateHandler extends BaseHandler
+class Template extends Base
 {
 
     /**
@@ -24,7 +24,12 @@ class TemplateHandler extends BaseHandler
      */
     public function renderPrepared($data)
     {
-        return $this->getView()->render($this->template, $data, Yii::$app->config);
+        return $this->getView()->render($this->template, $data);
+    }
+
+    public function renderTemplate($data)
+    {
+        return $this->renderPrepared(self::prepareData($data));
     }
 
     public function prepareData($data)
@@ -36,6 +41,11 @@ class TemplateHandler extends BaseHandler
 
     public function parse($json)
     {
-        die("can't parse template");
+        return [];
+    }
+
+    public function existsTemplate()
+    {
+        return $this->view->existsTemplate($this->template);
     }
 }

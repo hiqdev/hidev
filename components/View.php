@@ -15,4 +15,24 @@ class View extends \yii\web\View
     {
         return Yii::$app->config;
     }
+
+    /**
+     * Returns rendering context.
+     *
+     * TODO think of moving to other object from Config Goal
+     */
+    public function getContext()
+    {
+        return $this->getConfig();
+    }
+
+    public function existsTemplate($template)
+    {
+        return file_exists($this->findViewFile($template, $this->getContext()));
+    }
+
+    public function render($template, $data)
+    {
+        return parent::render($template, $data, $this->getContext());
+    }
 }
