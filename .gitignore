@@ -8,14 +8,14 @@
 composer.lock
 
 # IDE & OS files
-.**.swp      # vim swap files
+.*.swp
 .idea
 nbproject
 .buildpath
 .project
 .settings
-Thumbs.db   # windows thumbnail cache
-.DS_Store   # Mac DS_Store Files
+Thumbs.db
+.DS_Store
 
 # Added by HiDev
 
