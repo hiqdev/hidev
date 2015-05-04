@@ -2,9 +2,9 @@
 <?php
 
 /*
- * Highly Integrated Development.
+ * HiDev - integrate your development.
  *
- * @link      https://hiqdev.com/hidev
+ * @link      http://hidev.me/
  * @package   hidev
  * @license   BSD 3-clause
  * @copyright Copyright (c) 2015 HiQDev
@@ -29,11 +29,10 @@ Yii::setLogger(Yii::createObject('hiqdev\hidev\components\Logger'));
 
 $application = new yii\console\Application([
     'id'                    => 'hidev',
-    'name'                  => 'Highly Integrated Development',
+    'name'                  => 'HiDev - integrate your development',
     'basePath'              => __DIR__,
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hiqdev\\hidev\\controllers',
-    'vendorPath'            => __DIR__ . '/vendor',
     'defaultRoute'          => 'default',
     'bootstrap'             => ['log', 'config'],
     'components'            => [
