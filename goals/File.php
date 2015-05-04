@@ -13,7 +13,7 @@ namespace hiqdev\hidev\goals;
 
 use Yii;
 use hiqdev\hidev\components\File as FileComponent;
-use hiqdev\hidev\helpers\Inflector;
+use hiqdev\hidev\helpers\Helper;
 
 /**
  * A File Goal.
@@ -35,7 +35,7 @@ class File extends Base
 
     public function getTemplate()
     {
-        return Inflector::file2template($this->_template ?: $this->_file ?: $this->name);
+        return Helper::file2template($this->_template ?: $this->name);
     }
 
     /**
@@ -84,7 +84,7 @@ class File extends Base
 
     public function save()
     {
-        return $this->file->save();
+        return $this->file->save($this);
     }
 
     public function make()

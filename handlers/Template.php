@@ -36,7 +36,7 @@ class Template extends Base
     {
         return array_merge([
             'config'    => Yii::$app->config,
-        ],$data ?: []);
+        ], parent::prepareData($data));
     }
 
     public function parse($json)

@@ -15,6 +15,7 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\base\BootstrapInterface;
 use yii\base\ViewContextInterface;
+use hiqdev\hidev\helpers\Helper;
 
 /**
  * The Config. Keeps the Goals.
@@ -35,8 +36,8 @@ class Config extends File implements BootstrapInterface, ViewContextInterface
             'type'          => 'package',
             'name'          => 'package',
             'title'         => 'Package Title',
-            'license'       => 'BSD-3-clause',
-            'keywords'      => ['example'],
+            'license'       => 'BSD-3-Clause',
+            'keywords'      => 'example',
             'description'   => 'Package Description',
             'namespace'     => 'vendor\package',
         ],
@@ -45,6 +46,66 @@ class Config extends File implements BootstrapInterface, ViewContextInterface
             'title'         => 'Vendor',
         ],
     ];
+
+    protected static $_knownGoals = [
+        'README.md'             => 'readme',
+        'README.txt'            => 'readme',
+        'README.markdown'       => 'readme',
+        'LICENSE.md'            => 'license',
+        'LICENSE.txt'           => 'license',
+        'LICENSE.markdown'      => 'license',
+        'CHANGELOG.md'          => 'changelog',
+        'CHANGELOG.txt'         => 'changelog',
+        'CHANGELOG.markdown'    => 'changelog',
+    ];
+
+    public static function goal2class($id, $name = null)
+    {
+        $id = $id ?: static::$_knownGoals[$name] ?: $name;
+
+        return 'hiqdev\hidev\goals\\' . Helper::id2camel($id);
+    }
+
+    public function getItemClass($name = null, array $config = [])
+    {
+        $class = static::goal2class($config['goal'],$name);
+
+        return class_exists($class) ? $class : static::goal2class('base');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getItemConfig($name = null, array $config = [])
+    {
+        return array_merge([
+            'class' => $this->getItemClass($name, $config),
+            'name'  => $name,
+        ], $config);
+    }
+
+    /**
+     * Creates goal if not exists else updates.
+     * This makes goals unique by name.
+     *
+     * @param string $name   item name.
+     * @param array  $config item instance configuration.
+     *
+     * @return item instance.
+     */
+/* XXX looks like it is not needed anymore
+    protected function createItem($name, $config = [])
+    {
+        $item = $this->getRaw($name);
+        if (is_object($item)) {
+            $item->mset($config);
+        } else {
+            $item = parent::createItem($name, array_merge((array)$item, (array)$config));
+            $this->set($name,$item);
+        }
+        return $item;
+    }
+*/
 
     /**
      * Bootstraps config. Reads or creates if doesn't exist

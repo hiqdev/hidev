@@ -14,7 +14,7 @@ namespace hiqdev\hidev\components;
 use Yii;
 use yii\base\Arrayable;
 use yii\base\InvalidParamException;
-use hiqdev\hidev\helpers\Inflector;
+use hiqdev\hidev\helpers\Helper;
 
 /**
  * A file to be processed with hidev.
@@ -165,7 +165,7 @@ class File extends \yii\base\Object
 
     public function getCtype()
     {
-        return Inflector::id2camel($this->getType());
+        return Helper::id2camel($this->getType());
     }
 
     public function save($data = null)

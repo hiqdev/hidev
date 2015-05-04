@@ -11,14 +11,13 @@
         "language": "PHP",
         "homepage": "https://hidev.me/",
         "keywords": "hiqdev, tool, continuous integration, code generator",
-        "namespace": "hiqdev\\hidev",
         "description": "Mix all the tools to make your code shine",
         "year": 2014
     },
     "vendor": {
         "name":     "hiqdev",
         "title":    "HiQDev",
-        "homepage": "http://hiqdev.com/",
+        "homepage": "https://hiqdev.com/",
         "email":    "support@hiqdev.com",
         "authors": {
             "Andrii Vasyliev": {
@@ -44,27 +43,21 @@
         }
     },
     "all": {
-        "LICENSE":                  [],
-        "composer":                 [],
-        ".gitignore":               [],
-        "README.md":                [],
-        "CHANGELOG.md":             []
+        "deps": "LICENSE, composer, .gitignore, README.md, CHANGELOG.md"
     },
-    "install": {
-        "composer self-update":     []
+    "composer": {
+        "self-update":  true
     },
     "composer.json": {
-        "data": {
-            "require": {
-                "yiisoft/yii2-gii":         "2.*",
-                "hiqdev/yii2-collection":   "*@dev"
-            },
-            "autoload": {
-                "psr-4": {
-                    "hiqdev\\hidev\\": ""
-                }
-            },
-            "bin": ["hidev"]
-        }
+        "require": {
+            "yiisoft/yii2":             "2.*@dev",
+            "hiqdev/yii2-collection":   "*@dev"
+        },
+        "autoload": {
+            "psr-4": {
+                "hiqdev\\hidev\\": ""
+            }
+        },
+        "bin": ["hidev"]
     }
 }

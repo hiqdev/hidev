@@ -19,28 +19,11 @@ use hiqdev\collection\Manager;
  */
 class ComposerJson extends Template
 {
-    protected $_data;
-
-    public function setData($data)
-    {
-        $this->_data = $data;
-    }
-
-    public function getData()
-    {
-        if (!is_object($this->_data)) {
-            $this->_data = new Manager(['items' => $this->_data]);
-            /// XXX strangely later doesn't work :-/ investigate later
-            /// $this->_data = Manager::createItem('', $this->_data);
-        }
-
-        return $this->_data;
-    }
+    protected $_file = 'composer.json';
 
     public function init()
     {
         $package = $this->config->package;
-        $this->data->add('support',[]);
         $sets = [
             'name'          => $this->fullName,
             'type'          => $this->type,
@@ -50,10 +33,15 @@ class ComposerJson extends Template
             'license'       => $package->license,
             'support'       => $this->support,
             'authors'       => $this->authors,
-            'require'       => $this->data->require,
-            'autoload'      => $this->data->autoload,
+            'require'       => $this->require,
+            'autoload'      => $this->autoload,
         ];
-        $this->data->smartSet($sets, 'first');
+        $this->smartSet($sets, 'first');
+    }
+
+    public function setType($type)
+    {
+        $this->setItem('type', $type);
     }
 
     /**
@@ -62,7 +50,7 @@ class ComposerJson extends Template
      */
     public function getType()
     {
-        return $this->config->package->type;
+        return $this->getRaw('type') ?: $this->config->package->type;
     }
 
     public function getFullName()
@@ -70,9 +58,14 @@ class ComposerJson extends Template
         return $this->config->vendor->name . '/' . $this->config->package->name;
     }
 
+    public function setSupport($support)
+    {
+        $this->setItem('support', $support);
+    }
+
     public function getSupport()
     {
-        $support = $this->data->support;
+        $support = $this->getItem('support');
         $package = $this->config->package;
         $support->smartAdd([
             'email'     => $this->config->vendor->email,
@@ -82,6 +75,11 @@ class ComposerJson extends Template
             'forum'     => $package->forum,
         ],'first');
         return $support;
+    }
+
+    public function setAuthors($authors)
+    {
+        $this->setItem('authors', $authors);
     }
 
     public function getAuthors()
@@ -94,8 +92,4 @@ class ComposerJson extends Template
         return $res;
     }
 
-    public function make()
-    {
-        return $this->file->save($this->data);
-    }
 }

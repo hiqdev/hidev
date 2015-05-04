@@ -12,6 +12,7 @@
 namespace hiqdev\hidev\goals;
 
 use Yii;
+use hiqdev\hidev\helpers\Helper;
 
 /**
  * Package part of the config.
@@ -71,12 +72,22 @@ class Package extends Vendor
 
     public function setKeywords($keywords)
     {
-        $this->setItem('keywords', array_map('trim',explode(',',$keywords)));
+        $this->setItem('keywords', Helper::csplit($keywords));
     }
 
     public function getKeywords()
     {
         return $this->getItem('keywords');
+    }
+
+    public function setNamespace($namespace)
+    {
+        $this->setItem('namespace', $namespace);
+    }
+
+    public function getNamespace()
+    {
+        return $this->getItem('namespace') ?: ($this->getVendor()->name . '\\' . $this->name);
     }
 
     public function getAuthors()

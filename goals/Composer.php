@@ -18,8 +18,5 @@ use Yii;
  */
 class Composer extends Base
 {
-    public function init()
-    {
-        $this->add('composer.json', []);
-    }
+    protected $_deps = 'composer.json';
 }
