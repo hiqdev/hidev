@@ -23,7 +23,7 @@ class View extends \yii\web\View
      */
     public function getContext()
     {
-        return $this->getConfig();
+        return Yii::$app;
     }
 
     public function existsTemplate($template)

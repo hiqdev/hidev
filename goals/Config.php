@@ -14,13 +14,12 @@ namespace hiqdev\hidev\goals;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\base\BootstrapInterface;
-use yii\base\ViewContextInterface;
 use hiqdev\hidev\helpers\Helper;
 
 /**
  * The Config. Keeps the Goals.
  */
-class Config extends File implements BootstrapInterface, ViewContextInterface
+class Config extends File implements BootstrapInterface
 {
 
     /**
@@ -143,14 +142,4 @@ class Config extends File implements BootstrapInterface, ViewContextInterface
     }
 */
 
-    protected $_viewPath;
-
-    public function getViewPath()
-    {
-        if ($this->_viewPath === null) {
-            $this->_viewPath = Yii::$app->getBasePath() . DIRECTORY_SEPARATOR . 'views';
-        }
-
-        return $this->_viewPath;
-    }
 }
