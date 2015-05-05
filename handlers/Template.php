@@ -35,7 +35,7 @@ class Template extends Base
     public function prepareData($data)
     {
         return array_merge([
-            'config'    => Yii::$app->config,
+            'config' => Yii::$app->config,
         ], parent::prepareData($data));
     }
 
