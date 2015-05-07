@@ -27,29 +27,26 @@ class Base extends \hiqdev\collection\Manager
 
     public $done = false;
 
-    public function setName($name)
-    {
-        $this->setItem('name', (string)$name);
-    }
-
     public function getName()
     {
-        return $this->getRaw('name');
+        return (string)$this->getRaw('name');
     }
-
-    protected $_deps;
 
     public function setDeps($deps)
     {
-        $this->_deps = $deps;
+        $res = $this->getDeps();
+        foreach (Helper::ksplit($deps) as $d => $e) {
+            $res[$d] = $e;
+        }
+        $this->setItem('deps', $res);
     }
 
     public function getDeps()
     {
-        return Helper::ksplit($this->_deps);
+        return Helper::ksplit($this->getRaw('deps'));
     }
 
-    public function deps()
+    public function runDeps()
     {
         foreach ($this->getDeps() as $name => $enabled) {
             if (!$enabled) {
@@ -69,7 +66,7 @@ class Base extends \hiqdev\collection\Manager
             return;
         }
         Yii::trace("Started: $this->name");
-        $this->deps();
+        $this->runDeps();
         $this->make();
         $this->done = true;
     }

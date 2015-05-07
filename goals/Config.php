@@ -83,28 +83,11 @@ class Config extends File implements BootstrapInterface
         ], $config);
     }
 
-    /**
-     * Creates goal if not exists else updates.
-     * This makes goals unique by name.
-     *
-     * @param string $name   item name.
-     * @param array  $config item instance configuration.
-     *
-     * @return item instance.
-     */
-/* XXX looks like it is not needed anymore
-    protected function createItem($name, $config = [])
+
+    public function make()
     {
-        $item = $this->getRaw($name);
-        if (is_object($item)) {
-            $item->mset($config);
-        } else {
-            $item = parent::createItem($name, array_merge((array)$item, (array)$config));
-            $this->set($name,$item);
-        }
-        return $item;
+        Base::make();
     }
-*/
 
     /**
      * Bootstraps config. Reads or creates if doesn't exist
@@ -130,16 +113,5 @@ class Config extends File implements BootstrapInterface
         $this->mset($this->file->load());
     }
 
-/*
-    public function setPackage($value)
-    {
-        return $this->setItem('package', $value);
-    }
-
-    public function setVendor($value)
-    {
-        return $this->setItem('vendor', $value);
-    }
-*/
 
 }

@@ -27,7 +27,7 @@ require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 
 Yii::setLogger(Yii::createObject('hiqdev\hidev\components\Logger'));
 
-$application = new yii\console\Application([
+$application = new hiqdev\hidev\components\Application([
     'id'                    => 'hidev',
     'name'                  => 'HiDev - integrate your development',
     'basePath'              => __DIR__,
@@ -46,6 +46,9 @@ $application = new yii\console\Application([
         ],
         'config' => [
             'class' => 'hiqdev\hidev\goals\Config',
+        ],
+        'request' => [
+            'class' => 'hiqdev\hidev\components\Request',
         ],
         'view' => [
             'class' => 'hiqdev\hidev\components\View',

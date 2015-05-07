@@ -6,12 +6,13 @@
  * @link      https://hiqdev.com/hidev
  * @package   hidev
  * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev 
+ * @copyright Copyright (c) 2015 HiQDev
  */
 
 namespace hiqdev\hidev\controllers;
 
 use Yii;
+use yii\helpers\Inflector;
 
 /**
  * Generate class API documentation.
@@ -20,11 +21,41 @@ class DefaultController extends \yii\console\Controller
 {
 
     /**
+     * Check has action.
+     */
+    public static function hasAction($id)
+    {
+        return method_exists(get_called_class(), 'action'.Inflector::id2camel($id));
+    }
+
+    /**
      * The main command: do the magic!
      */
     public function actionIndex()
     {
-        Yii::$app->config->all->run();
+        Yii::$app->config->run();
         return 0;
     }
+
+    /**
+     * Run the goal.
+     */
+    public function actionRun($goal)
+    {
+        if (!Yii::$app->config->hasItem($goal)) {
+            d("Can't run goal '$goal'");
+        }
+        Yii::$app->config->getItem($goal)->run();
+        return 0;
+    }
+
+    /**
+     * The grep command.
+     */
+    public function actionGrep()
+    {
+        d('HERE AT grep');
+        return 0;
+    }
+
 }

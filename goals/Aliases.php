@@ -12,14 +12,15 @@
 namespace hiqdev\hidev\goals;
 
 use Yii;
+use hiqdev\hidev\helpers\Helper;
 
-/**
- * Goal for Composer
- */
-class Composer extends Base
+class Aliases extends \hiqdev\collection\Object
 {
-    public function init()
+    public $name;
+
+    public function getItem($name)
     {
-        $this->setDeps('composer.json');
+        return Helper::csplit(parent::getItem($name),' ');
     }
+
 }

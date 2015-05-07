@@ -42,8 +42,16 @@
             }
         }
     },
+    "deps": "all",
     "all": {
-        "deps": "LICENSE, composer, .gitignore, README.md, CHANGELOG.md"
+        "deps": "git, composer, LICENSE, README.md, CHANGELOG.md"
+    },
+    "aliases": {
+        "h":        "grep",
+        "g":        "default/grep"
+    },
+    "test": {
+        "deps": "LICENSE"
     },
     "composer": {
         "self-update":  true

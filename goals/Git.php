@@ -14,12 +14,12 @@ namespace hiqdev\hidev\goals;
 use Yii;
 
 /**
- * Goal for Composer
+ * Goal for Git
  */
-class Composer extends Base
+class Git extends Base
 {
     public function init()
     {
-        $this->setDeps('composer.json');
+        $this->setDeps('.gitignore');
     }
 }
