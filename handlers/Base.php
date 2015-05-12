@@ -100,7 +100,7 @@ class Base extends \yii\base\Object
      */
     protected function write($path, $content)
     {
-        Yii::info('Written file: ' . $path,'file');
+        Yii::warning('Written file: ' . $path,'file');
         file_put_contents($path, $content);
     }
 

@@ -25,8 +25,8 @@ class Logger extends \yii\log\Logger
 {
 
     public static $styles = [
-        Logger::LEVEL_WARNING  => Console::FG_YELLOW,
-        Logger::LEVEL_ERROR    => Console::FG_RED,
+        Logger::LEVEL_WARNING  => [Console::FG_YELLOW],
+        Logger::LEVEL_ERROR    => [Console::FG_RED],
     ];
 
     /**
@@ -35,7 +35,10 @@ class Logger extends \yii\log\Logger
     public function log($message, $level, $category = 'application')
     {
         if ($level <= static::LEVEL_TRACE) {
-            //d(Console::ansiFormat($message, Console::FG_YELLOW));
+            $style = self::$styles[$level];
+            if ($style) {
+                $message = Console::ansiFormat($message, $style);
+            }
             Console::stdout($message."\n");
         }
         parent::log($message, $level, $category);
