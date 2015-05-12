@@ -72,18 +72,6 @@ class Config extends File implements BootstrapInterface
         return class_exists($class) ? $class : static::goal2class('base');
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getItemConfig($name = null, array $config = [])
-    {
-        return array_merge([
-            'class' => $this->getItemClass($name, $config),
-            'name'  => $name,
-        ], $config);
-    }
-
-
     public function make()
     {
         Base::make();

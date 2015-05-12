@@ -38,11 +38,6 @@ class Package extends Vendor
         return $this->getItem('label') ?: ucfirst($this->name);
     }
 
-    public function setLabel($label)
-    {
-        $this->setItem('label', $label);
-    }
-
     public function getYears()
     {
         $cur = (integer)date('Y');
@@ -50,19 +45,9 @@ class Package extends Vendor
         return ($old && $old<$cur ? $this->year . '-' : '') . $cur;
     }
 
-    public function setIssues($issues)
-    {
-        $this->setItem('issues', $issues);
-    }
-
     public function getIssues()
     {
         return $this->getItem('issues') ?: ($this->getItem('source') . '/issues');
-    }
-
-    public function setWiki($wiki)
-    {
-        $this->setItem('wiki', $wiki);
     }
 
     public function getWiki()
@@ -70,19 +55,9 @@ class Package extends Vendor
         return $this->getItem('wiki') ?: ($this->getItem('source') . '/wiki');
     }
 
-    public function setKeywords($keywords)
-    {
-        $this->setItem('keywords', Helper::csplit($keywords));
-    }
-
     public function getKeywords()
     {
-        return $this->getItem('keywords');
-    }
-
-    public function setNamespace($namespace)
-    {
-        $this->setItem('namespace', $namespace);
+        return Helper::csplit($this->getItem('keywords'));
     }
 
     public function getNamespace()

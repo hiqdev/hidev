@@ -18,7 +18,7 @@ use hiqdev\hidev\helpers\Helper;
 /**
  * Default Goal. 'default' is reserved that's why Base
  */
-class Base extends \hiqdev\collection\Manager
+class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\ItemWithNameInterface
 {
 
     protected $_itemClass = 'hiqdev\collection\Manager';

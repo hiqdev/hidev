@@ -39,11 +39,6 @@ class ComposerJson extends Template
         $this->smartSet($sets, 'first');
     }
 
-    public function setType($type)
-    {
-        $this->setItem('type', $type);
-    }
-
     /**
      * Converts hidev type to composer type.
      * TODO package type can be different from composer type.
@@ -58,11 +53,6 @@ class ComposerJson extends Template
         return $this->config->vendor->name . '/' . $this->config->package->name;
     }
 
-    public function setSupport($support)
-    {
-        $this->setItem('support', $support);
-    }
-
     public function getSupport()
     {
         $support = $this->getItem('support');
@@ -75,11 +65,6 @@ class ComposerJson extends Template
             'forum'     => $package->forum,
         ],'first');
         return $support;
-    }
-
-    public function setAuthors($authors)
-    {
-        $this->setItem('authors', $authors);
     }
 
     public function getAuthors()
