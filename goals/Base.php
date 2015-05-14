@@ -29,7 +29,7 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
 
     public function getName()
     {
-        return (string)$this->getRaw('name');
+        return (string)$this->rawItem('name');
     }
 
     public function setDeps($deps)
@@ -43,7 +43,7 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
 
     public function getDeps()
     {
-        return Helper::ksplit($this->getRaw('deps'));
+        return Helper::ksplit($this->rawItem('deps'));
     }
 
     public function runDeps()

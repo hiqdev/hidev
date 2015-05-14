@@ -45,7 +45,7 @@ class ComposerJson extends Template
      */
     public function getType()
     {
-        return $this->getRaw('type') ?: $this->config->package->type;
+        return $this->rawItem('type') ?: $this->config->package->type;
     }
 
     public function getFullName()
