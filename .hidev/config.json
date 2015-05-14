@@ -58,7 +58,7 @@
     },
     "composer.json": {
         "require": {
-            "yiisoft/yii2":             "2.*@dev",
+            "yiisoft/yii2":             "2.*",
             "hiqdev/yii2-collection":   "*@dev"
         },
         "autoload": {
