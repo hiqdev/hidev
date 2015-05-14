@@ -27,25 +27,6 @@ class Config extends File implements BootstrapInterface
      */
     protected $_file = '.hidev/config.json';
 
-    /**
-     * @var array default config
-     */
-    protected static $_defaults = [
-        'package' => [
-            'type'          => 'package',
-            'name'          => 'package',
-            'title'         => 'Package Title',
-            'license'       => 'BSD-3-Clause',
-            'keywords'      => 'example',
-            'description'   => 'Package Description',
-            'namespace'     => 'vendor\package',
-        ],
-        'vendor' => [
-            'name'          => 'vendor',
-            'title'         => 'Vendor',
-        ],
-    ];
-
     protected static $_knownGoals = [
         'README.md'             => 'readme',
         'README.txt'            => 'readme',
