@@ -50,7 +50,7 @@ class ComposerJson extends Template
 
     public function getFullName()
     {
-        return $this->config->vendor->name . '/' . $this->config->package->name;
+        return $this->config->package->fullName;
     }
 
     public function getSupport()

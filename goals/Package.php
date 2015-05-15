@@ -47,17 +47,27 @@ class Package extends Vendor
 
     public function getIssues()
     {
-        return $this->getItem('issues') ?: ($this->getItem('source') . '/issues');
+        return $this->getItem('issues') ?: ($this->source . '/issues');
     }
 
     public function getWiki()
     {
-        return $this->getItem('wiki') ?: ($this->getItem('source') . '/wiki');
+        return $this->getItem('wiki') ?: ($this->source . '/wiki');
     }
 
     public function getKeywords()
     {
         return Helper::csplit($this->getItem('keywords'));
+    }
+
+    public function getFullName()
+    {
+        return $this->getItem('fullName') ?: ($this->getVendor()->name . '/' . $this->name);
+    }
+
+    public function getSource()
+    {
+        return $this->getItem('source') ?: ('https://github.com/' . $this->fullName);
     }
 
     public function getNamespace()
