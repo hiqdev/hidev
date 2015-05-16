@@ -75,6 +75,16 @@ class Package extends Vendor
         return $this->getItem('namespace') ?: ($this->getVendor()->name . '\\' . $this->name);
     }
 
+    public function getHomepage()
+    {
+        return $this->getItem('homepage') ?: ($this->vendor->homepage . $this->name);
+    }
+
+    public function getDescription()
+    {
+        return $this->getItem('description') ?: $this->title;
+    }
+
     public function getAuthors()
     {
         return $this->_authors ? parent::getAuthors() : $this->vendor->authors;
