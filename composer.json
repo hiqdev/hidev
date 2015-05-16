@@ -4,9 +4,10 @@
     "description": "HiDev - integrate your development",
     "keywords": [
         "hiqdev",
-        "tool",
-        "continuous integration",
-        "code generator"
+        "build tool",
+        "task runner",
+        "code generator",
+        "continuous integration"
     ],
     "homepage": "https://hidev.me/",
     "license": "BSD-3-Clause",
