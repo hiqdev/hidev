@@ -75,6 +75,11 @@ class Package extends Vendor
         return $this->getItem('namespace') ?: ($this->getVendor()->name . '\\' . $this->name);
     }
 
+    public function getSrc()
+    {
+        return $this->rawItem('src') ?: '';
+    }
+
     public function getHomepage()
     {
         return $this->getItem('homepage') ?: ($this->vendor->homepage . $this->name);
@@ -92,7 +97,7 @@ class Package extends Vendor
 
     public function getVendor()
     {
-        return $this->getConfig()->vendor;
+        return $this->getConfig()->getVendor();
     }
 
 }

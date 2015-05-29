@@ -23,14 +23,13 @@ class ComposerJson extends Template
 
     public function init()
     {
-        $package = $this->config->package;
         $sets = [
             'name'          => $this->fullName,
             'type'          => $this->type,
-            'description'   => $package->title,
-            'keywords'      => $package->keywords,
-            'homepage'      => $package->homepage,
-            'license'       => $package->license,
+            'description'   => $this->package->title,
+            'keywords'      => $this->package->keywords,
+            'homepage'      => $this->package->homepage,
+            'license'       => $this->package->license,
             'support'       => $this->support,
             'authors'       => $this->authors,
             'require'       => $this->require,
@@ -45,24 +44,23 @@ class ComposerJson extends Template
      */
     public function getType()
     {
-        return $this->rawItem('type') ?: $this->config->package->type;
+        return $this->rawItem('type') ?: $this->package->type;
     }
 
     public function getFullName()
     {
-        return $this->config->package->fullName;
+        return $this->package->fullName;
     }
 
     public function getSupport()
     {
         $support = $this->getItem('support');
-        $package = $this->config->package;
         $support->smartAdd([
-            'email'     => $this->config->vendor->email,
-            'source'    => $package->source,
-            'issues'    => $package->issues,
-            'wiki'      => $package->wiki,
-            'forum'     => $package->forum,
+            'email'     => $this->vendor->email,
+            'source'    => $this->package->source,
+            'issues'    => $this->package->issues,
+            'wiki'      => $this->package->wiki,
+            'forum'     => $this->package->forum,
         ],'first');
         return $support;
     }
@@ -70,11 +68,23 @@ class ComposerJson extends Template
     public function getAuthors()
     {
         $res = [];
-        foreach ($this->config->package->authors->getItems() as $name => $data) {
+        foreach ($this->package->authors->getItems() as $name => $data) {
             $data['name'] = $name;
             $res[] = array_merge(compact('name'), $data);
         }
         return $res;
     }
 
+    public function getAutoload()
+    {
+        if (!$this->rawItem('autoload')) {
+            $this->setItem('autoload', [
+                'psr-4' => [
+                    $this->package->namespace . '\\' => $this->package->src
+                ]
+            ]);
+        }
+
+        return $this->getItem('autoload');
+    }
 }

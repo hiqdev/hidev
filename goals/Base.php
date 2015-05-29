@@ -77,13 +77,11 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
         /// throw new InvalidParamException("Don't know how to make '$this->name'");
     }
 
-
     public function getConfig()
     {
         return Yii::$app->get('config');
     }
 
-/* XXX makes loops
     public function getPackage()
     {
         return $this->getConfig()->getItem('package');
@@ -93,6 +91,5 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
     {
         return $this->getConfig()->getItem('vendor');
     }
-*/
 
 }

@@ -1,6 +1,7 @@
 {
     "package": {
         "name":         "hidev",
+        "namespace":    "hidev",
         "label":        "HiDev",
         "title":        "HiDev - integrate your development",
         "type":         "project",
@@ -57,13 +58,8 @@
     },
     "composer.json": {
         "require": {
-            "yiisoft/yii2":             "2.*",
+            "yiisoft/yii2":             "~2.0",
             "hiqdev/yii2-collection":   "*@dev"
-        },
-        "autoload": {
-            "psr-4": {
-                "hiqdev\\hidev\\": ""
-            }
         },
         "bin": ["hidev"]
     }
