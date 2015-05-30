@@ -3,17 +3,17 @@
 /*
  * Highy Integrated Development.
  *
- * @link      https://hiqdev.com/hidev
+ * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD 3-clause
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\goals;
+namespace hidev\goals;
 
 use Yii;
-use hiqdev\hidev\components\File as FileComponent;
-use hiqdev\hidev\helpers\Helper;
+use hidev\components\File as FileComponent;
+use hidev\helpers\Helper;
 
 /**
  * A File Goal.
@@ -77,9 +77,14 @@ class File extends Base
         return $this->file->getPath();
     }
 
+    static public function exists($path)
+    {
+        return FileComponent::exists($path);
+    }
+
     public function load()
     {
-        return $this->file->load();
+        $this->mset($this->file->load());
     }
 
     public function save()

@@ -1,3 +1,6 @@
+# hidev parent config
+/.hidev/parent
+
 # runtime dir
 /runtime
 

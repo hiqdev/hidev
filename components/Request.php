@@ -1,9 +1,9 @@
 <?php
 
-namespace hiqdev\hidev\components;
+namespace hidev\components;
 
 use Yii;
-use hiqdev\hidev\controllers\DefaultController;
+use hidev\controllers\DefaultController;
 
 /**
  * The Request.

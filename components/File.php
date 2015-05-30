@@ -3,18 +3,18 @@
 /*
  * Highy Integrated Development.
  *
- * @link      https://hiqdev.com/hidev
+ * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD 3-clause
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\components;
+namespace hidev\components;
 
 use Yii;
 use yii\base\Arrayable;
 use yii\base\InvalidParamException;
-use hiqdev\hidev\helpers\Helper;
+use hidev\helpers\Helper;
 
 /**
  * A file to be processed with hidev.
@@ -96,6 +96,9 @@ class File extends \yii\base\Object
 
     public function setPath($path)
     {
+        if ('@' === $path[0]) {
+        }
+            $path = Yii::getAlias($path);
         $info = pathinfo($path);
         $this->_path        = $path;
         $this->_dirname     = $info['dirname'];
@@ -186,7 +189,7 @@ class File extends \yii\base\Object
     {
         if (!is_object($this->_handler)) {
             $this->_handler = Yii::createObject([
-                'class' => 'hiqdev\hidev\handlers\\' . $this->getCtype(),
+                'class' => 'hidev\handlers\\' . $this->getCtype(),
                 'template' => $this->template,
             ]);
         }
@@ -194,8 +197,8 @@ class File extends \yii\base\Object
         return $this->_handler;
     }
 
-    public function exists()
+    static public function exists($path)
     {
-        return file_exists($this->path);
+        return file_exists(Yii::getAlias($path));
     }
 }

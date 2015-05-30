@@ -3,17 +3,17 @@
 /*
  * HiDev
  *
- * @link      https://hiqdev.com/hidev
+ * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD 3-clause
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\goals;
+namespace hidev\goals;
 
 use Yii;
 use yii\base\InvalidParamException;
-use hiqdev\hidev\helpers\Helper;
+use hidev\helpers\Helper;
 
 /**
  * Default Goal. 'default' is reserved that's why Base
@@ -75,6 +75,11 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
     {
         Yii::trace("Doing nothing for '$this->name'");
         /// throw new InvalidParamException("Don't know how to make '$this->name'");
+    }
+
+    public function getRobo()
+    {
+        return Yii::$app->get('robo');
     }
 
     public function getConfig()

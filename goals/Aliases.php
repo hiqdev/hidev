@@ -3,16 +3,16 @@
 /*
  * Highy Integrated Development.
  *
- * @link      https://hiqdev.com/hidev
+ * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD 3-clause
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\goals;
+namespace hidev\goals;
 
 use Yii;
-use hiqdev\hidev\helpers\Helper;
+use hidev\helpers\Helper;
 
 class Aliases extends \hiqdev\collection\Object
 {

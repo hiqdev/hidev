@@ -3,25 +3,25 @@
 /*
  * Highy Integrated Development.
  *
- * @link      https://hiqdev.com/hidev
+ * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD 3-clause
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\goals;
+namespace hidev\goals;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\base\InvalidParamException;
 use yii\base\BootstrapInterface;
-use hiqdev\hidev\helpers\Helper;
+use hidev\helpers\Helper;
 
 /**
  * The Config. Keeps the Goals.
  */
 class Config extends File implements BootstrapInterface
 {
-
     /**
      * @var array|File file with main config
      */
@@ -43,7 +43,7 @@ class Config extends File implements BootstrapInterface
     {
         $id = $id ?: static::$_knownGoals[$name] ?: $name;
 
-        return 'hiqdev\hidev\goals\\' . Helper::id2camel($id);
+        return 'hidev\goals\\' . Helper::id2camel($id);
     }
 
     public function getItemClass($name = null, array $config = [])
@@ -68,18 +68,25 @@ class Config extends File implements BootstrapInterface
     {
         $start_dir = getcwd();
         for ($i=0;$i<9;++$i) {
-            if (file_exists($this->dirname)) break;
+            if (File::exists($this->dirname)) break;
             chdir('..');
         }
-        if (!file_exists($this->dirname)) {
+        if (!File::exists($this->dirname)) {
             chdir($start_dir);
             mkdir($this->dirname);
         }
-        if (!$this->file->exists()) {
+        if (!File::exists($this->file->path)) {
             throw new InvalidParamException("No config found. Use hidev init");
         }
-        Yii::setAlias('@config',getcwd() . '/' . $this->dirname);
-        $this->mset($this->file->load());
+        Yii::setAlias('@config',getcwd() . DIRECTORY_SEPARATOR . $this->dirname);
+        Yii::setAlias('@parent', '@config/parent');
+        $this->load();
+        $parent = $this->parentConfig;
+        if ($parent->defined) {
+            $parent->load();
+            $parent->unsetItem('parentConfig');
+            $this->_items = ArrayHelper::merge($parent->_items, $this->_items);
+        }
     }
 
 

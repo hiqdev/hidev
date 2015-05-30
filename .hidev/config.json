@@ -1,4 +1,7 @@
 {
+    "parentConfig": {
+        "github":       "hiqdev/hidev-config"
+    },
     "package": {
         "name":         "hidev",
         "namespace":    "hidev",
@@ -14,52 +17,11 @@
         "description":  "Mix all the tools to make your code shine",
         "year":         2014
     },
-    "vendor": {
-        "name":     "hiqdev",
-        "title":    "HiQDev",
-        "homepage": "https://hiqdev.com/",
-        "email":    "support@hiqdev.com",
-        "authors": {
-            "Andrii Vasyliev": {
-                "role":     "Project lead",
-                "email":    "sol@hiqdev.com",
-                "homepage": "https://hipanel.com/"
-            },
-            "Dmitry Naumenko": {
-                "role":     "Lead backend developer",
-                "email":    "silverfire@hiqdev.com",
-                "homepage": "http://silverfire.me/"
-            },
-            "Andrey Klochok": {
-                "role":     "Lead frontend developer",
-                "email":    "tafid@hiqdev.com",
-                "homepage": "https://hiqdev.com/"
-            },
-            "Yuriy Myronchuk": {
-                "role":     "QA Lead",
-                "email":    "bladeroot@hiqdev.com",
-                "homepage": "https://hiqdev.com/"
-            }
-        }
-    },
-    "deps": "all",
-    "all": {
-        "deps": "git, composer, LICENSE, README.md, CHANGELOG.md"
-    },
-    "aliases": {
-        "h":        "grep",
-        "g":        "default/grep"
-    },
-    "test": {
-        "deps": "LICENSE"
-    },
-    "composer": {
-        "self-update":  true
-    },
     "composer.json": {
         "require": {
             "yiisoft/yii2":             "~2.0",
-            "hiqdev/yii2-collection":   "*@dev"
+            "hiqdev/yii2-collection":   "*@dev",
+            "codegyre/robo":            "*"
         },
         "bin": ["hidev"]
     }

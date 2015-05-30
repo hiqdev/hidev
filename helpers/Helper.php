@@ -3,13 +3,13 @@
 /*
  * HiDev
  *
- * @link      https://hiqdev.com/hidev
+ * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD 3-clause
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-namespace hiqdev\hidev\helpers;
+namespace hidev\helpers;
 
 use Yii;
 use yii\helpers\Inflector;
@@ -26,7 +26,8 @@ class Helper
 
     public static function id2camel($id, $separator = '-')
     {
-        return Inflector::id2camel(strtolower(self::bad2sep($id,$separator)), $separator);
+        return Inflector::id2camel(self::bad2sep($id,$separator), $separator);
+        //return Inflector::id2camel(strtolower(self::bad2sep($id,$separator)), $separator);
     }
 
     public static function file2template($file, $separator = '-')

@@ -46,7 +46,8 @@
     ],
     "require": {
         "yiisoft/yii2": "~2.0",
-        "hiqdev/yii2-collection": "*@dev"
+        "hiqdev/yii2-collection": "*@dev",
+        "codegyre/robo": "*"
     },
     "autoload": {
         "psr-4": {

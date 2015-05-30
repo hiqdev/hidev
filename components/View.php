@@ -1,6 +1,6 @@
 <?php
 
-namespace hiqdev\hidev\components;
+namespace hidev\components;
 
 use Yii;
 
