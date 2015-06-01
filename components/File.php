@@ -53,9 +53,14 @@ class File extends \yii\base\Object
     protected $_extension;
 
     /**
+     * @var array possible types
+     */
+    public $types = [];
+
+    /**
      * @var string type
      */
-    protected $_type;
+    public $type;
 
     /**
      * @var string template
@@ -96,15 +101,14 @@ class File extends \yii\base\Object
 
     public function setPath($path)
     {
-        if ('@' === $path[0]) {
-        }
-            $path = Yii::getAlias($path);
+        $path = Yii::getAlias($path);
         $info = pathinfo($path);
         $this->_path        = $path;
         $this->_dirname     = $info['dirname'];
         $this->_basename    = $info['basename'];
         $this->_filename    = $info['filename'];
         $this->_extension   = $info['extension'];
+        $this->type         = static::getTypeByExtension($this->_extension) ?: 'template';
     }
 
     public function getPath()
@@ -152,23 +156,9 @@ class File extends \yii\base\Object
         return $this->_extension;
     }
 
-    public function setType($type)
-    {
-        $this->_type = $type;
-    }
-
-    public function getType()
-    {
-        if (!$this->_type) {
-            $this->_type = static::getTypeByExtension($this->extension) ?: 'template';
-        }
-
-        return $this->_type;
-    }
-
     public function getCtype()
     {
-        return Helper::id2camel($this->getType());
+        return Helper::id2camel($this->type);
     }
 
     public function save($data = null)
@@ -201,4 +191,23 @@ class File extends \yii\base\Object
     {
         return file_exists(Yii::getAlias($path));
     }
+
+    public function find(array $types = [])
+    {
+        if (!$types) {
+            $types = $this->types;
+        }
+        foreach ($types as $type) {
+            foreach (static::$_extension2type as $e => $t) {
+                if ($t === $type) {
+                    $this->setExtension($e);
+                    if (static::exists($this->path)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 }

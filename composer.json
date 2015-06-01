@@ -3,7 +3,6 @@
     "type": "project",
     "description": "HiDev - integrate your development",
     "keywords": [
-        "hiqdev",
         "build tool",
         "task runner",
         "code generator",
@@ -46,6 +45,7 @@
     ],
     "require": {
         "yiisoft/yii2": "~2.0",
+        "symfony/yaml": "~2.7",
         "hiqdev/yii2-collection": "*@dev",
         "codegyre/robo": "*"
     },

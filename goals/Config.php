@@ -25,7 +25,9 @@ class Config extends File implements BootstrapInterface
     /**
      * @var array|File file with main config
      */
-    protected $_file = '.hidev/config.json';
+    protected $_file = '.hidev/config.yml';
+
+    public $types = ['yaml', 'json'];
 
     protected static $_knownGoals = [
         'README.md'             => 'readme',
@@ -75,19 +77,21 @@ class Config extends File implements BootstrapInterface
             chdir($start_dir);
             mkdir($this->dirname);
         }
-        if (!File::exists($this->file->path)) {
-            throw new InvalidParamException("No config found. Use hidev init");
+        if (!$this->file->find($this->types)) {
+            throw new InvalidParamException('No config found. Use hidev init');
         }
-        Yii::setAlias('@config',getcwd() . DIRECTORY_SEPARATOR . $this->dirname);
+        Yii::setAlias('@config', getcwd() . DIRECTORY_SEPARATOR . $this->dirname);
         Yii::setAlias('@parent', '@config/parent');
         $this->load();
         $parent = $this->parentConfig;
         if ($parent->defined) {
+            if (!$parent->file->find($this->types)) {
+                throw new InvalidParamException('No parent config found at ' . $parent->defined);
+            }
             $parent->load();
             $parent->unsetItem('parentConfig');
             $this->_items = ArrayHelper::merge($parent->_items, $this->_items);
         }
     }
-
 
 }

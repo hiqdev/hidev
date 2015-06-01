@@ -36,7 +36,7 @@ class ParentConfig extends File
             throw new InvalidParamException("Already defined: " . $this->_defined);
         }
         $this->_github  = $github;
-        $this->_defined = 'github';
+        $this->_defined = 'github:' . $github;
         if (File::exists('@parent')) {
             return;
         }
