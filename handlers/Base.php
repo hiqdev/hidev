@@ -100,17 +100,20 @@ class Base extends \yii\base\Object
      */
     protected function write($path, $content)
     {
-        Yii::warning('Written file: ' . $path,'file');
-        file_put_contents($path, $content);
+        $old = $this->read($path);
+        if ($old != $content) {
+            Yii::warning('Written file: ' . $path, 'file');
+            file_put_contents($path, $content);
+        }
     }
 
     public function read($path)
     {
         if (file_exists($path)) {
-            Yii::trace('Read file: ' . $path,'file');
+            Yii::info('Read file: ' . $path, 'file');
             return file_get_contents($path);
         } else {
-            Yii::info('Couldn\'t read file: ' . $path,'file');
+            Yii::error('Couldn\'t read file: ' . $path, 'file');
             return null;
         }
     }
