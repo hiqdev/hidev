@@ -2,14 +2,10 @@ ROADMAP
 -------
 
 Nearest:
-- YAML
-- Twig
-
-Later:
+- Tests: phpunit and codeception
 - php-cs-fixer
-- phpunit
-- codeception
-- gitignore build from hash
+- travis
+- gitignore build from hashmap
 - changelog build from commits
 
 GENERAL:
