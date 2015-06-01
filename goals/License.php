@@ -20,6 +20,6 @@ class License extends Template
 {
     public function getTemplate()
     {
-        return 'licenses/' . $this->package->license;
+        return 'licenses/' . $this->package->license . '.twig';
     }
 }

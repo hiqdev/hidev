@@ -61,7 +61,15 @@ $application = new hidev\components\Application([
                     '@app/views' => '@config/templates',
                 ],
             ],
-
+            'renderers' => [
+                'twig' => [
+                    'class' => 'yii\twig\ViewRenderer',
+                    'cachePath' => '@runtime/Twig/cache',
+                    'options' => [
+                        'auto_reload' => true,
+                    ],
+                ],
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

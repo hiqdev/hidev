@@ -33,6 +33,7 @@ class Config extends File implements BootstrapInterface
         'README.md'             => 'readme',
         'README.txt'            => 'readme',
         'README.markdown'       => 'readme',
+        'LICENSE'               => 'license',
         'LICENSE.md'            => 'license',
         'LICENSE.txt'           => 'license',
         'LICENSE.markdown'      => 'license',

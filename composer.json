@@ -45,6 +45,7 @@
     ],
     "require": {
         "yiisoft/yii2": "~2.0",
+        "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "~2.7",
         "hiqdev/yii2-collection": "*@dev",
         "codegyre/robo": "*"
