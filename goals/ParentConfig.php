@@ -37,12 +37,12 @@ class ParentConfig extends File
         }
         $this->_github  = $github;
         $this->_defined = 'github:' . $github;
-        if (File::exists('@parent')) {
+        if (File::exists($this->file->dirname)) {
             return;
         }
         $task = $this->taskGitStack()
             ->stopOnFail()
-            ->cloneRepo("git@github.com:$parent", $path)
+            ->cloneRepo("git@github.com:$github", $this->file->dirname)
         ;
         if (!$task->run()->wasSuccessful()) {
             throw new InvalidParamException("Failed clone parent");
