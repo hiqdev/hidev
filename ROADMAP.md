@@ -1,12 +1,19 @@
 ROADMAP
 -------
 
-Nearest:
-- Tests: phpunit and codeception
-- php-cs-fixer
-- travis
+Nearest - 0.1.0 release:
+- plugin architecture
+- php-cs-fixer plugin
+- phpunit plugin
+- codeception plugin
+- tests
+
 - gitignore build from hashmap
 - changelog build from commits
+- travis
+- scrutinizer
+
+- rewrite without yii?
 
 GENERAL:
 - Package management: composer.json, Packagist

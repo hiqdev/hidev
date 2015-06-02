@@ -100,8 +100,7 @@ class Base extends \yii\base\Object
      */
     protected function write($path, $content)
     {
-        $old = $this->read($path);
-        if ($old != $content) {
+        if (!is_file($path) || file_get_contents($path) != $content) {
             Yii::warning('Written file: ' . $path, 'file');
             file_put_contents($path, $content);
         }

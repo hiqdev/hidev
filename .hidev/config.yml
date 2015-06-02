@@ -8,7 +8,6 @@ package:
     title:          HiDev - integrate your development
     type:           project
     features:       yii2, tool
-    license:        BSD-3-Clause
     forum:          https://forum.hiqdev.com/hidev
     language:       PHP
     homepage:       https://hidev.me/
@@ -22,5 +21,6 @@ composer.json:
         yiisoft/yii2-twig:          '~2.0'
         symfony/yaml:               '~2.7'
         hiqdev/yii2-collection:     '*@dev'
+        hiqdev/yii2-pluginmanager:  '*@dev'
         codegyre/robo:              '*'
     bin: [hidev]

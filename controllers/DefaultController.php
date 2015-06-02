@@ -50,6 +50,21 @@ class DefaultController extends \yii\console\Controller
     }
 
     /**
+     * Generate by template.
+     */
+    public function actionGen($tpl, $file = null)
+    {
+        $gen = Yii::createObject([
+            'class'     => 'hidev\goals\Template',
+            'template'  => $tpl,
+            'file'      => $file ?: (basename($tpl) . '.php'),
+        ]);
+        $gen->save();
+
+        return 0;
+    }
+
+    /**
      * The grep command.
      */
     public function actionGrep()

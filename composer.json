@@ -48,6 +48,7 @@
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "~2.7",
         "hiqdev/yii2-collection": "*@dev",
+        "hiqdev/yii2-pluginmanager": "*@dev",
         "codegyre/robo": "*"
     },
     "autoload": {

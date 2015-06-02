@@ -10,6 +10,10 @@ use Yii;
  */
 class View extends \yii\web\View
 {
+    /**
+     * @inheritdoc
+     */
+    public $defaultExtension = 'twig';
 
     public function getConfig()
     {

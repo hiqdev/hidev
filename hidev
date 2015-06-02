@@ -50,15 +50,17 @@ $application = new hidev\components\Application([
         'config' => [
             'class' => 'hidev\goals\Config',
         ],
+        'pluginManager' => [
+            'class' => 'hiqdev\pluginmanager\Manager',
+        ],
         'request' => [
             'class' => 'hidev\components\Request',
         ],
         'view' => [
             'class' => 'hidev\components\View',
             'theme' => [
-                'basePath' => '@config/templates',
                 'pathMap' => [
-                    '@app/views' => '@config/templates',
+                    '@parent/templates' => ['@config/templates', '@app/views'],
                 ],
             ],
             'renderers' => [
@@ -85,5 +87,6 @@ function d ()
     foreach (func_get_args() as $a) {
         var_dump($a);
     }
+    debug_print_backtrace(0,1);
     die();
 }
