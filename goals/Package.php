@@ -45,6 +45,11 @@ class Package extends Vendor
         return ($old && $old<$cur ? $this->year . '-' : '') . $cur;
     }
 
+    public function getLicense()
+    {
+        return $this->getItem('license') ?: $this->vendor->license ?: 'No license';
+    }
+
     public function getIssues()
     {
         return $this->getItem('issues') ?: ($this->source . '/issues');

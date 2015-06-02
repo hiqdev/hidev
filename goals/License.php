@@ -12,6 +12,7 @@
 namespace hidev\goals;
 
 use Yii;
+use hidev\helpers\Helper;
 
 /**
  * Goal for LICENSE
@@ -20,6 +21,6 @@ class License extends Template
 {
     public function getTemplate()
     {
-        return 'licenses/' . $this->package->license . '.twig';
+        return 'licenses/' . Helper::id2camel($this->package->license) . '.twig';
     }
 }
