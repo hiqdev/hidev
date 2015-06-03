@@ -23,6 +23,7 @@
 
 - **+ YAML config**
     - b80e4d4 2015-06-01 BIG + YAML, used for config (sol@hiqdev.com)
+- + ROADMAP.md
     - 13f6f30 2015-05-31 + ROADMAP.md (sol@hiqdev.com)
 
 ## 0.0.2 May 30, 2015
