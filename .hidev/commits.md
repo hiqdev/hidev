@@ -1,31 +1,31 @@
 # hiqdev/hidev commits
 
-## NEXT
+## 0.0.6 -- Under development
 
 - **+ gen action**
     - feb986e 2015-06-02 + gen action to generate files by templates, changed way of looking for templates (sol@hiqdev.com)
-- + 'No licence' license
+- + "No licence" default license
     - 1bfbeec 2015-06-02 + default license from vendor, + No license (sol@hiqdev.com)
     - 4a851f3 2015-06-01 * roadmap (sol@hiqdev.com)
 
-## 0.0.5
+## 0.0.5 -- 2015-06-01
 
 - decreased default verbosity
     - 5d56e27 2015-06-01 Decreased verbosity (sol@hiqdev.com)
     - dbc04c9 2015-06-01 fixed parent config cloning (sol@hiqdev.com)
 
-## 0.0.4
+## 0.0.4 -- 2015-06-01
 
 - **+ Twig templates**
     - 4078ac2 2015-06-01 BIG + twig (sol@hiqdev.com)
 
-## 0.0.3
+## 0.0.3 -- 2015-06-01
 
 - **+ YAML config**
     - b80e4d4 2015-06-01 BIG + YAML, used for config (sol@hiqdev.com)
     - 13f6f30 2015-05-31 + ROADMAP.md (sol@hiqdev.com)
 
-## 0.0.2
+## 0.0.2 -- 2015-05-30
 
 - **+ Parent config**
     - 1182cdc 2015-05-30 + ignore .hidev/parent (sol@hiqdev.com)
@@ -44,7 +44,7 @@
     - a669a77 2015-05-14 - Config::_defaults (sol@hiqdev.com)
     - 8470ddc 2015-05-14 * composer requires to yii2 stable not dev (sol@hiqdev.com)
 
-## 0.0.1
+## 0.0.1 -- 2015-05-12
 
 - **MINIMUM DONE**
 - Colorized output
@@ -71,3 +71,5 @@
     - ad8d8d0 2015-04-30 improving LICENSE (sol@hiqdev.com)
     - e4b5cd2 2015-04-30 GREAT move ahead: now making LICENSE :) (sol@hiqdev.com)
     - 04777ec 2015-04-28 inited (sol@hiqdev.com)
+
+## Development started 2015-04-28
