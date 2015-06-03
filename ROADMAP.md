@@ -2,6 +2,8 @@ ROADMAP
 -------
 
 Nearest - 0.1.0 release:
+- changelog build from commits
+- great renaming
 - plugin architecture
 - php-cs-fixer plugin
 - phpunit plugin
@@ -9,7 +11,6 @@ Nearest - 0.1.0 release:
 - tests
 
 - gitignore build from hashmap
-- changelog build from commits
 - travis
 - scrutinizer
 
