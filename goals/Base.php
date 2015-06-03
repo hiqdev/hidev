@@ -97,4 +97,9 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
         return $this->getConfig()->getItem('vendor');
     }
 
+    public function getVcs()
+    {
+        return $this->getConfig()->getItem('git');
+    }
+
 }
