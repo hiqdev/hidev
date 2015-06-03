@@ -1,6 +1,6 @@
-# hiqdev/hidev commits
+# hiqdev/hidev commits history
 
-## 0.0.6 Under development
+## Under development
 
 - **+ gen action**
     - feb986e 2015-06-02 + gen action to generate files by templates, changed way of looking for templates (sol@hiqdev.com)
