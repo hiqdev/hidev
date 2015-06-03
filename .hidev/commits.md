@@ -33,7 +33,7 @@
 - Namespace changed to 'hidev'
     - ed742a4 2015-05-30 HUGE + parent config HUGE * namespace beginned + Robo (sol@hiqdev.com)
     - 7817ae0 2015-05-29 added and used package.namespace for composer.json autoload used package/vendor instead of config->package/vendor (sol@hiqdev.com)
-- minor fixes
+- different fixes
     - 43150ff 2015-05-17 minor (sol@hiqdev.com)
     - de9f755 2015-05-16 * keywords (sol@hiqdev.com)
     - cf53e9a 2015-05-16 + default package description and homepage from vendor homepage (sol@hiqdev.com)
