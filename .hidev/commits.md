@@ -2,36 +2,38 @@
 
 ## NEXT
 
-- [new] gen action
+- **+ gen action**
     - feb986e 2015-06-02 + gen action to generate files by templates, changed way of looking for templates (sol@hiqdev.com)
+- + 'No licence' license
     - 1bfbeec 2015-06-02 + default license from vendor, + No license (sol@hiqdev.com)
     - 4a851f3 2015-06-01 * roadmap (sol@hiqdev.com)
 
 ## 0.0.5
 
-- [fix] decreased default verbosity
+- decreased default verbosity
     - 5d56e27 2015-06-01 Decreased verbosity (sol@hiqdev.com)
     - dbc04c9 2015-06-01 fixed parent config cloning (sol@hiqdev.com)
 
 ## 0.0.4
 
-- [new] Twig
+- **+ Twig templates**
     - 4078ac2 2015-06-01 BIG + twig (sol@hiqdev.com)
 
 ## 0.0.3
 
-- YAML
+- **+ YAML config**
     - b80e4d4 2015-06-01 BIG + YAML, used for config (sol@hiqdev.com)
     - 13f6f30 2015-05-31 + ROADMAP.md (sol@hiqdev.com)
 
 ## 0.0.2
 
-- Parent config
+- **+ Parent config**
     - 1182cdc 2015-05-30 + ignore .hidev/parent (sol@hiqdev.com)
-- Use of Robo
+- Use of Robo (beginned)
 - Namespace changed to 'hidev'
     - ed742a4 2015-05-30 HUGE + parent config HUGE * namespace beginned + Robo (sol@hiqdev.com)
     - 7817ae0 2015-05-29 added and used package.namespace for composer.json autoload used package/vendor instead of config->package/vendor (sol@hiqdev.com)
+- minor fixes
     - 43150ff 2015-05-17 minor (sol@hiqdev.com)
     - de9f755 2015-05-16 * keywords (sol@hiqdev.com)
     - cf53e9a 2015-05-16 + default package description and homepage from vendor homepage (sol@hiqdev.com)
@@ -44,7 +46,7 @@
 
 ## 0.0.1
 
-- *MINIMUM DONE:* .gitignore, composer.json, LICENSE, README, CHANGELOG
+- **MINIMUM DONE**
 - Colorized output
     - 98d97df 2015-05-12 + styled Console log output (sol@hiqdev.com)
     - 8813192 2015-05-12 simplified a bit, removed excessive set functions whose work is done automatically (sol@hiqdev.com)
