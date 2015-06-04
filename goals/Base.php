@@ -71,10 +71,20 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
         $this->done = true;
     }
 
+    public function load()
+    {
+        Yii::trace("Loading nothing for '$this->name'");
+    }
+
+    public function save()
+    {
+        Yii::trace("Saving nothing for '$this->name'");
+    }
+
     public function make()
     {
-        Yii::trace("Doing nothing for '$this->name'");
-        /// throw new InvalidParamException("Don't know how to make '$this->name'");
+        $this->load();
+        $this->save();
     }
 
     public function getRobo()
