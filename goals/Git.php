@@ -72,6 +72,9 @@ class Git extends Vcs
 
     public function addHistory($commit)
     {
+        if ($commit['comment']==='minor') {
+            return;
+        }
         $this->tag = $this->matchTag($commit['tag']) ?: $this->tag;
         $commit['tag'] = $this->tag;
         $this->_commits[$commit['hash']] = $commit;
