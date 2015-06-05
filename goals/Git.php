@@ -41,7 +41,7 @@ class Git extends Vcs
         exec("git log --date=short --tags --simplify-by-decoration --pretty='format:%cd %d'", $logs);
         foreach ($logs as $log) {
             preg_match('/^([0-9-]+)\s*(\(.*\))?$/', $log, $m);
-            $this->_tags[$this->matchTag($m[2])] = $m[1];
+            $this->_tags[$this->matchTag($m[2]) ?: $this->initTag] = $m[1];
         }
     }
 
@@ -75,9 +75,6 @@ class Git extends Vcs
         $this->tag = $this->matchTag($commit['tag']) ?: $this->tag;
         $commit['tag'] = $this->tag;
         $this->_commits[$commit['hash']] = $commit;
-        if ($commit['comment']==='minor') {
-            return;
-        }
         $this->_history[$this->tag][$commit['hash']] = $commit;
     }
 

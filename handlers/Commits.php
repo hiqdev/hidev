@@ -20,16 +20,6 @@ class Commits extends Base
 {
     public $type = 'commits';
 
-    public $lastTag;
-    public $initTag;
-
-    public function init()
-    {
-        parent::init();
-        $this->lastTag = $this->goal->vcs->lastTag;
-        $this->initTag = $this->goal->vcs->initTag;
-    }
-
     protected $_tag;
     protected $_note;
     protected $_commit;
@@ -69,16 +59,18 @@ class Commits extends Base
         $this->_commit = $commit;
     }
 
-    public function addTag($tag, $label)
+    public function addTag($tag, $label = null)
     {
         $this->tag = $tag;
-        $this->_history[$this->tag]['tag'] = $label ?: $tag;
+        $ref = &$this->_history[$tag]['tag'];
+        $ref = $label ?: $ref ?: $tag;
     }
 
     public function addNote($note, $label = null)
     {
         $this->note = $note;
-        $this->_history[$this->tag][$note]['note'] = $label ?: $note;
+        $ref = &$this->_history[$this->tag][$note]['note'];
+        $ref = $label ?: $ref ?: $note;
     }
 
     public function addCommit($commit, $label)
@@ -94,12 +86,10 @@ class Commits extends Base
 
     public function parsePath($path)
     {
-        if (!is_file($path)) {
-            return [];
-        }
         $this->_history = [];
-        $this->tag = $this->lastTag;
-        foreach ($this->readArray($path) as $str) {
+        $this->tag = static::getVcs()->lastTag;
+        $lines = is_file($path) ? $this->readArray($path) : [];
+        foreach ($lines as $str) {
             $str = rtrim($str);
             $no++;
             if (!$str || $no<3) {
@@ -110,7 +100,7 @@ class Commits extends Base
             };
             if (preg_match('/^## (.*)$/', $str, $m)) {
                 $label = $m[1];
-                foreach ([$this->lastTag, $this->initTag] as $z) {
+                foreach ([static::getVcs()->lastTag, static::getVcs()->initTag] as $z) {
                     if (stripos($label, $z) !== false) {
                         $this->addTag($z, $label);
                         continue 2;
@@ -129,6 +119,7 @@ class Commits extends Base
             }
             $this->_history[$this->tag][$this->note][$this->commit][] = $str;
         }
+
         return $this->_history;
     }
 
@@ -138,6 +129,11 @@ class Commits extends Base
         $note       = $commit['note'];
         $hash       = $commit['hash'];
         $this->_history[$tag][$note][$hash][] = static::renderCommit($commit);
+    }
+
+    public function hasHistory($tag)
+    {
+        return array_key_exists($tag, $this->_history);
     }
 
     public function getHistory()
@@ -154,6 +150,9 @@ class Commits extends Base
                 continue;
             }
             $this->addHistory($commit);
+        }
+        if (!$this->hasHistory(static::getVcs()->initTag)) {
+            $this->addHistory(['tag' => static::getVcs()->initTag]);
         }
 
         foreach ($this->_history as $tag => $notes) {
@@ -189,18 +188,23 @@ class Commits extends Base
 
     public static function renderLines(array $lines)
     {
-        return implode("\n", $lines) . "\n";
+        $res = implode("\n", array_filter($lines));
+        return $res ? $res . "\n" : '';
     }
 
     public static function renderCommit($commit)
     {
-        return "    - $commit[hash] $commit[date] $commit[comment] ($commit[email])\n";
+        static $skips = [
+            ''      => 1,
+            'minor' => 1,
+        ];
+        return $skips[$commit['comment']] ? '' : "    - $commit[hash] $commit[date] $commit[comment] ($commit[email])";
     }
 
     public static function renderTag($tag)
     {
-        if (strpos($tag, ' ')===false) {
-            $tag .= static::renderDate(Yii::$app->config->vcs->tags[$tag]);
+        if (strpos($tag, ' ')===false || $tag===static::getVcs()->initTag) {
+            $tag .= static::renderDate(static::getVcs()->tags[$tag]);
         }
         return "\n## $tag\n\n";
     }
@@ -214,6 +218,11 @@ class Commits extends Base
     {
         $header = Yii::$app->config->package->fullName . ' ' . $string;
         return $header . "\n" . str_repeat('-', mb_strlen($header, Yii::$app->charset)) . "\n";
+    }
+
+    public static function getVcs()
+    {
+        return Yii::$app->config->vcs;
     }
 
 }
