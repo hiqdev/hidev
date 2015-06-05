@@ -25,11 +25,10 @@ class Changelog extends Base
 
     public function render($data)
     {
-        $header = '# ' . $this->goal->package->fullName . " changelog";
-        $res .= $header . "\n" . str_repeat('-', mb_strlen($header, Yii::$app->charset)) . "\n";
+        $res = Commits::renderHeader('changelog');
 
         foreach ($data['history'] as $tag => $notes) {
-            $tag = Commits::arrayPop($notes, 'tag');
+            $tag = Commits::arrayPop($notes, 'tag') ?: $tag;
             $new = Commits::arrayPop($notes, '');
             $res .= Commits::renderTag($tag);
             foreach ($notes as $note => $cs) {

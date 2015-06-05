@@ -33,8 +33,8 @@ class Commits extends Base
     protected $_tag;
     protected $_note;
     protected $_commit;
-    protected $_history;
-    protected $_commits;
+    protected $_history = [];
+    protected $_commits = [];
 
     public function getTag()
     {
@@ -94,11 +94,15 @@ class Commits extends Base
 
     public function parsePath($path)
     {
+        if (!is_file($path)) {
+            return [];
+        }
         $this->_history = [];
         $this->tag = $this->lastTag;
         foreach ($this->readArray($path) as $str) {
             $str = rtrim($str);
-            if (!$str) {
+            $no++;
+            if (!$str || $no<3) {
                 continue;
             }
             if (preg_match('/^# /', $str)) {
@@ -143,7 +147,7 @@ class Commits extends Base
 
     public function render($data)
     {
-        $res = '# ' . $this->goal->package->fullName . " commits history\n";
+        $res = static::renderHeader('commits history');
 
         foreach ($this->goal->vcs->commits as $hash => $commit) {
             if ($this->hasCommit($hash)) {
@@ -153,13 +157,11 @@ class Commits extends Base
         }
 
         foreach ($this->_history as $tag => $notes) {
-            $tag = static::arrayPop($notes, 'tag');
-            $new = static::arrayPop($notes, '');
+            $tag = static::arrayPop($notes, 'tag') ?: $tag;
+            $new = static::arrayPop($notes, '') ?: [];
             $res .= static::renderTag($tag);
-            if ($new) {
-                foreach ($new as $hash => $lines) {
-                    $res .= static::renderLines($lines);
-                }
+            foreach ($new as $hash => $lines) {
+                $res .= static::renderLines($lines);
             }
             foreach ($notes as $note => $cs) {
                 $note = static::arrayPop($cs, 'note');
@@ -198,7 +200,7 @@ class Commits extends Base
     public static function renderTag($tag)
     {
         if (strpos($tag, ' ')===false) {
-            $tag .= static::renderDate($this->goal->vcs->tags[$tag]);
+            $tag .= static::renderDate(Yii::$app->config->vcs->tags[$tag]);
         }
         return "\n## $tag\n\n";
     }
@@ -206,6 +208,12 @@ class Commits extends Base
     public static function renderDate($date)
     {
         return $date ? date(' F j, Y', strtotime($date)) : '';
+    }
+
+    public static function renderHeader($string)
+    {
+        $header = Yii::$app->config->package->fullName . ' ' . $string;
+        return $header . "\n" . str_repeat('-', mb_strlen($header, Yii::$app->charset)) . "\n";
     }
 
 }

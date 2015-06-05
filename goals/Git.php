@@ -72,12 +72,12 @@ class Git extends Vcs
 
     public function addHistory($commit)
     {
-        if ($commit['comment']==='minor') {
-            return;
-        }
         $this->tag = $this->matchTag($commit['tag']) ?: $this->tag;
         $commit['tag'] = $this->tag;
         $this->_commits[$commit['hash']] = $commit;
+        if ($commit['comment']==='minor') {
+            return;
+        }
         $this->_history[$this->tag][$commit['hash']] = $commit;
     }
 
@@ -102,8 +102,14 @@ class Git extends Vcs
 
     public function matchTag($str)
     {
-        preg_match('/^\(tag: (.*?)\)$/', $str, $t);
-        return (string)$t[1];
+        preg_match('/^\((.*?)\)$/', $str, $m);
+        $refs = explode(', ', $m[1]);
+        foreach ($refs as $ref) {
+            if (preg_match('/^tag: (.*)$/', $ref, $m)) {
+                return $m[1];
+            }
+        }
+        return false;
     }
 
     public function load()
