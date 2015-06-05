@@ -1,7 +1,10 @@
-# hiqdev/hidev commits history
+hiqdev/hidev commits history
+----------------------------
 
 ## 0.0.6 Under development
 
+    - 2572447 2015-06-05 minor (sol@hiqdev.com)
+    - 8f37194 2015-06-05 minor (sol@hiqdev.com)
 - cool CHANGELOG.md generation
     - 8546f09 2015-06-05 + skip 'minor' commits at addHistory (sol@hiqdev.com)
     - 5474d01 2015-06-05 + handlers\Commits::renderLines (sol@hiqdev.com)

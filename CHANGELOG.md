@@ -1,5 +1,5 @@
-# hiqdev/hidev changelog
-------------------------
+hiqdev/hidev changelog
+----------------------
 
 ## 0.0.6 Under development
 
