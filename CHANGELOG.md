@@ -4,7 +4,7 @@ hiqdev/hidev changelog
 ## 0.0.6 Under development
 
 - cool CHANGELOG.md generation
-- **+ gen action**
+- **+ gen action** to generate files by templates
 - + "No licence" default license
 
 ## 0.0.5 June 1, 2015

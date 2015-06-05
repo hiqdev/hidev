@@ -19,7 +19,7 @@ hiqdev/hidev commits history
     - 1f5a9c3 2015-06-03 Update commits.md (sol@hiqdev.com)
     - 102434a 2015-06-03 Update commits.md (sol@hiqdev.com)
     - 7d8f7d1 2015-06-03 + .hidev/commits.md (sol@hiqdev.com)
-- **+ gen action**
+- **+ gen action** to generate files by templates
     - feb986e 2015-06-02 + gen action to generate files by templates, changed way of looking for templates (sol@hiqdev.com)
 - + "No licence" default license
     - 1bfbeec 2015-06-02 + default license from vendor, + No license (sol@hiqdev.com)
