@@ -7,9 +7,7 @@ package:
     label:          HiDev
     title:          HiDev - integrate your development
     type:           project
-    features:       yii2, tool
     forum:          https://forum.hiqdev.com/hidev
-    language:       PHP
     homepage:       https://hidev.me/
     keywords:       build tool, task runner, code generator, continuous integration
     description:    Mix all the tools to make your code shine
