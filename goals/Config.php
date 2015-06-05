@@ -56,9 +56,8 @@ class Config extends File implements BootstrapInterface
         return class_exists($class) ? $class : static::goal2class('base');
     }
 
-    public function make()
+    public function save()
     {
-        Base::make();
     }
 
     /**
@@ -69,19 +68,15 @@ class Config extends File implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        $start_dir = getcwd();
         for ($i=0;$i<9;++$i) {
-            if (File::exists($this->dirname)) break;
+            if (is_dir($this->dirname)) break;
             chdir('..');
-        }
-        if (!File::exists($this->dirname)) {
-            chdir($start_dir);
-            mkdir($this->dirname);
         }
         if (!$this->file->find($this->types)) {
             throw new InvalidParamException('No config found. Use hidev init');
         }
-        Yii::setAlias('@config', getcwd() . DIRECTORY_SEPARATOR . $this->dirname);
+        Yii::setAlias('@source', getcwd());
+        Yii::setAlias('@config', '@source/' . $this->dirname);
         Yii::setAlias('@parent', '@config/parent');
         $this->load();
         $parent = $this->parentConfig;

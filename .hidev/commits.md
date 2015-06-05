@@ -1,7 +1,17 @@
 # hiqdev/hidev commits history
 
-## Under development
+## 0.0.6 Under development
 
+    - 8e6c700 2015-06-04 * default make for goals to load&save (sol@hiqdev.com)
+    - 4af195c 2015-06-03 + getVcs() at base goal (sol@hiqdev.com)
+    - 3ced3b8 2015-06-03 minor:roadmap (sol@hiqdev.com)
+    - a23782b 2015-06-03 minor:commits (sol@hiqdev.com)
+    - 569e582 2015-06-03 minor:commits (sol@hiqdev.com)
+    - 133d4d4 2015-06-03 minor (sol@hiqdev.com)
+    - 57a5beb 2015-06-03 Update commits.md (sol@hiqdev.com)
+    - 1f5a9c3 2015-06-03 Update commits.md (sol@hiqdev.com)
+    - 102434a 2015-06-03 Update commits.md (sol@hiqdev.com)
+    - 7d8f7d1 2015-06-03 + .hidev/commits.md (sol@hiqdev.com)
 - **+ gen action**
     - feb986e 2015-06-02 + gen action to generate files by templates, changed way of looking for templates (sol@hiqdev.com)
 - + "No licence" default license
@@ -74,3 +84,4 @@
     - 04777ec 2015-04-28 inited (sol@hiqdev.com)
 
 ## Development started April 28, 2015
+

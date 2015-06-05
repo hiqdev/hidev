@@ -12,7 +12,6 @@
 namespace hidev\handlers;
 
 use Yii;
-use yii\helpers\Json;
 
 /**
  * Handler for typed files.

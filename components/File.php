@@ -21,6 +21,10 @@ use hidev\helpers\Helper;
  */
 class File extends \yii\base\Object
 {
+    /**
+     * @var Goal
+     */
+    public $goal;
 
     /**
      * @var file hanler: renderer and parser
@@ -99,6 +103,11 @@ class File extends \yii\base\Object
         return static::$_extension2type[$extension];
     }
 
+    public function findType()
+    {
+        return ($this->goal ? $this->goal->fileType : null) ?: static::getTypeByExtension($this->_extension) ?: 'template';
+    }
+
     public function setPath($path)
     {
         $path = Yii::getAlias($path);
@@ -108,7 +117,7 @@ class File extends \yii\base\Object
         $this->_basename    = $info['basename'];
         $this->_filename    = $info['filename'];
         $this->_extension   = $info['extension'];
-        $this->type         = static::getTypeByExtension($this->_extension) ?: 'template';
+        $this->type         = $this->findType();
     }
 
     public function getPath()
@@ -175,12 +184,23 @@ class File extends \yii\base\Object
         return $this->data = $this->handler->parsePath($this->path);
     }
 
+    public function read()
+    {
+        return $this->handler->read($this->path);
+    }
+
+    public function readArray()
+    {
+        return $this->handler->readArray($this->path);
+    }
+
     public function getHandler()
     {
         if (!is_object($this->_handler)) {
             $this->_handler = Yii::createObject([
-                'class' => 'hidev\handlers\\' . $this->getCtype(),
-                'template' => $this->template,
+                'class'     => 'hidev\handlers\\' . $this->getCtype(),
+                'template'  => $this->template,
+                'goal'      => $this->goal,
             ]);
         }
 

@@ -27,6 +27,18 @@ class Base extends \hiqdev\collection\Manager implements \hiqdev\collection\Item
 
     public $done = false;
 
+    protected $_fileType = null;
+
+    public function getFileType()
+    {
+        return $this->_fileType;
+    }
+
+    public function setFileType($type)
+    {
+        $this->_fileType = $type;
+    }
+
     public function getName()
     {
         return (string)$this->rawItem('name');

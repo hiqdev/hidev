@@ -18,8 +18,16 @@ use Yii;
  */
 class Changelog extends Template
 {
+    protected $_fileType = 'changelog';
+
+    public function init()
+    {
+        $this->setDeps('commits');
+    }
+
     public function getTemplate()
     {
         return 'CHANGELOG';
     }
+
 }

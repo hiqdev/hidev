@@ -47,11 +47,16 @@ class File extends Base
     public function getFile()
     {
         if (!is_object($this->_file)) {
-            $this->_file = Yii::createObject([
+            if (!is_array($this->_file)) {
+                $this->_file = [
+                    'path'  => $this->_file ?: $this->name,
+                ];
+            }
+            $this->_file = Yii::createObject(array_merge([
                 'class'     => FileComponent::className(),
-                'path'      => $this->_file ?: $this->name,
                 'template'  => $this->getTemplate(),
-            ]);
+                'goal'      => $this,
+            ], $this->_file));
         }
 
         return $this->_file;
@@ -69,12 +74,12 @@ class File extends Base
 
     public function getDirname()
     {
-        return $this->file->getDirname();
+        return $this->getFile()->getDirname();
     }
 
     public function getPath()
     {
-        return $this->file->getPath();
+        return $this->getFile()->getPath();
     }
 
     static public function exists($path)
@@ -82,19 +87,24 @@ class File extends Base
         return FileComponent::exists($path);
     }
 
+    public function read()
+    {
+        return $this->getFile()->read();
+    }
+
+    public function readArray()
+    {
+        return $this->getFile()->readArray();
+    }
+
     public function load()
     {
-        $this->mset($this->file->load());
+        $this->mset($this->getFile()->load());
     }
 
     public function save()
     {
-        return $this->file->save($this);
+        return $this->getFile()->save($this);
     }
 
-    public function make()
-    {
-        /// XXX $this->load();
-        $this->save();
-    }
 }

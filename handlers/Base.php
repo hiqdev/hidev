@@ -21,6 +21,11 @@ use yii\helpers\ArrayHelper;
 class Base extends \yii\base\Object
 {
     /**
+     * @var Goal
+     */
+    public $goal;
+
+    /**
      * @var string template file name to be used for rendering
      */
     public $template;
@@ -106,15 +111,20 @@ class Base extends \yii\base\Object
         }
     }
 
-    public function read($path)
+    public function read($path, $asArray = false)
     {
         if (file_exists($path)) {
             Yii::info('Read file: ' . $path, 'file');
-            return file_get_contents($path);
+            return $asArray ? file($path) : file_get_contents($path);
         } else {
             Yii::error('Couldn\'t read file: ' . $path, 'file');
             return null;
         }
+    }
+
+    public function readArray($path)
+    {
+        return $this->read($path, true);
     }
 
 }
