@@ -133,7 +133,7 @@ class Commits extends Base
         $tag        = $commit['tag'];
         $note       = $commit['note'];
         $hash       = $commit['hash'];
-        $this->_history[$tag][$note][$hash] = $commit;
+        $this->_history[$tag][$note][$hash][] = static::renderCommit($commit);
     }
 
     public function getHistory()
@@ -157,15 +157,15 @@ class Commits extends Base
             $new = static::arrayPop($notes, '');
             $res .= static::renderTag($tag);
             if ($new) {
-                foreach ($new as $hash => $commit) {
-                    $res .= static::renderCommit($commit);
+                foreach ($new as $hash => $lines) {
+                    $res .= static::renderLines($lines);
                 }
             }
             foreach ($notes as $note => $cs) {
                 $note = static::arrayPop($cs, 'note');
                 $res .= static::renderNote($note);
                 foreach ($cs as $hash => $lines) {
-                    $res .= implode("\n", $lines) . "\n";
+                    $res .= static::renderLines($lines);
                 }
             }
         }
@@ -183,6 +183,11 @@ class Commits extends Base
     public static function renderNote($note)
     {
         return "- $note\n";
+    }
+
+    public static function renderLines(array $lines)
+    {
+        return implode("\n", $lines) . "\n";
     }
 
     public static function renderCommit($commit)

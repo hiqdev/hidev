@@ -2,6 +2,8 @@
 
 ## 0.0.6 Under development
 
+- cool CHANGELOG.md generation
+    - 54cf1f5 2015-06-05 + cool CHANGELOG.md generation (sol@hiqdev.com)
     - 8e6c700 2015-06-04 * default make for goals to load&save (sol@hiqdev.com)
     - 4af195c 2015-06-03 + getVcs() at base goal (sol@hiqdev.com)
     - 3ced3b8 2015-06-03 minor:roadmap (sol@hiqdev.com)

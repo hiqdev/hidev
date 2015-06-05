@@ -3,6 +3,7 @@
 
 ## 0.0.6 Under development
 
+- cool CHANGELOG.md generation
 - **+ gen action**
 - + "No licence" default license
 
