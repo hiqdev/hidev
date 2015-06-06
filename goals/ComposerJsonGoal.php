@@ -54,13 +54,13 @@ class ComposerJsonGoal extends TemplateGoal
     public function getSupport()
     {
         $support = $this->getItem('support');
-        $support->smartAdd([
+        $support->smartAdd(array_filter([
             'email'     => $this->vendor->email,
             'source'    => $this->package->source,
             'issues'    => $this->package->issues,
             'wiki'      => $this->package->wiki,
             'forum'     => $this->package->forum,
-        ],'first');
+        ]), 'first');
         return $support;
     }
 
@@ -85,5 +85,10 @@ class ComposerJsonGoal extends TemplateGoal
         }
 
         return $this->getItem('autoload');
+    }
+
+    public function load()
+    {
+        return [];
     }
 }
