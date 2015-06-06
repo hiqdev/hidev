@@ -5,7 +5,7 @@ hiqdev/hidev commits history
 
 - GREAT RENAMING OF CLASSES
     - 3091450 2015-06-06 GREAT RENAMING OF CLASSES (sol@hiqdev.com)
-- cool CHANGELOG.md generation
+- **cool CHANGELOG.md generation**
     - 75326d1 2015-06-06 fixed adding Under development tag (sol@hiqdev.com)
     - b7f0f9f 2015-06-05 improved skip minor (sol@hiqdev.com)
     - 3475a27 2015-06-05 rendering commits fixed (sol@hiqdev.com)
