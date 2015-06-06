@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.6 Under development
 
+- GREAT RENAMING OF CLASSES
 - cool CHANGELOG.md generation
 - **+ gen action** to generate files by templates
 - + "No licence" default license
