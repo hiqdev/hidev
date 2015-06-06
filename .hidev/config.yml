@@ -1,4 +1,4 @@
-parentConfig:
+parent:
     github:         hiqdev/hidev-config
 
 package:

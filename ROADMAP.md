@@ -2,8 +2,7 @@ ROADMAP
 -------
 
 Nearest - 0.1.0 release:
-- changelog build from commits
-- great renaming
+- great renaming of classes
 - plugin architecture
 - php-cs-fixer plugin
 - phpunit plugin

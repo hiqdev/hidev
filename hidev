@@ -25,9 +25,9 @@ if (!file_exists($autoload_path)) {
 require($autoload_path);
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 
-Yii::setLogger(Yii::createObject('hidev\components\Logger'));
+Yii::setLogger(Yii::createObject('hidev\base\Logger'));
 
-$application = new hidev\components\Application([
+$application = new hidev\base\Application([
     'id'                    => 'hidev',
     'name'                  => 'HiDev - integrate your development',
     'basePath'              => __DIR__,
@@ -45,19 +45,19 @@ $application = new hidev\components\Application([
             ],
         ],
         'robo' => [
-            'class' => 'hidev\goals\Robo',
+            'class' => 'hidev\goals\RoboGoal',
         ],
         'config' => [
-            'class' => 'hidev\goals\Config',
+            'class' => 'hidev\goals\ConfigGoal',
         ],
         'pluginManager' => [
             'class' => 'hiqdev\pluginmanager\Manager',
         ],
         'request' => [
-            'class' => 'hidev\components\Request',
+            'class' => 'hidev\base\Request',
         ],
         'view' => [
-            'class' => 'hidev\components\View',
+            'class' => 'hidev\base\View',
             'theme' => [
                 'pathMap' => [
                     '@parent/templates' => ['@config/templates', '@app/views'],
