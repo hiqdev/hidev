@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## 0.0.6 Under development
 
 - GREAT RENAMING OF CLASSES
+    - a9aed7b 2015-06-06 improved title, description, forum options at package/vendor (sol@hiqdev.com)
     - 3091450 2015-06-06 GREAT RENAMING OF CLASSES (sol@hiqdev.com)
 - **cool CHANGELOG.md generation**
     - 75326d1 2015-06-06 fixed adding Under development tag (sol@hiqdev.com)
