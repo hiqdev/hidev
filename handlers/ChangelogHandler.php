@@ -16,7 +16,7 @@ namespace hidev\handlers;
  */
 class ChangelogHandler extends BaseHandler
 {
-    public function parse($text)
+    public function parsePath($text)
     {
         return ['history' => $this->goal->config->commits->history];
     }

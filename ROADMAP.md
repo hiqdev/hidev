@@ -2,7 +2,6 @@ ROADMAP
 -------
 
 Nearest - 0.1.0 release:
-- great renaming of classes
 - plugin architecture
 - php-cs-fixer plugin
 - phpunit plugin
@@ -13,6 +12,8 @@ Nearest - 0.1.0 release:
 - travis
 - scrutinizer
 
+Refactoring:
+- Redo CommitsHandler to History component
 - rewrite without yii?
 
 GENERAL:

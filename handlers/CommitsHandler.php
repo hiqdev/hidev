@@ -86,8 +86,10 @@ class CommitsHandler extends BaseHandler
 
     public function parsePath($path)
     {
-        $this->_history = [];
         $this->tag = static::getVcs()->lastTag;
+        $this->_history = [
+            $this->tag => []
+        ];
         $lines = is_file($path) ? $this->readArray($path) : [];
         foreach ($lines as $str) {
             $str = rtrim($str);
@@ -145,7 +147,7 @@ class CommitsHandler extends BaseHandler
     {
         $res = static::renderHeader('commits history');
 
-        foreach ($this->goal->vcs->commits as $hash => $commit) {
+        foreach (static::getVcs()->commits as $hash => $commit) {
             if ($this->hasCommit($hash)) {
                 continue;
             }
