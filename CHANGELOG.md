@@ -1,7 +1,10 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.0.6 Under development
+## 0.0.7 Under development
+
+
+## 0.0.6 June 6, 2015
 
 - GREAT RENAMING OF CLASSES
 - **cool CHANGELOG.md generation**
