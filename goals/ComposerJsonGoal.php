@@ -11,8 +11,6 @@
 
 namespace hidev\goals;
 
-use hiqdev\collection\Manager;
-
 /**
  * Goal for composer.json
  */

@@ -55,7 +55,7 @@ class DefaultController extends \yii\console\Controller
     public function actionGen($tpl, $file = null)
     {
         $gen = Yii::createObject([
-            'class'     => 'hidev\goals\Template',
+            'class'     => 'hidev\goals\TemplateGoal',
             'template'  => $tpl,
             'file'      => $file ?: (basename($tpl) . '.php'),
         ]);
