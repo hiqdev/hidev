@@ -86,7 +86,7 @@ class PackageGoal extends VendorGoal
 
     public function getHomepage()
     {
-        return $this->getItem('homepage') ?: ($this->vendor->homepage . $this->name);
+        return $this->getItem('homepage') ?: $this->getSource();
     }
 
     public function getForum()
