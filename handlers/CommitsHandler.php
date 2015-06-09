@@ -22,7 +22,7 @@ class CommitsHandler extends BaseHandler
 
     protected $_tag;
     protected $_note;
-    protected $_commit;
+    protected $_hash;
     protected $_history = [];
     protected $_commits = [];
 
@@ -36,27 +36,27 @@ class CommitsHandler extends BaseHandler
         return $this->_note;
     }
 
-    public function getCommit()
+    public function getHash()
     {
-        return $this->_commit;
+        return $this->_hash;
     }
 
     public function setTag($tag)
     {
-        $this->_tag = $tag;
+        $this->_tag  = $tag;
         $this->_note = '';
-        $this->_commit = '';
+        $this->_hash = '';
     }
 
     public function setNote($note)
     {
         $this->_note = $note;
-        $this->_commit = '';
+        $this->_hash = '';
     }
 
-    public function setCommit($commit)
+    public function setHash($hash)
     {
-        $this->_commit = $commit;
+        $this->_hash = $hash;
     }
 
     public function addTag($tag, $label = null)
@@ -73,15 +73,15 @@ class CommitsHandler extends BaseHandler
         $ref = $label ?: $ref ?: $note;
     }
 
-    public function addCommit($commit, $label)
+    public function addHash($hash, $label)
     {
-        $this->commit = $commit;
-        $this->_commits[$commit] = $label;
+        $this->_hash = $hash;
+        $this->_commits[(string)$hash] = $label;
     }
 
     public function hasCommit($hash)
     {
-        return array_key_exists($hash, $this->_commits);
+        return array_key_exists((string)$hash, $this->_commits);
     }
 
     public function parsePath($path)
@@ -117,20 +117,27 @@ class CommitsHandler extends BaseHandler
                 continue;
             }
             if (preg_match('/^\s+- ([0-9a-fA-F]{7})/', $str, $m)) {
-                $this->addCommit($m[1], $str);
+                $this->addHash($m[1], $str);
             }
-            $this->_history[$this->tag][$this->note][$this->commit][] = $str;
+            $this->_history[$this->tag][$this->note][$this->hash][] = $str;
         }
 
         return $this->_history;
     }
 
-    public function addHistory($commit)
+    public function addHistory($commit, $front = false)
     {
         $tag        = $commit['tag'];
         $note       = $commit['note'];
         $hash       = $commit['hash'];
-        $this->_history[$tag][$note][$hash][] = static::renderCommit($commit);
+        $render     = static::renderCommit($commit);
+        $hashes     = &$this->_history[$tag][$note];
+        $hashes     = (array)$hashes;
+        if ($front) {
+            $hashes = [$hash => [$render]] + $hashes;
+        } else {
+            $hashes[$hash][] = $render;
+        }
     }
 
     public function hasHistory($tag)
@@ -147,11 +154,11 @@ class CommitsHandler extends BaseHandler
     {
         $res = static::renderHeader('commits history');
 
-        foreach (static::getVcs()->commits as $hash => $commit) {
+        foreach (array_reverse(static::getVcs()->commits, true) as $hash => $commit) {
             if ($this->hasCommit($hash)) {
                 continue;
             }
-            $this->addHistory($commit);
+            $this->addHistory($commit, true);
         }
         if (!$this->hasHistory(static::getVcs()->initTag)) {
             $this->addHistory(['tag' => static::getVcs()->initTag]);

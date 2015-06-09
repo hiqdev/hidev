@@ -74,8 +74,9 @@ class GitGoal extends VcsGoal
     {
         $this->tag = $this->matchTag($commit['tag']) ?: $this->tag;
         $commit['tag'] = $this->tag;
-        $this->_commits[$commit['hash']] = $commit;
-        $this->_history[$this->tag][$commit['hash']] = $commit;
+        $hash = (string)$commit['hash'];
+        $this->_commits[$hash] = $commit;
+        $this->_history[$this->tag][$hash] = $commit;
     }
 
     public function loadHistory()

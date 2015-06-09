@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.7 Under development
 
+    - 71a04c5 2015-06-09 * default package homepage to same as source (sol@hiqdev.com)
+    - 0bca3e0 2015-06-07 small fixes (sol@hiqdev.com)
 
 ## 0.0.6 June 6, 2015
 
