@@ -13,7 +13,8 @@ Nearest - 0.1.0 release:
 - scrutinizer
 
 Refactoring:
-- Redo CommitsHandler to History component
+- redo goals as controllers
+- redo CommitsHandler to History component
 - rewrite without yii?
 
 GENERAL:
