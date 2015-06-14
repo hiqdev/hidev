@@ -10,6 +10,8 @@
  * @copyright Copyright (c) 2015 HiQDev
  */
 
+ini_set('error_reporting', E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE);
+
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
@@ -25,6 +27,7 @@ if (!file_exists($autoload_path)) {
 require($autoload_path);
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 
+Yii::setAlias('@hidev', __DIR__);
 Yii::setLogger(Yii::createObject('hidev\base\Logger'));
 
 $application = new hidev\base\Application([
