@@ -203,11 +203,19 @@ class CommitsHandler extends BaseHandler
 
     public static function renderCommit($commit)
     {
+        return static::skipCommit($commit) ? '' : "    - $commit[hash] $commit[date] $commit[comment] ($commit[email])";
+    }
+
+    public static function skipCommit($commit)
+    {
         static $skips = [
             ''      => 1,
             'minor' => 1,
         ];
-        return $skips[$commit['comment']] ? '' : "    - $commit[hash] $commit[date] $commit[comment] ($commit[email])";
+        $comment = $commit['comment'];
+        if ($skips[$comment]) return true;
+        if (strpos($comment,"Merge branch 'master'")!== false) return true;
+        return false;
     }
 
     public static function renderTag($tag)
