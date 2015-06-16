@@ -56,12 +56,15 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         return class_exists($class) ? $class : static::goal2class('base');
     }
 
+    /**
+     * No save at the moment.
+     */
     public function save()
     {
     }
 
     /**
-     * Bootstraps config. Reads or creates if doesn't exist
+     * Bootstraps config. Reads or creates if doesn't exist.
      * Looks for .hidev in current directory and up.
      *
      * @param yii\base\Application $app application
