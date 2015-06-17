@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.7 Under development
 
+- php-cs-fixed
+    - 67c5255 2015-06-17 inited .php_cs (sol@hiqdev.com)
 - plugin archtecture
     - 26c9579 2015-06-17 doing plugin architecture (sol@hiqdev.com)
     - 7bacafa 2015-06-14 + skip Merge branch commits (sol@hiqdev.com)

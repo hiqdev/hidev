@@ -22,7 +22,3 @@ composer.json:
         hiqdev/yii2-pluginmanager:  '*@dev'
         codegyre/robo:              '*'
     bin: [hidev]
-
-php-cs-fixer:
-    deps: .php_cs
-
