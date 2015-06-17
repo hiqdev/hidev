@@ -21,7 +21,7 @@ class Helper
 {
     public static function bad2sep($str, $separator = '-')
     {
-        return preg_replace('/[^\w-]/', $separator, $str);
+        return preg_replace('/[^a-zA-Z0-9-]/', $separator, $str);
     }
 
     public static function id2camel($id, $separator = '-')

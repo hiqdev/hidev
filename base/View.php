@@ -6,7 +6,6 @@ use Yii;
 
 /**
  * Our View.
- * Redefined for extending.
  */
 class View extends \yii\web\View
 {
@@ -14,6 +13,15 @@ class View extends \yii\web\View
      * @inheritdoc
      */
     public $defaultExtension = 'twig';
+
+    public function init()
+    {
+        parent::init();
+        $this->theme->pathMap['@parent/templates'] = array_merge(
+            $this->theme->pathMap['@parent/templates'],
+            Yii::$app->pluginManager->views
+        );
+    }
 
     public function getConfig()
     {

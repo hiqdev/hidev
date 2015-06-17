@@ -37,7 +37,7 @@ $application = new hidev\base\Application([
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',
     'defaultRoute'          => 'default',
-    'bootstrap'             => ['log', 'config'],
+    'bootstrap'             => ['log', 'pluginManager', 'config'],
     'components'            => [
         'log' => [
             'targets' => [
@@ -54,7 +54,19 @@ $application = new hidev\base\Application([
             'class' => 'hidev\goals\ConfigGoal',
         ],
         'pluginManager' => [
-            'class' => 'hiqdev\pluginmanager\Manager',
+            'class' => 'hiqdev\pluginmanager\PluginManager',
+            'goals' => [
+                'README.md'             => 'readme',
+                'README.txt'            => 'readme',
+                'README.markdown'       => 'readme',
+                'LICENSE'               => 'license',
+                'LICENSE.md'            => 'license',
+                'LICENSE.txt'           => 'license',
+                'LICENSE.markdown'      => 'license',
+                'CHANGELOG.md'          => 'changelog',
+                'CHANGELOG.txt'         => 'changelog',
+                'CHANGELOG.markdown'    => 'changelog',
+            ],
         ],
         'request' => [
             'class' => 'hidev\base\Request',

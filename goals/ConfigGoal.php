@@ -29,24 +29,16 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     public $types = ['yaml', 'json'];
 
-    protected static $_knownGoals = [
-        'README.md'             => 'readme',
-        'README.txt'            => 'readme',
-        'README.markdown'       => 'readme',
-        'LICENSE'               => 'license',
-        'LICENSE.md'            => 'license',
-        'LICENSE.txt'           => 'license',
-        'LICENSE.markdown'      => 'license',
-        'CHANGELOG.md'          => 'changelog',
-        'CHANGELOG.txt'         => 'changelog',
-        'CHANGELOG.markdown'    => 'changelog',
-    ];
+    public static function findGoal($name)
+    {
+        return Yii::$app->pluginManager->get('goals')[$name];
+    }
 
     public static function goal2class($id, $name = null)
     {
-        $id = $id ?: static::$_knownGoals[$name] ?: $name;
+        $id = $id ?: static::findGoal($name) ?: $name;
 
-        return 'hidev\goals\\' . Helper::id2camel($id) . 'Goal';
+        return strpos($id, '\\')!==false ? $id : 'hidev\goals\\' . Helper::id2camel($id) . 'Goal';
     }
 
     public function getItemClass($name = null, array $config = [])
