@@ -3,6 +3,8 @@ hiqdev/hidev changelog
 
 ## 0.0.7 Under development
 
+- plugin archtecture
+- improved portability
 
 ## 0.0.6 June 6, 2015
 

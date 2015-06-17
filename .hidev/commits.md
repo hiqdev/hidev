@@ -3,7 +3,10 @@ hiqdev/hidev commits history
 
 ## 0.0.7 Under development
 
+- plugin archtecture
+    - 26c9579 2015-06-17 doing plugin architecture (sol@hiqdev.com)
     - 7bacafa 2015-06-14 + skip Merge branch commits (sol@hiqdev.com)
+- improved portability
     - 5350f2e 2015-06-14 improved portability (sol@hiqdev.com)
     - d48c5a1 2015-06-09 fixed adding new commits (sol@hiqdev.com)
     - 71a04c5 2015-06-09 * default package homepage to same as source (sol@hiqdev.com)
