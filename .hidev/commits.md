@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## 0.0.7 Under development
 
+    - c87d8c7 2015-06-18 php-cs-fixing (sol@hiqdev.com)
+    - af2097f 2015-06-18 + Helper::asplit (sol@hiqdev.com)
+    - c71aa85 2015-06-18 - views/CHANGELOG.php cause it is not needed anymore (sol@hiqdev.com)
     - 7b79e7a 2015-06-18 php-cs-fixed (sol@hiqdev.com)
     - e155570 2015-06-18 + Twig_Extension_StringLoader for template_from_string (sol@hiqdev.com)
     - 8de7066 2015-06-18 php-cs-fixing (sol@hiqdev.com)
