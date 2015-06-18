@@ -85,6 +85,7 @@ $application = new hidev\base\Application([
                     'options' => [
                         'auto_reload' => true,
                     ],
+                    'extensions' => ['Twig_Extension_StringLoader'],
                 ],
             ],
         ],
