@@ -1,17 +1,16 @@
 <?php
 
 /*
- * HiDev
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\helpers;
 
-use Yii;
 use yii\helpers\Inflector;
 
 /**
@@ -26,13 +25,13 @@ class Helper
 
     public static function id2camel($id, $separator = '-')
     {
-        return Inflector::id2camel(self::bad2sep($id,$separator), $separator);
+        return Inflector::id2camel(self::bad2sep($id, $separator), $separator);
         //return Inflector::id2camel(strtolower(self::bad2sep($id,$separator)), $separator);
     }
 
     public static function file2template($file, $separator = '-')
     {
-        return self::bad2sep(trim($file,'.'), $separator);
+        return self::bad2sep(trim($file, '.'), $separator);
     }
 
     public static function csplit($input, $delimiter = ',')
@@ -54,5 +53,4 @@ class Helper
 
         return array_combine($res, $res);
     }
-
 }
