@@ -4,6 +4,8 @@ hiqdev/hidev commits history
 ## 0.0.7 Under development
 
 - php-cs-fixed
+    - 492d5c3 2015-06-18 php-cs-fixing (sol@hiqdev.com)
+    - 8eaa43f 2015-06-18 improving .php_cs (sol@hiqdev.com)
     - 67c5255 2015-06-17 inited .php_cs (sol@hiqdev.com)
 - plugin archtecture
     - 26c9579 2015-06-17 doing plugin architecture (sol@hiqdev.com)
