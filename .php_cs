@@ -14,7 +14,7 @@ Symfony\CS\Fixer\Contrib\HeaderCommentFixer::setHeader($header);
 return Symfony\CS\Config\Config::create()
     ->level(Symfony\CS\FixerInterface::SYMFONY_LEVEL)
     ->fixers([
-        '-long_array_syntax',                   /// Arrays should use the long syntax.
+        '-long_array_syntax',                    /// Arrays should use the long syntax.
         '-php4_constructor',                     /// Convert PHP4-style constructors to __construct. Warning! This could change code behavior.
         '-phpdoc_var_to_type',                   /// @var should always be written as @type.
         'header_comment',                        /// Add, replace or remove header comment.
