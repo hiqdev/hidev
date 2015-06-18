@@ -44,6 +44,16 @@ class Helper
         return array_values(array_filter(array_map('trim', $res)));
     }
 
+    public static function asplit($input)
+    {
+        if (is_array($input)) {
+            return $input;
+        }
+        $res = preg_split('/[\s,]+/', $input);
+
+        return array_values(array_filter(array_map('trim', $res)));
+    }
+
     public static function ksplit($input, $delimiter = ',')
     {
         if (is_array($input)) {
