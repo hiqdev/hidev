@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.7 Under development
 
+    - 7b79e7a 2015-06-18 php-cs-fixed (sol@hiqdev.com)
+    - e155570 2015-06-18 + Twig_Extension_StringLoader for template_from_string (sol@hiqdev.com)
     - 8de7066 2015-06-18 php-cs-fixing (sol@hiqdev.com)
 - php-cs-fixed
     - 492d5c3 2015-06-18 php-cs-fixing (sol@hiqdev.com)
