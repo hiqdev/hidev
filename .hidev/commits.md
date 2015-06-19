@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## 0.0.7 Under development
 
+    - fd344b8 2015-06-19 + delete require if empty (sol@hiqdev.com)
 - php-cs-fixed
     - 9605650 2015-06-19 php-cs-fixed (sol@hiqdev.com)
 - php-cs-fixer plugin
