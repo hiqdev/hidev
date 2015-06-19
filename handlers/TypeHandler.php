@@ -23,5 +23,4 @@ class TypeHandler extends TemplateHandler
     {
         return $this->existsTemplate() ? $this->renderTemplate($data) : $this->renderType($data);
     }
-
 }
