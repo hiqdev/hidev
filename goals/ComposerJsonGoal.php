@@ -33,6 +33,9 @@ class ComposerJsonGoal extends TemplateGoal
             'autoload'    => $this->autoload,
         ];
         $this->smartSet($sets, 'first');
+        if (!$this->get('require')->toArray()) {
+            $this->delete('require');
+        }
     }
 
     /**
