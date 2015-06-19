@@ -1,7 +1,13 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.0.7 Under development
+## 0.0.8 Under development
+
+- + phpunit plugin
+- + codeception plugin
+- + tests
+
+## 0.0.7 June 19, 2015
 
     - fd344b8 2015-06-19 + delete require if empty (sol@hiqdev.com)
 - php-cs-fixed

@@ -1,7 +1,13 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.0.7 Under development
+## 0.0.8 Under development
+
+- + phpunit plugin
+- + codeception plugin
+- + tests
+
+## 0.0.7 June 19, 2015
 
 - php-cs-fixed
 - + php-cs-fixer plugin
