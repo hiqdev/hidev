@@ -1,20 +1,18 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\base;
 
-use Yii;
-use yii\base\Arrayable;
-use yii\base\InvalidParamException;
 use hidev\helpers\Helper;
+use Yii;
 
 /**
  * A file to be processed with hidev.
@@ -80,9 +78,9 @@ class File extends \yii\base\Object
      * @var array type to extension correspondance
      */
     protected static $_extension2type = [
-        'json'      => 'json',
-        'yml'       => 'yaml',  /// first one is preferred
-        'yaml'      => 'yaml',
+        'json' => 'json',
+        'yml'  => 'yaml',  /// first one is preferred
+        'yaml' => 'yaml',
     ];
 
     public function getExtensionByType($type)
@@ -95,6 +93,7 @@ class File extends \yii\base\Object
                 }
             }
         }
+
         return $type2extension[$type];
     }
 
@@ -110,14 +109,14 @@ class File extends \yii\base\Object
 
     public function setPath($path)
     {
-        $path = Yii::getAlias($path);
-        $info = pathinfo($path);
-        $this->_path        = $path;
-        $this->_dirname     = $info['dirname'];
-        $this->_basename    = $info['basename'];
-        $this->_filename    = $info['filename'];
-        $this->_extension   = $info['extension'];
-        $this->type         = $this->findType();
+        $path             = Yii::getAlias($path);
+        $info             = pathinfo($path);
+        $this->_path      = $path;
+        $this->_dirname   = $info['dirname'];
+        $this->_basename  = $info['basename'];
+        $this->_filename  = $info['filename'];
+        $this->_extension = $info['extension'];
+        $this->type       = $this->findType();
     }
 
     public function getPath()
@@ -176,7 +175,7 @@ class File extends \yii\base\Object
             $this->data = $data;
         }
 
-        return $this->handler->renderPath($this->path,$this->data);
+        return $this->handler->renderPath($this->path, $this->data);
     }
 
     public function load()
@@ -198,16 +197,16 @@ class File extends \yii\base\Object
     {
         if (!is_object($this->_handler)) {
             $this->_handler = Yii::createObject([
-                'class'     => 'hidev\handlers\\' . $this->getCtype() . 'Handler',
-                'template'  => $this->template,
-                'goal'      => $this->goal,
+                'class'    => 'hidev\handlers\\' . $this->getCtype() . 'Handler',
+                'template' => $this->template,
+                'goal'     => $this->goal,
             ]);
         }
 
         return $this->_handler;
     }
 
-    static public function exists($path)
+    public static function exists($path)
     {
         return file_exists(Yii::getAlias($path));
     }
@@ -227,7 +226,7 @@ class File extends \yii\base\Object
                 }
             }
         }
+
         return false;
     }
-
 }

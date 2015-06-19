@@ -1,17 +1,16 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
 
-use Yii;
 use hidev\helpers\Helper;
 
 class AliasesGoal extends \hiqdev\collection\Object
@@ -20,7 +19,6 @@ class AliasesGoal extends \hiqdev\collection\Object
 
     public function getItem($name)
     {
-        return Helper::csplit(parent::getItem($name),' ');
+        return Helper::csplit(parent::getItem($name), ' ');
     }
-
 }

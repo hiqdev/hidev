@@ -1,26 +1,25 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
 
-use Yii;
 use hidev\base\File;
 use hidev\helpers\Helper;
+use Yii;
 
 /**
  * A File Goal.
  */
 class FileGoal extends BaseGoal
 {
-
     /**
      * @var array|File the file to be handled.
      */
@@ -49,13 +48,13 @@ class FileGoal extends BaseGoal
         if (!is_object($this->_file)) {
             if (!is_array($this->_file)) {
                 $this->_file = [
-                    'path'  => $this->_file ?: $this->name,
+                    'path' => $this->_file ?: $this->name,
                 ];
             }
             $this->_file = Yii::createObject(array_merge([
-                'class'     => File::className(),
-                'template'  => $this->getTemplate(),
-                'goal'      => $this,
+                'class'    => File::className(),
+                'template' => $this->getTemplate(),
+                'goal'     => $this,
             ], $this->_file));
         }
 
@@ -82,7 +81,7 @@ class FileGoal extends BaseGoal
         return $this->getFile()->getPath();
     }
 
-    static public function exists($path)
+    public static function exists($path)
     {
         return File::exists($path);
     }
@@ -106,5 +105,4 @@ class FileGoal extends BaseGoal
     {
         return $this->getFile()->save($this);
     }
-
 }

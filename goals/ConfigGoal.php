@@ -1,21 +1,21 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
 
-use Yii;
-use yii\helpers\ArrayHelper;
-use yii\base\InvalidParamException;
-use yii\base\BootstrapInterface;
 use hidev\helpers\Helper;
+use Yii;
+use yii\base\BootstrapInterface;
+use yii\base\InvalidParamException;
+use yii\helpers\ArrayHelper;
 
 /**
  * The Config. Keeps the Goals.
@@ -38,12 +38,12 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
     {
         $id = $id ?: static::findGoal($name) ?: $name;
 
-        return strpos($id, '\\')!==false ? $id : 'hidev\goals\\' . Helper::id2camel($id) . 'Goal';
+        return strpos($id, '\\') !== false ? $id : 'hidev\goals\\' . Helper::id2camel($id) . 'Goal';
     }
 
     public function getItemClass($name = null, array $config = [])
     {
-        $class = static::goal2class($config['goal'],$name);
+        $class = static::goal2class($config['goal'], $name);
 
         return class_exists($class) ? $class : static::goal2class('base');
     }
@@ -63,8 +63,10 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        for ($i=0;$i<9;++$i) {
-            if (is_dir($this->dirname)) break;
+        for ($i = 0;$i < 9;++$i) {
+            if (is_dir($this->dirname)) {
+                break;
+            }
             chdir('..');
         }
         if (!$this->file->find($this->types)) {
@@ -84,5 +86,4 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
             $this->_items = ArrayHelper::merge($parent->_items, $this->_items);
         }
     }
-
 }

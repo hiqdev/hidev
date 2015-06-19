@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
@@ -14,7 +14,7 @@ namespace hidev\goals;
 use Yii;
 
 /**
- * Goal for Git
+ * Goal for Git.
  */
 class GitGoal extends VcsGoal
 {
@@ -72,10 +72,10 @@ class GitGoal extends VcsGoal
 
     public function addHistory($commit)
     {
-        $this->tag = $this->matchTag($commit['tag']) ?: $this->tag;
-        $commit['tag'] = $this->tag;
-        $hash = (string)$commit['hash'];
-        $this->_commits[$hash] = $commit;
+        $this->tag                         = $this->matchTag($commit['tag']) ?: $this->tag;
+        $commit['tag']                     = $this->tag;
+        $hash                              = (string) $commit['hash'];
+        $this->_commits[$hash]             = $commit;
         $this->_history[$this->tag][$hash] = $commit;
     }
 
@@ -85,15 +85,15 @@ class GitGoal extends VcsGoal
         $this->tag = $this->lastTag;
         foreach ($logs as $log) {
             if (!preg_match('/^(\w+) ([0-9-]+) (\S+) (.*?)\s+\| ?(\([^\(\)]+\))?$/', $log, $m)) {
-                Yii::error("failed parse git log");
+                Yii::error('failed parse git log');
                 die();
             }
             $this->addHistory([
-                'hash'      => $m[1],
-                'date'      => $m[2],
-                'email'     => $m[3],
-                'comment'   => $m[4],
-                'tag'       => $m[5],
+                'hash'    => $m[1],
+                'date'    => $m[2],
+                'email'   => $m[3],
+                'comment' => $m[4],
+                'tag'     => $m[5],
             ]);
         }
     }
@@ -107,6 +107,7 @@ class GitGoal extends VcsGoal
                 return $m[1];
             }
         }
+
         return false;
     }
 
@@ -115,5 +116,4 @@ class GitGoal extends VcsGoal
         $this->loadTags();
         $this->loadHistory();
     }
-
 }

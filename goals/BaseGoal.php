@@ -1,26 +1,24 @@
 <?php
 
 /*
- * HiDev
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
 
-use Yii;
-use yii\base\InvalidParamException;
 use hidev\helpers\Helper;
+use Yii;
 
 /**
- * Default Goal. 'default' is reserved that's why Base
+ * Default Goal. 'default' is reserved that's why Base.
  */
 class BaseGoal extends \hiqdev\collection\Manager implements \hiqdev\collection\ItemWithNameInterface
 {
-
     protected $_itemClass = 'hiqdev\collection\Manager';
 
     public $goal;
@@ -41,7 +39,7 @@ class BaseGoal extends \hiqdev\collection\Manager implements \hiqdev\collection\
 
     public function getName()
     {
-        return (string)$this->rawItem('name');
+        return (string) $this->rawItem('name');
     }
 
     public function setDeps($deps)
@@ -75,6 +73,7 @@ class BaseGoal extends \hiqdev\collection\Manager implements \hiqdev\collection\
     {
         if ($this->done) {
             Yii::trace("Already done: $this->name");
+
             return;
         }
         Yii::trace("Started: $this->name");
@@ -123,5 +122,4 @@ class BaseGoal extends \hiqdev\collection\Manager implements \hiqdev\collection\
     {
         return $this->getConfig()->getItem('git');
     }
-
 }

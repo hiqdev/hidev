@@ -1,12 +1,12 @@
 <?php
 
 /*
- * HiDev - integrate your development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\handlers;
@@ -62,39 +62,39 @@ class CommitsHandler extends BaseHandler
     public function addTag($tag, $label = null)
     {
         $this->tag = $tag;
-        $ref = &$this->_history[$tag]['tag'];
-        $ref = $label ?: $ref ?: $tag;
+        $ref       = &$this->_history[$tag]['tag'];
+        $ref       = $label ?: $ref ?: $tag;
     }
 
     public function addNote($note, $label = null)
     {
         $this->note = $note;
-        $ref = &$this->_history[$this->tag][$note]['note'];
-        $ref = $label ?: $ref ?: $note;
+        $ref        = &$this->_history[$this->tag][$note]['note'];
+        $ref        = $label ?: $ref ?: $note;
     }
 
     public function addHash($hash, $label)
     {
-        $this->_hash = $hash;
-        $this->_commits[(string)$hash] = $label;
+        $this->_hash                    = $hash;
+        $this->_commits[(string) $hash] = $label;
     }
 
     public function hasCommit($hash)
     {
-        return array_key_exists((string)$hash, $this->_commits);
+        return array_key_exists((string) $hash, $this->_commits);
     }
 
     public function parsePath($path)
     {
-        $this->tag = static::getVcs()->lastTag;
+        $this->tag      = static::getVcs()->lastTag;
         $this->_history = [
-            $this->tag => []
+            $this->tag => [],
         ];
         $lines = is_file($path) ? $this->readArray($path) : [];
         foreach ($lines as $str) {
             $str = rtrim($str);
-            $no++;
-            if (!$str || $no<3) {
+            ++$no;
+            if (!$str || $no < 3) {
                 continue;
             }
             if (preg_match('/^# /', $str)) {
@@ -127,12 +127,12 @@ class CommitsHandler extends BaseHandler
 
     public function addHistory($commit, $front = false)
     {
-        $tag        = $commit['tag'];
-        $note       = $commit['note'];
-        $hash       = $commit['hash'];
-        $render     = static::renderCommit($commit);
-        $hashes     = &$this->_history[$tag][$note];
-        $hashes     = (array)$hashes;
+        $tag    = $commit['tag'];
+        $note   = $commit['note'];
+        $hash   = $commit['hash'];
+        $render = static::renderCommit($commit);
+        $hashes = &$this->_history[$tag][$note];
+        $hashes = (array) $hashes;
         if ($front) {
             $hashes = [$hash => [$render]] + $hashes;
         } else {
@@ -187,6 +187,7 @@ class CommitsHandler extends BaseHandler
     {
         $res = $array[$key];
         unset($array[$key]);
+
         return $res;
     }
 
@@ -198,6 +199,7 @@ class CommitsHandler extends BaseHandler
     public static function renderLines(array $lines)
     {
         $res = implode("\n", array_filter($lines));
+
         return $res ? $res . "\n" : '';
     }
 
@@ -213,16 +215,22 @@ class CommitsHandler extends BaseHandler
             'minor' => 1,
         ];
         $comment = $commit['comment'];
-        if ($skips[$comment]) return true;
-        if (strpos($comment,"Merge branch 'master'")!== false) return true;
+        if ($skips[$comment]) {
+            return true;
+        }
+        if (strpos($comment, "Merge branch 'master'") !== false) {
+            return true;
+        }
+
         return false;
     }
 
     public static function renderTag($tag)
     {
-        if (strpos($tag, ' ')===false || $tag===static::getVcs()->initTag) {
+        if (strpos($tag, ' ') === false || $tag === static::getVcs()->initTag) {
             $tag .= static::renderDate(static::getVcs()->tags[$tag]);
         }
+
         return "\n## $tag\n\n";
     }
 
@@ -234,6 +242,7 @@ class CommitsHandler extends BaseHandler
     public static function renderHeader($string)
     {
         $header = Yii::$app->config->package->fullName . ' ' . $string;
+
         return $header . "\n" . str_repeat('-', mb_strlen($header, Yii::$app->charset)) . "\n";
     }
 
@@ -241,5 +250,4 @@ class CommitsHandler extends BaseHandler
     {
         return Yii::$app->config->vcs;
     }
-
 }

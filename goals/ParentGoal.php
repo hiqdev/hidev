@@ -1,18 +1,17 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
 
 use yii\base\InvalidParamException;
-use hidev\helpers\Helper;
 
 /**
  * The Config. Keeps the Goals.
@@ -32,7 +31,7 @@ class ParentGoal extends FileGoal
     public function setGithub($github)
     {
         if ($this->_defined) {
-            throw new InvalidParamException("Already defined: " . $this->_defined);
+            throw new InvalidParamException('Already defined: ' . $this->_defined);
         }
         $this->_github  = $github;
         $this->_defined = 'github:' . $github;
@@ -41,10 +40,9 @@ class ParentGoal extends FileGoal
         }
         $task = $this->taskGitStack()
             ->stopOnFail()
-            ->cloneRepo("git@github.com:$github", $this->file->dirname)
-        ;
+            ->cloneRepo("git@github.com:$github", $this->file->dirname);
         if (!$task->run()->wasSuccessful()) {
-            throw new InvalidParamException("Failed clone parent");
+            throw new InvalidParamException('Failed clone parent');
         }
     }
 
@@ -57,5 +55,4 @@ class ParentGoal extends FileGoal
     {
         return $this->_defined;
     }
-
 }

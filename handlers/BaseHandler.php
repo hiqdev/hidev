@@ -1,12 +1,12 @@
 <?php
 
 /*
- * HiDev.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\handlers;
@@ -60,7 +60,7 @@ class BaseHandler extends \yii\base\Object
      */
     public function renderPrepared(array $data)
     {
-        throw new InvalidParamException("Render not available");
+        throw new InvalidParamException('Render not available');
     }
 
     /**
@@ -91,12 +91,15 @@ class BaseHandler extends \yii\base\Object
      */
     public function renderPath($path, $data)
     {
-        return $this->write($path,$this->render($data));
+        return $this->write($path, $this->render($data));
     }
 
     public function parsePath($path)
     {
-        if ($path==Yii::getAlias('@source/composer.json')) d( 'adshsdf');
+        if ($path === Yii::getAlias('@source/composer.json')) {
+            d('adshsdf');
+        }
+
         return $this->parse($this->read($path));
     }
 
@@ -106,7 +109,7 @@ class BaseHandler extends \yii\base\Object
      */
     protected function write($path, $content)
     {
-        if (!is_file($path) || file_get_contents($path) != $content) {
+        if (!is_file($path) || file_get_contents($path) !== $content) {
             Yii::warning('Written file: ' . $path, 'file');
             file_put_contents($path, $content);
         }
@@ -116,10 +119,12 @@ class BaseHandler extends \yii\base\Object
     {
         if (file_exists($path)) {
             Yii::info('Read file: ' . $path, 'file');
+
             return $asArray ? file($path) : file_get_contents($path);
         } else {
             Yii::error('Couldn\'t read file: ' . $path, 'file');
-            return null;
+
+            return;
         }
     }
 
@@ -127,5 +132,4 @@ class BaseHandler extends \yii\base\Object
     {
         return $this->read($path, true);
     }
-
 }

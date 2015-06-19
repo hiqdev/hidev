@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\controllers;
@@ -19,13 +19,12 @@ use yii\helpers\Inflector;
  */
 class DefaultController extends \yii\console\Controller
 {
-
     /**
      * Check has action.
      */
     public static function hasAction($id)
     {
-        return method_exists(get_called_class(), 'action'.Inflector::id2camel($id));
+        return method_exists(get_called_class(), 'action' . Inflector::id2camel($id));
     }
 
     /**
@@ -34,6 +33,7 @@ class DefaultController extends \yii\console\Controller
     public function actionIndex()
     {
         Yii::$app->config->run();
+
         return 0;
     }
 
@@ -46,6 +46,7 @@ class DefaultController extends \yii\console\Controller
             d("Can't run goal '$goal'");
         }
         Yii::$app->config->getItem($goal)->run();
+
         return 0;
     }
 
@@ -55,9 +56,9 @@ class DefaultController extends \yii\console\Controller
     public function actionGen($tpl, $file = null)
     {
         $gen = Yii::createObject([
-            'class'     => 'hidev\goals\TemplateGoal',
-            'template'  => $tpl,
-            'file'      => $file ?: (basename($tpl) . '.php'),
+            'class'    => 'hidev\goals\TemplateGoal',
+            'template' => $tpl,
+            'file'     => $file ?: (basename($tpl) . '.php'),
         ]);
         $gen->save();
 
@@ -70,7 +71,7 @@ class DefaultController extends \yii\console\Controller
     public function actionGrep()
     {
         d('HERE AT grep');
+
         return 0;
     }
-
 }

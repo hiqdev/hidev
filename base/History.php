@@ -1,18 +1,18 @@
 <?php
 
 /*
- * HiDev - integrate your development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\base;
 
 /**
- * Handler for commits history
+ * Handler for commits history.
  */
 class History
 {
@@ -49,14 +49,14 @@ class History
 
     public function setTag($tag)
     {
-        $this->_tag = $tag;
-        $this->_note = '';
+        $this->_tag    = $tag;
+        $this->_note   = '';
         $this->_commit = '';
     }
 
     public function setNote($note)
     {
-        $this->_note = $note;
+        $this->_note   = $note;
         $this->_commit = '';
     }
 
@@ -67,19 +67,19 @@ class History
 
     public function addTag($tag, $label)
     {
-        $this->tag = $tag;
+        $this->tag                         = $tag;
         $this->_history[$this->tag]['tag'] = $label ?: $tag;
     }
 
     public function addNote($note, $label = null)
     {
-        $this->note = $note;
+        $this->note                                = $note;
         $this->_history[$this->tag][$note]['note'] = $label ?: $note;
     }
 
     public function addCommit($commit, $label)
     {
-        $this->commit = $commit;
+        $this->commit            = $commit;
         $this->_commits[$commit] = $label;
     }
 
@@ -122,14 +122,15 @@ class History
             }
             $this->_history[$this->tag][$this->note][$this->commit][] = $str;
         }
+
         return $this->_history;
     }
 
     public function addHistory($commit)
     {
-        $tag        = $commit['tag'];
-        $note       = $commit['note'];
-        $hash       = $commit['hash'];
+        $tag                                = $commit['tag'];
+        $note                               = $commit['note'];
+        $hash                               = $commit['hash'];
         $this->_history[$tag][$note][$hash] = $commit;
     }
 
@@ -174,6 +175,7 @@ class History
     {
         $res = $array[$key];
         unset($array[$key]);
+
         return $res;
     }
 
@@ -189,9 +191,10 @@ class History
 
     public function renderTag($tag)
     {
-        if (strpos($tag, ' ')===false) {
+        if (strpos($tag, ' ') === false) {
             $tag .= $this->renderDate($this->goal->vcs->tags[$tag]);
         }
+
         return "\n## $tag\n\n";
     }
 
@@ -199,5 +202,4 @@ class History
     {
         return $date ? date(' F j, Y', strtotime($date)) : '';
     }
-
 }

@@ -1,9 +1,18 @@
 <?php
 
+/*
+ * HiDev - integrate your development
+ *
+ * @link      https://hidev.me/
+ * @package   hidev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
+ */
+
 namespace hidev\base;
 
-use Yii;
 use hidev\controllers\DefaultController;
+use Yii;
 
 /**
  * The Request.
@@ -20,16 +29,17 @@ class Request extends \yii\console\Request
 
     /**
      * Returns the command line arguments.
+     *
      * @return array the command line arguments. It does not include the entry script name.
      */
     public function getParams()
     {
         if (!isset($this->_args)) {
             if (isset($_SERVER['argv'])) {
-                $args = $_SERVER['argv'];
+                $args        = $_SERVER['argv'];
                 $this->_self = array_shift($args);
-                $command = $args[0];
-                $alias = Yii::$app->config->aliases->get($command);
+                $command     = $args[0];
+                $alias       = Yii::$app->config->aliases->get($command);
                 if ($alias) {
                     array_shift($args);
                     $args = array_merge($alias, $args);
@@ -51,5 +61,4 @@ class Request extends \yii\console\Request
 
         return $this->_args;
     }
-
 }

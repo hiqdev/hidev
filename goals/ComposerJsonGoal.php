@@ -1,18 +1,18 @@
 <?php
 
 /*
- * Highy Integrated Development.
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
 
 /**
- * Goal for composer.json
+ * Goal for composer.json.
  */
 class ComposerJsonGoal extends TemplateGoal
 {
@@ -21,16 +21,16 @@ class ComposerJsonGoal extends TemplateGoal
     public function init()
     {
         $sets = [
-            'name'          => $this->fullName,
-            'type'          => $this->type,
-            'description'   => $this->package->title,
-            'keywords'      => $this->package->keywords,
-            'homepage'      => $this->package->homepage,
-            'license'       => $this->package->license,
-            'support'       => $this->support,
-            'authors'       => $this->authors,
-            'require'       => $this->require,
-            'autoload'      => $this->autoload,
+            'name'        => $this->fullName,
+            'type'        => $this->type,
+            'description' => $this->package->title,
+            'keywords'    => $this->package->keywords,
+            'homepage'    => $this->package->homepage,
+            'license'     => $this->package->license,
+            'support'     => $this->support,
+            'authors'     => $this->authors,
+            'require'     => $this->require,
+            'autoload'    => $this->autoload,
         ];
         $this->smartSet($sets, 'first');
     }
@@ -53,12 +53,13 @@ class ComposerJsonGoal extends TemplateGoal
     {
         $support = $this->getItem('support');
         $support->smartAdd(array_filter([
-            'email'     => $this->vendor->email,
-            'source'    => $this->package->source,
-            'issues'    => $this->package->issues,
-            'wiki'      => $this->package->wiki,
-            'forum'     => $this->package->forum,
+            'email'  => $this->vendor->email,
+            'source' => $this->package->source,
+            'issues' => $this->package->issues,
+            'wiki'   => $this->package->wiki,
+            'forum'  => $this->package->forum,
         ]), 'first');
+
         return $support;
     }
 
@@ -67,8 +68,9 @@ class ComposerJsonGoal extends TemplateGoal
         $res = [];
         foreach ($this->package->authors->getItems() as $name => $data) {
             $data['name'] = $name;
-            $res[] = array_merge(compact('name'), $data);
+            $res[]        = array_merge(compact('name'), $data);
         }
+
         return $res;
     }
 
@@ -77,8 +79,8 @@ class ComposerJsonGoal extends TemplateGoal
         if (!$this->rawItem('autoload')) {
             $this->setItem('autoload', [
                 'psr-4' => [
-                    $this->package->namespace . '\\' => $this->package->src
-                ]
+                    $this->package->namespace . '\\' => $this->package->src,
+                ],
             ]);
         }
 

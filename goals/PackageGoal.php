@@ -1,12 +1,12 @@
 <?php
 
 /*
- * HiDev
+ * HiDev - integrate your development
  *
  * @link      https://hidev.me/
  * @package   hidev
- * @license   BSD 3-clause
- * @copyright Copyright (c) 2015 HiQDev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hidev\goals;
@@ -39,9 +39,10 @@ class PackageGoal extends VendorGoal
 
     public function getYears()
     {
-        $cur = (integer)date('Y');
-        $old = (integer)$this->year;
-        return ($old && $old<$cur ? $this->year . '-' : '') . $cur;
+        $cur = (integer) date('Y');
+        $old = (integer) $this->year;
+
+        return ($old && $old < $cur ? $this->year . '-' : '') . $cur;
     }
 
     public function getLicense()
@@ -113,5 +114,4 @@ class PackageGoal extends VendorGoal
     {
         return $this->getConfig()->getVendor();
     }
-
 }
