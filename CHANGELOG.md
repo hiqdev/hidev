@@ -4,6 +4,7 @@ hiqdev/hidev changelog
 ## 0.0.7 Under development
 
 - php-cs-fixed
+- php-cs-fixer plugin
 - plugin archtecture
 - improved portability
 

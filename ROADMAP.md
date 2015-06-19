@@ -2,8 +2,6 @@ ROADMAP
 -------
 
 Nearest - 0.1.0 release:
-- plugin architecture
-- php-cs-fixer plugin
 - phpunit plugin
 - codeception plugin
 - tests
