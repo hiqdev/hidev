@@ -2,6 +2,8 @@ ROADMAP
 -------
 
 Nearest - 0.1.0 release:
+- redo goals as controllers
+- robo plugin
 - phpunit plugin
 - codeception plugin
 - tests
@@ -11,7 +13,6 @@ Nearest - 0.1.0 release:
 - scrutinizer
 
 Refactoring:
-- redo goals as controllers
 - redo CommitsHandler to History component
 - rewrite without yii?
 
