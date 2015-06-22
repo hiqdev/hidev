@@ -2,7 +2,7 @@ ROADMAP
 -------
 
 Nearest - 0.1.0 release:
-- redo goals as controllers
+- redo goals like controllers
 - robo plugin
 - phpunit plugin
 - codeception plugin
