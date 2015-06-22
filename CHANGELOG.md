@@ -6,6 +6,7 @@ hiqdev/hidev changelog
 - + phpunit plugin
 - + codeception plugin
 - + tests
+- redo goals like controllers
 
 ## 0.0.7 June 19, 2015
 

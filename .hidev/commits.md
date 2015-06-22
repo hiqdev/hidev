@@ -6,6 +6,8 @@ hiqdev/hidev commits history
 - + phpunit plugin
 - + codeception plugin
 - + tests
+- redo goals like controllers
+    - 32be392 2015-06-23 * roadmap (sol@hiqdev.com)
 
 ## 0.0.7 June 19, 2015
 
