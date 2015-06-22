@@ -7,6 +7,7 @@ hiqdev/hidev commits history
 - + codeception plugin
 - + tests
 - redo goals like controllers
+    - bf724ab 2015-06-23 changelog (sol@hiqdev.com)
     - 32be392 2015-06-23 * roadmap (sol@hiqdev.com)
 
 ## 0.0.7 June 19, 2015
