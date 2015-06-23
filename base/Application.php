@@ -36,6 +36,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         if (!$this->config->hasGoal($id)) {
             d("Can't run goal '$id'");
         }
+
         return $this->config->getGoal($id);
     }
 }

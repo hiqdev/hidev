@@ -83,10 +83,13 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     public function getItem($name)
     {
+        if ($name === 'default') {
+            return $this;
+        }
         $item = &$this->_items[$name];
         if (is_array($item) || is_null($item)) {
             $item = $this->createItem($name, $item ?: []);
-        };
+        }
 
         return $item;
     }
