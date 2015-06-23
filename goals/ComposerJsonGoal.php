@@ -60,7 +60,7 @@ class ComposerJsonGoal extends TemplateGoal
             'issues' => $this->package->issues,
             'wiki'   => $this->package->wiki,
             'forum'  => $this->package->forum,
-        ]), (array)$this->getItem('support'));
+        ]), (array) $this->getItem('support'));
     }
 
     public function getAuthors()

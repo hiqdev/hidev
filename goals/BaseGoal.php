@@ -11,9 +11,6 @@
 
 namespace hidev\goals;
 
-use hidev\helpers\Helper;
-use Yii;
-
 /**
  * Base Goal.
  */

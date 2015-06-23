@@ -13,7 +13,6 @@ namespace hidev\goals;
 
 use hidev\helpers\Helper;
 use Yii;
-use yii\base\Controller;
 use yii\base\BootstrapInterface;
 use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
@@ -72,7 +71,7 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         return array_merge([
             'class' => $this->getItemClass($name, $config),
             'name'  => $name,
-        ],$config);
+        ], $config);
     }
 
     protected function createItem($name, array $config = [])
