@@ -7,6 +7,8 @@ hiqdev/hidev commits history
 - + codeception plugin
 - + tests
 - redo goals like controllers
+    - cdcf25f 2015-06-24 php-cs-fixed (sol@hiqdev.com)
+    - c4d8a63 2015-06-24 + getting default goal (sol@hiqdev.com)
     - 0888788 2015-06-24 redoing goals like controllers (sol@hiqdev.com)
     - bf724ab 2015-06-23 changelog (sol@hiqdev.com)
     - 32be392 2015-06-23 * roadmap (sol@hiqdev.com)
