@@ -14,7 +14,7 @@ namespace hidev\goals;
 /**
  * Goal for VCS (Version Control Systems).
  */
-class VcsGoal extends BaseGoal
+class VcsGoal extends DefaultGoal
 {
     public $lastTag = 'Under development';
 

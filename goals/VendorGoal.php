@@ -16,19 +16,8 @@ use Yii;
 /**
  * Vendor part of the config.
  */
-class VendorGoal extends \hiqdev\collection\Model
+class VendorGoal extends DefaultGoal
 {
-    public function rules()
-    {
-        return [
-            ['type',            'safe'],
-            ['name',            'safe'],
-            ['title',           'safe'],
-            ['homepage',        'safe'],
-            ['description',     'safe'],
-        ];
-    }
-
     public function getTitleAndHomepage()
     {
         return $this->title . ($this->homepage ? ' (' . $this->homepage . ')' : '');

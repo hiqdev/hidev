@@ -33,7 +33,7 @@ class ComposerJsonGoal extends TemplateGoal
             'autoload'    => $this->autoload,
         ];
         $this->smartSet($sets, 'first');
-        if (!$this->get('require')->toArray()) {
+        if (!$this->get('require')) {
             $this->delete('require');
         }
     }
@@ -54,16 +54,13 @@ class ComposerJsonGoal extends TemplateGoal
 
     public function getSupport()
     {
-        $support = $this->getItem('support');
-        $support->smartAdd(array_filter([
+        return array_merge(array_filter([
             'email'  => $this->vendor->email,
             'source' => $this->package->source,
             'issues' => $this->package->issues,
             'wiki'   => $this->package->wiki,
             'forum'  => $this->package->forum,
-        ]), 'first');
-
-        return $support;
+        ]), (array)$this->getItem('support'));
     }
 
     public function getAuthors()

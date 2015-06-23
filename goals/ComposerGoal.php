@@ -14,7 +14,7 @@ namespace hidev\goals;
 /**
  * Goal for Composer.
  */
-class ComposerGoal extends BaseGoal
+class ComposerGoal extends DefaultGoal
 {
     public function init()
     {

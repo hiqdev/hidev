@@ -13,6 +13,7 @@ namespace hidev\goals;
 
 use hidev\helpers\Helper;
 use Yii;
+use yii\base\Controller;
 use yii\base\BootstrapInterface;
 use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
@@ -23,11 +24,29 @@ use yii\helpers\ArrayHelper;
 class ConfigGoal extends FileGoal implements BootstrapInterface
 {
     /**
+     * @param array $config name-value pairs that will be used to initialize the object properties.
+     */
+    public function __construct($config = [])
+    {
+        parent::__construct('config', Yii::$app, $config);
+    }
+
+    /**
      * @var array|File file with main config
      */
     protected $_file = '.hidev/config.yml';
 
     public $types = ['yaml', 'json'];
+
+    public function hasGoal($name)
+    {
+        return $this->hasItem($name) || class_exists(static::goal2class('', $name));
+    }
+
+    public function getGoal($name)
+    {
+        return $this->getItem($name);
+    }
 
     public static function findGoal($name)
     {
@@ -45,7 +64,31 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
     {
         $class = static::goal2class($config['goal'], $name);
 
-        return class_exists($class) ? $class : static::goal2class('base');
+        return class_exists($class) ? $class : static::goal2class('default');
+    }
+
+    public function getItemConfig($name = null, array $config = [])
+    {
+        return array_merge([
+            'class' => $this->getItemClass($name, $config),
+            'name'  => $name,
+        ],$config);
+    }
+
+    protected function createItem($name, array $config = [])
+    {
+        #return Yii::createObject($this->getItemConfig($name, $config), [$name, $this->module]);
+        return Yii::createObject($this->getItemConfig($name, $config), [$id, $this->module]);
+    }
+
+    public function getItem($name)
+    {
+        $item = &$this->_items[$name];
+        if (is_array($item) || is_null($item)) {
+            $item = $this->createItem($name, $item ?: []);
+        };
+
+        return $item;
     }
 
     /**

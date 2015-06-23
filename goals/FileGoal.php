@@ -18,7 +18,7 @@ use Yii;
 /**
  * A File Goal.
  */
-class FileGoal extends BaseGoal
+class FileGoal extends DefaultGoal
 {
     /**
      * @var array|File the file to be handled.

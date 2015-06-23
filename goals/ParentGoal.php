@@ -34,7 +34,7 @@ class ParentGoal extends FileGoal
             throw new InvalidParamException('Already defined: ' . $this->_defined);
         }
         $this->_github  = $github;
-        $this->_defined = 'github:' . $github;
+        $this->_defined = 'github';
         if (static::exists($this->file->dirname)) {
             return;
         }
@@ -54,5 +54,9 @@ class ParentGoal extends FileGoal
     public function getDefined()
     {
         return $this->_defined;
+    }
+
+    public function actionUpdate()
+    {
     }
 }

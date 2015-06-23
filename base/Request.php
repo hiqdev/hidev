@@ -44,6 +44,7 @@ class Request extends \yii\console\Request
                     array_shift($args);
                     $args = array_merge($alias, $args);
                 }
+/*
                 $action = $args[0];
                 if (Yii::$app->config->hasItem($action)) {
                     array_shift($args);
@@ -52,6 +53,7 @@ class Request extends \yii\console\Request
                     array_shift($args);
                     array_unshift($args, "default/$action");
                 }
+*/
                 $this->_args = $args;
             } else {
                 $this->_args = [];

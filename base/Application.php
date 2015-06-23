@@ -30,4 +30,12 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
         return $this->_viewPath;
     }
+
+    public function createControllerByID($id)
+    {
+        if (!$this->config->hasGoal($id)) {
+            d("Can't run goal '$id'");
+        }
+        return $this->config->getGoal($id);
+    }
 }
