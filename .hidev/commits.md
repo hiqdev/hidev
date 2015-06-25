@@ -7,6 +7,8 @@ hiqdev/hidev commits history
 - + codeception plugin
 - + tests
 - redo goals like controllers
+    - 37d11fa 2015-06-26 renamed actions to actionPerform/Make/... (sol@hiqdev.com)
+    - c069025 2015-06-26 + parent/update action (sol@hiqdev.com)
     - cdcf25f 2015-06-24 php-cs-fixed (sol@hiqdev.com)
     - c4d8a63 2015-06-24 + getting default goal (sol@hiqdev.com)
     - 0888788 2015-06-24 redoing goals like controllers (sol@hiqdev.com)
