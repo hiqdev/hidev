@@ -11,6 +11,7 @@
 
 namespace hidev\goals;
 
+use Yii;
 use yii\base\InvalidParamException;
 
 /**
@@ -58,5 +59,7 @@ class ParentGoal extends FileGoal
 
     public function actionUpdate()
     {
+        $dir = Yii::getAlias('@parent');
+        passthru("cd $dir;git pull");
     }
 }
