@@ -96,12 +96,12 @@ class FileGoal extends DefaultGoal
         return $this->getFile()->readArray();
     }
 
-    public function load()
+    public function actionLoad()
     {
         $this->mset($this->getFile()->load() ?: []);
     }
 
-    public function save()
+    public function actionSave()
     {
         return $this->getFile()->save($this);
     }

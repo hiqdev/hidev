@@ -56,7 +56,7 @@ class DefaultGoal extends BaseGoal
         return Helper::ksplit($this->rawItem('deps'));
     }
 
-    public function runDeps()
+    public function actionDeps()
     {
         foreach ($this->getDeps() as $name => $enabled) {
             if (!$enabled) {
@@ -64,12 +64,12 @@ class DefaultGoal extends BaseGoal
             }
             $goal = $this->getConfig()->get($name);
             if ($goal instanceof self && !$goal->done) {
-                $goal->actionRun();
+                $goal->actionPerform();
             }
         }
     }
 
-    public function actionRun()
+    public function actionPerform()
     {
         if ($this->done) {
             Yii::trace("Already done: $this->name");
@@ -77,25 +77,25 @@ class DefaultGoal extends BaseGoal
             return;
         }
         Yii::trace("Started: $this->name");
-        $this->runDeps();
-        $this->make();
+        $this->actionDeps();
+        $this->actionMake();
         $this->done = true;
     }
 
-    public function load()
+    public function actionLoad()
     {
         Yii::trace("Loading nothing for '$this->name'");
     }
 
-    public function save()
+    public function actionSave()
     {
         Yii::trace("Saving nothing for '$this->name'");
     }
 
-    public function make()
+    public function actionMake()
     {
-        $this->load();
-        $this->save();
+        $this->actionLoad();
+        $this->actionSave();
     }
 
     public function getRobo()

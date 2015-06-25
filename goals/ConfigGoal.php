@@ -94,13 +94,6 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
     }
 
     /**
-     * No save at the moment.
-     */
-    public function save()
-    {
-    }
-
-    /**
      * Bootstraps config. Reads or creates if doesn't exist.
      * Looks for .hidev in current directory and up.
      *
@@ -120,13 +113,13 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         Yii::setAlias('@source', getcwd());
         Yii::setAlias('@config', '@source/' . $this->dirname);
         Yii::setAlias('@parent', '@config/parent');
-        $this->load();
+        $this->actionLoad();
         $parent = $this->parent;
         if ($parent->defined) {
             if (!$parent->file->find($this->types)) {
                 throw new InvalidParamException('No parent config found at ' . $parent->defined);
             }
-            $parent->load();
+            $parent->actionLoad();
             $parent->unsetItem('parentConfig');
             $this->_items = ArrayHelper::merge($parent->_items, $this->_items);
         }

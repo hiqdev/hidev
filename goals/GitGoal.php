@@ -111,7 +111,7 @@ class GitGoal extends VcsGoal
         return false;
     }
 
-    public function load()
+    public function actionLoad()
     {
         $this->loadTags();
         $this->loadHistory();

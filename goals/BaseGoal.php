@@ -18,5 +18,5 @@ class BaseGoal extends \yii\base\Controller implements \ArrayAccess, \IteratorAg
 {
     use \hiqdev\collection\CollectionTrait;
 
-    public $defaultAction = 'run';
+    public $defaultAction = 'perform';
 }
