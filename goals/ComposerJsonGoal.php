@@ -18,8 +18,9 @@ class ComposerJsonGoal extends TemplateGoal
 {
     protected $_file = 'composer.json';
 
-    public function init()
+    public function actionLoad()
     {
+        parent::actionLoad();
         $sets = [
             'name'        => $this->fullName,
             'type'        => $this->type,

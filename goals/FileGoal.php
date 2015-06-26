@@ -14,6 +14,7 @@ namespace hidev\goals;
 use hidev\base\File;
 use hidev\helpers\Helper;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * A File Goal.
@@ -98,7 +99,10 @@ class FileGoal extends DefaultGoal
 
     public function actionLoad()
     {
-        $this->mset($this->getFile()->load() ?: []);
+        $data = $this->getFile()->load() ?: [];
+        if ($data) {
+            $this->mset(ArrayHelper::merge($data, $this->toArray()));
+        }
     }
 
     public function actionSave()
