@@ -59,12 +59,8 @@ class DefaultGoal extends BaseGoal
     public function actionDeps()
     {
         foreach ($this->getDeps() as $name => $enabled) {
-            if (!$enabled) {
-                continue;
-            }
-            $goal = $this->getConfig()->get($name);
-            if ($goal instanceof self && !$goal->done) {
-                $goal->actionPerform();
+            if ($enabled) {
+                $this->module->runAction($name);
             }
         }
     }
