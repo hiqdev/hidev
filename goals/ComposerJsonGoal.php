@@ -86,9 +86,4 @@ class ComposerJsonGoal extends TemplateGoal
 
         return $this->getItem('autoload');
     }
-
-    public function load()
-    {
-        return [];
-    }
 }
