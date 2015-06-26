@@ -13,12 +13,3 @@ package:
     description:    Mix all the tools to make your code shine
     year:           2014
 
-composer.json:
-    require:
-        yiisoft/yii2:               '~2.0'
-        yiisoft/yii2-twig:          '~2.0'
-        symfony/yaml:               '~2.7'
-        hiqdev/yii2-collection:     '*@dev'
-        hiqdev/yii2-pluginmanager:  '*@dev'
-        codegyre/robo:              '*'
-    bin: [hidev]
