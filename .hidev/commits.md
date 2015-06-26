@@ -6,6 +6,11 @@ hiqdev/hidev commits history
 - + phpunit plugin
 - + codeception plugin
 - + tests
+- improved config loading
+    - 76546e7 2015-06-27 * .hidev/config.yml: - composer.json config goes to composer.json (sol@hiqdev.com)
+    - 1384678 2015-06-27 improved actionLoad in base/File and ComposerJsonGoal (sol@hiqdev.com)
+    - f8996bc 2015-06-27 used module->runAction at actionDeps (sol@hiqdev.com)
+    - e4882d4 2015-06-27 * ComposerJsonGoal + standart load (sol@hiqdev.com)
 - redo goals like controllers
     - 37d11fa 2015-06-26 renamed actions to actionPerform/Make/... (sol@hiqdev.com)
     - c069025 2015-06-26 + parent/update action (sol@hiqdev.com)
