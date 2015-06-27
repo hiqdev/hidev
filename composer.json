@@ -49,7 +49,9 @@
         "symfony/yaml": "~2.7",
         "hiqdev/yii2-collection": "*@dev",
         "hiqdev/yii2-pluginmanager": "*@dev",
-        "codegyre/robo": "*"
+        "codegyre/robo": "*",
+        "hiqdev/hidev-php-cs-fixer": "*@dev",
+        "hiqdev/hidev-codeception": "*@dev"
     },
     "autoload": {
         "psr-4": {
