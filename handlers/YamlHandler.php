@@ -12,6 +12,7 @@
 namespace hidev\handlers;
 
 use Symfony\Component\Yaml\Yaml;
+use yii\helpers\ArrayHelper;
 
 /**
  * Handler for YAML files.
@@ -23,7 +24,8 @@ class YamlHandler extends TypeHandler
      */
     public function renderType($data)
     {
-        return Yaml::dump($data);
+        /// XXX TODO fix getItems crutch
+        return Yaml::dump(ArrayHelper::toArray($data->getItems()), 4);
     }
 
     /**
