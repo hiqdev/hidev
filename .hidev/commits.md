@@ -7,6 +7,7 @@ hiqdev/hidev commits history
 - + codeception plugin
 - + tests
 - improved config loading
+    - e26d2b5 2015-06-27 redone File/Goal::exists (sol@hiqdev.com)
     - 76546e7 2015-06-27 * .hidev/config.yml: - composer.json config goes to composer.json (sol@hiqdev.com)
     - 1384678 2015-06-27 improved actionLoad in base/File and ComposerJsonGoal (sol@hiqdev.com)
     - f8996bc 2015-06-27 used module->runAction at actionDeps (sol@hiqdev.com)
