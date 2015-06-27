@@ -82,9 +82,9 @@ class FileGoal extends DefaultGoal
         return $this->getFile()->getPath();
     }
 
-    public static function exists($path)
+    public function exists()
     {
-        return File::exists($path);
+        return $this->getFile()->exists();
     }
 
     public function read()

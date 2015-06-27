@@ -206,9 +206,14 @@ class File extends \yii\base\Object
         return $this->_handler;
     }
 
-    public static function exists($path)
+    public static function file_exists($path)
     {
         return file_exists(Yii::getAlias($path));
+    }
+
+    public function exists()
+    {
+        return file_exists($this->path);
     }
 
     public function find(array $types = [])
@@ -220,7 +225,7 @@ class File extends \yii\base\Object
             foreach (static::$_extension2type as $e => $t) {
                 if ($t === $type) {
                     $this->setExtension($e);
-                    if (static::exists($this->path)) {
+                    if ($this->exists()) {
                         return true;
                     }
                 }

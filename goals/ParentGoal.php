@@ -36,7 +36,7 @@ class ParentGoal extends FileGoal
         }
         $this->_github  = $github;
         $this->_defined = 'github';
-        if (static::exists($this->file->dirname)) {
+        if (file_exists($this->file->dirname)) {
             return;
         }
         $task = $this->taskGitStack()
