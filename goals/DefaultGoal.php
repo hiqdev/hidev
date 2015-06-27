@@ -21,7 +21,7 @@ class DefaultGoal extends BaseGoal
 {
     protected $_itemClass = 'hiqdev\collection\Manager';
 
-    public $goal;
+    public $goalName;
 
     public $done = false;
 
@@ -35,11 +35,6 @@ class DefaultGoal extends BaseGoal
     public function setFileType($type)
     {
         $this->_fileType = $type;
-    }
-
-    public function getName()
-    {
-        return (string) $this->rawItem('name');
     }
 
     public function setDeps($deps)
@@ -68,11 +63,11 @@ class DefaultGoal extends BaseGoal
     public function actionPerform()
     {
         if ($this->done) {
-            Yii::trace("Already done: $this->name");
+            Yii::trace("Already done: $this->goalName");
 
             return;
         }
-        Yii::trace("Started: $this->name");
+        Yii::trace("Started: $this->goalName");
         $this->actionDeps();
         $this->actionMake();
         $this->done = true;
@@ -80,12 +75,12 @@ class DefaultGoal extends BaseGoal
 
     public function actionLoad()
     {
-        Yii::trace("Loading nothing for '$this->name'");
+        Yii::trace("Loading nothing for '$this->goalName'");
     }
 
     public function actionSave()
     {
-        Yii::trace("Saving nothing for '$this->name'");
+        Yii::trace("Saving nothing for '$this->goalName'");
     }
 
     public function actionMake()

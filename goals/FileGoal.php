@@ -35,7 +35,7 @@ class FileGoal extends DefaultGoal
 
     public function getTemplate()
     {
-        return Helper::file2template($this->_template ?: $this->name);
+        return Helper::file2template($this->_template ?: $this->goalName);
     }
 
     /**
@@ -49,7 +49,7 @@ class FileGoal extends DefaultGoal
         if (!is_object($this->_file)) {
             if (!is_array($this->_file)) {
                 $this->_file = [
-                    'path' => $this->_file ?: $this->name,
+                    'path' => $this->_file ?: $this->goalName,
                 ];
             }
             $this->_file = Yii::createObject(array_merge([
