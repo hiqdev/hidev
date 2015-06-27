@@ -69,8 +69,8 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
     public function getItemConfig($name = null, array $config = [])
     {
         return array_merge([
-            'class'     => $this->getItemClass($name, $config),
-            'goalName'  => $name,
+            'class'    => $this->getItemClass($name, $config),
+            'goalName' => $name,
         ], $config);
     }
 

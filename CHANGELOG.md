@@ -3,9 +3,9 @@ hiqdev/hidev changelog
 
 ## 0.0.8 Under development
 
+- + tests
 - + phpunit plugin
 - + codeception plugin
-- + tests
 - improved config loading
 - redo goals like controllers
 

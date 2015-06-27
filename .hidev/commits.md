@@ -3,9 +3,12 @@ hiqdev/hidev commits history
 
 ## 0.0.8 Under development
 
+- + tests
 - + phpunit plugin
 - + codeception plugin
-- + tests
+    - 233d4be 2015-06-28 redone goals name -> goalName (sol@hiqdev.com)
+    - e731acd 2015-06-28 crutched yaml rendering (sol@hiqdev.com)
+    - 055defb 2015-06-28 + require plugins hidev-codeception/php-cs-fixer (sol@hiqdev.com)
 - improved config loading
     - e26d2b5 2015-06-27 redone File/Goal::exists (sol@hiqdev.com)
     - 76546e7 2015-06-27 * .hidev/config.yml: - composer.json config goes to composer.json (sol@hiqdev.com)
