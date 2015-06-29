@@ -31,7 +31,7 @@ class Helper
 
     public static function file2template($file, $separator = '-')
     {
-        return self::bad2sep(trim($file, '.'), $separator);
+        return trim($file, '.');
     }
 
     public static function csplit($input, $delimiter = ',')
