@@ -14,7 +14,7 @@ namespace hidev\goals;
 /**
  * Base Goal.
  */
-class BaseGoal extends \yii\base\Controller implements \ArrayAccess, \IteratorAggregate, \yii\base\Arrayable
+class BaseGoal extends \yii\console\Controller implements \ArrayAccess, \IteratorAggregate, \yii\base\Arrayable
 {
     use \hiqdev\collection\CollectionTrait;
 
