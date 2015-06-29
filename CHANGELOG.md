@@ -5,6 +5,7 @@ hiqdev/hidev changelog
 
 - + tests
 - + phpunit plugin
+- + generate goal: generate file by template and params
 - + codeception plugin
 - improved config loading
 - redo goals like controllers

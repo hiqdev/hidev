@@ -5,6 +5,9 @@ hiqdev/hidev commits history
 
 - + tests
 - + phpunit plugin
+- + generate goal: generate file by template and params
+    - 34d8231 2015-06-29 + GenerateGoal (sol@hiqdev.com)
+    - 9e9784f 2015-06-29 small but good fix to extend from console\Controller <- base\Controller (sol@hiqdev.com)
 - + codeception plugin
     - 233d4be 2015-06-28 redone goals name -> goalName (sol@hiqdev.com)
     - e731acd 2015-06-28 crutched yaml rendering (sol@hiqdev.com)

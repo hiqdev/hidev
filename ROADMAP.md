@@ -8,6 +8,7 @@ Nearest - 0.1.0 release:
 - codeception plugin
 - tests
 
+- status goal: runs status command on every goal that has it
 - gitignore build from hashmap
 - travis
 - scrutinizer
