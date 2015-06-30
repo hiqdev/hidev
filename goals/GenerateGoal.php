@@ -26,7 +26,7 @@ class GenerateGoal extends TemplateGoal
     {
         $this->template = $template;
         $this->file = $file ?: static::template2file($template);
-        parent::actionPerform();
+        return parent::actionPerform();
     }
 
     public function actionOnce($template, $file = null)
@@ -35,6 +35,14 @@ class GenerateGoal extends TemplateGoal
         if (file_exists($file)) {
             return;
         }
-        $this->actionPerform($template, $file);
+        return $this->actionPerform($template, $file);
+    }
+
+    public function actionMkdir($dir)
+    {
+        if (file_exists($dir)) {
+            return;
+        }
+        mkdir($dir, 0777, true);
     }
 }
