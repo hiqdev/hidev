@@ -39,4 +39,13 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
         return $this->config->getGoal($id);
     }
+
+    public function runRequest($string)
+    {
+        $request = Yii::createObject([
+            'class'     => 'hidev\base\Request',
+            'params'    => array_filter(explode(' ', $string)),
+        ]);
+        return $this->handleRequest($request);
+    }
 }

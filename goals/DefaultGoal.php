@@ -41,7 +41,7 @@ class DefaultGoal extends BaseGoal
     {
         $res = $this->getDeps();
         foreach (Helper::ksplit($deps) as $d => $e) {
-            $res[$d] = $e;
+            $res[is_int($d) ? $e : $d] = $e;
         }
         $this->setItem('deps', $res);
     }
@@ -55,7 +55,7 @@ class DefaultGoal extends BaseGoal
     {
         foreach ($this->getDeps() as $name => $enabled) {
             if ($enabled) {
-                $this->module->runAction($name);
+                $this->module->runRequest($name);
             }
         }
     }

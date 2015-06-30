@@ -63,4 +63,10 @@ class Request extends \yii\console\Request
 
         return $this->_args;
     }
+
+    public function setParams($params)
+    {
+        parent::setParams($params);
+        $this->_args = $params;
+    }
 }
