@@ -34,7 +34,7 @@ ROADMAP
 ### General goals 
 
 - **Package management**: composer.json, Packagist
-- **Release management**: README, LICENSE, CHANGELOG, release notes
+- **Release automation**: README, LICENSE, CHANGELOG, release notes
 - **Code generation**: php, twig, smarty
 - **Documentation**: github wiki, apidoc, phpdoc
 - **Development tools**: swager
@@ -42,5 +42,5 @@ ROADMAP
 - **VCS**: .gitignore, github, commits history
 - **Code quality**: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
 - **Testing**: codeception, phpunit, Coveralls
-- **CI**: Travis, Jenkins, TeamCity
+- **CI**: Travis, Jenkins, TeamCity, AppVeyor
 
