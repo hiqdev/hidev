@@ -1,17 +1,30 @@
 ROADMAP
 -------
 
-Nearest - 0.1.0 release:
-- redo goals like controllers
-- robo plugin
-- phpunit plugin
+### 0.1.0
+
+- robo plugin: run goals from Robo
+- before/after options 
 - codeception plugin
 - tests
 
-- status goal: runs status command on every goal that has it
-- gitignore build from hashmap
+
+### 0.2.0
+
+- status&update super goals: run status/update command on every goal that has it
+- gitignore build from hashmap with comments 
 - travis
 - scrutinizer
+- loading goals from Robo
+
+
+### Later
+
+- change $done to hold timestamp of goal completion and use it to determine if goal needs to be done 
+- phpunit plugin
+- other build tools integration grunt, gulp, make,  phing, phake plugins: run & load goals
+- CI tools integration: Jenkins, TeamCity
+
 
 Refactoring:
 - redo CommitsHandler to History component
