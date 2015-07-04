@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.8 - Under development
 
+- Changed change log to follow keepachangelog.com recomendations
 - Added tests
 - Added generate goal: generate file by template and params
 - Added codeception plugin

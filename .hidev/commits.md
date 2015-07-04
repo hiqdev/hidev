@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+- Changed change log to follow keepachangelog.com recomendations
+    - 1c354e3 2015-07-04 Changed change log to follow keepachangelog.com recomendations (sol@hiqdev.com)
+    - 0610949 2015-07-04 added docs/BestPractices.md (sol@hiqdev.com)
     - 15e02ae 2015-07-04 changed CommitsHandler::renderDate for ISO date formatting (sol@hiqdev.com)
 - Added tests
     - 180477e 2015-06-30 + codeception.yml (sol@hiqdev.com)
