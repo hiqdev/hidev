@@ -11,7 +11,7 @@ ROADMAP
 
 ### 0.2.0
 
-- status&update super goals: run status/update command on every goal that has it
+- status/install/update super goals: run status/install/update action on every goal that has it
 - gitignore build from hashmap with comments 
 - travis
 - scrutinizer
