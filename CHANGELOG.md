@@ -11,7 +11,7 @@ hiqdev/hidev changelog
 - Changed config loading
 - Changed: redone goals like controllers
 
-## 0.0.7 - 2015-06-19
+## [0.0.7] - 2015-06-19
 
 - Changed composer.json: dont add empty require
 - Fixed code styling with php-cs-fixer
