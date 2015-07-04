@@ -34,13 +34,13 @@ ROADMAP
 ### General goals 
 
 - **Package management**: composer.json, Packagist
-- Release management: README, LICENSE, CHANGELOG, release notes
-- Code generation: php, twig, smarty
-- Documentation: github wiki, apidoc, phpdoc
-- Development tools: swager
-- Build tools: robo, grunt, phing, phake, make, ... 
-- VCS: .gitignore, github, commits history
-- Code quality: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
-- Testing: codeception, phpunit, Coveralls
-- CI: Travis, Jenkins, TeamCity
+- **Release management**: README, LICENSE, CHANGELOG, release notes
+- **Code generation**: php, twig, smarty
+- **Documentation**: github wiki, apidoc, phpdoc
+- **Development tools**: swager
+- **Build tools**: robo, grunt, phing, phake, make, ... 
+- **VCS**: .gitignore, github, commits history
+- **Code quality**: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
+- **Testing**: codeception, phpunit, Coveralls
+- **CI**: Travis, Jenkins, TeamCity
 
