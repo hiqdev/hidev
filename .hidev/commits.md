@@ -7,6 +7,16 @@ hiqdev/hidev commits history
     - 1c354e3 2015-07-04 Changed change log to follow keepachangelog.com recomendations (sol@hiqdev.com)
     - 0610949 2015-07-04 added docs/BestPractices.md (sol@hiqdev.com)
     - 15e02ae 2015-07-04 changed CommitsHandler::renderDate for ISO date formatting (sol@hiqdev.com)
+    - 0933afb 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+- Changed roadmap
+    - 41012fc 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - 5121836 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - b4d975a 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - 0330b4b 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - 38a2637 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - 7407b96 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - d6d02d7 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - 8e45be6 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
 - Added tests
     - 180477e 2015-06-30 + codeception.yml (sol@hiqdev.com)
 - Added generate goal: generate file by template and params
