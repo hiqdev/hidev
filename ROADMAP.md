@@ -33,7 +33,7 @@ ROADMAP
 
 ### General goals 
 
-- *Package management*: composer.json, Packagist
+- **Package management**: composer.json, Packagist
 - Release management: README, LICENSE, CHANGELOG, release notes
 - Code generation: php, twig, smarty
 - Documentation: github wiki, apidoc, phpdoc
