@@ -26,15 +26,19 @@ ROADMAP
 - CI tools integration: Jenkins, TeamCity
 
 
-Refactoring:
+### Refactoring
+
 - redo CommitsHandler to History component
 - rewrite without yii?
 
-GENERAL:
+### GENERAL
+
 - Package management: composer.json, Packagist
-- Docs: README, LICENSE, github.wiki, apidoc, swager
+- Docs: README, LICENSE, github.wiki, apidoc
+- Development tools: swager
+- Build tools: robo, grunt, phing, phake, make, ... 
 - VCS: .gitignore, github, commit, CHANGELOG
 - Quality: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
-- Tests: codeception, phpunit, Coveralls
-- CI: Travis, Jenkins
+- Testing: codeception, phpunit, Coveralls
+- CI: Travis, Jenkins, TeamCity
 
