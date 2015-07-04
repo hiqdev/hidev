@@ -1,27 +1,46 @@
 ROADMAP
 -------
 
-Nearest - 0.1.0 release:
-- redo goals like controllers
-- robo plugin
-- phpunit plugin
+### 0.1.0
+
+- robo plugin: run goals from Robo
+- before/after options 
 - codeception plugin
 - tests
 
-- status goal: runs status command on every goal that has it
-- gitignore build from hashmap
+
+### 0.2.0
+
+- status/install/update super goals: run status/install/update action on every goal that has it
+- gitignore build from hashmap with comments 
 - travis
 - scrutinizer
+- loading goals from Robo
 
-Refactoring:
+
+### Later
+
+- change $done to hold timestamp of goal completion and use it to determine if goal needs to be done 
+- phpunit plugin
+- other build tools integration grunt, gulp, make,  phing, phake plugins: run & load goals
+- CI tools integration: Jenkins, TeamCity
+
+
+### Refactoring
+
 - redo CommitsHandler to History component
 - rewrite without yii?
 
-GENERAL:
-- Package management: composer.json, Packagist
-- Docs: README, LICENSE, github.wiki, apidoc, swager
-- VCS: .gitignore, github, commit, CHANGELOG
-- Quality: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
-- Tests: codeception, phpunit, Coveralls
-- CI: Travis, Jenkins
+### General goals 
+
+- **Package management**: composer.json, Packagist
+- **Release automation**: README, LICENSE, CHANGELOG, CONTRIBUTING
+- **Code generation**: php, twig, smarty
+- **Documentation**: github wiki, apidoc, phpdoc
+- **Development tools**: swager
+- **Build tools**: robo, grunt, phing, phake, make, ... 
+- **VCS**: .gitignore, github, commits history
+- **Code quality**: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
+- **Testing**: codeception, phpunit, Coveralls
+- **CI**: Travis, Jenkins, TeamCity, AppVeyor
 
