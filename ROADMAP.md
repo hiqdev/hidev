@@ -34,7 +34,7 @@ ROADMAP
 ### General goals 
 
 - **Package management**: composer.json, Packagist
-- **Release automation**: README, LICENSE, CONTRIBUTING, CHANGELOG
+- **Release automation**: README, LICENSE, CHANGELOG, CONTRIBUTING
 - **Code generation**: php, twig, smarty
 - **Documentation**: github wiki, apidoc, phpdoc
 - **Development tools**: swager
