@@ -3,12 +3,17 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+- Added initial Getting started doc
+    - e06aa69 2015-07-04 Update GettingStarted.md (sol@hiqdev.com)
+    - 13540c0 2015-07-04 Create GettingStarted.md (sol@hiqdev.com)
 - Changed change log to follow keepachangelog.com recomendations
     - 1c354e3 2015-07-04 Changed change log to follow keepachangelog.com recomendations (sol@hiqdev.com)
     - 0610949 2015-07-04 added docs/BestPractices.md (sol@hiqdev.com)
     - 15e02ae 2015-07-04 changed CommitsHandler::renderDate for ISO date formatting (sol@hiqdev.com)
-    - 0933afb 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
+    - caa6c7f 2015-07-04 Update CHANGELOG.md (sol@hiqdev.com)
+    - 98ee9c9 2015-07-04 Update CHANGELOG.md (sol@hiqdev.com)
 - Changed roadmap
+    - 0933afb 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
     - 41012fc 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
     - 5121836 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
     - b4d975a 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
