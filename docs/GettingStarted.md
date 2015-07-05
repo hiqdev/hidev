@@ -1,6 +1,6 @@
 # Getting started
 
-# Requirements 
+## Requirements 
 
 All you need is cli PHP and composer.
 
@@ -8,13 +8,13 @@ All you need is cli PHP and composer.
 
 Hidev and plugins are installed with composer.
  
-Hidev can be installed globally:
+Globally:
 
 composer global require hiqdev/hidev
 
 Or locally at every project with require-dev in composer.json file, which is preffered cause this way you can have different set of plugins for that project.
 
-You better have both. Globally installed hidev will look for locally installed hidev and run it instead when run from any project directory.
+It's better to have both. Globally installed hidev will look for locally installed hidev and run it instead when run from any project directory. So you can type just hidev (I prefer alias h in my shell) to run local vendor/bin/hidev.
 
 ## Hidev's directory 
 
