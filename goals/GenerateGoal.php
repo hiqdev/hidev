@@ -19,13 +19,15 @@ class GenerateGoal extends TemplateGoal
     public static function template2file($template, $extension = '.php')
     {
         $a = pathinfo($template);
+
         return $a['dirname'] . '/' . $a['filename'] . $extension;
     }
 
     public function actionPerform($template, $file = null)
     {
         $this->template = $template;
-        $this->file = $file ?: static::template2file($template);
+        $this->file     = $file ?: static::template2file($template);
+
         return parent::actionPerform();
     }
 
@@ -35,6 +37,7 @@ class GenerateGoal extends TemplateGoal
         if (file_exists($file)) {
             return;
         }
+
         return $this->actionPerform($template, $file);
     }
 
