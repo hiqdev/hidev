@@ -10,6 +10,8 @@ hiqdev/hidev commits history
 - Added initial Getting started doc
     - e06aa69 2015-07-04 Update GettingStarted.md (sol@hiqdev.com)
     - 13540c0 2015-07-04 Create GettingStarted.md (sol@hiqdev.com)
+    - a4f2874 2015-07-05 Update GettingStarted.md (sol@hiqdev.com)
+    - c7f0349 2015-07-05 Update GettingStarted.md (sol@hiqdev.com)
 - Changed change log to follow keepachangelog.com recomendations
     - 1c354e3 2015-07-04 Changed change log to follow keepachangelog.com recomendations (sol@hiqdev.com)
     - 0610949 2015-07-04 added docs/BestPractices.md (sol@hiqdev.com)
