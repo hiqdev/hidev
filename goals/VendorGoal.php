@@ -23,24 +23,6 @@ class VendorGoal extends DefaultGoal
         return $this->title . ($this->homepage ? ' (' . $this->homepage . ')' : '');
     }
 
-    protected $_authors;
-
-    public function getAuthors()
-    {
-        if (!is_object($this->_authors)) {
-            $this->_authors = new AuthorGoal(['items' => $this->_authors]);
-            /// XXX strangely later doesn't work :-/ investigate later
-            /// $this->_data = Author::createItem('', $this->_data);
-        }
-
-        return $this->_authors;
-    }
-
-    public function setAuthors($authors)
-    {
-        $this->_authors = $authors;
-    }
-
     public function getConfig()
     {
         return Yii::$app->config;
