@@ -18,7 +18,7 @@ use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
 
 /**
- * The Config. Keeps the Goals.
+ * The Config. Keeps config and Goals.
  */
 class ConfigGoal extends FileGoal implements BootstrapInterface
 {
@@ -95,33 +95,20 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     /**
      * Bootstraps config. Reads or creates if doesn't exist.
-     * Looks for .hidev in current directory and up.
      *
      * @param yii\base\Application $app application
      */
     public function bootstrap($app)
     {
-        for ($i = 0;$i < 9;++$i) {
-            if (is_dir($this->dirname)) {
-                break;
-            }
-            chdir('..');
-        }
         if (!$this->file->find($this->types)) {
             throw new InvalidParamException('No config found. Use hidev init');
         }
-        Yii::setAlias('@source', getcwd());
-        Yii::setAlias('@config', '@source/' . $this->dirname);
-        Yii::setAlias('@parent', '@config/parent');
-        $this->actionLoad();
-        $parent = $this->parent;
-        if ($parent->defined) {
-            if (!$parent->file->find($this->types)) {
-                throw new InvalidParamException('No parent config found at ' . $parent->defined);
-            }
-            $parent->actionLoad();
-            $parent->unsetItem('parentConfig');
-            $this->_items = ArrayHelper::merge($parent->_items, $this->_items);
+        foreach (Yii::$app->pluginManager->configFiles as $path) {
+            $file = Yii::createObject(array_merge([
+                'class' => 'hidev\base\File',
+            ], is_array($path) ? $path : compact('path')));
+            $this->mset($file->load());
         }
+        $this->actionLoad();
     }
 }

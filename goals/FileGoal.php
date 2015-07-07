@@ -100,8 +100,10 @@ class FileGoal extends DefaultGoal
     public function actionLoad()
     {
         $data = $this->getFile()->load() ?: [];
-        if ($data) {
-            $this->mset(ArrayHelper::merge($data, $this->toArray()));
+        if ($data) { /// TODO think what's better
+        //  $this->mset(ArrayHelper::merge($data, $this->toArray()));
+            $this->mset(ArrayHelper::merge($this->toArray(), $data));
+        //  $this->mset($data);
         }
     }
 

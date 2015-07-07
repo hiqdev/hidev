@@ -51,15 +51,15 @@
         "hiqdev/yii2-pluginmanager": "*@dev",
         "codegyre/robo": "*"
     },
-    "require-dev": {
-        "hiqdev/hidev-config": "*@dev",
-        "hiqdev/hidev-php-cs-fixer": "*@dev",
-        "hiqdev/hidev-codeception": "*@dev"
-    },
     "autoload": {
         "psr-4": {
             "hidev\\": ""
         }
+    },
+    "require-dev": {
+        "hiqdev/hidev-config": "*@dev",
+        "hiqdev/hidev-php-cs-fixer": "*@dev",
+        "hiqdev/hidev-codeception": "*@dev"
     },
     "bin": [
         "hidev"

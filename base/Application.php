@@ -25,7 +25,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     public function getViewPath()
     {
         if ($this->_viewPath === null) {
-            $this->_viewPath = Yii::getAlias('@parent/templates');
+            $this->_viewPath = Yii::getAlias('@app/views');
         }
 
         return $this->_viewPath;

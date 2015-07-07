@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+- Changed parent configuration: redone with plugins
+    - 57c98f1 2015-07-07 + require-dev (sol@hiqdev.com)
 - Changed change log to follow keepachangelog.com recomendations
     - 1c354e3 2015-07-04 Changed change log to follow keepachangelog.com recomendations (sol@hiqdev.com)
     - 0610949 2015-07-04 added docs/BestPractices.md (sol@hiqdev.com)

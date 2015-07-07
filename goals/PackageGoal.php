@@ -18,20 +18,6 @@ use hidev\helpers\Helper;
  */
 class PackageGoal extends VendorGoal
 {
-    public function rules()
-    {
-        return [
-            ['type',            'safe'],
-            ['name',            'safe'],
-            ['label',           'safe'],
-            ['title',           'safe'],
-            ['description',     'safe'],
-            ['license',         'safe'],
-            ['keywords',        'safe'],
-            ['namespace',       'safe'],
-        ];
-    }
-
     public function getLabel()
     {
         return $this->getItem('label') ?: ucfirst($this->name);
@@ -107,7 +93,7 @@ class PackageGoal extends VendorGoal
 
     public function getAuthors()
     {
-        return $this->_authors ? parent::getAuthors() : $this->vendor->authors;
+        return $this->getItem('authors') ?: $this->vendor->authors;
     }
 
     public function getVendor()

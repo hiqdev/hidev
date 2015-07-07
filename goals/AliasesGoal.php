@@ -13,10 +13,8 @@ namespace hidev\goals;
 
 use hidev\helpers\Helper;
 
-class AliasesGoal extends \hiqdev\collection\Object
+class AliasesGoal extends DefaultGoal
 {
-    public $name;
-
     public function getItem($name)
     {
         return Helper::csplit(parent::getItem($name), ' ');

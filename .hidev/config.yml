@@ -1,6 +1,3 @@
-parent:
-    github:         hiqdev/hidev-config
-
 package:
     name:           hidev
     namespace:      hidev
@@ -13,3 +10,5 @@ package:
     description:    Mix all the tools to make your code shine
     year:           2014
 
+aliases:
+    g: asdfasfas

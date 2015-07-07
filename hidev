@@ -27,7 +27,20 @@ if (!file_exists($autoload_path)) {
 require($autoload_path);
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 
+/// Look for .hidev in current directory and up.
+for ($i = 0;$i < 9;++$i) {
+    if (is_dir('.hidev')) {
+        break;
+    }
+    chdir('..');
+}
+if (is_executable('vendor/bin/hidev')) {
+    d('Here it execs local version of hidev...');
+}
+
 Yii::setAlias('@hidev', __DIR__);
+Yii::setAlias('@source', getcwd());
+Yii::setAlias('@config', '@source/.hidev');
 Yii::setLogger(Yii::createObject('hidev\base\Logger'));
 
 $application = new hidev\base\Application([
@@ -75,7 +88,7 @@ $application = new hidev\base\Application([
             'class' => 'hidev\base\View',
             'theme' => [
                 'pathMap' => [
-                    '@parent/templates' => ['@config/templates', '@app/views'],
+                    '@app/views' => ['@config/templates'],
                 ],
             ],
             'renderers' => [
