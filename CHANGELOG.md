@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.8 - Under development
 
+- Changed parent configuration: redone with plugins
 - Changed change log to follow keepachangelog.com recomendations
 - Changed roadmap
 - Added tests

@@ -5,6 +5,8 @@ hiqdev/hidev commits history
 
 - Changed parent configuration: redone with plugins
     - 57c98f1 2015-07-07 + require-dev (sol@hiqdev.com)
+    - 327628e 2015-07-07 redone all initialization for pluggable parent config (sol@hiqdev.com)
+    - 26f3f1e 2015-07-07 - AuthorGoal (sol@hiqdev.com)
 - Changed change log to follow keepachangelog.com recomendations
     - 1c354e3 2015-07-04 Changed change log to follow keepachangelog.com recomendations (sol@hiqdev.com)
     - 0610949 2015-07-04 added docs/BestPractices.md (sol@hiqdev.com)
