@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## 0.0.8 - Under development
 
 - Changed parent configuration: redone with plugins
+    - 445d4df 2015-07-08 php-cs-fixed (sol@hiqdev.com)
     - 57c98f1 2015-07-07 + require-dev (sol@hiqdev.com)
     - 327628e 2015-07-07 redone all initialization for pluggable parent config (sol@hiqdev.com)
     - 26f3f1e 2015-07-07 - AuthorGoal (sol@hiqdev.com)
