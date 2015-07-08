@@ -21,4 +21,3 @@ Thumbs.db
 .DS_Store
 
 # Added by HiDev
-

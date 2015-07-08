@@ -8,4 +8,3 @@
 
 For more info see wiki:
 <?= $config->package->wiki ?>
-
