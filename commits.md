@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+- Changed source dir: source moved to src
+    - 39754c6 2015-07-09 great moving to src dir (sol@hiqdev.com)
 - Changed parent configuration: redone with plugins
     - 445d4df 2015-07-08 php-cs-fixed (sol@hiqdev.com)
     - 57c98f1 2015-07-07 + require-dev (sol@hiqdev.com)

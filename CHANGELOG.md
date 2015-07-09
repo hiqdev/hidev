@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.8 - Under development
 
+- Changed source dir: source moved to src
 - Changed parent configuration: redone with plugins
 - Added initial Getting started doc
 - Changed change log to follow keepachangelog.com recomendations
