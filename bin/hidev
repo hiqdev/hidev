@@ -57,6 +57,7 @@ Yii::setAlias('@source', getcwd());
 Yii::setAlias('@config', '@source/.hidev');
 Yii::setAlias('@vendor', $VENDOR);
 Yii::setLogger(Yii::createObject('hidev\base\Logger'));
+Yii::warning("Running " . __FILE__);
 
 $application = new hidev\base\Application([
     'id'                    => 'hidev',
