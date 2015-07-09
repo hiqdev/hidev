@@ -3,9 +3,17 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
-- Changed source dir: source moved to src
+- Changed source dir: moved to src
     - 39754c6 2015-07-09 great moving to src dir (sol@hiqdev.com)
 - Changed parent configuration: redone with plugins
+    - af65f57 2015-07-09 warning Running the file (sol@hiqdev.com)
+    - cf2dd97 2015-07-09 improved initialization: + try ./bin/hidev (sol@hiqdev.com)
+    - 496217f 2015-07-09 * composer.json generation: require-dev (sol@hiqdev.com)
+    - 40b52c1 2015-07-09 improved running local bin (sol@hiqdev.com)
+    - ab0ecae 2015-07-09 improved initialization, + localbin execution (sol@hiqdev.com)
+    - 1d5fb22 2015-07-09 still redoing parent to plugins (sol@hiqdev.com)
+    - 317f58c 2015-07-09 improved initialization (sol@hiqdev.com)
+    - 212d220 2015-07-09 * CommitsHandler::renderDate minor fix (sol@hiqdev.com)
     - 445d4df 2015-07-08 php-cs-fixed (sol@hiqdev.com)
     - 57c98f1 2015-07-07 + require-dev (sol@hiqdev.com)
     - 327628e 2015-07-07 redone all initialization for pluggable parent config (sol@hiqdev.com)
