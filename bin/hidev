@@ -19,16 +19,17 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
-$PRJ_DIR = dirname(__DIR__);
-$autoload_path = $PRJ_DIR . '/vendor/autoload.php';
-if (!file_exists($autoload_path)) {
-    system("composer install");
+$PRJDIR = dirname(__DIR__);
+$VENDOR = "$PRJDIR/vendor";
+
+if (!is_dir($VENDOR)) {
+    $VENDOR = dirname(dirname($PRJDIR));
 }
 
-require($autoload_path);
-require($PRJ_DIR . '/vendor/yiisoft/yii2/Yii.php');
+require("$VENDOR/autoload.php");
+require("$VENDOR/yiisoft/yii2/Yii.php");
 
-/// Look for .hidev in current directory and up.
+/// Look for config file in current directory and up.
 $configFile = '.hidev.yml';
 for ($i = 0;$i < 9;++$i) {
     if (is_file($configFile)) {
@@ -40,17 +41,18 @@ if (is_executable('vendor/bin/hidev')) {
     d('Here it execs local version of hidev...');
 }
 
-Yii::setAlias('@prj',    $PRJ_DIR);
+Yii::setAlias('@prj',    $PRJDIR);
 Yii::setAlias('@hidev',  '@prj/src');
 Yii::setAlias('@source', getcwd());
 Yii::setAlias('@config', '@source/.hidev');
+Yii::setAlias('@vendor', $VENDOR);
 Yii::setLogger(Yii::createObject('hidev\base\Logger'));
 
 $application = new hidev\base\Application([
     'id'                    => 'hidev',
     'name'                  => 'HiDev - integrate your development',
     'basePath'              => '@prj/src',
-    'vendorPath'            => '@prj/vendor',
+    'vendorPath'            => '@vendor',
     'runtimePath'           => '@prj/runtime',
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',

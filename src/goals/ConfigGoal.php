@@ -97,11 +97,13 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         if (!$this->file->find($this->types)) {
             throw new InvalidParamException('No config found. Use hidev init');
         }
-        foreach (Yii::$app->pluginManager->configFiles as $path) {
-            $file = Yii::createObject(array_merge([
-                'class' => 'hidev\base\File',
-            ], is_array($path) ? $path : compact('path')));
-            $this->mset($file->load());
+        if (Yii::$app->pluginManager->configFiles) {
+            foreach (Yii::$app->pluginManager->configFiles as $path) {
+                $file = Yii::createObject(array_merge([
+                    'class' => 'hidev\base\File',
+                ], is_array($path) ? $path : compact('path')));
+                $this->mset($file->load());
+            }
         }
         $this->actionLoad();
     }

@@ -9,7 +9,3 @@ package:
     keywords:       build tool, task runner, code generator, continuous integration
     description:    Mix all the tools to make your code shine
     year:           2014
-    src:            src
-
-aliases:
-    g: asdfasfas
