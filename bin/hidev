@@ -37,13 +37,15 @@ for ($i = 0;$i < 9;++$i) {
     }
     chdir('..');
 }
-$localbin = './vendor/bin/hidev';
-if (is_executable($localbin)) {
+
+/// run local hidev if exists
+$local = realpath('./vendor/bin/hidev');
+if (is_executable($local) && $local != __FILE__) {
     array_shift($argv);
     foreach ($argv as $v) {
         $args .= ' '. escapeshellarg($v);
     }
-    passthru($localbin . $args, $exitcode);
+    passthru($local . $args, $exitcode);
     exit($exitcode);
 }
 
