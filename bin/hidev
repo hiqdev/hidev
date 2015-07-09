@@ -37,8 +37,14 @@ for ($i = 0;$i < 9;++$i) {
     }
     chdir('..');
 }
-if (is_executable('vendor/bin/hidev')) {
-    d('Here it execs local version of hidev...');
+$localbin = './vendor/bin/hidev';
+if (is_executable($localbin)) {
+    array_shift($argv);
+    foreach ($argv as $v) {
+        $args .= ' '. escapeshellarg($v);
+    }
+    passthru($localbin . $args, $exitcode);
+    exit($exitcode);
 }
 
 Yii::setAlias('@prj',    $PRJDIR);

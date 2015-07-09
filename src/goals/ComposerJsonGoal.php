@@ -67,9 +67,11 @@ class ComposerJsonGoal extends TemplateGoal
     public function getAuthors()
     {
         $res = [];
-        foreach ($this->package->authors as $name => $data) {
-            $data['name'] = $name;
-            $res[]        = array_merge(compact('name'), $data);
+        if ($this->package->authors) {
+            foreach ($this->package->authors as $name => $data) {
+                $data['name'] = $name;
+                $res[]        = array_merge(compact('name'), $data);
+            }
         }
 
         return $res;
