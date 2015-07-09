@@ -236,7 +236,7 @@ class CommitsHandler extends BaseHandler
 
     public static function renderDate($date)
     {
-        return $date ? date('Y-m-d', strtotime($date)) : '';
+        return $date ? date(' Y-m-d', strtotime($date)) : '';
     }
 
     public static function renderHeader($string)
