@@ -31,11 +31,14 @@ class ComposerJsonGoal extends TemplateGoal
             'support'     => $this->support,
             'authors'     => $this->authors,
             'require'     => $this->require,
+            'require-dev' => $this->get('require-dev'),
             'autoload'    => $this->autoload,
         ];
         $this->smartSet($sets, 'first');
-        if (!$this->get('require')) {
-            $this->delete('require');
+        foreach (['require', 'require-dev'] as $k) {
+            if (!$this->get($k)) {
+                $this->delete($k);
+            }
         }
     }
 
