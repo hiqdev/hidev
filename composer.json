@@ -48,13 +48,7 @@
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "~2.7",
         "hiqdev/yii2-collection": "*@dev",
-        "hiqdev/yii2-pluginmanager": "*@dev",
-        "codegyre/robo": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "hidev\\": "src"
-        }
+        "hiqdev/yii2-pluginmanager": "*@dev"
     },
     "require-dev": {
         "hiqdev/hidev": "*@dev",
@@ -62,6 +56,11 @@
         "hiqdev/hidev-config-php": "*@dev",
         "hiqdev/hidev-php-cs-fixer": "*@dev",
         "hiqdev/hidev-codeception": "*@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "hidev\\": "src"
+        }
     },
     "bin": [
         "bin/hidev"
