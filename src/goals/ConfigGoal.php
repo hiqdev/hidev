@@ -29,7 +29,6 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         parent::__construct('config', Yii::$app, $config);
     }
 
-
     public $types = ['yaml', 'json'];
 
     public function hasGoal($name)
