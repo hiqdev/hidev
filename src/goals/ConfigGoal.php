@@ -29,10 +29,6 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         parent::__construct('config', Yii::$app, $config);
     }
 
-    /**
-     * @var array|File file with main config
-     */
-    protected $_file = '.hidev/config.yml';
 
     public $types = ['yaml', 'json'];
 

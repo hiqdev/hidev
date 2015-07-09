@@ -68,7 +68,7 @@ class PackageGoal extends VendorGoal
 
     public function getSrc()
     {
-        return $this->rawItem('src') ?: '';
+        return $this->rawItem('src') ?: 'src';
     }
 
     public function getHomepage()

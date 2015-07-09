@@ -24,7 +24,7 @@ class CommitsGoal extends FileGoal
         $this->setDeps('vcs');
     }
 
-    protected $_file = '@config/commits.md';
+    protected $_file = 'commits.md';
 
     protected $_fileType = 'commits';
 

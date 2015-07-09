@@ -53,7 +53,7 @@
     },
     "autoload": {
         "psr-4": {
-            "hidev\\": ""
+            "hidev\\": "src"
         }
     },
     "require-dev": {
@@ -62,6 +62,6 @@
         "hiqdev/hidev-codeception": "*@dev"
     },
     "bin": [
-        "hidev"
+        "bin/hidev"
     ]
 }

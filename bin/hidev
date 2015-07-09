@@ -19,17 +19,19 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
-$autoload_path = __DIR__ . '/vendor/autoload.php';
+$PRJ_DIR = dirname(__DIR__);
+$autoload_path = $PRJ_DIR . '/vendor/autoload.php';
 if (!file_exists($autoload_path)) {
     system("composer install");
 }
 
 require($autoload_path);
-require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
+require($PRJ_DIR . '/vendor/yiisoft/yii2/Yii.php');
 
 /// Look for .hidev in current directory and up.
+$configFile = '.hidev.yml';
 for ($i = 0;$i < 9;++$i) {
-    if (is_dir('.hidev')) {
+    if (is_file($configFile)) {
         break;
     }
     chdir('..');
@@ -38,7 +40,8 @@ if (is_executable('vendor/bin/hidev')) {
     d('Here it execs local version of hidev...');
 }
 
-Yii::setAlias('@hidev', __DIR__);
+Yii::setAlias('@prj',    $PRJ_DIR);
+Yii::setAlias('@hidev',  '@prj/src');
 Yii::setAlias('@source', getcwd());
 Yii::setAlias('@config', '@source/.hidev');
 Yii::setLogger(Yii::createObject('hidev\base\Logger'));
@@ -46,7 +49,9 @@ Yii::setLogger(Yii::createObject('hidev\base\Logger'));
 $application = new hidev\base\Application([
     'id'                    => 'hidev',
     'name'                  => 'HiDev - integrate your development',
-    'basePath'              => __DIR__,
+    'basePath'              => '@prj/src',
+    'vendorPath'            => '@prj/vendor',
+    'runtimePath'           => '@prj/runtime',
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',
     'defaultRoute'          => 'default/deps',
@@ -65,6 +70,7 @@ $application = new hidev\base\Application([
         ],
         'config' => [
             'class' => 'hidev\goals\ConfigGoal',
+            'file'  => $configFile,
         ],
         'pluginManager' => [
             'class' => 'hiqdev\pluginmanager\PluginManager',
