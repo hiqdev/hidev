@@ -39,14 +39,16 @@ for ($i = 0;$i < 9;++$i) {
 }
 
 /// run local hidev if exists
-$local = realpath('./vendor/bin/hidev');
-if (is_executable($local) && $local != __FILE__) {
-    array_shift($argv);
-    foreach ($argv as $v) {
-        $args .= ' '. escapeshellarg($v);
+foreach (['./bin/hidev', './vendor/bin/hidev'] as $local) {
+    $bin = realpath($local);
+    if (is_executable($bin) && $bin != __FILE__) {
+        array_shift($argv);
+        foreach ($argv as $v) {
+            $args .= ' '. escapeshellarg($v);
+        }
+        passthru($bin . $args, $exitcode);
+        exit($exitcode);
     }
-    passthru($local . $args, $exitcode);
-    exit($exitcode);
 }
 
 Yii::setAlias('@prj',    $PRJDIR);
