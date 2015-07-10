@@ -30,15 +30,16 @@ require("$VENDOR/autoload.php");
 require("$VENDOR/yiisoft/yii2/Yii.php");
 
 /// Look for config file in current directory and up.
-$configFile = '.hidev.yml';
+$configDir = '.hidev';
 for ($i = 0;$i < 9;++$i) {
-    if (is_file($configFile)) {
+    if (is_dir($configDir)) {
         break;
     }
     chdir('..');
 }
 
 /// run local hidev if exists
+/*
 foreach (['./bin/hidev', './vendor/bin/hidev'] as $local) {
     $bin = realpath($local);
     if (is_executable($bin) && $bin != __FILE__) {
@@ -50,6 +51,7 @@ foreach (['./bin/hidev', './vendor/bin/hidev'] as $local) {
         exit($exitcode);
     }
 }
+*/
 
 Yii::setAlias('@prj',    $PRJDIR);
 Yii::setAlias('@hidev',  '@prj/src');
@@ -83,7 +85,6 @@ $application = new hidev\base\Application([
         ],
         'config' => [
             'class' => 'hidev\goals\ConfigGoal',
-            'file'  => $configFile,
         ],
         'pluginManager' => [
             'class' => 'hiqdev\pluginmanager\PluginManager',
