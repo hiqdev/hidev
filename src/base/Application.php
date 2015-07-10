@@ -22,6 +22,19 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 {
     protected $_viewPath;
 
+    protected function bootstrap()
+    {
+        $main  = Yii::getAlias('@vendor/yiisoft/extensions.php');
+        $local = realpath('./.hidev/vendor/yiisoft/extensions.php');
+        if ($local != $main) {
+            $this->extensions = array_merge(
+                is_file($main)  ? include($main)  : [],
+                is_file($local) ? include($local) : []
+            );
+        }
+        parent::bootstrap();
+    }
+
     public function getViewPath()
     {
         if ($this->_viewPath === null) {
