@@ -31,6 +31,8 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     public $types = ['yaml', 'json'];
 
+    public $_file = '.hidev/config.yml';
+
     public function hasGoal($name)
     {
         return $this->hasItem($name) || class_exists(static::goal2class('', $name));
@@ -106,5 +108,6 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
             }
         }
         $this->actionLoad();
+d($this);
     }
 }

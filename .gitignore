@@ -1,11 +1,11 @@
-# hidev parent config
-/.hidev/parent
+# hidev composer.json
+.hidev/composer.json
 
 # runtime dir
 /runtime
 
 # vendor dir
-/vendor
+vendor
 
 # composer lock file
 composer.lock
