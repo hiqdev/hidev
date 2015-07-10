@@ -5,7 +5,12 @@ hiqdev/hidev commits history
 
 - Changed source dir: moved to src
     - 39754c6 2015-07-09 great moving to src dir (sol@hiqdev.com)
-- Changed parent configuration: redone with plugins
+- Changed parent configuration: redone with plugins at .hidev/vendor
+    - 48b75d3 2015-07-10 * docs/GettingStarted.md (sol@hiqdev.com)
+    - dd5132a 2015-07-10 - run local hidev (sol@hiqdev.com)
+    - 62c053e 2015-07-10 commits moved back to .hidev/commits.md (sol@hiqdev.com)
+    - 8899ef1 2015-07-10 + Application::bootstrap() to load .hidev/vendor (sol@hiqdev.com)
+    - 613e134 2015-07-10 redoing to .hidev/vendor (sol@hiqdev.com)
     - af65f57 2015-07-09 warning Running the file (sol@hiqdev.com)
     - cf2dd97 2015-07-09 improved initialization: + try ./bin/hidev (sol@hiqdev.com)
     - 496217f 2015-07-09 * composer.json generation: require-dev (sol@hiqdev.com)
