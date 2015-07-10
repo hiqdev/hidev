@@ -38,28 +38,12 @@ for ($i = 0;$i < 9;++$i) {
     chdir('..');
 }
 
-/// run local hidev if exists
-/*
-foreach (['./bin/hidev', './vendor/bin/hidev'] as $local) {
-    $bin = realpath($local);
-    if (is_executable($bin) && $bin != __FILE__) {
-        array_shift($argv);
-        foreach ($argv as $v) {
-            $args .= ' '. escapeshellarg($v);
-        }
-        passthru($bin . $args, $exitcode);
-        exit($exitcode);
-    }
-}
-*/
-
 Yii::setAlias('@prj',    $PRJDIR);
 Yii::setAlias('@hidev',  '@prj/src');
 Yii::setAlias('@source', getcwd());
 Yii::setAlias('@config', '@source/.hidev');
 Yii::setAlias('@vendor', $VENDOR);
 Yii::setLogger(Yii::createObject('hidev\base\Logger'));
-Yii::warning("Running " . __FILE__);
 
 $application = new hidev\base\Application([
     'id'                    => 'hidev',

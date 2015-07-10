@@ -108,6 +108,5 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
             }
         }
         $this->actionLoad();
-d($this);
     }
 }
