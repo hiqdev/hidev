@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## 0.0.8 - Under development
 
 - Changed config: redone parent with plugins
+    - 9524e62 2015-07-11 php-cs-fixed (sol@hiqdev.com)
     - 0c1619f 2015-07-11 * .hidev/config require to hidev-config-php only (sol@hiqdev.com)
     - 00d2fdf 2015-07-11 * initing: + create .hidev/vendor if not exists (sol@hiqdev.com)
     - dd5132a 2015-07-10 - run local hidev (sol@hiqdev.com)
@@ -38,6 +39,7 @@ hiqdev/hidev commits history
     - caa6c7f 2015-07-04 Update CHANGELOG.md (sol@hiqdev.com)
     - 98ee9c9 2015-07-04 Update CHANGELOG.md (sol@hiqdev.com)
 - Changed roadmap
+    - 3ab4873 2015-07-11 * ROADMAP (sol@hiqdev.com)
     - 0933afb 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
     - 41012fc 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
     - 5121836 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
@@ -65,6 +67,7 @@ hiqdev/hidev commits history
     - f8996bc 2015-06-27 used module->runAction at actionDeps (sol@hiqdev.com)
     - e4882d4 2015-06-27 * ComposerJsonGoal + standart load (sol@hiqdev.com)
 - Changed: redone goals like controllers
+    - a0b4883 2015-07-11 removed old controllers/DefaultController (sol@hiqdev.com)
     - ed7537c 2015-06-30 + Application::runRequest (sol@hiqdev.com)
     - 37d11fa 2015-06-26 renamed actions to actionPerform/Make/... (sol@hiqdev.com)
     - c069025 2015-06-26 + parent/update action (sol@hiqdev.com)
