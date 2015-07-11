@@ -47,6 +47,6 @@ class TemplateHandler extends BaseHandler
 
     public function existsTemplate()
     {
-        return $this->view->existsTemplate($this->template);
+        return $this->template && $this->view->existsTemplate($this->template);
     }
 }
