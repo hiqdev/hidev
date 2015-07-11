@@ -3,20 +3,18 @@ ROADMAP
 
 ### 0.1.0
 
-- robo plugin: run goals from Robo
-- before/after options
 - codeception plugin
 - tests
 
-
 ### 0.2.0
 
-- status/install/update super goals: run status/install/update action on every goal that has it
 - gitignore build from hashmap with comments
+- robo plugin: run goals from Robo
+- before/after options
+- status/install/update super goals: run status/install/update action on every goal that has it
 - travis
 - scrutinizer
 - loading goals from Robo
-
 
 ### Later
 
@@ -24,7 +22,6 @@ ROADMAP
 - phpunit plugin
 - other build tools integration grunt, gulp, make,  phing, phake plugins: run & load goals
 - CI tools integration: Jenkins, TeamCity
-
 
 ### Refactoring
 
