@@ -3,10 +3,9 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
-- Changed source dir: moved to src
-    - 39754c6 2015-07-09 great moving to src dir (sol@hiqdev.com)
-- Changed parent configuration: redone with plugins at .hidev/vendor
-    - 48b75d3 2015-07-10 * docs/GettingStarted.md (sol@hiqdev.com)
+- Changed config: redone parent with plugins
+    - 0c1619f 2015-07-11 * .hidev/config require to hidev-config-php only (sol@hiqdev.com)
+    - 00d2fdf 2015-07-11 * initing: + create .hidev/vendor if not exists (sol@hiqdev.com)
     - dd5132a 2015-07-10 - run local hidev (sol@hiqdev.com)
     - 62c053e 2015-07-10 commits moved back to .hidev/commits.md (sol@hiqdev.com)
     - 8899ef1 2015-07-10 + Application::bootstrap() to load .hidev/vendor (sol@hiqdev.com)
@@ -23,7 +22,11 @@ hiqdev/hidev commits history
     - 57c98f1 2015-07-07 + require-dev (sol@hiqdev.com)
     - 327628e 2015-07-07 redone all initialization for pluggable parent config (sol@hiqdev.com)
     - 26f3f1e 2015-07-07 - AuthorGoal (sol@hiqdev.com)
+- Changed source dir: moved to src
+    - 39754c6 2015-07-09 great moving to src dir (sol@hiqdev.com)
 - Added initial Getting started doc
+    - 62c158d 2015-07-11 docs (sol@hiqdev.com)
+    - 48b75d3 2015-07-10 * docs/GettingStarted.md (sol@hiqdev.com)
     - e06aa69 2015-07-04 Update GettingStarted.md (sol@hiqdev.com)
     - 13540c0 2015-07-04 Create GettingStarted.md (sol@hiqdev.com)
     - a4f2874 2015-07-05 Update GettingStarted.md (sol@hiqdev.com)
