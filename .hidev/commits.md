@@ -7,6 +7,7 @@ hiqdev/hidev commits history
     - 52733f9 2015-07-12 improved .gitignore generation (sol@hiqdev.com)
     - 8600bf1 2015-07-12 + .gitignore smart generation (sol@hiqdev.com)
 - Changed config: redone parent with plugins
+    - c7fcc13 2015-07-12 fixed require at .hidev/config (sol@hiqdev.com)
     - 9524e62 2015-07-11 php-cs-fixed (sol@hiqdev.com)
     - 0c1619f 2015-07-11 * .hidev/config require to hidev-config-php only (sol@hiqdev.com)
     - 00d2fdf 2015-07-11 * initing: + create .hidev/vendor if not exists (sol@hiqdev.com)
