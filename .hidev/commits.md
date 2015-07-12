@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+- Changed .gitignore generation, now built from hashmap with comments
+    - 52733f9 2015-07-12 improved .gitignore generation (sol@hiqdev.com)
+    - 8600bf1 2015-07-12 + .gitignore smart generation (sol@hiqdev.com)
 - Changed config: redone parent with plugins
     - 9524e62 2015-07-11 php-cs-fixed (sol@hiqdev.com)
     - 0c1619f 2015-07-11 * .hidev/config require to hidev-config-php only (sol@hiqdev.com)
@@ -39,6 +42,8 @@ hiqdev/hidev commits history
     - caa6c7f 2015-07-04 Update CHANGELOG.md (sol@hiqdev.com)
     - 98ee9c9 2015-07-04 Update CHANGELOG.md (sol@hiqdev.com)
 - Changed roadmap
+    - 2df0c08 2015-07-12 * ROADMAP (sol@hiqdev.com)
+    - 918838a 2015-07-12 * ROADMAP (sol@hiqdev.com)
     - 3ab4873 2015-07-11 * ROADMAP (sol@hiqdev.com)
     - 0933afb 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)
     - 41012fc 2015-07-04 Update ROADMAP.md (sol@hiqdev.com)

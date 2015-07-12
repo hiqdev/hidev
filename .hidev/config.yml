@@ -11,4 +11,4 @@ package:
     year:           2014
 
 require:
-    hiqdev/hidev:   "*@dev"
+    hiqdev/hidev-config-php:    "*@dev"
