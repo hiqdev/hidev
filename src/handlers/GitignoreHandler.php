@@ -39,26 +39,6 @@ class GitignoreHandler extends BaseHandler
         return $items;
     }
 
-    public function addHistory($commit, $front = false)
-    {
-        $tag    = $commit['tag'];
-        $note   = $commit['note'];
-        $hash   = $commit['hash'];
-        $render = static::renderCommit($commit);
-        $hashes = &$this->_history[$tag][$note];
-        $hashes = (array) $hashes;
-        if ($front) {
-            $hashes = [$hash => [$render]] + $hashes;
-        } else {
-            $hashes[$hash][] = $render;
-        }
-    }
-
-    public function hasHistory($tag)
-    {
-        return array_key_exists($tag, $this->_history);
-    }
-
     public function getHistory()
     {
         return $this->_history;
@@ -74,12 +54,12 @@ class GitignoreHandler extends BaseHandler
             $res .= static::renderComment($comment) . $items;
         }
 
-        return $res;
+        return ltrim($res);
     }
 
     public static function renderComment($comment)
     {
-        return "\n" . ($comment[0]==='#' ? '' : '# ') . "$comment\n";
+        return "\n#" . ($comment[0]==='#' ? '' : ' ') . "$comment\n";
     }
 
 }

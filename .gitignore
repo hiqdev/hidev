@@ -1,5 +1,4 @@
-
-# vendor dirs
+### vendor dirs
 vendor
 
 # composer lock files
@@ -20,6 +19,3 @@ nbproject
 .settings
 Thumbs.db
 .DS_Store
-
-# my own
-something
