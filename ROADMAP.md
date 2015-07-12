@@ -3,12 +3,12 @@ ROADMAP
 
 ### 0.1.0
 
+- gitignore build from hashmap with comments
 - codeception plugin
 - tests
 
 ### 0.2.0
 
-- gitignore build from hashmap with comments
 - robo plugin: run goals from Robo
 - before/after options
 - status/install/update super goals: run status/install/update action on every goal that has it
