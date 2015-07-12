@@ -9,6 +9,7 @@ ROADMAP
 
 ### 0.2.0
 
+- interpolate $variables in config
 - robo plugin: run goals from Robo
 - before/after options
 - status/install/update super goals: run status/install/update action on every goal that has it
