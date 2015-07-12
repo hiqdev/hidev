@@ -16,8 +16,14 @@ namespace hidev\goals;
  */
 class ComposerGoal extends DefaultGoal
 {
+    public $vcsignore = [
+        'vendor'        => 'vendor dirs',
+        'composer.lock' => 'composer lock files',
+    ];
+
     public function init()
     {
+        parent::init();
         $this->setDeps('composer.json');
     }
 }

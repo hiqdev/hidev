@@ -21,6 +21,8 @@ use yii\base\InvalidParamException;
  */
 class ConfigGoal extends FileGoal implements BootstrapInterface
 {
+    //protected $_itemClass = 'hiqdev\collection\Manager';
+
     /**
      * @param array $config name-value pairs that will be used to initialize the object properties.
      */

@@ -12,9 +12,9 @@
 namespace hidev\goals;
 
 /**
- * Goal for .gitignore files generation.
+ * Goal for svn:ignore.
  */
-class GitignoreGoal extends VcsignoreGoal
+class SvnignoreGoal extends VcsignoreGoal
 {
-    protected $_fileType = 'gitignore';
+    protected $_fileType = 'svnignore';
 }

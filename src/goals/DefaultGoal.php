@@ -19,13 +19,20 @@ use Yii;
  */
 class DefaultGoal extends BaseGoal
 {
-    protected $_itemClass = 'hiqdev\collection\Manager';
-
     public $goalName;
 
     public $done = false;
 
     protected $_fileType = null;
+
+    public $vcsignore;
+
+    public function init()
+    {
+        if ($this->vcsignore) {
+            $this->vcs->setIgnore($this->vcsignore, 'first');
+        }
+    }
 
     public function getFileType()
     {
