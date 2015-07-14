@@ -17,9 +17,12 @@ ROADMAP
 - scrutinizer
 - loading goals from Robo
 
-### Later
+### 0.3.0
 
 - change $done to hold timestamp of goal completion and use it to determine if goal needs to be done
+
+### 1.0.0
+
 - phpunit plugin
 - other build tools integration grunt, gulp, make,  phing, phake plugins: run & load goals
 - CI tools integration: Jenkins, TeamCity
