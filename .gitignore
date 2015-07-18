@@ -1,3 +1,9 @@
+# vendor dirs
+vendor
+
+# composer lock files
+composer.lock
+
 # runtime dir
 runtime
 
@@ -13,9 +19,3 @@ nbproject
 .settings
 Thumbs.db
 .DS_Store
-
-### vendor dirs
-vendor
-
-# composer lock files
-composer.lock
