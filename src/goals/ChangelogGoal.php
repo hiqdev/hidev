@@ -12,19 +12,14 @@
 namespace hidev\goals;
 
 /**
- * Goal for README.
+ * Goal for CHANGELOG.md file.
  */
-class ChangelogGoal extends TemplateGoal
+class ChangelogGoal extends FileGoal
 {
     protected $_fileType = 'changelog';
 
     public function init()
     {
         $this->setDeps('commits');
-    }
-
-    public function getTemplate()
-    {
-        return 'CHANGELOG';
     }
 }
