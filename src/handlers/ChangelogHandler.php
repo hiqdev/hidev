@@ -18,14 +18,14 @@ class ChangelogHandler extends BaseHandler
 {
     public function parsePath($text)
     {
-        return ['history' => $this->goal->config->commits->history];
+        /// do nothing
     }
 
     public function render($data)
     {
         $res = CommitsHandler::renderHeader('changelog');
 
-        foreach ($data['history'] as $tag => $notes) {
+        foreach ($this->goal->getConfig()->commits->getHistory() as $tag => $notes) {
             $tag = CommitsHandler::arrayPop($notes, 'tag') ?: $tag;
             $new = CommitsHandler::arrayPop($notes, '');
             $res .= CommitsHandler::renderTag($tag);
