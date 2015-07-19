@@ -21,7 +21,7 @@ class CommitsGoal extends FileGoal
      */
     public function init()
     {
-        $this->setDeps('vcs');
+        $this->setDeps($this->getVcs()->goalName);
     }
 
     protected $_file = '.hidev/commits.md';
