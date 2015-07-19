@@ -3,6 +3,13 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+- Changed determining done
+    - f7dc1ee 2015-07-19 * determining done: + is/markDone (sol@hiqdev.com)
+- Fixed minor bugs
+    - f4a8f5b 2015-07-19 fixed setting deps at CommitsGoal (sol@hiqdev.com)
+    - 675fa1b 2015-07-19 simplified ChangelogHandler::parse/render (sol@hiqdev.com)
+    - 8ea5658 2015-07-19 - old junk debug from BaseHandler::parsePath (sol@hiqdev.com)
+    - 46c110b 2015-07-18 minor fixes (sol@hiqdev.com)
 - Changed .gitignore generation, now built from hashmap with comments
     - 52733f9 2015-07-12 improved .gitignore generation (sol@hiqdev.com)
     - 8600bf1 2015-07-12 + .gitignore smart generation (sol@hiqdev.com)

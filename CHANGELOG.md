@@ -3,6 +3,8 @@ hiqdev/hidev changelog
 
 ## 0.0.8 - Under development
 
+- Changed determining done
+- Fixed minor bugs
 - Changed .gitignore generation, now built from hashmap with comments
 - Changed config: redone parent with plugins
 - Changed source dir: moved to src
