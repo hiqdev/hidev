@@ -21,7 +21,7 @@ class DefaultGoal extends BaseGoal
 {
     public $goalName;
 
-    public $done = false;
+    public $done = [];
 
     protected $_fileType = null;
 
@@ -67,17 +67,29 @@ class DefaultGoal extends BaseGoal
         }
     }
 
+    public function isDone($action, $timestamp = null)
+    {
+        if ($this->done[$action]) {
+            Yii::trace("Already done: $this->goalName/$action");
+            return true;
+        }
+        return false;
+    }
+
+    public function markDone($action)
+    {
+        $this->done[$action] = microtime(1);
+    }
+
     public function actionPerform()
     {
-        if ($this->done) {
-            Yii::trace("Already done: $this->goalName");
-
+        if ($this->isDone('perform')) {
             return;
         }
         Yii::trace("Started: $this->goalName");
         $this->actionDeps();
         $this->actionMake();
-        $this->done = true;
+        $this->markDone('perform');
     }
 
     public function actionLoad()
@@ -118,6 +130,7 @@ class DefaultGoal extends BaseGoal
 
     public function getVcs()
     {
+        /// TODO determine VCS
         return $this->getConfig()->getItem('git');
     }
 }
