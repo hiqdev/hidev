@@ -96,10 +96,6 @@ class BaseHandler extends \yii\base\Object
 
     public function parsePath($path)
     {
-        if ($path === Yii::getAlias('@source/composer.json')) {
-            d('adshsdf');
-        }
-
         return $this->parse($this->read($path));
     }
 
