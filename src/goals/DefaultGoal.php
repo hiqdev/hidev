@@ -76,20 +76,20 @@ class DefaultGoal extends BaseGoal
         return false;
     }
 
-    public function markDone($action)
+    /**
+     * Mark action as already done.
+     * @param $action action id
+     * @param $time microtime when action was done, false for action was not done
+     */
+    public function markDone($action, $time = null)
     {
-        $this->done[$action] = microtime(1);
+        $this->done[$action] = ($time===null || $time===true) ? microtime(1) : $time;
     }
 
     public function actionPerform()
     {
-        if ($this->isDone('perform')) {
-            return;
-        }
         Yii::trace("Started: $this->goalName");
-        $this->actionDeps();
-        $this->actionMake();
-        $this->markDone('perform');
+        $this->runActions('deps, make');
     }
 
     public function actionLoad()
@@ -104,8 +104,26 @@ class DefaultGoal extends BaseGoal
 
     public function actionMake()
     {
-        $this->actionLoad();
-        $this->actionSave();
+        $this->runActions('load, save');
+    }
+
+    public function runAction($id, $params = [])
+    {
+        if ($this->isDone($id)) {
+            return;
+        }
+        $result = parent::runAction($id, $params);
+        $this->markDone($id);
+
+        return $result;
+    }
+
+    public function runActions($actions)
+    {
+        foreach (Helper::ksplit($actions) as $action) {
+            $result = $this->runAction($action);
+        }
+        return $result;
     }
 
     public function getRobo()
