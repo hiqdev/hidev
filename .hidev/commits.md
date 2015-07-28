@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+- Added runAction/s
+    - e5c212f 2015-07-28 + runAction/s with isDone check to run once (sol@hiqdev.com)
 - Changed determining done
     - f7dc1ee 2015-07-19 * determining done: + is/markDone (sol@hiqdev.com)
 - Fixed minor bugs

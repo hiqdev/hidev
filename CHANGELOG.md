@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.8 - Under development
 
+- Added runAction/s
 - Changed determining done
 - Fixed minor bugs
 - Changed .gitignore generation, now built from hashmap with comments
