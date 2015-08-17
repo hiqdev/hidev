@@ -1,7 +1,15 @@
 HiDev - integrate your development
 ----------------------------------
 
-Mix all the tools to make your code shine
+Task runner, code generator and build tool for continuos integration.
+- package management: composer.json
+- release automation: README, LICENSE, CHANGELOG
+- code generation with php and twig templates
+- VCS integration: .gitignore, commits history
+- code quality: php-cs-fixer
+- testing: codeception
+And more planned. See [ROADMAP](https://github.com/hiqdev/hidev/blob/master/ROADMAP.md).
+
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable.png)](https://packagist.org/packages/hiqdev/hidev)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads.png)](https://packagist.org/packages/hiqdev/hidev)

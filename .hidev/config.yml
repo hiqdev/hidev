@@ -7,8 +7,17 @@ package:
     forum:          https://forum.hiqdev.com/hidev
     homepage:       https://hidev.me/
     keywords:       build tool, task runner, code generator, continuous integration
-    description:    Mix all the tools to make your code shine
     year:           2014
+    description:    |
+        Task runner, code generator and build tool for continuos integration.
+        - package management: composer.json
+        - release automation: README, LICENSE, CHANGELOG
+        - code generation with php and twig templates
+        - VCS integration: .gitignore, commits history
+        - code quality: php-cs-fixer
+        - testing: codeception
+        And more planned. See [ROADMAP](https://github.com/hiqdev/hidev/blob/master/ROADMAP.md).
 
 require:
+    hiqdev/hidev-config:        "*@dev"
     hiqdev/hidev-config-php:    "*@dev"
