@@ -34,7 +34,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
                 'path'  => '.hidev/composer.json',
             ])->save(compact('require'));
             if (!is_dir('.hidev/vendor')) {
-                exec('cd .hidev;composer update');
+                exec('cd .hidev;composer update --prefer-source');
             }
             $main  = Yii::getAlias('@vendor/yiisoft/extensions.php');
             $local = realpath('./.hidev/vendor/yiisoft/extensions.php');
