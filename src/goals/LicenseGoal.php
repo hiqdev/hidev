@@ -22,4 +22,9 @@ class LicenseGoal extends TemplateGoal
     {
         return 'licenses/' . Helper::id2camel($this->package->license) . '.twig';
     }
+
+    public function getUrl()
+    {
+        return 'http://choosealicense.com/licenses/' . Helper::camel2id($this->package->license);
+    }
 }
