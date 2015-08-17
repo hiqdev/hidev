@@ -6,5 +6,37 @@
 <?= $config->package->description ?>
 
 
-For more info see wiki:
-<?= $config->package->wiki ?>
+<?= $config->readme->renderBadges() ?>
+
+## Installation
+
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+
+<? if ($config->package->type==='project') { ?>
+```
+php composer.phar create-project "<?= $config->package->fullName ?>:*" directory2install
+```
+<? } else { ?>
+Either run
+
+```
+php composer.phar require "<?= $config->package->fullName ?>"
+```
+
+or add
+
+```json
+"<?= $config->package->fullName ?>": "*"
+```
+
+to the require section of your composer.json.
+<? } ?>
+<?= $config->readme->renderSection('Configuration') ?>
+
+## Licence
+
+<?= $config->package->license ?>
+
+
+Copyright © <?= $config->package->years ?>, <?= $config->vendor->titleAndHomepage ?>
+
