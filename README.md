@@ -23,6 +23,6 @@ The main config file is: **.hidev/config.yml**.
 
 ## Licence
 
-BSD-3-Clause
+[BSD-3-Clause](http://choosealicense.com/licenses/bsd-3-clause)
 
 Copyright © 2014-2015, HiQDev (https://hiqdev.com/)

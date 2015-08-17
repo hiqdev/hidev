@@ -32,11 +32,11 @@ or add
 to the require section of your composer.json.
 <? } ?>
 <?= $config->readme->renderSection('Configuration') ?>
+<?= $config->readme->renderSection('Usage') ?>
 
 ## Licence
 
-<?= $config->package->license ?>
-
+[<?= $config->package->license ?>](<?= $config->license->url ?>)
 
 Copyright © <?= $config->package->years ?>, <?= $config->vendor->titleAndHomepage ?>
 
