@@ -17,6 +17,7 @@ hiqdev/hidev commits history
 - Changed determining done
     - f7dc1ee 2015-07-19 * determining done: + is/markDone (sol@hiqdev.com)
 - Fixed minor bugs
+    - bf13b89 2015-08-17 + better description (sol@hiqdev.com)
     - f4a8f5b 2015-07-19 fixed setting deps at CommitsGoal (sol@hiqdev.com)
     - 675fa1b 2015-07-19 simplified ChangelogHandler::parse/render (sol@hiqdev.com)
     - 8ea5658 2015-07-19 - old junk debug from BaseHandler::parsePath (sol@hiqdev.com)
