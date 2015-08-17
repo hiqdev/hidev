@@ -29,6 +29,11 @@ class Helper
         //return Inflector::id2camel(strtolower(self::bad2sep($id,$separator)), $separator);
     }
 
+    public static function camel2id($name, $separator = '-', $strict = false)
+    {
+        return str_replace('--', '-', Inflector::camel2id(str_replace(' ', '', ucwords($name)), $separator, $strict));
+    }
+
     public static function file2template($file, $separator = '-')
     {
         return trim($file, '.');
