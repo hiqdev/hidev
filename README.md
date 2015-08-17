@@ -8,7 +8,7 @@ Mix all the tools to make your code shine
 
 ## Installation
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+The preferred way to install this project is through [composer](http://getcomposer.org/download/).
 
 ```
 php composer.phar create-project "hiqdev/hidev:*" directory2install

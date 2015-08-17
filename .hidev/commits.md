@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
+    - 1e1ef93 2015-08-17 + better README generation (sol@hiqdev.com)
 - Added runAction/s
     - e5c212f 2015-07-28 + runAction/s with isDone check to run once (sol@hiqdev.com)
 - Changed determining done

@@ -10,7 +10,7 @@
 
 ## Installation
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+The preferred way to install this <?= $config->package->type ?> is through [composer](http://getcomposer.org/download/).
 
 <? if ($config->package->type==='project') { ?>
 ```
