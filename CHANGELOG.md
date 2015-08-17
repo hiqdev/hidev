@@ -3,7 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.8 - Under development
 
-- Added better README generation with badges
+- Added better README generation with badges and additional sections
 - Added runAction/s
 - Changed determining done
 - Fixed minor bugs

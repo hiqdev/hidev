@@ -3,7 +3,13 @@ hiqdev/hidev commits history
 
 ## 0.0.8 - Under development
 
-- Added better README generation with badges
+- Added better README generation with badges and additional sections
+    - 4918bc2 2015-08-17 + url license at README License Section (sol@hiqdev.com)
+    - 81dca07 2015-08-17 + prefer source when getting .hidev deps (sol@hiqdev.com)
+    - 3660961 2015-08-17 + 'include' configuration option (sol@hiqdev.com)
+    - f34ccb8 2015-08-17 + LicenceGoal::getUrl() (sol@hiqdev.com)
+    - ed8d93f 2015-08-17 + Helper::camel2id (sol@hiqdev.com)
+    - 5798ab8 2015-08-17 Update README.md (sol@hiqdev.com)
     - 144715e 2015-08-17 + better README generation (sol@hiqdev.com)
     - 1e1ef93 2015-08-17 + better README generation (sol@hiqdev.com)
 - Added runAction/s
