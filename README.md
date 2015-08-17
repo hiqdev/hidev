@@ -16,8 +16,10 @@ php composer.phar create-project "hiqdev/hidev:*" directory2install
 
 ## Configuration
 
-Hidev keeps everything it needs: configs, plugins, intermediate files and so on in .hidev directory in the root of your project.
-The main config file is: .hidev/config.yml.
+Hidev keeps everything it needs: configs, plugins, intermediate files and so on
+in **.hidev** directory in the root of your project.
+
+The main config file is: **.hidev/config.yml**.
 
 ## Licence
 
