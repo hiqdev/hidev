@@ -103,12 +103,22 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         }
         if ($app->pluginManager->configFiles) {
             foreach ($app->pluginManager->configFiles as $path) {
-                $file = Yii::createObject(array_merge([
-                    'class' => 'hidev\base\File',
-                ], is_array($path) ? $path : compact('path')));
-                $this->mset($file->load());
+                $this->includeConfig($path);
             }
         }
         $this->actionLoad();
+        if ($this->has('include')) {
+            foreach (Helper::csplit($this->rawItem('include')) as $path) {
+                $this->includeConfig($path);
+            }
+        }
+    }
+
+    public function includeConfig($path)
+    {
+        $file = Yii::createObject(array_merge([
+            'class' => 'hidev\base\File',
+        ], is_array($path) ? $path : compact('path')));
+        $this->mset($file->load());
     }
 }
