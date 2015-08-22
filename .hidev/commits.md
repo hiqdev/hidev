@@ -1,7 +1,7 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.0.9 - Under development
+## 0.0.9 Under development
 
 - Removed 'runtime' gitignoring by default
     - 4aa140b 2015-08-22 removed ignore runtime from VcsGoal (sol@hiqdev.com)
@@ -107,7 +107,7 @@ hiqdev/hidev commits history
     - bf724ab 2015-06-23 changelog (sol@hiqdev.com)
     - 32be392 2015-06-23 * roadmap (sol@hiqdev.com)
 
-## 0.0.7 - 2015-06-19
+## 0.0.7 2015-06-19
 
 - Changed composer.json: dont add empty require
     - fd344b8 2015-06-19 + delete require if empty (sol@hiqdev.com)
