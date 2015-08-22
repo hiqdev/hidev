@@ -4,9 +4,6 @@ vendor
 # composer lock files
 composer.lock
 
-# runtime dir
-runtime
-
 # hidev composer.json
 .hidev/composer.json
 
@@ -19,3 +16,6 @@ nbproject
 .settings
 Thumbs.db
 .DS_Store
+
+# runtime dir
+runtime

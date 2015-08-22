@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.9 - Under development
 
+- Removed 'runtime' gitignoring by default
+    - 4aa140b 2015-08-22 removed ignore runtime from VcsGoal (sol@hiqdev.com)
 
 ## 0.0.8 2015-08-17
 

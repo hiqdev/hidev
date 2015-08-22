@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.9 - Under development
 
+- Removed 'runtime' gitignoring by default
 
 ## 0.0.8 2015-08-17
 
