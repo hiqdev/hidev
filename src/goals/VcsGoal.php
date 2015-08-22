@@ -23,7 +23,6 @@ class VcsGoal extends DefaultGoal
     public $initTag = 'Development started';
 
     public $_ignore = [
-        'runtime'               => 'runtime dir', /// XXX MOVE TO OTHER PLACE
         '.hidev/composer.json'  => 'hidev composer.json',
         '.*.swp'                => 'IDE & OS files',
         '.idea'                 => 'IDE & OS files',
