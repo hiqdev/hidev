@@ -199,7 +199,7 @@ hiqdev/hidev commits history
 
 ## 0.0.1 May 12, 2015
 
-- Added MINIMUM DONE
+- Added basics
 - Added colorized console output
     - 98d97df 2015-05-12 + styled Console log output (sol@hiqdev.com)
     - 8813192 2015-05-12 simplified a bit, removed excessive set functions whose work is done automatically (sol@hiqdev.com)

@@ -60,7 +60,7 @@ hiqdev/hidev changelog
 
 ## 0.0.1 May 12, 2015
 
-- Added MINIMUM DONE
+- Added basics
 - Added colorized console output
 - Added README.md generation
 - Added CHANGELOG.md generation
