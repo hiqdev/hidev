@@ -2,7 +2,7 @@ HiDev - integrate your development
 ----------------------------------
 
 Task runner, code generator and build tool for continuos integration.
-- package management: composer.json
+- package management: composer.json, Packagist
 - release automation: README, LICENSE, CHANGELOG
 - code generation with php and twig templates
 - VCS integration: .gitignore, commits history
