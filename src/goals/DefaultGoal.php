@@ -126,6 +126,11 @@ class DefaultGoal extends BaseGoal
         return $result;
     }
 
+    public function options($actionId)
+    {
+        return array_merge(parent::options($actionId), array_keys(Helper::getPublicVars(get_called_class())));
+    }
+
     public function getRobo()
     {
         return Yii::$app->get('robo');
