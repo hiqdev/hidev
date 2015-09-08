@@ -35,8 +35,9 @@ class ReadmeGoal extends TemplateGoal
     }
 
     public $badges = [
-        'packagist.version' => '[![Latest Stable Version](https://poser.pugx.org/{{ package }}/v/stable.png)](https://packagist.org/packages/{{ package }})',
-        'packagist.total'   => '[![Total Downloads](https://poser.pugx.org/{{ package }}/downloads.png)](https://packagist.org/packages/{{ package }})',
+        'packagist.version' => '[![Latest Stable Version](https://poser.pugx.org/{{ vendor/package }}/v/stable.png)](https://packagist.org/packages/{{ vendor/package }})',
+        'packagist.total'   => '[![Total Downloads](https://poser.pugx.org/{{ vendor/package }}/downloads.png)](https://packagist.org/packages/{{ vendor/package }})',
+        'versioneye.status' => '[![Dependency Status](https://www.versioneye.com/php/{{ vendor:package }}/dev-master/badge.svg)](https://www.versioneye.com/php/{{ vendor:package }}/dev-master)',
     ];
 
     public function renderBadges()
@@ -52,7 +53,8 @@ class ReadmeGoal extends TemplateGoal
     public function renderBadge($badge)
     {
         return strtr($badge,[
-            '{{ package }}' => $this->package->fullName,
+            '{{ vendor/package }}' => $this->vendor->name . '/' . $this->package->name,
+            '{{ vendor:package }}' => $this->vendor->name . ':' . $this->package->name,
         ]);
     }
 }
