@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## 0.0.9 Under development
 
 - Added VersionEye badge generation
+    - 64d022d 2015-09-08 fixed versioneye badge: dont show when no dependencies (sol@hiqdev.com)
     - 829f22b 2015-09-08 php-cs-fixed (sol@hiqdev.com)
     - cfe368f 2015-09-08 + VersionEye badge generation in ReadmeGoal (sol@hiqdev.com)
     - 687da1e 2015-09-08 + VersionEye badge (sol@hiqdev.com)
