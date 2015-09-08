@@ -29,13 +29,18 @@ if (!is_dir($VENDOR)) {
 require("$VENDOR/autoload.php");
 require("$VENDOR/yiisoft/yii2/Yii.php");
 
+/// Check if it is init command
+$isInit = $argv[1]==='init';
+
 /// Look for config file in current directory and up.
 $configDir = '.hidev';
-for ($i = 0;$i < 9;++$i) {
-    if (is_dir($configDir)) {
-        break;
+if (!$isInit) {
+    for ($i = 0;$i < 9;++$i) {
+        if (is_dir($configDir)) {
+            break;
+        }
+        chdir('..');
     }
-    chdir('..');
 }
 
 Yii::setAlias('@prj',    $PRJDIR);
@@ -48,6 +53,7 @@ Yii::setLogger(Yii::createObject('hidev\base\Logger'));
 $application = new hidev\base\Application([
     'id'                    => 'hidev',
     'name'                  => 'HiDev - integrate your development',
+    'isInit'                => $isInit,
     'basePath'              => '@prj/src',
     'vendorPath'            => '@vendor',
     'runtimePath'           => '@prj/runtime',

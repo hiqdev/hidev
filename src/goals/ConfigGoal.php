@@ -98,8 +98,11 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
      */
     public function bootstrap($app)
     {
+        if ($app->isInit) {
+            return;
+        }
         if (!$this->file->find($this->types)) {
-            throw new InvalidParamException('No config found. Use hidev init');
+            throw new InvalidParamException('No config found. Use hidev init vendor/package');
         }
         if ($app->pluginManager->configFiles) {
             foreach ($app->pluginManager->configFiles as $path) {
