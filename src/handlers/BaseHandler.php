@@ -13,6 +13,7 @@ namespace hidev\handlers;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\base\InvalidConfigException;
 
 /**
  * Base Handler.
@@ -57,10 +58,12 @@ class BaseHandler extends \yii\base\Object
      * @param array $data
      *
      * @return string file content
+     *
+     * @throws InvalidConfigException
      */
     public function renderPrepared(array $data)
     {
-        throw new InvalidParamException('Render not available');
+        throw new InvalidConfigException('Render not available');
     }
 
     /**

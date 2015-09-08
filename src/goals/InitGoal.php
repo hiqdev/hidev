@@ -27,7 +27,7 @@ class InitGoal extends TemplateGoal
     {
         list($vendor, $package) = explode('/', $name, 2);
         if (!$package || !$vendor) {
-            throw new InvalidParamException('No vendor/package given');
+            throw new InvalidParamException('Wrong vendor/package given: ' . $name);
         }
         $this->vendor   = $vendor;
         $this->package  = $package;

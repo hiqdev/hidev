@@ -118,7 +118,16 @@ $application = new hidev\base\Application([
     ],
 ]);
 
-$exitCode = $application->run();
+try {
+    $exitCode = $application->run();
+} catch (Exception $e) {
+    if ($e instanceof \yii\base\InvalidParamException || $e instanceof \yii\console\Exception) {
+        Yii::error($e->getMessage());
+        $exitCode = 1;
+    } else {
+        throw $e;
+    }
+}
 exit($exitCode);
 
 function d ()
