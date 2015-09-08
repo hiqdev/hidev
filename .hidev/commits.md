@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## 0.0.9 Under development
 
 - Added VersionEye badge generation
+    - 829f22b 2015-09-08 php-cs-fixed (sol@hiqdev.com)
     - cfe368f 2015-09-08 + VersionEye badge generation in ReadmeGoal (sol@hiqdev.com)
     - 687da1e 2015-09-08 + VersionEye badge (sol@hiqdev.com)
     - ee0043c 2015-09-08 docs (sol@hiqdev.com)
