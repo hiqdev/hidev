@@ -5,5 +5,18 @@ The main config file is: **.hidev/config.yml**.
 
 You can generate basic config file with init command:
 
-    hidev init vendor/package
+    hidev init vendor/my-package
 
+You will receive:
+```yml
+package:
+    name:           my-package
+    label:          MyPackage
+    title:          My Package
+    type:           package
+    keywords:       my, package
+
+require:
+    vendor/hidev-config:        "*"
+    hiqdev/hidev-config-php:    "*"
+```
