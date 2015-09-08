@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## 0.0.9 Under development
 
+- Added init command: hidev init vendor/package
+    - e90976f 2015-09-08 added init command (sol@hiqdev.com)
+    - de455b9 2015-09-08 + DefaultGoal::options() for allowing to set public members with --option=value (sol@hiqdev.com)
+    - f840ce3 2015-09-08 + Helper::getPublicVars, titleize (sol@hiqdev.com)
 - Removed 'runtime' gitignoring by default
     - 4aa140b 2015-08-22 removed ignore runtime from VcsGoal (sol@hiqdev.com)
 
