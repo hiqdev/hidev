@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## 0.0.9 Under development
 
+- Added VersionEye badge generation
+    - cfe368f 2015-09-08 + VersionEye badge generation in ReadmeGoal (sol@hiqdev.com)
+    - 687da1e 2015-09-08 + VersionEye badge (sol@hiqdev.com)
     - c96bec0 2015-09-08 docs (sol@hiqdev.com)
     - e573d4e 2015-09-08 docs (sol@hiqdev.com)
 - Added showing user users (instead of exception stack trace)

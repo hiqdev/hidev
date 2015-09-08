@@ -6,7 +6,7 @@ Task runner, code generator and build tool for continuos integration.
 - release automation: README, LICENSE, CHANGELOG
 - code generation with php and twig templates
 - VCS integration: .gitignore, commits history
-- code quality: php-cs-fixer
+- code quality: php-cs-fixer, VersionEye
 - testing: codeception
 
 And more planned. See [ROADMAP](https://github.com/hiqdev/hidev/blob/master/ROADMAP.md).
