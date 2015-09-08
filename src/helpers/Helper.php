@@ -68,4 +68,14 @@ class Helper
 
         return array_combine($res, $res);
     }
+
+    public static function getPublicVars($subj)
+    {
+        return is_object($subj) ? get_object_vars($subj) : get_class_vars($subj);
+    }
+
+    public static function titleize($str, $ucAll = true)
+    {
+        return Inflector::titleize(strtr($str, '-', ' '), $ucAll);
+    }
 }
