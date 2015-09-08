@@ -10,7 +10,7 @@ hiqdev/hidev commits history
     - ee0043c 2015-09-08 docs (sol@hiqdev.com)
     - c96bec0 2015-09-08 docs (sol@hiqdev.com)
     - e573d4e 2015-09-08 docs (sol@hiqdev.com)
-- Added showing user users (instead of exception stack trace)
+- Added showing user errors (instead of exception stack trace)
     - 7001f7e 2015-09-08 added showing user errors by catching exceptions caused by user mistakes (sol@hiqdev.com)
 - Added init command: hidev init vendor/package
     - e90976f 2015-09-08 added init command (sol@hiqdev.com)
