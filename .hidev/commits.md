@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.0.9 Under development
 
+- Added showing user users (instead of exception stack trace)
+    - 7001f7e 2015-09-08 added showing user errors by catching exceptions caused by user mistakes (sol@hiqdev.com)
 - Added init command: hidev init vendor/package
     - e90976f 2015-09-08 added init command (sol@hiqdev.com)
     - de455b9 2015-09-08 + DefaultGoal::options() for allowing to set public members with --option=value (sol@hiqdev.com)

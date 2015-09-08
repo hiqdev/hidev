@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.0.9 Under development
 
+- Added showing user users (instead of exception stack trace)
 - Added init command: hidev init vendor/package
 - Removed 'runtime' gitignoring by default
 
