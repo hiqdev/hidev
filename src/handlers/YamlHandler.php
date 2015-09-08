@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
 class YamlHandler extends TypeHandler
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function renderType($data)
     {
@@ -29,7 +29,7 @@ class YamlHandler extends TypeHandler
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function parse($yaml)
     {

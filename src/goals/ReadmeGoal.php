@@ -25,7 +25,7 @@ class ReadmeGoal extends TemplateGoal
 
     public function renderSection($section, $default = null)
     {
-        $file = str_replace(' ','',$section);
+        $file = str_replace(' ', '', $section);
         $path = Yii::getAlias("@source/docs/readme/$file.md");
         if (!file_exists($path)) {
             return $default;
@@ -52,7 +52,7 @@ class ReadmeGoal extends TemplateGoal
 
     public function renderBadge($badge)
     {
-        return strtr($badge,[
+        return strtr($badge, [
             '{{ vendor/package }}' => $this->vendor->name . '/' . $this->package->name,
             '{{ vendor:package }}' => $this->vendor->name . ':' . $this->package->name,
         ]);

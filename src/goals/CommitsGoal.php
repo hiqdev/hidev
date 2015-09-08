@@ -17,7 +17,7 @@ namespace hidev\goals;
 class CommitsGoal extends FileGoal
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {

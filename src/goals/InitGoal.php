@@ -74,5 +74,4 @@ class InitGoal extends TemplateGoal
     {
         return $this->getItem('year') ?: date('Y');
     }
-
 }

@@ -19,7 +19,7 @@ use yii\helpers\Json;
 class JsonHandler extends TypeHandler
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function renderType($data)
     {
@@ -27,7 +27,7 @@ class JsonHandler extends TypeHandler
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function parse($json)
     {

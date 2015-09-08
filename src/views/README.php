@@ -12,11 +12,11 @@
 
 The preferred way to install this <?= $config->package->type ?> is through [composer](http://getcomposer.org/download/).
 
-<? if ($config->package->type==='project') { ?>
+<?php if ($config->package->type === 'project') { ?>
 ```
 php composer.phar create-project "<?= $config->package->fullName ?>:*" directory2install
 ```
-<? } else { ?>
+<?php } else { ?>
 Either run
 
 ```
@@ -30,7 +30,7 @@ or add
 ```
 
 to the require section of your composer.json.
-<? } ?>
+<?php } ?>
 <?= $config->readme->renderSection('Configuration') ?>
 <?= $config->readme->renderSection('Usage') ?>
 

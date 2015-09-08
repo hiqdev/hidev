@@ -19,7 +19,7 @@ use Yii;
 class GitGoal extends VcsGoal
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {

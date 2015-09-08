@@ -71,19 +71,22 @@ class DefaultGoal extends BaseGoal
     {
         if ($this->done[$action]) {
             Yii::trace("Already done: $this->goalName/$action");
+
             return true;
         }
+
         return false;
     }
 
     /**
      * Mark action as already done.
+     *
      * @param $action action id
      * @param $time microtime when action was done, false for action was not done
      */
     public function markDone($action, $time = null)
     {
-        $this->done[$action] = ($time===null || $time===true) ? microtime(1) : $time;
+        $this->done[$action] = ($time === null || $time === true) ? microtime(1) : $time;
     }
 
     public function actionPerform()
@@ -123,6 +126,7 @@ class DefaultGoal extends BaseGoal
         foreach (Helper::ksplit($actions) as $action) {
             $result = $this->runAction($action);
         }
+
         return $result;
     }
 

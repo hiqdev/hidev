@@ -19,7 +19,7 @@ use Yii;
 class TemplateHandler extends BaseHandler
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function renderPrepared($data)
     {

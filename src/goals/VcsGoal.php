@@ -23,15 +23,15 @@ class VcsGoal extends DefaultGoal
     public $initTag = 'Development started';
 
     public $_ignore = [
-        '.hidev/composer.json'  => 'hidev composer.json',
-        '.*.swp'                => 'IDE & OS files',
-        '.idea'                 => 'IDE & OS files',
-        'nbproject'             => 'IDE & OS files',
-        '.buildpath'            => 'IDE & OS files',
-        '.project'              => 'IDE & OS files',
-        '.settings'             => 'IDE & OS files',
-        'Thumbs.db'             => 'IDE & OS files',
-        '.DS_Store'             => 'IDE & OS files',
+        '.hidev/composer.json' => 'hidev composer.json',
+        '.*.swp'               => 'IDE & OS files',
+        '.idea'                => 'IDE & OS files',
+        'nbproject'            => 'IDE & OS files',
+        '.buildpath'           => 'IDE & OS files',
+        '.project'             => 'IDE & OS files',
+        '.settings'            => 'IDE & OS files',
+        'Thumbs.db'            => 'IDE & OS files',
+        '.DS_Store'            => 'IDE & OS files',
     ];
 
     public function setIgnore($items, $where = '')
@@ -47,6 +47,7 @@ class VcsGoal extends DefaultGoal
                 'items' => $this->_ignore,
             ]);
         }
+
         return $this->_ignore;
     }
 }

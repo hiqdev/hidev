@@ -19,7 +19,7 @@ use Yii;
 class View extends \yii\web\View
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $defaultExtension = 'twig';
 

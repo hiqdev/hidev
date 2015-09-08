@@ -11,8 +11,6 @@
 
 namespace hidev\handlers;
 
-use Yii;
-
 /**
  * Handler for commits.md file.
  */
@@ -30,7 +28,7 @@ class GitignoreHandler extends BaseHandler
                 continue;
             }
             if ($str[0] === '#') {
-                $comment = trim(substr($str,1));
+                $comment = trim(substr($str, 1));
             } else {
                 $items[$str] = $comment;
             }
@@ -59,7 +57,6 @@ class GitignoreHandler extends BaseHandler
 
     public static function renderComment($comment)
     {
-        return "\n#" . ($comment[0]==='#' ? '' : ' ') . "$comment\n";
+        return "\n#" . ($comment[0] === '#' ? '' : ' ') . "$comment\n";
     }
-
 }
