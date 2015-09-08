@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## 0.0.9 Under development
 
+    - c96bec0 2015-09-08 docs (sol@hiqdev.com)
     - e573d4e 2015-09-08 docs (sol@hiqdev.com)
 - Added showing user users (instead of exception stack trace)
     - 7001f7e 2015-09-08 added showing user errors by catching exceptions caused by user mistakes (sol@hiqdev.com)
