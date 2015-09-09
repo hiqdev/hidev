@@ -1,10 +1,17 @@
 package:
     name:           {{ config.init.package }}
+{% if config.init.namespace %}
+    namespace:      {{ config.init.namespace }}
+{% endif %}
+{% if config.init.label %}
     label:          {{ config.init.label }}
+{% endif %}
     title:          {{ config.init.title }}
     type:           {{ config.init.type }}
     keywords:       {{ config.init.keywords }}
+{% if config.init.year %}
     year:           {{ config.init.year }}
+{% endif %}
 
 require:
     {{ config.init.vendor }}/hidev-config:        "*"

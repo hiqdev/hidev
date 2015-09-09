@@ -42,7 +42,7 @@ class InitGoal extends TemplateGoal
 
     public function options($actionId)
     {
-        return array_merge(parent::options($actionId), explode(',', 'label,title,type,keywords,year'));
+        return array_merge(parent::options($actionId), explode(',', 'namespace,label,title,type,keywords,year'));
     }
 
     public function getPackage()
@@ -55,11 +55,6 @@ class InitGoal extends TemplateGoal
         return $this->getItem('title') ?: Helper::titleize($this->package);
     }
 
-    public function getLabel()
-    {
-        return $this->getItem('label') ?: Helper::id2camel($this->package);
-    }
-
     public function getType()
     {
         return $this->getItem('type') ?: 'package';
@@ -68,10 +63,5 @@ class InitGoal extends TemplateGoal
     public function getKeywords()
     {
         return $this->getItem('keywords') ?: implode(', ', explode('-', $this->package));
-    }
-
-    public function getYear()
-    {
-        return $this->getItem('year') ?: date('Y');
     }
 }
