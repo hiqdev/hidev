@@ -6,6 +6,8 @@ hiqdev/hidev commits history
 
 ## 0.0.10 2015-09-09
 
+- Fixed getting/setting namespace
+    - f95fe40 2015-09-09 fixed getting/setting namespace (sol@hiqdev.com)
 
 ## 0.0.9 2015-09-08
 
