@@ -6,6 +6,7 @@ hiqdev/hidev changelog
 
 ## 0.0.10 2015-09-09
 
+- Fixed init: made even smaller basic config
 - Fixed getting/setting namespace
 
 ## 0.0.9 2015-09-08

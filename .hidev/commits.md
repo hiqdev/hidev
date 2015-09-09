@@ -6,6 +6,8 @@ hiqdev/hidev commits history
 
 ## 0.0.10 2015-09-09
 
+- Fixed init: made even smaller basic config
+    - ec5b407 2015-09-09 fixed init: added conditional generation (sol@hiqdev.com)
 - Fixed getting/setting namespace
     - f95fe40 2015-09-09 fixed getting/setting namespace (sol@hiqdev.com)
 
