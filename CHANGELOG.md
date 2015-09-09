@@ -1,7 +1,13 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.0.9 Under development
+## 0.1.0 Under development
+
+
+## 0.0.10 2015-09-09
+
+
+## 0.0.9 2015-09-08
 
 - Added VersionEye badge generation
 - Added showing user errors (instead of exception stack trace)

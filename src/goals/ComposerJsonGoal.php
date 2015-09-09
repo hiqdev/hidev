@@ -82,14 +82,12 @@ class ComposerJsonGoal extends TemplateGoal
 
     public function getAutoload()
     {
-        if (!$this->rawItem('autoload')) {
-            $this->setItem('autoload', [
-                'psr-4' => [
-                    $this->package->namespace . '\\' => $this->package->src,
-                ],
-            ]);
-        }
+        $autoload = $this->rawItem('autoload');
+        $autoload['psr-4'] = [
+            $this->package->namespace . '\\' => $this->package->src,
+        ];
+        $this->setItem('autoload', $autoload);
 
-        return $this->getItem('autoload');
+        return $autoload;
     }
 }

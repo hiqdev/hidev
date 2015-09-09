@@ -234,4 +234,9 @@ class File extends \yii\base\Object
 
         return false;
     }
+
+    public function get($name)
+    {
+        return $this->data[$name];
+    }
 }

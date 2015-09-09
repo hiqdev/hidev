@@ -63,7 +63,12 @@ class PackageGoal extends VendorGoal
 
     public function getNamespace()
     {
-        return $this->getItem('namespace') ?: ($this->getVendor()->name . '\\' . $this->name);
+        return $this->getItem('namespace') ?: $this->config->composer->namespace ?: self::defaultNamespace($this->getVendor()->name, $this->name);
+    }
+
+    public static function defaultNamespace($vendor, $package)
+    {
+        return $vendor . '\\' . strtr($package, '-', '\\');
     }
 
     public function getSrc()

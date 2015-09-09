@@ -26,4 +26,10 @@ class ComposerGoal extends DefaultGoal
         parent::init();
         $this->setDeps('composer.json');
     }
+
+    public function getNamespace()
+    {
+        $this->config->get('composer.json')->actionLoad();
+        return @trim(key($this->config->get('composer.json')->getFile()->get('autoload')['psr-4']), '\\');
+    }
 }

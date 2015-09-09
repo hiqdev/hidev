@@ -1,7 +1,13 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.0.9 Under development
+## 0.1.0 Under development
+
+
+## 0.0.10 2015-09-09
+
+
+## 0.0.9 2015-09-08
 
 - Added VersionEye badge generation
     - 64d022d 2015-09-08 fixed versioneye badge: dont show when no dependencies (sol@hiqdev.com)
