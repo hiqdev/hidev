@@ -29,6 +29,9 @@ ROADMAP
 
 ### Refactoring
 
+- generalization for composer, git, testing
+  - PackageManagerGoal or PmGoal
+  - VersionControlGoal or VcsGoal, VcsIgnoreGoal
 - redo CommitsHandler to History component
 - rewrite without yii?
 
