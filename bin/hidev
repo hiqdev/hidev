@@ -50,7 +50,7 @@ Yii::setAlias('@config', '@source/.hidev');
 Yii::setAlias('@vendor', $VENDOR);
 Yii::setLogger(Yii::createObject('hidev\base\Logger'));
 
-$application = new hidev\base\Application([
+$config = [
     'id'                    => 'hidev',
     'name'                  => 'HiDev - integrate your development',
     'isInit'                => $isInit,
@@ -116,9 +116,10 @@ $application = new hidev\base\Application([
             'class' => 'yii\caching\FileCache',
         ],
     ],
-]);
+];
 
 try {
+    $application = new hidev\base\Application($config);
     $exitCode = $application->run();
 } catch (Exception $e) {
     if ($e instanceof \yii\base\InvalidParamException || $e instanceof \yii\console\Exception) {
