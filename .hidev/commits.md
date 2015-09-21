@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.1.0 Under development
 
+- Fixed exception catching for proper showing user errors
+    - 0f4634f 2015-09-20 fixed exception catching (sol@hiqdev.com)
 
 ## 0.0.10 2015-09-09
 
