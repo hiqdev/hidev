@@ -4,6 +4,9 @@ vendor
 # composer lock files
 composer.lock
 
+# Codeception generated files
+tests/_support/_generated
+
 # hidev composer.json
 .hidev/composer.json
 
