@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## 0.1.0 Under development
 
+- Added basic tests
+    - aa38c08 2015-09-21 + codeception gitignoring (sol@hiqdev.com)
+    - f14cedb 2015-09-21 added basic tests for hidev init (sol@hiqdev.com)
 - Fixed exception catching for proper showing user errors
     - 0f4634f 2015-09-20 fixed exception catching (sol@hiqdev.com)
 
