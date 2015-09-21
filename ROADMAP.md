@@ -15,7 +15,6 @@ ROADMAP
 - status/install/update super goals: run status/install/update action on every goal that has it
 - travis
 - scrutinizer
-- loading goals from Robo
 
 ### 0.3.0
 
