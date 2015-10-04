@@ -5,16 +5,16 @@ ROADMAP
 
 - gitignore build from hashmap with comments
 - codeception plugin
-- tests
+- tests for: init, .gitignore, composer.json, README, LICENSE
 
 ### 0.2.0
 
+- travis
+- scrutinizer
 - interpolate $variables in config
 - robo plugin: run goals from Robo
 - before/after options
 - status/install/update super goals: run status/install/update action on every goal that has it
-- travis
-- scrutinizer
 
 ### 0.3.0
 
