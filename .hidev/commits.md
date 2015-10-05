@@ -3,7 +3,13 @@ hiqdev/hidev commits history
 
 ## 0.1.0 Under development
 
-- Added basic tests
+- Added tests for README goal
+    - a0ee0df 2015-10-05 + README minimal test (sol@hiqdev.com)
+- Added tests for 'hidev init'
+    - 397193c 2015-10-05 improved defaults for label, title and init (sol@hiqdev.com)
+    - 3a01b0b 2015-10-05 fixed 'hidev init' to make type=project (sol@hiqdev.com)
+    - c798edc 2015-10-04 + ReadmeGoalTest (sol@hiqdev.com)
+    - 23d719a 2015-10-03 + functional/Tester.php (sol@hiqdev.com)
     - aa38c08 2015-09-21 + codeception gitignoring (sol@hiqdev.com)
     - f14cedb 2015-09-21 added basic tests for hidev init (sol@hiqdev.com)
 - Fixed exception catching for proper showing user errors

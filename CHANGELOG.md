@@ -3,7 +3,8 @@ hiqdev/hidev changelog
 
 ## 0.1.0 Under development
 
-- Added basic tests
+- Added tests for README goal
+- Added tests for 'hidev init'
 - Fixed exception catching for proper showing user errors
 
 ## 0.0.10 2015-09-09

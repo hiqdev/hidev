@@ -41,7 +41,7 @@ package:
     name:           my-package
     label:          MyPackage
     title:          My Package
-    type:           package
+    type:           project
     keywords:       my, package
 
 require:
