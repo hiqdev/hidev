@@ -55,7 +55,7 @@ class Tester
     {
         $contents = trim($this->readFile($file));
         foreach ($strings as $s) {
-            $this->test->assertNotSame(strpos($contents, $s), false);
+            $this->test->assertNotSame(strpos($contents, $s), false, "Has NOT: $s");
         }
     }
 

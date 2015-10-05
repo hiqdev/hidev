@@ -42,8 +42,10 @@ package:
     type:           project
     keywords:       new, package
 
+vendor:
+    name:           the-vendor
+
 require:
-    the-vendor/hidev-config:        "*"
     hiqdev/hidev-config-php:    "*"
         ');
     }
@@ -53,7 +55,7 @@ require:
      */
     public function testOptions()
     {
-        $this->tester->hidev('init the-vendor/new-package "--namespace=thevendor\\other\\newpackage" --label=NewPackage "--title=The New Package" --type=yii2-extension --keywords=new,package,of,the,vendor');
+        $this->tester->hidev('init the-vendor/new-package "--namespace=thevendor\\other\\newpackage" --label=NewPackage "--title=The New Package" --type=yii2-extension --keywords=new,package,of,the,vendor "--description=The project longer description" --year=2014 --novendor --norequire');
         $this->tester->assertFile('.hidev/config.yml', '
 package:
     name:           new-package
@@ -62,10 +64,8 @@ package:
     title:          The New Package
     type:           yii2-extension
     keywords:       new,package,of,the,vendor
-
-require:
-    the-vendor/hidev-config:        "*"
-    hiqdev/hidev-config-php:    "*"
+    description:    The project longer description
+    year:           2014
         ');
     }
 }

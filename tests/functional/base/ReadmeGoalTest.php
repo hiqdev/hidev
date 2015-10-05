@@ -35,14 +35,14 @@ class ReadmeGoalTest extends \Codeception\TestCase\Test
      */
     public function testMinimal()
     {
-        $this->tester->hidev('init the-vendor/new-test-package --norequire');
-        $this->tester->appendFile('.hidev/config.yml', '
-vendor:
-    name:    the-vendor
-        ');
+        $this->tester->hidev('init the-vendor/new-test-package --norequire --year=2015 "--description=The project longer decription"');
         $this->tester->hidev('README.md');
         $this->tester->assertFileHas('README.md', [
-            "New Test Package\n----------------",
+            trim("
+New Test Package
+----------------
+
+The project longer decription"),
             '## Installation',
             'The preferred way to install this project is through [composer](http://getcomposer.org/download/).',
             'php composer.phar create-project "the-vendor/new-test-package:*" directory2install',
@@ -53,9 +53,9 @@ vendor:
     }
 
     /**
-     * Test options: init the-vendor/new-package.
+     * Test options.
      */
-    public function testMore()
+    public function testOptions()
     {
     }
 }
