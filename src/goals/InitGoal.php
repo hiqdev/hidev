@@ -11,7 +11,6 @@
 
 namespace hidev\goals;
 
-use hidev\helpers\Helper;
 use yii\base\InvalidParamException;
 
 /**
