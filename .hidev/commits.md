@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.1.0 Under development
 
+    - adfd43e 2015-10-05 fixed tests for new features (sol@hiqdev.com)
+    - f21e66d 2015-10-05 improved 'hidev init': + year and description options (sol@hiqdev.com)
 - Added tests for README goal
     - 10f28b4 2015-10-05 php-cs-fixed (sol@hiqdev.com)
     - a96c530 2015-10-05 php-cs-fixed (sol@hiqdev.com)

@@ -31,21 +31,23 @@ in **.hidev** directory in the root of your project.
 
 The main config file is: **.hidev/config.yml**.
 
-You can generate basic config file with init command:
+You can generate basic config file with **init** command:
 
-    hidev init vendor/my-package
+```sh
+    hidev init the-vendor/my-package
+```
 
 You will receive:
 ```yml
 package:
-    name:           my-package
-    label:          MyPackage
-    title:          My Package
+    name:           my-new-package
     type:           project
-    keywords:       my, package
+    keywords:       my, new, package
+
+vendor:
+    name:           the-vendor
 
 require:
-    vendor/hidev-config:        "*"
     hiqdev/hidev-config-php:    "*"
 ```
 
