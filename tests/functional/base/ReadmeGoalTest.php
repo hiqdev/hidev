@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * HiDev - integrate your development
+ *
+ * @link      https://hidev.me/
+ * @package   hidev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
+ */
+
 namespace base;
 
 use hidev\tests\functional\Tester;
@@ -22,17 +31,17 @@ class ReadmeGoalTest extends \Codeception\TestCase\Test
     }
 
     /**
-     * Test minimal
+     * Test minimal.
      */
     public function testMinimal()
     {
         $this->tester->hidev('init the-vendor/new-test-package --norequire');
-        $this->tester->appendFile('.hidev/config.yml','
+        $this->tester->appendFile('.hidev/config.yml', '
 vendor:
     name:    the-vendor
         ');
         $this->tester->hidev('README.md');
-        $this->tester->assertFileHas('README.md',[
+        $this->tester->assertFileHas('README.md', [
             "New Test Package\n----------------",
             '## Installation',
             'The preferred way to install this project is through [composer](http://getcomposer.org/download/).',
@@ -41,15 +50,12 @@ vendor:
             '[No license](http://choosealicense.com/licenses/no-license)',
             'Copyright © 2015, The Vendor',
         ]);
-
     }
 
     /**
-     * Test options: init the-vendor/new-package
+     * Test options: init the-vendor/new-package.
      */
     public function testMore()
     {
     }
-
-
 }

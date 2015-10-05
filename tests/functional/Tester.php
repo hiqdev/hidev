@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * HiDev - integrate your development
+ *
+ * @link      https://hidev.me/
+ * @package   hidev
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
+ */
+
 namespace hidev\tests\functional;
 
 use Yii;
@@ -13,10 +22,10 @@ class Tester
     public function __construct($test)
     {
         static $no = 0;
-        $no++;
+        ++$no;
         $this->test = $test;
-        $this->now = date("c");
-        $this->dir = $this->path($this->now . '-' . $no, Yii::getAlias('@hidev/tests/_output'));
+        $this->now  = date('c');
+        $this->dir  = $this->path($this->now . '-' . $no, Yii::getAlias('@hidev/tests/_output'));
         mkdir($this->dir);
         chdir($this->dir);
     }
