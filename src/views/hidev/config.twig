@@ -6,13 +6,21 @@ package:
 {% if config.init.label %}
     label:          {{ config.init.label }}
 {% endif %}
+{% if config.init.title %}
     title:          {{ config.init.title }}
+{% endif %}
+{% if config.init.type %}
     type:           {{ config.init.type }}
+{% endif %}
+{% if config.init.keywords %}
     keywords:       {{ config.init.keywords }}
+{% endif %}
 {% if config.init.year %}
     year:           {{ config.init.year }}
 {% endif %}
+{% if not config.init.norequire %}
 
 require:
     {{ config.init.vendor }}/hidev-config:        "*"
     hiqdev/hidev-config-php:    "*"
+{% endif %}

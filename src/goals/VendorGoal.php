@@ -12,19 +12,30 @@
 namespace hidev\goals;
 
 use Yii;
+use hidev\helpers\Helper;
 
 /**
  * Vendor part of the config.
  */
 class VendorGoal extends DefaultGoal
 {
+    public function getLabel()
+    {
+        return $this->getItem('label') ?: ucfirst($this->name);
+    }
+
+    public function getTitle()
+    {
+        return $this->getItem('title') ?: $this->getItem('description') ?: Helper::titleize($this->name);
+    }
+
     public function getTitleAndHomepage()
     {
         return $this->title . ($this->homepage ? ' (' . $this->homepage . ')' : '');
     }
 
-    public function getConfig()
+    public function getDescription()
     {
-        return Yii::$app->config;
+        return $this->getItem('description') ?: $this->getTitle();
     }
 }

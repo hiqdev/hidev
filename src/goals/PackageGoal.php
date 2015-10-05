@@ -18,11 +18,6 @@ use hidev\helpers\Helper;
  */
 class PackageGoal extends VendorGoal
 {
-    public function getLabel()
-    {
-        return $this->getItem('label') ?: ucfirst($this->name);
-    }
-
     public function getYears()
     {
         $cur = (integer) date('Y');
@@ -86,14 +81,19 @@ class PackageGoal extends VendorGoal
         return $this->getItem('forum') ?: $this->vendor->forum;
     }
 
+    public function getLabel()
+    {
+        return $this->getItem('label') ?: ucfirst($this->name);
+    }
+
     public function getTitle()
     {
-        return $this->getItem('title') ?: $this->getItem('description');
+        return $this->getItem('title') ?: $this->getItem('description') ?: Helper::titleize($this->name);
     }
 
     public function getDescription()
     {
-        return $this->getItem('description') ?: $this->getItem('title');
+        return $this->getItem('description') ?: $this->getTitle();
     }
 
     public function getAuthors()
