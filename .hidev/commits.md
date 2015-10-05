@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## 0.1.0 Under development
 
+    - 5bfde10 2015-10-05 changed License section in README (sol@hiqdev.com)
 - Changed default config generated with 'hidev init'
     - cba9771 2015-10-05 fixed configuration readme for new 'hidev init' (sol@hiqdev.com)
     - adfd43e 2015-10-05 fixed tests for new features (sol@hiqdev.com)
