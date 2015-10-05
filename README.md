@@ -34,7 +34,7 @@ The main config file is: **.hidev/config.yml**.
 You can generate basic config file with **init** command:
 
 ```sh
-    hidev init the-vendor/my-package
+hidev init the-vendor/my-package
 ```
 
 You will receive:
