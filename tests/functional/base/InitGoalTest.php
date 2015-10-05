@@ -2,7 +2,7 @@
 
 namespace base;
 
-use Yii;
+use hidev\tests\functional\Tester;
 
 class InitGoalTest extends \Codeception\TestCase\Test
 {
@@ -13,7 +13,7 @@ class InitGoalTest extends \Codeception\TestCase\Test
 
     protected function _before()
     {
-        $this->tester = new FunctionalTester($this);
+        $this->tester = new Tester($this);
     }
 
     protected function _after()
@@ -30,8 +30,7 @@ class InitGoalTest extends \Codeception\TestCase\Test
         $this->tester->assertFile('.hidev/config.yml','
 package:
     name:           new-package
-    title:          New Package
-    type:           package
+    type:           project
     keywords:       new, package
 
 require:
@@ -41,7 +40,7 @@ require:
     }
 
     /**
-     * Test options: init the-vendor/new-package 
+     * Test options: init the-vendor/new-package
      */
     public function testOptions()
     {
@@ -59,45 +58,5 @@ require:
     the-vendor/hidev-config:        "*"
     hiqdev/hidev-config-php:    "*"
         ');
-    }
-}
-
-class FunctionalTester
-{
-    public $test;
-
-    public $dir;
-
-    public function path($file, $dir = null)
-    {
-        return ($dir ?: $this->dir) . DIRECTORY_SEPARATOR . $file;
-    }
-
-    public function __construct($test)
-    {
-        static $no = 0;
-        $no++;
-        $this->test = $test;
-        $this->now = date("c");
-        $this->dir = $this->path($this->now . '-' . $no, Yii::getAlias('@hidev/tests/_output'));
-        mkdir($this->dir);
-        chdir($this->dir);
-    }
-
-    public function __destruct()
-    {
-        exec('rm -rf ' . $this->dir);
-    }
-
-    public function hidev($params)
-    {
-        $command = Yii::getAlias('@hidev/bin/hidev') . ' ' . $params;
-        exec($command);
-    }
-
-    public function assertFile($file, $content)
-    {
-        $data = file_get_contents($this->path($file));
-        $this->test->assertEquals(trim($data), trim($content));
     }
 }

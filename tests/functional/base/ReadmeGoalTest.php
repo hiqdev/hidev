@@ -28,12 +28,20 @@ class ReadmeGoalTest extends \Codeception\TestCase\Test
     {
         $this->tester->hidev('init the-vendor/new-test-package --norequire');
         $this->tester->appendFile('.hidev/config.yml','
-
 vendor:
     name:    the-vendor
         ');
         $this->tester->hidev('README.md');
-        die();
+        $this->tester->assertFileHas('README.md',[
+            "New Test Package\n----------------",
+            '## Installation',
+            'The preferred way to install this project is through [composer](http://getcomposer.org/download/).',
+            'php composer.phar create-project "the-vendor/new-test-package:*" directory2install',
+            '## Licence',
+            '[No license](http://choosealicense.com/licenses/no-license)',
+            'Copyright © 2015, The Vendor',
+        ]);
+
     }
 
     /**
@@ -42,4 +50,6 @@ vendor:
     public function testMore()
     {
     }
+
+
 }

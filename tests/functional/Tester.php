@@ -28,7 +28,7 @@ class Tester
 
     public function __destruct()
     {
-        #exec('rm -rf ' . $this->dir);
+        exec('rm -rf ' . $this->dir);
     }
 
     public function hidev($params)
@@ -42,9 +42,17 @@ class Tester
         $this->test->assertEquals(trim($this->readFile($file)), trim($content));
     }
 
+    public function assertFileHas($file, array $strings)
+    {
+        $contents = trim($this->readFile($file));
+        foreach ($strings as $s) {
+            $this->test->assertNotSame(strpos($contents, $s), false);
+        }
+    }
+
     public function writeFile($file, $contents)
     {
-        file_put_contents($this->path($file), $contents);
+        file_put_contents($this->path($file), rtrim($contents) . "\n");
     }
 
     public function appendFile($file, $contents)
