@@ -4,6 +4,8 @@ hiqdev/hidev commits history
 ## 0.1.0 Under development
 
 - Added tests for README goal
+    - 10f28b4 2015-10-05 php-cs-fixed (sol@hiqdev.com)
+    - a96c530 2015-10-05 php-cs-fixed (sol@hiqdev.com)
     - a0ee0df 2015-10-05 + README minimal test (sol@hiqdev.com)
 - Added tests for 'hidev init'
     - 397193c 2015-10-05 improved defaults for label, title and init (sol@hiqdev.com)
