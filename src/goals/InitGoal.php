@@ -41,7 +41,7 @@ class InitGoal extends TemplateGoal
 
     public function options($actionId)
     {
-        return array_merge(parent::options($actionId), explode(',', 'namespace,label,title,type,keywords,year,norequire'));
+        return array_merge(parent::options($actionId), explode(',', 'namespace,label,title,type,keywords,description,year,novendor,norequire'));
     }
 
     public function getPackage()

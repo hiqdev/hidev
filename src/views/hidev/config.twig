@@ -15,12 +15,19 @@ package:
 {% if config.init.keywords %}
     keywords:       {{ config.init.keywords }}
 {% endif %}
+{% if config.init.description %}
+    description:    {{ config.init.description }}
+{% endif %}
 {% if config.init.year %}
     year:           {{ config.init.year }}
+{% endif %}
+{% if not config.init.novendor %}
+
+vendor:
+    name:           {{ config.init.vendor }}
 {% endif %}
 {% if not config.init.norequire %}
 
 require:
-    {{ config.init.vendor }}/hidev-config:        "*"
     hiqdev/hidev-config-php:    "*"
 {% endif %}
