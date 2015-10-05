@@ -96,6 +96,10 @@ class PackageGoal extends VendorGoal
         return $this->getItem('description') ?: $this->getTitle();
     }
 
+    public function getRepositoryUrl($file)
+    {
+        return 'https://github.com/hiqdev/hidev/blob/master/' . $file;
+    }
     public function getAuthors()
     {
         return $this->getItem('authors') ?: $this->vendor->authors;
