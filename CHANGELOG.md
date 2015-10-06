@@ -3,7 +3,8 @@ hiqdev/hidev changelog
 
 ## 0.1.0 Under development
 
-- Changed default config generated with 'hidev init'
+- Changed License section in README
+- Changed default config generated with 'hidev init': added authors and more options
 - Added tests for README goal
 - Added tests for 'hidev init'
 - Fixed exception catching for proper showing user errors
