@@ -116,4 +116,14 @@ class GitGoal extends VcsGoal
         $this->loadTags();
         $this->loadHistory();
     }
+
+    public function getUserName()
+    {
+        return trim(`git config --get user.name`);
+    }
+
+    public function getUserEmail()
+    {
+        return trim(`git config --get user.email`);
+    }
 }

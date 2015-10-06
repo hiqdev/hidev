@@ -25,6 +25,11 @@ package:
 
 vendor:
     name:           {{ config.init.vendor }}
+{% if config.init.author and config.init.email %}
+    authors:
+        '{{ config.init.author }}':
+            email:      {{ config.init.email }}
+{% endif %}
 {% endif %}
 {% if not config.init.norequire %}
 

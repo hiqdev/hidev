@@ -35,7 +35,7 @@ class InitGoalTest extends \Codeception\TestCase\Test
      */
     public function testMinimal()
     {
-        $this->tester->hidev('init the-vendor/new-package');
+        $this->tester->hidev('init the-vendor/new-package "--author=Author Name" --email=author@email.com');
         $this->tester->assertFile('.hidev/config.yml', '
 package:
     name:           new-package
@@ -44,6 +44,9 @@ package:
 
 vendor:
     name:           the-vendor
+    authors:
+        \'Author Name\':
+            email:      author@email.com
 
 require:
     hiqdev/hidev-config-php:    "*"

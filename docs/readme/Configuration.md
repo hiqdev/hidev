@@ -18,6 +18,9 @@ package:
 
 vendor:
     name:           the-vendor
+    authors:
+        'Andrii Vasyliev':
+            email:      sol@hiqdev.com
 
 require:
     hiqdev/hidev-config-php:    "*"

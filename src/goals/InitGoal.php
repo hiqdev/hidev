@@ -41,7 +41,7 @@ class InitGoal extends TemplateGoal
 
     public function options($actionId)
     {
-        return array_merge(parent::options($actionId), explode(',', 'namespace,label,title,type,keywords,description,year,novendor,norequire'));
+        return array_merge(parent::options($actionId), explode(',', 'namespace,label,title,type,keywords,description,year,author,email,novendor,norequire'));
     }
 
     public function getPackage()
@@ -57,5 +57,15 @@ class InitGoal extends TemplateGoal
     public function getKeywords()
     {
         return $this->getItem('keywords') ?: implode(', ', explode('-', $this->package));
+    }
+
+    public function getAuthor()
+    {
+        return $this->getItem('author') ?: $this->getVcs()->getUserName();
+    }
+
+    public function getEmail()
+    {
+        return $this->getItem('email') ?: $this->getVcs()->getUserEmail();
     }
 }
