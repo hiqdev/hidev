@@ -12,6 +12,7 @@
 namespace hidev\goals;
 
 use Yii;
+use hidev\helpers\Helper;
 
 /**
  * Goal for README.
@@ -23,15 +24,34 @@ class ReadmeGoal extends TemplateGoal
         return 'README';
     }
 
+    public function renderH1($title)
+    {
+        $res = $title . "\n";
+        $res .= str_repeat('-', mb_strlen($title, Yii::$app->charset));
+        return $res . "\n";
+    }
+
+    public function renderText($text)
+    {
+        $text = trim($text);
+        return $text ? "\n$text\n" : '';
+    }
+
     public function renderSection($section, $default = null)
     {
-        $file = str_replace(' ', '', $section);
-        $path = Yii::getAlias("@source/docs/readme/$file.md");
-        if (!file_exists($path)) {
-            return $default;
-        }
+        $file = 'readme/' . str_replace(' ', '', $section);
+        $path = Yii::getAlias("@source/docs/$file.md");
+        $text = file_exists($path) ? file_get_contents($path) : $this->getSection($file, $default);
+        $text = trim($text);
 
-        return "\n## $section\n\n" . file_get_contents($path);
+        return $text ? "\n## $section\n\n$text\n" : '';
+    }
+
+    public function getSection($file, $default = null)
+    {
+        $view = Yii::$app->getView();
+        $tpl = Helper::file2template($file);
+        return $view->existsTemplate($tpl) ? $view->render($tpl, ['config' => $this->config]) : $default;
     }
 
     public $badges = [
@@ -51,7 +71,7 @@ class ReadmeGoal extends TemplateGoal
             $res .= $this->renderBadge($badge) . "\n";
         }
 
-        return $res;
+        return $res ? "\n$res" : '';
     }
 
     public function renderBadge($badge)

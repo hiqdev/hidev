@@ -11,7 +11,6 @@ Task runner, code generator and build tool for continuos integration.
 
 And more planned. See [ROADMAP](https://github.com/hiqdev/hidev/blob/master/ROADMAP.md).
 
-
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable.png)](https://packagist.org/packages/hiqdev/hidev)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads.png)](https://packagist.org/packages/hiqdev/hidev)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:hidev/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hidev/dev-master)
@@ -54,7 +53,7 @@ require:
     hiqdev/hidev-config-php:    "*"
 ```
 
-## Licence
+## License
 
 This project is released under the terms of the BSD-3-Clause [license](https://github.com/hiqdev/hidev/blob/master/LICENSE).
 Read more [here](http://choosealicense.com/licenses/bsd-3-clause).

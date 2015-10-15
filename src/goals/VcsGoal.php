@@ -23,7 +23,9 @@ class VcsGoal extends DefaultGoal
     public $initTag = 'Development started';
 
     public $_ignore = [
-        '.hidev/composer.json' => 'hidev composer.json',
+        '.hidev/composer.json' => 'hidev internals',
+        '.hidev/composer.lock' => 'hidev internals',
+        '.hidev/vendor'        => 'hidev internals',
         '.*.swp'               => 'IDE & OS files',
         '.idea'                => 'IDE & OS files',
         'nbproject'            => 'IDE & OS files',
