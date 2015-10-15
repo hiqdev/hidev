@@ -7,8 +7,10 @@ composer.lock
 # Codeception generated files
 tests/_support/_generated
 
-# hidev composer.json
+# hidev internals
 .hidev/composer.json
+.hidev/composer.lock
+.hidev/vendor
 
 # IDE & OS files
 .*.swp

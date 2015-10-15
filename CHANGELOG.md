@@ -1,8 +1,12 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.1.0 Under development
+## 0.1.1 Under development
 
+
+## 0.1.0 2015-10-15
+
+- Added improved README generation with render functions and section templates
 - Changed License section in README
 - Changed default config generated with 'hidev init': added authors and more options
 - Added tests for README goal

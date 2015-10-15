@@ -1,8 +1,13 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.1.0 Under development
+## 0.1.1 Under development
 
+
+## 0.1.0 2015-10-15
+
+- Added improved README generation with render functions and section templates
+    - 25fa62d 2015-10-15 improved README generation with render functions and section templates (sol@hiqdev.com)
 - Changed License section in README
     - 0bb0366 2015-10-05 fixed tests for new readme license section (sol@hiqdev.com)
     - 5bfde10 2015-10-05 changed License section in README (sol@hiqdev.com)
