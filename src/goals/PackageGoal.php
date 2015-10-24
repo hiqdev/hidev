@@ -98,7 +98,7 @@ class PackageGoal extends VendorGoal
 
     public function getRepositoryUrl($file)
     {
-        return 'https://github.com/hiqdev/hidev/blob/master/' . $file;
+        return 'https://github.com/' . $this->getFullName() . '/blob/master/' . $file;
     }
     public function getAuthors()
     {
