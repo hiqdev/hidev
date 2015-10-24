@@ -2,7 +2,7 @@ package:
     name:           hidev
     namespace:      hidev
     label:          HiDev
-    title:          HiDev - integrate your development
+    title:          HiDev - integrated development
     type:           project
     forum:          https://forum.hiqdev.com/hidev
     homepage:       https://hidev.me/

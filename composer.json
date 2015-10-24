@@ -1,7 +1,7 @@
 {
     "name": "hiqdev/hidev",
     "type": "project",
-    "description": "HiDev - integrate your development",
+    "description": "HiDev - integrated development",
     "keywords": [
         "build tool",
         "task runner",

@@ -1,5 +1,5 @@
-HiDev - integrate your development
-----------------------------------
+HiDev - integrated development
+------------------------------
 
 Task runner, code generator and build tool for continuos integration.
 - package management: composer.json, Packagist
@@ -11,8 +11,8 @@ Task runner, code generator and build tool for continuos integration.
 
 And more planned. See [ROADMAP](https://github.com/hiqdev/hidev/blob/master/ROADMAP.md).
 
-[![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable.png)](https://packagist.org/packages/hiqdev/hidev)
-[![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads.png)](https://packagist.org/packages/hiqdev/hidev)
+[![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable)](//packagist.org/packages/hiqdev/hidev)
+[![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads)](//packagist.org/packages/hiqdev/hidev)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:hidev/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hidev/dev-master)
 
 ## Installation
