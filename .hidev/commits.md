@@ -6,6 +6,10 @@ hiqdev/hidev commits history
 
 ## 0.1.1 2015-10-24
 
+- Fixed package title to: HiDev - integrated development
+    - 7e900c3 2015-10-24 changed package title to: HiDev - integrated development (sol@hiqdev.com)
+- Added better badges configuring
+    - 7841c69 2015-10-24 + fixed badges configuring (sol@hiqdev.com)
 - Fixed getRepositoryUrl
     - 888674e 2015-10-24 fixed getRepositoryUrl (sol@hiqdev.com)
 
