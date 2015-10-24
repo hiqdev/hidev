@@ -4,9 +4,6 @@ vendor
 # composer lock files
 composer.lock
 
-# Codeception generated files
-tests/_support/_generated
-
 # hidev internals
 .hidev/composer.json
 .hidev/composer.lock
@@ -21,6 +18,9 @@ nbproject
 .settings
 Thumbs.db
 .DS_Store
+
+# Codeception generated files
+tests/_support/_generated
 
 # runtime dir
 runtime
