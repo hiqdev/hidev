@@ -54,29 +54,39 @@ class ReadmeGoal extends TemplateGoal
         return $view->existsTemplate($tpl) ? $view->render($tpl, ['config' => $this->config]) : $default;
     }
 
-    public $badges = [
-        'packagist.version' => '[![Latest Stable Version](https://poser.pugx.org/{{ vendor/package }}/v/stable.png)](https://packagist.org/packages/{{ vendor/package }})',
-        'packagist.total'   => '[![Total Downloads](https://poser.pugx.org/{{ vendor/package }}/downloads.png)](https://packagist.org/packages/{{ vendor/package }})',
-        'versioneye.status' => '[![Dependency Status](https://www.versioneye.com/php/{{ vendor:package }}/dev-master/badge.svg)](https://www.versioneye.com/php/{{ vendor:package }}/dev-master)',
+    public $known_badges = [
+        'packagist.stable'        => '[![Latest Stable Version](https://poser.pugx.org/{{ vendor/package }}/v/stable)](//packagist.org/packages/{{ vendor/package }})',
+        'packagist.unstable'      => '[![Latest Unstable Version](https://poser.pugx.org/{{ vendor/package }}/v/unstable)](//packagist.org/packages/{{ vendor/package }})',
+        'packagist.license'       => '[![License](https://poser.pugx.org/{{ vendor/package }}/v/license)](//packagist.org/packages/{{ vendor/package }})',
+        'packagist.downloads'     => '[![Total Downloads](https://poser.pugx.org/{{ vendor/package }}/downloads)](//packagist.org/packages/{{ vendor/package }})',
+        'versioneye.dependencies' => '[![Dependency Status](https://www.versioneye.com/php/{{ vendor:package }}/dev-master/badge.svg)](https://www.versioneye.com/php/{{ vendor:package }}/dev-master)',
     ];
 
     public function renderBadges()
     {
         $c = $this->config->get('composer.json');
         if (!$c->has('require') && !$c->has('require-dev')) {
-            unset($this->badges['versioneye.status']);
+            unset($this->badges['versioneye.dependencies']);
         }
         $res = '';
-        foreach ($this->badges as $badge) {
-            $res .= $this->renderBadge($badge) . "\n";
+        foreach ($this->badges as $badge => $tpl) {
+            if (!$tpl) {
+                $tpl = $this->known_badges[$badge];
+            }
+            if ($tpl == 'disabled') {
+                continue;
+            }
+            $res .= $this->renderBadge($tpl) . "\n";
         }
 
         return $res ? "\n$res" : '';
     }
 
-    public function renderBadge($badge)
+    public function renderBadge($tpl)
     {
-        return strtr($badge, [
+        return strtr($tpl, [
+            '{{ vendor }}'         => $this->vendor->name,
+            '{{ package }}'        => $this->package->name,
             '{{ vendor/package }}' => $this->vendor->name . '/' . $this->package->name,
             '{{ vendor:package }}' => $this->vendor->name . ':' . $this->package->name,
         ]);
