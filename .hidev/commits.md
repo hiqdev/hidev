@@ -1,8 +1,13 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.1.1 Under development
+## 0.1.2 Under development
 
+
+## 0.1.1 2015-10-24
+
+- Fixed getRepositoryUrl
+    - 888674e 2015-10-24 fixed getRepositoryUrl (sol@hiqdev.com)
 
 ## 0.1.0 2015-10-15
 

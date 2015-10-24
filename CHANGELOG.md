@@ -1,8 +1,12 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.1.1 Under development
+## 0.1.2 Under development
 
+
+## 0.1.1 2015-10-24
+
+- Fixed getRepositoryUrl
 
 ## 0.1.0 2015-10-15
 
