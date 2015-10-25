@@ -64,12 +64,16 @@ class ReadmeGoal extends TemplateGoal
 
     public function renderBadges()
     {
+        $badges = $this->badges;
+        if (!$badges) {
+            return '';
+        }
         $c = $this->config->get('composer.json');
         if (!$c->has('require') && !$c->has('require-dev')) {
-            unset($this->badges['versioneye.dependencies']);
+            unset($badges['versioneye.dependencies']);
         }
         $res = '';
-        foreach ($this->badges as $badge => $tpl) {
+        foreach ($badges as $badge => $tpl) {
             if (!$tpl) {
                 $tpl = $this->known_badges[$badge];
             }
