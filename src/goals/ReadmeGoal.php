@@ -55,6 +55,7 @@ class ReadmeGoal extends TemplateGoal
     }
 
     public $known_badges = [
+        'github.version'          => '[![GitHub version](https://badge.fury.io/gh/{{ vendor }}%2F{{ package }}.svg)](https://badge.fury.io/gh/{{ vendor }}%2F{{ package }})',
         'packagist.stable'        => '[![Latest Stable Version](https://poser.pugx.org/{{ vendor/package }}/v/stable)](//packagist.org/packages/{{ vendor/package }})',
         'packagist.unstable'      => '[![Latest Unstable Version](https://poser.pugx.org/{{ vendor/package }}/v/unstable)](//packagist.org/packages/{{ vendor/package }})',
         'packagist.license'       => '[![License](https://poser.pugx.org/{{ vendor/package }}/v/license)](//packagist.org/packages/{{ vendor/package }})',
