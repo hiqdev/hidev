@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.1.2 Under development
 
+- Fixed badges rendering
 
 ## 0.1.1 2015-10-24
 

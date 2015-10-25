@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.1.2 Under development
 
+- Fixed badges rendering
+    - c17149c 2015-10-25 fixed badges rendering (sol@hiqdev.com)
 
 ## 0.1.1 2015-10-24
 
