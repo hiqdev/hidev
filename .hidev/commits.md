@@ -3,15 +3,15 @@ hiqdev/hidev commits history
 
 ## 0.1.2 Under development
 
-- Fixed badges rendering
+
+## 0.1.1 2015-10-25
+
+- Added better badges configuring and rendering
+    - cae13d3 2015-10-25 + github.version badge (sol@hiqdev.com)
     - c17149c 2015-10-25 fixed badges rendering (sol@hiqdev.com)
-
-## 0.1.1 2015-10-24
-
+    - 7841c69 2015-10-24 + fixed badges configuring (sol@hiqdev.com)
 - Fixed package title to: HiDev - integrated development
     - 7e900c3 2015-10-24 changed package title to: HiDev - integrated development (sol@hiqdev.com)
-- Added better badges configuring
-    - 7841c69 2015-10-24 + fixed badges configuring (sol@hiqdev.com)
 - Fixed getRepositoryUrl
     - 888674e 2015-10-24 fixed getRepositoryUrl (sol@hiqdev.com)
 

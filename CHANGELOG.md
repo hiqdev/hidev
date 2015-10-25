@@ -3,12 +3,11 @@ hiqdev/hidev changelog
 
 ## 0.1.2 Under development
 
-- Fixed badges rendering
 
-## 0.1.1 2015-10-24
+## 0.1.1 2015-10-25
 
+- Added better badges configuring and rendering
 - Fixed package title to: HiDev - integrated development
-- Added better badges configuring
 - Fixed getRepositoryUrl
 
 ## 0.1.0 2015-10-15
