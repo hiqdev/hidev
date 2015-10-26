@@ -1,7 +1,7 @@
 Just run it.
 
 ```sh
-    hidev
+hidev
 ```
 
 And see the magic.
