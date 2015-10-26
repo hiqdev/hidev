@@ -1,8 +1,14 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.1.2 Under development
+## 0.1.3 Under development
 
+
+## 0.1.2 2015-10-26
+
+- Added control of readme sections to be rendered
+    - cdf01e7 2015-10-26 + control of readme sections to be rendered (sol@hiqdev.com)
+- Added 'update' goal to update hidev internals
     - 68fb235 2015-10-26 + update goal (sol@hiqdev.com)
 
 ## 0.1.1 2015-10-25

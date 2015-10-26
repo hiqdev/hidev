@@ -1,8 +1,13 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.1.2 Under development
+## 0.1.3 Under development
 
+
+## 0.1.2 2015-10-26
+
+- Added control of readme sections to be rendered
+- Added 'update' goal to update hidev internals
 
 ## 0.1.1 2015-10-25
 
