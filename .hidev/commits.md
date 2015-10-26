@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## 0.1.2 Under development
 
+    - 68fb235 2015-10-26 + update goal (sol@hiqdev.com)
 
 ## 0.1.1 2015-10-25
 

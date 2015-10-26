@@ -1,5 +1,5 @@
 HiDev - integrated development
-------------------------------
+==============================
 
 Task runner, code generator and build tool for continuos integration.
 - package management: composer.json, Packagist

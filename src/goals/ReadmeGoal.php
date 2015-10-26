@@ -24,11 +24,21 @@ class ReadmeGoal extends TemplateGoal
         return 'README';
     }
 
-    public function renderH1($title)
+    public function renderH($title, $char)
     {
         $res = $title . "\n";
-        $res .= str_repeat('-', mb_strlen($title, Yii::$app->charset));
+        $res .= str_repeat($char, mb_strlen($title, Yii::$app->charset));
         return $res . "\n";
+    }
+
+    public function renderH1($title)
+    {
+        return $this->renderH($title, '=');
+    }
+
+    public function renderH2($title)
+    {
+        return $this->renderH($title, '-');
     }
 
     public function renderText($text)
@@ -52,6 +62,23 @@ class ReadmeGoal extends TemplateGoal
         $view = Yii::$app->getView();
         $tpl = Helper::file2template($file);
         return $view->existsTemplate($tpl) ? $view->render($tpl, ['config' => $this->config]) : $default;
+    }
+
+    public function getSections()
+    {
+        return $this->getItem('sections') ?: ['Requirements', 'Installation', 'Configuration', 'Usage', 'License', 'Acknowledgments'];
+    }
+
+    public function renderSections($sections = null)
+    {
+        if ($sections === null) {
+            $sections = $this->sections;
+        }
+        $res = '';
+        foreach ($sections as $section) {
+            $res .= $this->renderSection($section);
+        }
+        return $res;
     }
 
     public $known_badges = [
