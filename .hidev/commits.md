@@ -6,6 +6,8 @@ hiqdev/hidev commits history
 
 ## 0.1.2 2015-10-26
 
+- Added basic Usage readme section
+    - a533502 2015-10-26 + basic Usage readme section (sol@hiqdev.com)
 - Added control of readme sections to be rendered
     - cdf01e7 2015-10-26 + control of readme sections to be rendered (sol@hiqdev.com)
 - Added 'update' goal to update hidev internals
