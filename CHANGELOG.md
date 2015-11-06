@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.1.3 Under development
 
+- Changed README generation: added package headline
 
 ## 0.1.2 2015-10-26
 

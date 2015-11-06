@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.1.3 Under development
 
+- Changed README generation: added package headline
+    - c544564 2015-11-06 Changed README generation: added package headline (sol@hiqdev.com)
 
 ## 0.1.2 2015-10-26
 
