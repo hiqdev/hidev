@@ -47,6 +47,12 @@ class ReadmeGoal extends TemplateGoal
         return $text ? "\n$text\n" : '';
     }
 
+    public function renderBold($text)
+    {
+        $text = trim($text);
+        return $this->renderText('**' . $text . '**');
+    }
+
     public function renderSection($section, $default = null)
     {
         $file = 'readme/' . str_replace(' ', '', $section);
@@ -66,7 +72,7 @@ class ReadmeGoal extends TemplateGoal
 
     public function getSections()
     {
-        return $this->getItem('sections') ?: ['Requirements', 'Installation', 'Configuration', 'Usage', 'License', 'Acknowledgments'];
+        return $this->getItem('sections') ?: ['Requirements', 'Installation', 'Configuration', 'Basic Usage', 'Usage', 'Support', 'License', 'Acknowledgments'];
     }
 
     public function renderSections($sections = null)

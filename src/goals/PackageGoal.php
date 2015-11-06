@@ -91,6 +91,11 @@ class PackageGoal extends VendorGoal
         return $this->getItem('title') ?: Helper::titleize($this->name);
     }
 
+    public function getHeadline()
+    {
+        return $this->getItem('headline') ?: $this->getTitle();
+    }
+
     public function getDescription()
     {
         return $this->getItem('description') ?: $this->getTitle();

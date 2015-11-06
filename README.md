@@ -1,7 +1,13 @@
 HiDev - integrated development
 ==============================
 
-Task runner, code generator and build tool for continuos integration.
+**Task runner, code generator and build tool for continuos integration**
+
+[![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable)](//packagist.org/packages/hiqdev/hidev)
+[![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads)](//packagist.org/packages/hiqdev/hidev)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:hidev/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hidev/dev-master)
+
+Features:
 - package management: composer.json, Packagist
 - release automation: README, LICENSE, CHANGELOG
 - code generation with php and twig templates
@@ -10,10 +16,6 @@ Task runner, code generator and build tool for continuos integration.
 - testing: codeception
 
 And more planned. See [ROADMAP](https://github.com/hiqdev/hidev/blob/master/ROADMAP.md).
-
-[![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable)](//packagist.org/packages/hiqdev/hidev)
-[![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads)](//packagist.org/packages/hiqdev/hidev)
-[![Dependency Status](https://www.versioneye.com/php/hiqdev:hidev/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hidev/dev-master)
 
 ## Installation
 

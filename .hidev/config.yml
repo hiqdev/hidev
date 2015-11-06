@@ -2,14 +2,15 @@ package:
     name:           hidev
     namespace:      hidev
     label:          HiDev
-    title:          HiDev - integrated development
+    headline:       HiDev - integrated development
+    title:          Task runner, code generator and build tool for continuos integration
     type:           project
     forum:          https://forum.hiqdev.com/hidev
     homepage:       https://hidev.me/
     keywords:       build tool, task runner, code generator, continuous integration
     year:           2014
     description:    |
-        Task runner, code generator and build tool for continuos integration.
+        Features:
         - package management: composer.json, Packagist
         - release automation: README, LICENSE, CHANGELOG
         - code generation with php and twig templates
