@@ -1,8 +1,12 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.1.3 Under development
+## 0.1.4 Under development
 
+
+## 0.1.3 2015-11-06
+
+- Fixed 'hidev update' to do default procedure after updating
 - Changed README generation: added package headline
 
 ## 0.1.2 2015-10-26

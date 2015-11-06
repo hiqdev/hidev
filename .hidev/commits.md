@@ -1,8 +1,13 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.1.3 Under development
+## 0.1.4 Under development
 
+
+## 0.1.3 2015-11-06
+
+- Fixed 'hidev update' to do default procedure after updating
+    - 6323f7c 2015-11-06 improved UpdateGoal to do default procedure after updating (sol@hiqdev.com)
 - Changed README generation: added package headline
     - c544564 2015-11-06 Changed README generation: added package headline (sol@hiqdev.com)
 
