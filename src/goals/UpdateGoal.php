@@ -19,5 +19,6 @@ class UpdateGoal extends DefaultGoal
     public function actionPerform()
     {
         exec('cd .hidev;composer update --prefer-source');
+        $this->module->runRequest('');
     }
 }
