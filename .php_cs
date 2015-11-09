@@ -1,12 +1,12 @@
 <?php
 
 $header = <<<EOF
-HiDev - integrate your development
+Task runner, code generator and build tool for easier continuos integration
 
 @link      https://hidev.me/
 @package   hidev
 @license   BSD-3-Clause
-@copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
+@copyright Copyright (c) 2014-2015, HiQDev (http://hiqdev.com/)
 EOF;
 
 Symfony\CS\Fixer\Contrib\HeaderCommentFixer::setHeader($header);
@@ -17,9 +17,12 @@ return Symfony\CS\Config\Config::create()
         '-long_array_syntax',                    /// Arrays should use the long syntax.
         '-php4_constructor',                     /// Convert PHP4-style constructors to __construct. Warning! This could change code behavior.
         '-phpdoc_var_to_type',                   /// @var should always be written as @type.
+        '-align_double_arrow',                   /// Align double arrow symbols in consecutive lines.
+        '-unalign_double_arrow',                 /// Unalign double arrow symbols in consecutive lines.
+        '-align_equals',                         /// Align equals symbols in consecutive lines.
+        '-unalign_equals',                       /// Unalign equals symbols in consecutive lines.
+        '-blankline_after_open_tag',             /// Ensure there is no code on the same line as the PHP open tag and it is followed by a blankline.
         'header_comment',                        /// Add, replace or remove header comment.
-        'align_double_arrow',                    /// Align double arrow symbols in consecutive lines.
-        'align_equals',                          /// Align equals symbols in consecutive lines.
         'concat_with_spaces',                    /// Concatenation should be used with at least one whitespace around.
         'ereg_to_preg',                          /// Replace deprecated ereg regular expression functions with preg. Warning! This could change code behavior.
         'multiline_spaces_before_semicolon',     /// Multi-line whitespace before closing semicolon are prohibited.

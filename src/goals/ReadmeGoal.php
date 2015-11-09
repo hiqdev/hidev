@@ -1,18 +1,18 @@
 <?php
 
 /*
- * HiDev - integrate your development
+ * Task runner, code generator and build tool for easier continuos integration
  *
  * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
+ * @copyright Copyright (c) 2014-2015, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\goals;
 
-use Yii;
 use hidev\helpers\Helper;
+use Yii;
 
 /**
  * Goal for README.
@@ -28,6 +28,7 @@ class ReadmeGoal extends TemplateGoal
     {
         $res = $title . "\n";
         $res .= str_repeat($char, mb_strlen($title, Yii::$app->charset));
+
         return $res . "\n";
     }
 
@@ -44,12 +45,14 @@ class ReadmeGoal extends TemplateGoal
     public function renderText($text)
     {
         $text = trim($text);
+
         return $text ? "\n$text\n" : '';
     }
 
     public function renderBold($text)
     {
         $text = trim($text);
+
         return $this->renderText('**' . $text . '**');
     }
 
@@ -67,6 +70,7 @@ class ReadmeGoal extends TemplateGoal
     {
         $view = Yii::$app->getView();
         $tpl = Helper::file2template($file);
+
         return $view->existsTemplate($tpl) ? $view->render($tpl, ['config' => $this->config]) : $default;
     }
 
@@ -84,6 +88,7 @@ class ReadmeGoal extends TemplateGoal
         foreach ($sections as $section) {
             $res .= $this->renderSection($section);
         }
+
         return $res;
     }
 
@@ -111,7 +116,7 @@ class ReadmeGoal extends TemplateGoal
             if (!$tpl) {
                 $tpl = $this->known_badges[$badge];
             }
-            if ($tpl == 'disabled') {
+            if ($tpl === 'disabled') {
                 continue;
             }
             $res .= $this->renderBadge($tpl) . "\n";

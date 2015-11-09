@@ -1,12 +1,12 @@
 <?php
 
 /*
- * HiDev - integrate your development
+ * Task runner, code generator and build tool for easier continuos integration
  *
  * @link      https://hidev.me/
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2014-2015, HiQDev (https://hiqdev.com/)
+ * @copyright Copyright (c) 2014-2015, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\helpers;

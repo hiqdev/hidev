@@ -1,7 +1,7 @@
 HiDev - integrated development
 ==============================
 
-**Task runner, code generator and build tool for continuos integration**
+**Task runner, code generator and build tool for easier continuos integration**
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable)](//packagist.org/packages/hiqdev/hidev)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads)](//packagist.org/packages/hiqdev/hidev)

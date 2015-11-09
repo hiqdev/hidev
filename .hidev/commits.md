@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## 0.1.4 Under development
 
+    - 9d938de 2015-11-06 + nick and github to authors section in composer.json (sol@hiqdev.com)
 
 ## 0.1.3 2015-11-06
 
