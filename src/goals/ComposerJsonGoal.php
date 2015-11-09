@@ -71,8 +71,14 @@ class ComposerJsonGoal extends TemplateGoal
     {
         $res = [];
         if ($this->package->authors) {
-            foreach ($this->package->authors as $nick => $data) {
-                $res[] = array_merge(compact('nick'), $data);
+            foreach ($this->package->authors as $nick => $all_data) {
+                $data = [];
+                foreach (['name', 'role', 'email', 'homepage'] as $k) {
+                    if ($all_data[$k]) {
+                        $data[$k] = $all_data[$k];
+                    }
+                }
+                $res[] = $data;
             }
         }
 
