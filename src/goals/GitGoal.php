@@ -23,6 +23,7 @@ class GitGoal extends VcsGoal
      */
     public function init()
     {
+        parent::init();
         $this->setDeps('.gitignore');
     }
 

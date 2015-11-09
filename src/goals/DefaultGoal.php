@@ -29,6 +29,7 @@ class DefaultGoal extends BaseGoal
 
     public function init()
     {
+        parent::init();
         if ($this->vcsignore) {
             $this->vcs->setIgnore($this->vcsignore, 'first');
         }

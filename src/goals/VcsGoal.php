@@ -36,6 +36,15 @@ class VcsGoal extends DefaultGoal
         '.DS_Store'            => 'IDE & OS files',
     ];
 
+    public function init()
+    {
+        parent::init();
+        $vcsignore = Yii::$app->pluginManager->vcsignore;
+        if ($vcsignore) {
+            $this->setIgnore($vcsignore);
+        }
+    }
+
     public function setIgnore($items, $where = '')
     {
         $this->getIgnore()->setItems($items, $where);
