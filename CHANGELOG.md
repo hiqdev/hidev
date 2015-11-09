@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed composer.json generation: follow schema, only name, role, email and homepage for authors
 
 ## 0.1.5 2015-11-09
 

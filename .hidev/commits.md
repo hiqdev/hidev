@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed composer.json generation: follow schema, only name, role, email and homepage for authors
+    - 85a0ff7 2015-11-09 fixed composer.json generation: follow schema, only name, role, email and homepage for authors (sol@hiqdev.com)
 
 ## 0.1.5 2015-11-09
 
