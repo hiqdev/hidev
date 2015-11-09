@@ -1,10 +1,16 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.1.5 Under development
+## Under development
 
 
-## 0.1.4 2015-11-06
+## 0.1.5 2015-11-09
+
+- Added support for VCS ignoring list configuring in plugins
+    - ce7ea96 2015-11-09 enabled php-cs-fixer caching (sol@hiqdev.com)
+    - 91a543c 2015-11-09 added support for vcsignore list configuring in plugins (sol@hiqdev.com)
+
+## 0.1.4 2015-11-09
 
 - Fixed php short tags
     - 2bd5bc5 2015-11-09 php-cs-fixed (sol@hiqdev.com)

@@ -1,10 +1,14 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.1.5 Under development
+## Under development
 
 
-## 0.1.4 2015-11-06
+## 0.1.5 2015-11-09
+
+- Added support for VCS ignoring list configuring in plugins
+
+## 0.1.4 2015-11-09
 
 - Fixed php short tags
 
