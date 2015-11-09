@@ -3,7 +3,7 @@ package:
     namespace:      hidev
     label:          HiDev
     headline:       HiDev - integrated development
-    title:          Task runner, code generator and build tool for continuos integration
+    title:          Task runner, code generator and build tool for easier continuos integration
     type:           project
     forum:          https://forum.hiqdev.com/hidev
     homepage:       https://hidev.me/
