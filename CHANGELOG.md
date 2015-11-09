@@ -1,8 +1,12 @@
 hiqdev/hidev changelog
 ----------------------
 
-## 0.1.4 Under development
+## 0.1.5 Under development
 
+
+## 0.1.4 2015-11-06
+
+- Fixed php short tags
 
 ## 0.1.3 2015-11-06
 

@@ -1,8 +1,14 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## 0.1.4 Under development
+## 0.1.5 Under development
 
+
+## 0.1.4 2015-11-06
+
+- Fixed php short tags
+    - 2bd5bc5 2015-11-09 php-cs-fixed (sol@hiqdev.com)
+    - 3439892 2015-11-09 changed project title to: Task runner, code generator and build tool for easier continuos integration (sol@hiqdev.com)
     - 9d938de 2015-11-06 + nick and github to authors section in composer.json (sol@hiqdev.com)
 
 ## 0.1.3 2015-11-06

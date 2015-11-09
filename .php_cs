@@ -22,6 +22,7 @@ return Symfony\CS\Config\Config::create()
         '-align_equals',                         /// Align equals symbols in consecutive lines.
         '-unalign_equals',                       /// Unalign equals symbols in consecutive lines.
         '-blankline_after_open_tag',             /// Ensure there is no code on the same line as the PHP open tag and it is followed by a blankline.
+        '-empty_return',                         /// A return statement wishing to return nothing should be simply "return".
         'header_comment',                        /// Add, replace or remove header comment.
         'concat_with_spaces',                    /// Concatenation should be used with at least one whitespace around.
         'ereg_to_preg',                          /// Replace deprecated ereg regular expression functions with preg. Warning! This could change code behavior.
