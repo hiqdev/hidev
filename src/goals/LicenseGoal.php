@@ -18,13 +18,21 @@ use hidev\helpers\Helper;
  */
 class LicenseGoal extends TemplateGoal
 {
+    public function getLicense()
+    {
+        return $this->package->license;
+    }
+
     public function getTemplate()
     {
-        return 'licenses/' . Helper::id2camel($this->package->license) . '.twig';
+        return 'licenses/' . Helper::id2camel($this->license) . '.twig';
     }
 
     public function getUrl()
     {
-        return 'http://choosealicense.com/licenses/' . Helper::camel2id($this->package->license);
+        return $this->license === 'proprietary'
+            ? 'https://en.wikipedia.org/wiki/Proprietary_software'
+            : 'http://choosealicense.com/licenses/' . Helper::camel2id($this->license)
+        ;
     }
 }
