@@ -83,7 +83,7 @@ class PackageGoal extends VendorGoal
 
     public function getLabel()
     {
-        return $this->getItem('label') ?: ucfirst($this->name);
+        return $this->getItem('label') ?: $this->getHeadline() ?: Helper::id2camel($this->name);
     }
 
     public function getTitle()
@@ -93,7 +93,7 @@ class PackageGoal extends VendorGoal
 
     public function getHeadline()
     {
-        return $this->getItem('headline') ?: $this->getTitle();
+        return $this->getItem('headline');
     }
 
     public function getDescription()

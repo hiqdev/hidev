@@ -1,5 +1,5 @@
-<?= $config->readme->renderH1($config->package->headline) ?>
-<?php if ($config->package->headline !== $config->package->title) { ?>
+<?= $config->readme->renderH1($config->package->headline ?: $config->package->title) ?>
+<?php if ($config->package->headline) { ?>
 <?= $config->readme->renderBold($config->package->title) ?>
 <?php } ?>
 <?= $config->readme->renderBadges() ?>
