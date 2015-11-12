@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 65a9b07 2015-11-12 improved package headline processing (sol@hiqdev.com)
+    - 31d0ba6 2015-11-12 improved generation of psr4 autoload config in composer.json (sol@hiqdev.com)
 
 ## 0.1.6 2015-11-09
 
