@@ -19,11 +19,11 @@ nbproject
 Thumbs.db
 .DS_Store
 
-# php-cs-fixer cache
-.php_cs.cache
-
 # Codeception generated files
 tests/_support/_generated
+
+# php-cs-fixer cache
+.php_cs.cache
 
 # runtime dir
 runtime
