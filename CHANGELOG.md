@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed and improved minor issues
 
 ## 0.1.6 2015-11-09
 
