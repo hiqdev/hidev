@@ -98,7 +98,7 @@ class PackageGoal extends VendorGoal
 
     public function getDescription()
     {
-        return $this->getItem('description') ?: $this->getTitle();
+        return $this->getItem('description');
     }
 
     public function getRepositoryUrl($file)

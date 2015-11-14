@@ -3,5 +3,7 @@
 <?= $config->readme->renderBold($config->package->title) ?>
 <?php } ?>
 <?= $config->readme->renderBadges() ?>
+<?php if ($config->package->description) { ?>
 <?= $config->readme->renderText($config->package->description) ?>
+<?php } ?>
 <?= $config->readme->renderSections() ?>
