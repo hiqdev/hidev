@@ -3,7 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added proprietary license template
+    - daa3eb2 2015-11-12 + proprietary license (sol@hiqdev.com)
 - Fixed and improved minor issues
+    - 7794937 2015-11-14 simplified package description processing (sol@hiqdev.com)
     - be32612 2015-11-12 simplified building LICENSE link (sol@hiqdev.com)
     - 65a9b07 2015-11-12 improved package headline processing (sol@hiqdev.com)
     - 31d0ba6 2015-11-12 improved generation of psr4 autoload config in composer.json (sol@hiqdev.com)
