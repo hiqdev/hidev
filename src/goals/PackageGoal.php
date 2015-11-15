@@ -63,7 +63,7 @@ class PackageGoal extends VendorGoal
 
     public static function defaultNamespace($vendor, $package)
     {
-        return $vendor . '\\' . strtr($package, '-', '\\');
+        return preg_replace('/[^a-zA-Z0-9\\\\]+/', '', $vendor . strtr("-$package", '-', '\\'));
     }
 
     public function getSrc()
