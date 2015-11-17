@@ -6,13 +6,14 @@ The main config file is: `.hidev/config.yml`.
 You can generate basic config file with **init** command:
 
 ```sh
-hidev init the-vendor/my-package
+hidev init the-vendor/my-new-package
 ```
 
 You will receive:
 ```yaml
 package:
     name:           my-new-package
+    title:          My New Package
     type:           project
     keywords:       my, new, package
 
