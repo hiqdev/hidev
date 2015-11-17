@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Fixed and improved minor issues
+    - fda72aa 2015-11-17 improved package description (sol@hiqdev.com)
     - 1541aa7 2015-11-15 fixed PackageGoal::defaultNamespace to be more strict (sol@hiqdev.com)
     - 7794937 2015-11-14 simplified package description processing (sol@hiqdev.com)
     - be32612 2015-11-12 simplified building LICENSE link (sol@hiqdev.com)
