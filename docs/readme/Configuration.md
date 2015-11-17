@@ -1,7 +1,7 @@
 HiDev keeps everything it needs: configs, plugins, intermediate files and so on
-in **.hidev** directory in the root of your project.
+in `.hidev` directory in the root of your project.
 
-The main config file is: **.hidev/config.yml**.
+The main config file is: `.hidev/config.yml`.
 
 You can generate basic config file with **init** command:
 
@@ -19,9 +19,10 @@ package:
 vendor:
     name:           the-vendor
     authors:
-        'Andrii Vasyliev':
+        sol:
+            name:       Andrii Vasyliev
             email:      sol@hiqdev.com
 
 require:
-    hiqdev/hidev-config-php:    "*"
+    hiqdev/hidev-php: "*"
 ```
