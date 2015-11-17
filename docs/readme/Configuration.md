@@ -10,7 +10,7 @@ hidev init the-vendor/my-package
 ```
 
 You will receive:
-```yml
+```yaml
 package:
     name:           my-new-package
     type:           project

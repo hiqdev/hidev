@@ -21,7 +21,7 @@ And more planned. See [ROADMAP](https://github.com/hiqdev/hidev/blob/master/ROAD
 
 The preferred way to install this project is through [composer](http://getcomposer.org/download/).
 
-```
+```sh
 php composer.phar create-project "hiqdev/hidev:*" directory2install
 ```
 
@@ -39,7 +39,7 @@ hidev init the-vendor/my-package
 ```
 
 You will receive:
-```yml
+```yaml
 package:
     name:           my-new-package
     type:           project
