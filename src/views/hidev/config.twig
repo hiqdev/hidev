@@ -1,25 +1,28 @@
 package:
+{% if config.init.type %}
+    type:           {{ config.init.type }}
+{% endif %}
     name:           {{ config.init.package }}
 {% if config.init.namespace %}
     namespace:      {{ config.init.namespace }}
 {% endif %}
-{% if config.init.label %}
-    label:          {{ config.init.label }}
+{% if config.init.headline %}
+    headline:       {{ config.init.headline }}
 {% endif %}
 {% if config.init.title %}
     title:          {{ config.init.title }}
 {% endif %}
-{% if config.init.type %}
-    type:           {{ config.init.type }}
-{% endif %}
 {% if config.init.keywords %}
     keywords:       {{ config.init.keywords }}
 {% endif %}
-{% if config.init.description %}
-    description:    {{ config.init.description }}
+{% if config.init.license %}
+    license:        {{ config.init.license }}
 {% endif %}
 {% if config.init.year %}
     year:           {{ config.init.year }}
+{% endif %}
+{% if config.init.description %}
+    description:    {{ config.init.description }}
 {% endif %}
 {% if not config.init.novendor %}
 
@@ -27,12 +30,13 @@ vendor:
     name:           {{ config.init.vendor }}
 {% if config.init.author and config.init.email %}
     authors:
-        '{{ config.init.author }}':
+        {{ config.init.nick }}:
+            name:       {{ config.init.author }}
             email:      {{ config.init.email }}
 {% endif %}
 {% endif %}
 {% if not config.init.norequire %}
 
 require:
-    hiqdev/hidev-config-php:    "*"
+    hiqdev/hidev-php:   "*"
 {% endif %}

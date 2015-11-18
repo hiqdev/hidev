@@ -11,6 +11,7 @@
 
 namespace hidev\goals;
 
+use hidev\helpers\Helper;
 use yii\base\InvalidParamException;
 
 /**
@@ -41,7 +42,7 @@ class InitGoal extends TemplateGoal
 
     public function options($actionId)
     {
-        return array_merge(parent::options($actionId), explode(',', 'namespace,label,title,type,keywords,description,year,author,email,novendor,norequire'));
+        return array_merge(parent::options($actionId), explode(',', 'namespace,headline,title,type,license,keywords,description,year,nick,author,email,novendor,norequire'));
     }
 
     public function getPackage()
@@ -54,9 +55,20 @@ class InitGoal extends TemplateGoal
         return $this->getItem('type') ?: 'project';
     }
 
+    public function getTitle()
+    {
+        return $this->getItem('title') ?: Helper::titleize($this->package);
+    }
+
     public function getKeywords()
     {
         return $this->getItem('keywords') ?: implode(', ', explode('-', $this->package));
+    }
+
+    /// TODO think of better getting nick
+    public function getNick()
+    {
+        return $this->getItem('nick') ?: preg_replace('/[^a-zA-Z_0-9]+/', '', `id -un`);
     }
 
     public function getAuthor()
