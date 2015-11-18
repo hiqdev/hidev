@@ -3,7 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
-- Fixed and improved minor issues
+- Added more options to init goal
+    - 7049343 2015-11-18 + more options to init goal (sol@hiqdev.com)
+- Fixed and improved tests and minor issues
+    - c114e03 2015-11-18 fixed tests (sol@hiqdev.com)
     - fda72aa 2015-11-17 improved package description (sol@hiqdev.com)
     - 1541aa7 2015-11-15 fixed PackageGoal::defaultNamespace to be more strict (sol@hiqdev.com)
     - 7794937 2015-11-14 simplified package description processing (sol@hiqdev.com)
@@ -198,7 +201,7 @@ hiqdev/hidev commits history
     - e26d2b5 2015-06-27 redone File/Goal::exists (sol@hiqdev.com)
     - 76546e7 2015-06-27 * .hidev/config.yml: - composer.json config goes to composer.json (sol@hiqdev.com)
     - 1384678 2015-06-27 improved actionLoad in base/File and ComposerJsonGoal (sol@hiqdev.com)
-    - f8996bc 2015-06-27 used module->runAction at actionDeps (sol@hiqdev.com)
+    - f8996bc 2015-06-27 used `module->runAction` at actionDeps (sol@hiqdev.com)
     - e4882d4 2015-06-27 * ComposerJsonGoal + standart load (sol@hiqdev.com)
 - Changed: redone goals like controllers
     - a0b4883 2015-07-11 removed old controllers/DefaultController (sol@hiqdev.com)
@@ -222,11 +225,11 @@ hiqdev/hidev commits history
     - af2097f 2015-06-18 + Helper::asplit (sol@hiqdev.com)
     - c71aa85 2015-06-18 - views/CHANGELOG.php cause it is not needed anymore (sol@hiqdev.com)
     - 7b79e7a 2015-06-18 php-cs-fixed (sol@hiqdev.com)
-    - e155570 2015-06-18 + Twig_Extension_StringLoader for template_from_string (sol@hiqdev.com)
+    - e155570 2015-06-18 + `Twig_Extension_StringLoader` for `template_from_string` (sol@hiqdev.com)
     - 8de7066 2015-06-18 php-cs-fixing (sol@hiqdev.com)
     - 492d5c3 2015-06-18 php-cs-fixing (sol@hiqdev.com)
-    - 8eaa43f 2015-06-18 improving .php_cs (sol@hiqdev.com)
-    - 67c5255 2015-06-17 inited .php_cs (sol@hiqdev.com)
+    - 8eaa43f 2015-06-18 improving `.php_cs` (sol@hiqdev.com)
+    - 67c5255 2015-06-17 inited `.php_cs` (sol@hiqdev.com)
 - Added plugin archtecture
     - 26c9579 2015-06-17 doing plugin architecture (sol@hiqdev.com)
     - 7bacafa 2015-06-14 + skip Merge branch commits (sol@hiqdev.com)
@@ -298,7 +301,7 @@ hiqdev/hidev commits history
     - 493da06 2015-05-15 + fullName, source getters (sol@hiqdev.com)
     - 6eb4fc4 2015-05-15 fixed (sol@hiqdev.com)
     - acd98f5 2015-05-14 renamed rawItem <- getRaw (sol@hiqdev.com)
-    - a669a77 2015-05-14 - Config::_defaults (sol@hiqdev.com)
+    - a669a77 2015-05-14 - `Config::_defaults` (sol@hiqdev.com)
     - 8470ddc 2015-05-14 * composer requires to yii2 stable not dev (sol@hiqdev.com)
 
 ## 0.0.1 May 12, 2015

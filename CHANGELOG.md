@@ -3,7 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
-- Fixed and improved minor issues
+- Added more options to init goal
+- Fixed and improved tests and minor issues
 - Added proprietary license template
 
 ## 0.1.6 2015-11-09
