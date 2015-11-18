@@ -31,25 +31,27 @@ class InitGoalTest extends \Codeception\TestCase\Test
     }
 
     /**
-     * Test minimal: init the-vendor/new-package.
+     * Test minimal: init the-vendor/my-new-package.
      */
     public function testMinimal()
     {
-        $this->tester->hidev('init the-vendor/new-package "--author=Author Name" --email=author@email.com');
+        $this->tester->hidev('init the-vendor/my-new-package --nick=sol "--author=Author Name" --email=author@email.com');
         $this->tester->assertFile('.hidev/config.yml', '
 package:
-    name:           new-package
     type:           project
-    keywords:       new, package
+    name:           my-new-package
+    title:          My New Package
+    keywords:       my, new, package
 
 vendor:
     name:           the-vendor
     authors:
-        \'Author Name\':
+        sol:
+            name:       Author Name
             email:      author@email.com
 
 require:
-    hiqdev/hidev-config-php:    "*"
+    hiqdev/hidev-php:   "*"
         ');
     }
 
@@ -58,17 +60,18 @@ require:
      */
     public function testOptions()
     {
-        $this->tester->hidev('init the-vendor/new-package "--namespace=thevendor\\other\\newpackage" --label=NewPackage "--title=The New Package" --type=yii2-extension --keywords=new,package,of,the,vendor "--description=The project longer description" --year=2014 --novendor --norequire');
+        $this->tester->hidev('init the-vendor/new-package --nick=sol "--namespace=thevendor\\other\\newpackage" "--headline=New Package" "--title=The new library package" --type=library --keywords=new,package,of,the,vendor --license=MIT "--description=The project longer description" --year=2014 --novendor --norequire');
         $this->tester->assertFile('.hidev/config.yml', '
 package:
+    type:           library
     name:           new-package
     namespace:      thevendor\other\newpackage
-    label:          NewPackage
-    title:          The New Package
-    type:           yii2-extension
+    headline:       New Package
+    title:          The new library package
     keywords:       new,package,of,the,vendor
-    description:    The project longer description
+    license:        MIT
     year:           2014
+    description:    The project longer description
         ');
     }
 }

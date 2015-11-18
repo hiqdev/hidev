@@ -24,15 +24,31 @@ class Tester
         static $no = 0;
         ++$no;
         $this->test = $test;
-        $this->now  = date('c');
+        $this->now  = date('c', $this->getTime());
         $this->dir  = $this->path($this->now . '-' . $no, Yii::getAlias('@hidev/tests/_output'));
         mkdir($this->dir);
         chdir($this->dir);
     }
 
+    public static $time;
+
+    public function getTime()
+    {
+        if (self::$time === null) {
+            self::$time = time();
+        }
+
+        return self::$time;
+    }
+
     public function path($file, $dir = null)
     {
-        return ($dir ?: $this->dir) . DIRECTORY_SEPARATOR . $file;
+        $path = ($dir ?: $this->dir) . DIRECTORY_SEPARATOR . $file;
+        $dirname = dirname($path);
+        if (!file_exists($dirname)) {
+            mkdir($dirname, 0777, true);
+        }
+        return $path;
     }
 
     public function __destruct()
