@@ -41,21 +41,23 @@ hidev init the-vendor/my-new-package
 You will receive:
 ```yaml
 package:
+    type:           project
     name:           my-new-package
     title:          My New Package
-    type:           project
     keywords:       my, new, package
 
 vendor:
     name:           the-vendor
     authors:
-        sol:
+        hiqsol:
             name:       Andrii Vasyliev
             email:      sol@hiqdev.com
 
 require:
     hiqdev/hidev-php: "*"
 ```
+
+Good example of configuration is HiDev's own [.hidev/config.yml](.hidev/config.yml).
 
 ## Usage
 
