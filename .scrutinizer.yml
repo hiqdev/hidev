@@ -1,6 +1,8 @@
-before_commands:
-    - composer self-update && composer --version
-    - composer global require "fxp/composer-asset-plugin:~1.1"
+build:
+    dependencies:
+        before:
+            - composer self-update && composer --version
+            - composer global require "fxp/composer-asset-plugin:~1.1"
 
 imports:
     - php
