@@ -12,6 +12,7 @@
 namespace hidev\base;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\base\ViewContextInterface;
 use yii\base\InvalidConfigException;
 
@@ -65,6 +66,8 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     public function createControllerByID($id)
     {
         if (!$this->config->hasGoal($id)) {
+            var_dump(ArrayHelper::toArray($this->config));
+            var_dump(ArrayHelper::toArray(Yii::$app->pluginManager));
             throw new InvalidConfigException("can't run goal '$id'");
         }
 
