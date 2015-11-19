@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added Travis CI integration
 - Added more options to init goal
 - Fixed and improved tests and minor issues
 - Added proprietary license template

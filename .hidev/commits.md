@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added Travis CI integration
+    - 76aae11 2015-11-19 trying travis (sol@hiqdev.com)
+    - 61bb4b4 2015-11-19 + `ComposerJsonGoal::hasRequire/Dev/Any` (sol@hiqdev.com)
+    - b186d89 2015-11-19 php-cs-fixed (sol@hiqdev.com)
     - 8de4839 2015-11-19 changed hidev modules require to get dev versions (sol@hiqdev.com)
     - e5f0713 2015-11-19 + uniqueConfig to remove duplicates from arrays in configs (sol@hiqdev.com)
 - Added more options to init goal
