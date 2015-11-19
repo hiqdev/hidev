@@ -1,16 +1,12 @@
 ROADMAP
 -------
 
-### 0.1.0
-
-- gitignore build from hashmap with comments
-- codeception plugin
-- tests for: init, .gitignore, composer.json, README, LICENSE
-
 ### 0.2.0
 
 - travis
 - scrutinizer
+- codeception plugin: generate basic tests
+- tests for: init, .gitignore, composer.json, LICENSE
 - interpolate $variables in config
 - robo plugin: run goals from Robo
 - before/after options

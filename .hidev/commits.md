@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 8259bc7 2015-11-19 trying travis (sol@hiqdev.com)
 - Added Travis CI integration
     - 76aae11 2015-11-19 trying travis (sol@hiqdev.com)
     - 61bb4b4 2015-11-19 + `ComposerJsonGoal::hasRequire/Dev/Any` (sol@hiqdev.com)
