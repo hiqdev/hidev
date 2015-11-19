@@ -1,9 +1,9 @@
 package:
+    type:           project
     name:           hidev
     namespace:      hidev
     headline:       HiDev
     title:          Task runner, code generator and build tool for easier continuos integration
-    type:           project
     forum:          http://forum.hiqdev.com/hidev
     keywords:       build tool, task runner, code generator, continuous integration
     year:           2014
