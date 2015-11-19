@@ -13,6 +13,7 @@ namespace hidev\base;
 
 use Yii;
 use yii\base\ViewContextInterface;
+use yii\base\InvalidConfigException;
 
 /**
  * The Application.
@@ -64,7 +65,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     public function createControllerByID($id)
     {
         if (!$this->config->hasGoal($id)) {
-            d("Can't run goal '$id'");
+            throw new InvalidConfigException("can't run goal '$id'");
         }
 
         return $this->config->getGoal($id);
