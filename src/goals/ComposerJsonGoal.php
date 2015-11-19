@@ -98,4 +98,20 @@ class ComposerJsonGoal extends TemplateGoal
 
         return $autoload;
     }
+    public function hasRequireAny($package)
+    {
+        return $this->hasRequire($package) || $this->hasRequireDev($package);
+    }
+
+    public function hasRequire($package)
+    {
+        $this->runAction('load');
+        return $this->has('require') && array_key_exists($package, $this->get('require'));
+    }
+
+    public function hasRequireDev($package)
+    {
+        $this->runAction('load');
+        return $this->has('require-dev') && array_key_exists($package, $this->get('require-dev'));
+    }
 }
