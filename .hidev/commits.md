@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - b0179d6 2015-11-19 + travis allow failures for 7 and hhvm (sol@hiqdev.com)
     - 3a15706 2015-11-19 + .scrutinizer.yml (sol@hiqdev.com)
     - b11eae2 2015-11-19 debugging travis (sol@hiqdev.com)
     - b521bef 2015-11-19 + exception when cant run goal (sol@hiqdev.com)
