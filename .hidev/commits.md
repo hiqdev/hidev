@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 8de4839 2015-11-19 changed hidev modules require to get dev versions (sol@hiqdev.com)
+    - e5f0713 2015-11-19 + uniqueConfig to remove duplicates from arrays in configs (sol@hiqdev.com)
 - Added more options to init goal
     - 7049343 2015-11-18 + more options to init goal (sol@hiqdev.com)
 - Fixed and improved tests and minor issues
