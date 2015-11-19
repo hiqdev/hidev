@@ -109,6 +109,7 @@ class FileGoal extends DefaultGoal
 
     public function actionSave()
     {
+        $this->_items = Helper::uniqueConfig($this->_items);
         return $this->getFile()->save($this);
     }
 }
