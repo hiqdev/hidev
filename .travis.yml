@@ -13,6 +13,7 @@ install:
     - 'travis_retry composer self-update'
     - 'travis_retry composer global require "fxp/composer-asset-plugin:~1.1"'
     - 'travis_retry composer install --no-interaction'
+    - 'rm -rf runtime/cache/*'
     - './bin/hidev travis/install'
 script:
     - './bin/hidev travis/script'
