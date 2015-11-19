@@ -1,4 +1,4 @@
- before_commands:
+before_commands:
     - composer self-update && composer --version
     - composer global require "fxp/composer-asset-plugin:~1.1"
 
