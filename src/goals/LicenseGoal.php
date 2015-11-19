@@ -3,7 +3,7 @@
 /*
  * Task runner, code generator and build tool for easier continuos integration
  *
- * @link      https://hidev.me/
+ * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
  * @copyright Copyright (c) 2014-2015, HiQDev (http://hiqdev.com/)
@@ -32,7 +32,6 @@ class LicenseGoal extends TemplateGoal
     {
         return $this->license === 'proprietary'
             ? 'https://en.wikipedia.org/wiki/Proprietary_software'
-            : 'http://choosealicense.com/licenses/' . Helper::camel2id($this->license)
-        ;
+            : 'http://choosealicense.com/licenses/' . Helper::camel2id($this->license);
     }
 }
