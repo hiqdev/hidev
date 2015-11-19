@@ -4,11 +4,11 @@ php:
     - 5.6
     - 7
     - hhvm
-sudo: false
-install:
-    - 'hidev travis/install'
-script:
-    - 'hidev travis/script'
 cache:
     directories:
         - $HOME/.composer/cache
+sudo: false
+install:
+    - './bin/hidev travis/install'
+script:
+    - './bin/hidev travis/script'
