@@ -12,9 +12,9 @@
 namespace hidev\base;
 
 use Yii;
-use yii\helpers\ArrayHelper;
-use yii\base\ViewContextInterface;
 use yii\base\InvalidConfigException;
+use yii\base\ViewContextInterface;
+use yii\helpers\ArrayHelper;
 
 /**
  * The Application.
