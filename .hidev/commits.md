@@ -3,13 +3,15 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added Travis CI integration
+    - 5cedb80 2015-11-20 fixed to `hiqdev\yii2\collection` namespace (sol@hiqdev.com)
+    - 562e42a 2015-11-20 still doing travis plugin (sol@hiqdev.com)
     - 7ea638c 2015-11-19 fixing scrutinizer (sol@hiqdev.com)
     - b0179d6 2015-11-19 + travis allow failures for 7 and hhvm (sol@hiqdev.com)
     - 3a15706 2015-11-19 + .scrutinizer.yml (sol@hiqdev.com)
     - b11eae2 2015-11-19 debugging travis (sol@hiqdev.com)
     - b521bef 2015-11-19 + exception when cant run goal (sol@hiqdev.com)
     - 8259bc7 2015-11-19 trying travis (sol@hiqdev.com)
-- Added Travis CI integration
     - 76aae11 2015-11-19 trying travis (sol@hiqdev.com)
     - 61bb4b4 2015-11-19 + `ComposerJsonGoal::hasRequire/Dev/Any` (sol@hiqdev.com)
     - b186d89 2015-11-19 php-cs-fixed (sol@hiqdev.com)
