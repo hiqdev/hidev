@@ -16,7 +16,7 @@ namespace hidev\goals;
  */
 class BaseGoal extends \yii\console\Controller implements \ArrayAccess, \IteratorAggregate, \yii\base\Arrayable
 {
-    use \hiqdev\collection\CollectionTrait;
+    use \hiqdev\yii2\collection\ObjectTrait;
 
     public $defaultAction = 'perform';
 }

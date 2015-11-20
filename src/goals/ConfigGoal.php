@@ -129,6 +129,6 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         $file = Yii::createObject(array_merge([
             'class' => 'hidev\base\File',
         ], is_array($path) ? $path : compact('path')));
-        $this->mset($file->load());
+        $this->setItems($file->load());
     }
 }

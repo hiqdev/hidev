@@ -54,7 +54,7 @@ class VcsGoal extends DefaultGoal
     {
         if (!is_object($this->_ignore)) {
             $this->_ignore = Yii::createObject([
-                'class' => 'hiqdev\collection\Object',
+                'class' => 'hiqdev\yii2\collection\Object',
                 'items' => $this->_ignore,
             ]);
         }

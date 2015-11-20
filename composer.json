@@ -47,6 +47,7 @@
         "yiisoft/yii2": "~2.0",
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "~2.7",
+        "hiqdev/php-collection": "*@dev",
         "hiqdev/yii2-collection": "*@dev",
         "hiqdev/yii2-pluginmanager": "*@dev"
     },
