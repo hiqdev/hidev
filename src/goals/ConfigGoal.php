@@ -15,6 +15,7 @@ use hidev\helpers\Helper;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\InvalidParamException;
+use yii\helpers\ArrayHelper;
 
 /**
  * The Config. Keeps config and Goals.
@@ -37,7 +38,12 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     public function hasGoal($name)
     {
-        return $this->hasItem($name) || class_exists(static::goal2class('', $name));
+        return $this->hasItem($name) || class_exists($this->getGoalClass($name));
+    }
+
+    public function getGoalClass($name)
+    {
+        return $this->getItemConfig($name)['class'];
     }
 
     public function getGoal($name)
@@ -47,12 +53,13 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     public static function findGoal($name)
     {
-        return Yii::$app->pluginManager->get('goals')[$name];
+        $config = Yii::$app->pluginManager->get('goals')[$name];
+        return is_scalar($config) ? ['class' => $config] : (array)$config;
     }
 
     public static function goal2class($id, $name = null)
     {
-        $id = $id ?: static::findGoal($name) ?: $name;
+        $id = $id ?: $name;
 
         return strpos($id, '\\') !== false ? $id : 'hidev\goals\\' . Helper::id2camel($id) . 'Goal';
     }
@@ -66,10 +73,10 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     public function getItemConfig($name = null, array $config = [])
     {
-        return array_merge([
-            'class'    => $this->getItemClass($name, $config),
-            'goalName' => $name,
-        ], $config);
+        $config = ArrayHelper::merge(['goalName' => $name], static::findGoal($name), $config);
+        $config['class'] = $this->getItemClass($config['class'] ?: $name, $config);
+
+        return $config;
     }
 
     protected function createItem($name, array $config = [])

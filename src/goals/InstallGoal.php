@@ -11,12 +11,19 @@
 
 namespace hidev\goals;
 
+use Yii;
+
 /**
  * Update goal.
  */
-class UpdateGoal extends DefaultGoal
+class InstallGoal extends DefaultGoal
 {
-    public function actionPerform()
+    public function actionMake()
+    {
+        Yii::warning('install');
+    }
+
+    public function actionUpdate()
     {
         exec('cd .hidev;composer update --prefer-source');
         $this->module->runRequest('');
