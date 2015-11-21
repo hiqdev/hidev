@@ -89,6 +89,11 @@ $config = [
                 'CHANGELOG.md'          => 'changelog',
                 'CHANGELOG.txt'         => 'changelog',
                 'CHANGELOG.markdown'    => 'changelog',
+                'install'               => [
+                    'require' => [
+                        'hiqdev/hidev' => '*@dev',
+                    ],
+                ],
             ],
         ],
         'request' => [

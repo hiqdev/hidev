@@ -114,4 +114,29 @@ class PackageGoal extends VendorGoal
     {
         return $this->getConfig()->getVendor();
     }
+    /**
+     * Composer for the moment.
+     * To be changed to get actual Package Manager.
+     */
+    public function getPackageManager()
+    {
+        return $this->config->get('composer');
+    }
+
+    public function hasRequireAny($package)
+    {
+        return $this->hasRequire($package) || $this->hasRequireDev($package);
+    }
+
+    public function hasRequire($package)
+    {
+        $conf = $this->getPackageManager()->getConfigFile();
+        return array_key_exists($package, $conf->getRequire());
+    }
+
+    public function hasRequireDev($package)
+    {
+        $conf = $this->getPackageManager()->getConfigFile();
+        return array_key_exists($package, $conf->getRequireDev());
+    }
 }

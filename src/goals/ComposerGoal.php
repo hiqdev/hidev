@@ -33,4 +33,10 @@ class ComposerGoal extends DefaultGoal
 
         return @trim(key($this->config->get('composer.json')->getFile()->get('autoload')['psr-4']), '\\');
     }
+    public function getConfigFile()
+    {
+        $conf = parent::getConfig()->get('composer.json');
+        $conf->runAction('load');
+        return $conf;
+    }
 }

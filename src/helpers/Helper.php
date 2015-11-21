@@ -12,6 +12,7 @@
 namespace hidev\helpers;
 
 use yii\helpers\Inflector;
+use hiqdev\php\collection\ArrayHelper;
 
 /**
  * Hidev Helper.
@@ -84,15 +85,7 @@ class Helper
      */
     public static function uniqueConfig($array)
     {
-        $suitable = true;
-        foreach ($array as $k => &$v) {
-            if (is_array($v)) {
-                $v = self::uniqueConfig($v);
-                $suitable = false;
-            } elseif (!is_int($k)) {
-                $suitable = false;
-            }
-        }
-        return $suitable ? array_unique($array) : $array;
+        return ArrayHelper::unique($array);
     }
+
 }
