@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added `XmlHandler`
+    - 77dbdaa 2015-11-21 + `XmlHandler` for xml files (sol@hiqdev.com)
+- Added PHPUnit integration
+    - c668afe 2015-11-21 + phpunt.xml.dist (sol@hiqdev.com)
 - Added Travis CI integration
     - 1f7fa85 2015-11-21 fixed check for VersionEye badge (sol@hiqdev.com)
     - 9036920 2015-11-21 improved checking hasRequire/Dev/Any (sol@hiqdev.com)

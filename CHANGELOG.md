@@ -3,6 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added `XmlHandler`
+- Added PHPUnit integration
 - Added Travis CI integration
 - Added more options to init goal
 - Fixed and improved tests and minor issues
