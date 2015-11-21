@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Added Travis CI integration
+    - 1f7fa85 2015-11-21 fixed check for VersionEye badge (sol@hiqdev.com)
     - 9036920 2015-11-21 improved checking hasRequire/Dev/Any (sol@hiqdev.com)
     - 9936b13 2015-11-20 trying travis (sol@hiqdev.com)
     - c79d8e5 2015-11-20 php-cs-fixed (sol@hiqdev.com)
