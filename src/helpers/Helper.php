@@ -11,8 +11,8 @@
 
 namespace hidev\helpers;
 
-use yii\helpers\Inflector;
 use hiqdev\php\collection\ArrayHelper;
+use yii\helpers\Inflector;
 
 /**
  * Hidev Helper.
@@ -87,5 +87,4 @@ class Helper
     {
         return ArrayHelper::unique($array);
     }
-
 }

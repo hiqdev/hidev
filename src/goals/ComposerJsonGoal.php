@@ -114,5 +114,4 @@ class ComposerJsonGoal extends TemplateGoal
     {
         return $this->getItem('require-dev') ?: [];
     }
-
 }
