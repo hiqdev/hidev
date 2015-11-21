@@ -3,8 +3,9 @@ hiqdev/hidev commits history
 
 ## Under development
 
-    - 9936b13 2015-11-20 trying travis (sol@hiqdev.com)
 - Added Travis CI integration
+    - 9036920 2015-11-21 improved checking hasRequire/Dev/Any (sol@hiqdev.com)
+    - 9936b13 2015-11-20 trying travis (sol@hiqdev.com)
     - c79d8e5 2015-11-20 php-cs-fixed (sol@hiqdev.com)
     - 5cedb80 2015-11-20 fixed to `hiqdev\yii2\collection` namespace (sol@hiqdev.com)
     - 562e42a 2015-11-20 still doing travis plugin (sol@hiqdev.com)
