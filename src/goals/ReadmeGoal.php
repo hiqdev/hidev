@@ -107,8 +107,8 @@ class ReadmeGoal extends TemplateGoal
         if (!$badges) {
             return '';
         }
-        $c = $this->config->get('composer.json');
-        if (!$c->has('require') && !$c->has('require-dev')) {
+        $c = $this->package->getPackageManager()->getConfigFile();
+        if (!$c->getRequire() && !$c->getRequireDev()) {
             unset($badges['versioneye.dependencies']);
         }
         $res = '';
