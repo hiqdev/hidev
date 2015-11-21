@@ -78,9 +78,11 @@ class File extends \yii\base\Object
      * @var array type to extension correspondance
      */
     protected static $_extension2type = [
-        'json' => 'json',
-        'yml'  => 'yaml',  /// first one is preferred
-        'yaml' => 'yaml',
+        'json'      => 'json',
+        'yml'       => 'yaml',  /// first one is preferred
+        'yaml'      => 'yaml',
+        'xml'       => 'xml',
+        'xml.dist'  => 'xml',
     ];
 
     public function getExtensionByType($type)
