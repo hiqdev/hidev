@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - e3b0fc0 2015-11-22 improved package description (sol@hiqdev.com)
 - Changed: license generation moved to `hidev-license` plugin
     - 3a19a38 2015-11-22 license generation moved to `hidev-license` plugin (sol@hiqdev.com)
     - daa3eb2 2015-11-12 + proprietary license (sol@hiqdev.com)

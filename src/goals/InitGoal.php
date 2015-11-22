@@ -15,7 +15,7 @@ use hidev\helpers\Helper;
 use yii\base\InvalidParamException;
 
 /**
- * Init goal to build files by template and params.
+ * Init goal to build .hidev/config.yml by template and params.
  */
 class InitGoal extends TemplateGoal
 {
