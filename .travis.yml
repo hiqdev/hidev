@@ -18,7 +18,7 @@ sudo: false
 install:
     - 'travis_retry composer self-update 1.0.0-alpha11'
     - 'travis_retry composer global require "fxp/composer-asset-plugin:~1.1" "yiisoft/yii2-composer:~2.0"'
-    - 'travis_retry composer global require "codeception/codeception:*" "phpunit/phpunit:^4.8" "fabpot/php-cs-fixer:*"'
+    - 'travis_retry composer global require "codeception/codeception:*" "fabpot/php-cs-fixer:*" "phpunit/phpunit:^4.8"'
     - 'travis_retry composer install --no-interaction'
     - './bin/hidev travis/install'
 script:
