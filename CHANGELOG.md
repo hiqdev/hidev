@@ -3,12 +3,12 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Changed: license generation moved to `hidev-license` plugin
 - Added `XmlHandler`
-- Added PHPUnit integration
-- Added Travis CI integration
+- Added PHPUnit integration with `hidev-phpunit` plugin
+- Added Travis CI integration with `hidev-travis-ci` plugin
 - Added more options to init goal
 - Fixed and improved tests and minor issues
-- Added proprietary license template
 
 ## 0.1.6 2015-11-09
 

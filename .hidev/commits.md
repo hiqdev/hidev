@@ -3,11 +3,14 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed: license generation moved to `hidev-license` plugin
+    - 3a19a38 2015-11-22 license generation moved to `hidev-license` plugin (sol@hiqdev.com)
+    - daa3eb2 2015-11-12 + proprietary license (sol@hiqdev.com)
 - Added `XmlHandler`
     - 77dbdaa 2015-11-21 + `XmlHandler` for xml files (sol@hiqdev.com)
-- Added PHPUnit integration
+- Added PHPUnit integration with `hidev-phpunit` plugin
     - c668afe 2015-11-21 + phpunt.xml.dist (sol@hiqdev.com)
-- Added Travis CI integration
+- Added Travis CI integration with `hidev-travis-ci` plugin
     - 1f7fa85 2015-11-21 fixed check for VersionEye badge (sol@hiqdev.com)
     - 9036920 2015-11-21 improved checking hasRequire/Dev/Any (sol@hiqdev.com)
     - 9936b13 2015-11-20 trying travis (sol@hiqdev.com)
@@ -35,8 +38,6 @@ hiqdev/hidev commits history
     - be32612 2015-11-12 simplified building LICENSE link (sol@hiqdev.com)
     - 65a9b07 2015-11-12 improved package headline processing (sol@hiqdev.com)
     - 31d0ba6 2015-11-12 improved generation of psr4 autoload config in composer.json (sol@hiqdev.com)
-- Added proprietary license template
-    - daa3eb2 2015-11-12 + proprietary license (sol@hiqdev.com)
 
 ## 0.1.6 2015-11-09
 
