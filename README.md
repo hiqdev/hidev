@@ -8,12 +8,12 @@ HiDev
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:hidev/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hidev/dev-master)
 
 Features:
-- package management: composer.json, Packagist
+- package management: Composer, Packagist
 - release automation: README, LICENSE, CHANGELOG
 - code generation with php and twig templates
-- VCS integration: .gitignore, commits history
-- code quality: php-cs-fixer, VersionEye
-- testing: codeception
+- version control: .gitignore, commits history
+- code quality: PHP-CS-Fixer, VersionEye
+- testing: PHPUnit, Codeception
 
 And more planned. See [ROADMAP](ROADMAP.md).
 
