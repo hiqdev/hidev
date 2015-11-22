@@ -21,6 +21,8 @@ package:
 require:
     hiqdev/hidev-php:           "*@dev"
     hiqdev/hidev-hiqdev:        "*@dev"
+    hiqdev/hidev-license:       "*@dev"
+    hiqdev/hidev-phpunit:       "*@dev"
     hiqdev/hidev-travis-ci:     "*@dev"
     hiqdev/hidev-codeception:   "*@dev"
     hiqdev/hidev-php-cs-fixer:  "*@dev"
