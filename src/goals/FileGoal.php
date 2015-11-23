@@ -54,7 +54,7 @@ class FileGoal extends DefaultGoal
                 'path'     => $this->goalName,
             ], is_string($this->_file)
                 ? ['path' => $this->_file]
-                : (array)$this->_file
+                : (array) $this->_file
             ));
         }
 
