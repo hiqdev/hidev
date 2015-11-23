@@ -12,6 +12,7 @@
 namespace hidev\goals;
 
 use Yii;
+use yii\base\InvalidConfigException;
 
 /**
  * Update goal.
@@ -27,5 +28,27 @@ class InstallGoal extends DefaultGoal
     {
         exec('cd .hidev;composer update --prefer-source');
         $this->module->runRequest('');
+    }
+
+    protected $_bins;
+
+    public function getBin($prog)
+    {
+        if ($this->_bins[$prog] === null) {
+            $this->_bins[$prog] = $this->detectBin($prog);
+        }
+
+        return $this->_bins[$prog];
+    }
+
+    public function detectBin($prog)
+    {
+        $pkg = $this->getItem('bin')[$prog];
+        if (!$pkg) {
+            throw new InvalidConfigException("Unknown bin: $prog");
+        }
+        $path = $this->package->hasRequireAny($pkg) ? './vendor/bin' : '$HOME/.composer/vendor/bin';
+
+        return $path . DIRECTORY_SEPARATOR . $prog;
     }
 }

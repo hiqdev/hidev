@@ -63,9 +63,14 @@ class DefaultGoal extends BaseGoal
     {
         foreach ($this->getDeps() as $name => $enabled) {
             if ($enabled) {
-                $this->module->runRequest($name);
+                $res = $this->module->runRequest($name);
+                if (static::isNotOk($res)) {
+                    return $res;
+                }
             }
         }
+
+        return 0;
     }
 
     public function isDone($action, $timestamp = null)
@@ -93,7 +98,7 @@ class DefaultGoal extends BaseGoal
     public function actionPerform()
     {
         Yii::trace("Started: $this->goalName");
-        $this->runActions('deps, make');
+        return $this->runActions('deps, make');
     }
 
     public function actionLoad()
@@ -108,7 +113,7 @@ class DefaultGoal extends BaseGoal
 
     public function actionMake()
     {
-        $this->runActions('load, save');
+        return $this->runActions('load, save');
     }
 
     public function runAction($id, $params = [])
@@ -125,15 +130,43 @@ class DefaultGoal extends BaseGoal
     public function runActions($actions)
     {
         foreach (Helper::ksplit($actions) as $action) {
-            $result = $this->runAction($action);
+            $res = $this->runAction($action);
+            if (static::isNotOk($res)) {
+                return $res;
+            }
         }
 
-        return $result;
+        return 0;
+    }
+
+    public static function isNotOk($res)
+    {
+        return is_object($res) ? $res->exitStatus : $res;
     }
 
     public function options($actionId)
     {
         return array_merge(parent::options($actionId), array_keys(Helper::getPublicVars(get_called_class())));
+    }
+
+    public function prepareCommand($args = '')
+    {
+        if (is_string($args)) {
+            $res = ' ' . trim($args);
+        } else {
+            $res = '';
+            foreach ($args as $a) {
+                $res .= ' ' . escapeshellarg($a);
+            }
+        }
+
+        return $res;
+    }
+
+    public function passthru($prog, $args = '')
+    {
+        passthru($this->config->install->getBin($prog) . $this->prepareCommand($args), $exitcode);
+        return $exitcode;
     }
 
     public function getRobo()
