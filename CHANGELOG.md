@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added exit code propagation and running commands facilities
 - Changed: license generation moved to `hidev-license` plugin
 - Added `XmlHandler`
 - Added PHPUnit integration with `hidev-phpunit` plugin
