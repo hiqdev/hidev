@@ -4,5 +4,8 @@
         <testsuite name="Unit Test Suite">
             <directory>./tests/unit/</directory>
         </testsuite>
+        <testsuite name="Functional Test Suite">
+            <directory>./tests/functional/</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
