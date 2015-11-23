@@ -75,6 +75,16 @@ class File extends \yii\base\Object
     protected $data;
 
     /**
+     * @var string path to minimal example file
+     */
+    public $minimal;
+
+    public function getMinimalPath()
+    {
+        return Yii::getAlias($this->minimal);
+    }
+
+    /**
      * @var array type to extension correspondance
      */
     protected static $_extension2type = [
@@ -182,7 +192,7 @@ class File extends \yii\base\Object
 
     public function load()
     {
-        return $this->data = $this->handler->parsePath($this->path);
+        return $this->data = $this->handler->parsePath($this->path, $this->minimalPath);
     }
 
     public function read()

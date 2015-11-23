@@ -25,15 +25,15 @@ class XmlHandler extends TypeHandler
      */
     public function renderType($data)
     {
-        d($data);
+        return $this->_xml->asXML();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function parsePath($path)
+    public function parsePath($path, $minimal)
     {
-        $this->_xml = simplexml_load_file($path);
+        $this->_xml = simplexml_load_file(file_exists($path) ? $path : $minimal);
         return ArrayHelper::toArray($this->_xml);
     }
 }

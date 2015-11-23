@@ -47,16 +47,15 @@ class FileGoal extends DefaultGoal
     public function getFile()
     {
         if (!is_object($this->_file)) {
-            if (!is_array($this->_file)) {
-                $this->_file = [
-                    'path' => $this->_file ?: $this->goalName,
-                ];
-            }
             $this->_file = Yii::createObject(array_merge([
                 'class'    => File::className(),
                 'template' => $this->getTemplate(),
                 'goal'     => $this,
-            ], $this->_file));
+                'path'     => $this->goalName,
+            ], is_string($this->_file)
+                ? ['path' => $this->_file]
+                : (array)$this->_file
+            ));
         }
 
         return $this->_file;
