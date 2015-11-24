@@ -108,8 +108,7 @@ class ReadmeGoal extends TemplateGoal
         if (!$badges) {
             return '';
         }
-        $c = $this->package->getPackageManager()->getConfigFile();
-        if (!$c->getRequire() && !$c->getRequireDev()) {
+        if (!$this->package->getPackageManager()->getConfigFile()->getRequire()) {
             unset($badges['versioneye.dependencies']);
         }
         $res = '';
