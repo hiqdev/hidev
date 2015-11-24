@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Added exit code propagation and running commands facilities
+    - da94efe 2015-11-24 + Application::runAction to not to corrupt exit status (sol@hiqdev.com)
     - 4d6ce1d 2015-11-23 + exit code propagation and running commands facilities: `passthru` and `get/detectBin` (sol@hiqdev.com)
     - 1c40e5c 2015-11-23 + functional test suite for phpunit (sol@hiqdev.com)
 - Changed: license generation moved to `hidev-license` plugin
