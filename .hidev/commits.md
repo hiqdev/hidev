@@ -14,6 +14,7 @@ hiqdev/hidev commits history
     - 69fedec 2015-11-23 added minimal example at File (sol@hiqdev.com)
     - 77dbdaa 2015-11-21 + `XmlHandler` for xml files (sol@hiqdev.com)
 - Added PHPUnit integration with `hidev-phpunit` plugin
+    - c7c632e 2015-11-24 fixed functional tests to work without Codeception (sol@hiqdev.com)
     - e3b0fc0 2015-11-22 improved package description (sol@hiqdev.com)
     - c668afe 2015-11-21 + phpunt.xml.dist (sol@hiqdev.com)
 - Added Travis CI integration with `hidev-travis-ci` plugin
