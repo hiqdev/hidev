@@ -13,19 +13,19 @@ namespace base;
 
 use hidev\tests\functional\Tester;
 
-class ReadmeGoalTest extends \Codeception\TestCase\Test
+class ReadmeGoalTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var \FunctionalTester
      */
     protected $tester;
 
-    protected function _before()
+    protected function setUp()
     {
         $this->tester = new Tester($this);
     }
 
-    protected function _after()
+    protected function tearDown()
     {
         $this->tester = null;
     }
