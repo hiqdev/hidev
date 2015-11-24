@@ -61,7 +61,6 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
     {
         $id = $id ?: $name;
 
-        if (!is_string($id)) d($id);
         return strpos($id, '\\') !== false ? $id : 'hidev\goals\\' . Helper::id2camel($id) . 'Goal';
     }
 
