@@ -13,6 +13,7 @@ namespace hidev\base;
 
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\base\Module;
 use yii\base\ViewContextInterface;
 use yii\helpers\ArrayHelper;
 
@@ -82,5 +83,14 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         ]);
 
         return $this->handleRequest($request);
+    }
+
+    public function runAction($route, $params = [])
+    {
+        try {
+            return Module::runAction($route, $params);
+        } catch (InvalidRouteException $e) {
+            throw new Exception("Unknown command \"$route\".", 0, $e);
+        }
     }
 }
