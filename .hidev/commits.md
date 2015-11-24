@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## Under development
 
+
+## 0.1.7 2015-11-24
+
 - Added exit code propagation and running commands facilities
     - da94efe 2015-11-24 + Application::runAction to not to corrupt exit status (sol@hiqdev.com)
     - 4d6ce1d 2015-11-23 + exit code propagation and running commands facilities: `passthru` and `get/detectBin` (sol@hiqdev.com)
