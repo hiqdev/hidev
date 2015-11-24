@@ -17,6 +17,7 @@ hiqdev/hidev commits history
     - e3b0fc0 2015-11-22 improved package description (sol@hiqdev.com)
     - c668afe 2015-11-21 + phpunt.xml.dist (sol@hiqdev.com)
 - Added Travis CI integration with `hidev-travis-ci` plugin
+    - 6bcf138 2015-11-24 + Travis CI badge (sol@hiqdev.com)
     - 1f7fa85 2015-11-21 fixed check for VersionEye badge (sol@hiqdev.com)
     - 9036920 2015-11-21 improved checking hasRequire/Dev/Any (sol@hiqdev.com)
     - 9936b13 2015-11-20 trying travis (sol@hiqdev.com)
