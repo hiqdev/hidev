@@ -19,6 +19,9 @@ nbproject
 Thumbs.db
 .DS_Store
 
+# phpunit generated files
+coverage.clover
+
 # Codeception generated files
 tests/_support/_generated
 

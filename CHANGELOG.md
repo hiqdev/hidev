@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed vcsignoring implementation
 - Fixed check for VersionEye badge
 
 ## 0.1.7 2015-11-24

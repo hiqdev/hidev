@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed vcsignoring implementation
+    - b1833cc 2015-11-26 improved vcsignoring implementation (sol@hiqdev.com)
 - Fixed check for VersionEye badge
     - c8d02f2 2015-11-24 removed junk template for gitignore (sol@hiqdev.com)
     - 1558eac 2015-11-24 fixed check for VersionEye badge (sol@hiqdev.com)
