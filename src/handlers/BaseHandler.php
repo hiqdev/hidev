@@ -106,7 +106,7 @@ class BaseHandler extends \yii\base\Object
      * Writes given content to the file.
      * TODO Creates intermediate directories when necessary.
      */
-    protected function write($path, $content)
+    public function write($path, $content)
     {
         if (!is_file($path) || file_get_contents($path) !== $content) {
             Yii::warning('Written file: ' . $path, 'file');

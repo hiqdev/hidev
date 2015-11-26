@@ -22,20 +22,6 @@ class VcsGoal extends DefaultGoal
 
     public $initTag = 'Development started';
 
-    public $_ignore = [
-        '.hidev/composer.json' => 'hidev internals',
-        '.hidev/composer.lock' => 'hidev internals',
-        '.hidev/vendor'        => 'hidev internals',
-        '.*.swp'               => 'IDE & OS files',
-        '.idea'                => 'IDE & OS files',
-        'nbproject'            => 'IDE & OS files',
-        '.buildpath'           => 'IDE & OS files',
-        '.project'             => 'IDE & OS files',
-        '.settings'            => 'IDE & OS files',
-        'Thumbs.db'            => 'IDE & OS files',
-        '.DS_Store'            => 'IDE & OS files',
-    ];
-
     public function init()
     {
         parent::init();
@@ -50,13 +36,12 @@ class VcsGoal extends DefaultGoal
         $this->getIgnore()->setItems($items, $where);
     }
 
+    protected $_ignore;
+
     public function getIgnore()
     {
         if (!is_object($this->_ignore)) {
-            $this->_ignore = Yii::createObject([
-                'class' => 'hiqdev\yii2\collection\Object',
-                'items' => $this->_ignore,
-            ]);
+            $this->_ignore = $this->getConfig()->get('vcsignore');
         }
 
         return $this->_ignore;

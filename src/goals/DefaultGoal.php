@@ -25,16 +25,6 @@ class DefaultGoal extends BaseGoal
 
     protected $_fileType = null;
 
-    public $vcsignore;
-
-    public function init()
-    {
-        parent::init();
-        if ($this->vcsignore) {
-            $this->vcs->setIgnore($this->vcsignore, 'first');
-        }
-    }
-
     public function getFileType()
     {
         return $this->_fileType;
@@ -165,6 +155,7 @@ class DefaultGoal extends BaseGoal
 
     public function passthru($prog, $args = '')
     {
+        // die($this->config->install->getBin($prog) . $this->prepareCommand($args));
         passthru($this->config->install->getBin($prog) . $this->prepareCommand($args), $exitcode);
         return $exitcode;
     }
