@@ -53,7 +53,7 @@ class ComposerJsonGoal extends TemplateGoal
 
     public function getFullName()
     {
-        return $this->package->fullName;
+        return $this->getItem('name') ?: $this->package->fullName;
     }
 
     public function getSupport()
