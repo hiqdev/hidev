@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Changed: redone to `minii`
+    - 073dc7a 2015-12-01 fixed ComposerJson::getFullName (sol@hiqdev.com)
     - b33cf78 2015-12-02 first working with minii (sol@hiqdev.com)
 - Fixed vcsignoring implementation
     - 62a6737 2015-11-26 + test coverage reporting (sol@hiqdev.com)
