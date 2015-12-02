@@ -42,12 +42,12 @@ class Application extends \yii\console\Application implements ViewContextInterfa
                 if (!is_dir('.hidev/vendor')) {
                     exec('cd .hidev;composer update --prefer-source');
                 }
-                $main  = Yii::getAlias('@vendor/yiisoft/extensions.php');
-                $local = realpath('./.hidev/vendor/yiisoft/extensions.php');
+                $main  = Yii::getAlias('@vendor');
+                $local = realpath('./.hidev/vendor');
                 if ($local !== $main) {
                     $this->extensions = array_merge(
-                        is_file($main)  ? include($main)  : [],
-                        is_file($local) ? include($local) : []
+                        $this->prepareExtensions($main),
+                        $this->prepareExtensions($local)
                     );
                 }
             }
