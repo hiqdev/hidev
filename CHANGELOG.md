@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Changed: redone to `minii`
 - Fixed vcsignoring implementation
 - Fixed check for VersionEye badge
 

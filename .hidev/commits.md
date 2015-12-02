@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed: redone to `minii`
+    - b33cf78 2015-12-02 first working with minii (sol@hiqdev.com)
 - Fixed vcsignoring implementation
     - 62a6737 2015-11-26 + test coverage reporting (sol@hiqdev.com)
     - b1833cc 2015-11-26 improved vcsignoring implementation (sol@hiqdev.com)
