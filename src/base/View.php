@@ -16,7 +16,7 @@ use Yii;
 /**
  * Our View.
  */
-class View extends \yii\web\View
+class View extends \yii\base\View
 {
     /**
      * {@inheritdoc}

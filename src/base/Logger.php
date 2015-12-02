@@ -11,7 +11,7 @@
 
 namespace hidev\base;
 
-use yii\helpers\Console;
+use yii\console\Helper as Console;
 
 /**
  * ConsoleTarget sends selected log messages to the console stdout.

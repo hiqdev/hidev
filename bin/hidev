@@ -27,7 +27,7 @@ if (!is_dir($VENDOR)) {
 }
 
 require("$VENDOR/autoload.php");
-require("$VENDOR/yiisoft/yii2/Yii.php");
+#require("$VENDOR/minii/core/Yii.php");
 
 /// Check if it is init command
 $isInit = $argv[1]==='init';

@@ -44,12 +44,13 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0",
+        "minii/core": "*@dev",
+        "minii/console": "*@dev",
+        "minii/helpers": "*@dev",
+        "minii/caching": "*@dev",
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "~2.7",
-        "hiqdev/php-collection": "*@dev",
-        "hiqdev/yii2-collection": "*@dev",
-        "hiqdev/yii2-pluginmanager": "*@dev"
+        "hiqdev/yii2-pluginmanager": "*"
     },
     "autoload": {
         "psr-4": {
