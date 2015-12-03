@@ -93,13 +93,13 @@ class ReadmeGoal extends TemplateGoal
     }
 
     public $known_badges = [
-        'github.version'          => '[![GitHub version](https://badge.fury.io/gh/{{ vendor }}%2F{{ package }}.svg)](https://badge.fury.io/gh/{{ vendor }}%2F{{ package }})',
-        'packagist.stable'        => '[![Latest Stable Version](https://poser.pugx.org/{{ vendor/package }}/v/stable)](//packagist.org/packages/{{ vendor/package }})',
-        'packagist.unstable'      => '[![Latest Unstable Version](https://poser.pugx.org/{{ vendor/package }}/v/unstable)](//packagist.org/packages/{{ vendor/package }})',
-        'packagist.license'       => '[![License](https://poser.pugx.org/{{ vendor/package }}/v/license)](//packagist.org/packages/{{ vendor/package }})',
-        'packagist.downloads'     => '[![Total Downloads](https://poser.pugx.org/{{ vendor/package }}/downloads)](//packagist.org/packages/{{ vendor/package }})',
-        'versioneye.dependencies' => '[![Dependency Status](https://www.versioneye.com/php/{{ vendor:package }}/dev-master/badge.svg)](https://www.versioneye.com/php/{{ vendor:package }}/dev-master)',
-        'travisci.build'          => '[![Build Status](https://img.shields.io/travis/{{ vendor/package }}.svg)](http://travis-ci.org/{{ vendor/package }})',
+        'github.version'          => '[![GitHub version](https://badge.fury.io/gh/{{ config.vendor.name }}%2F{{ config.package.name }}.svg)](https://badge.fury.io/gh/{{ config.vendor.name }}%2F{{ config.package.name }})',
+        'packagist.stable'        => '[![Latest Stable Version](https://poser.pugx.org/{{ config.composer.fullName }}/v/stable)](//packagist.org/packages/{{ config.composer.fullName }})',
+        'packagist.unstable'      => '[![Latest Unstable Version](https://poser.pugx.org/{{ config.composer.fullName }}/v/unstable)](//packagist.org/packages/{{ config.composer.fullName }})',
+        'packagist.license'       => '[![License](https://poser.pugx.org/{{ config.composer.fullName }}/v/license)](//packagist.org/packages/{{ config.composer.fullName }})',
+        'packagist.downloads'     => '[![Total Downloads](https://poser.pugx.org/{{ config.composer.fullName }}/downloads)](//packagist.org/packages/{{ config.composer.fullName }})',
+        'versioneye.dependencies' => '[![Dependency Status](https://www.versioneye.com/php/{{ config.vendor.name }}:{{ config.package.name }}/dev-master/badge.svg)](https://www.versioneye.com/php/{{ config.vendor.name }}:{{ config.package.name }}/dev-master)',
+        'travisci.build'          => '[![Build Status](https://img.shields.io/travis/{{ config.package.fullName }}.svg)](http://travis-ci.org/{{ config.package.fullName }})',
     ];
 
     public function renderBadges()
@@ -127,11 +127,17 @@ class ReadmeGoal extends TemplateGoal
 
     public function renderBadge($tpl)
     {
-        return strtr($tpl, [
-            '{{ vendor }}'         => $this->vendor->name,
-            '{{ package }}'        => $this->package->name,
-            '{{ vendor/package }}' => $this->vendor->name . '/' . $this->package->name,
-            '{{ vendor:package }}' => $this->vendor->name . ':' . $this->package->name,
-        ]);
+        return $this->getTwig()->render($tpl, ['config' => $this->getConfig()]);
+    }
+
+    protected $_twig;
+
+    public function getTwig()
+    {
+        if ($this->_twig === null) {
+            $this->_twig = new \Twig_Environment(new \Twig_Loader_String());
+        }
+
+        return $this->_twig;
     }
 }
