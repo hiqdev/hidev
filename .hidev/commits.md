@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed badges generation
+    - 9413c37 2015-12-03 fixed badges generation with Twig (sol@hiqdev.com)
+    - c8d02f2 2015-11-24 removed junk template for gitignore (sol@hiqdev.com)
+    - 1558eac 2015-11-24 fixed check for VersionEye badge (sol@hiqdev.com)
 - Changed: redone to `minii`
     - de5d98f 2015-12-02 fixed tests (sol@hiqdev.com)
     - 84f12c8 2015-12-02 used prepareExtensions (sol@hiqdev.com)
@@ -11,9 +15,6 @@ hiqdev/hidev commits history
 - Fixed vcsignoring implementation
     - 62a6737 2015-11-26 + test coverage reporting (sol@hiqdev.com)
     - b1833cc 2015-11-26 improved vcsignoring implementation (sol@hiqdev.com)
-- Fixed check for VersionEye badge
-    - c8d02f2 2015-11-24 removed junk template for gitignore (sol@hiqdev.com)
-    - 1558eac 2015-11-24 fixed check for VersionEye badge (sol@hiqdev.com)
 
 ## 0.1.7 2015-11-24
 

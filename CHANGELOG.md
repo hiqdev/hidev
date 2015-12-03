@@ -3,9 +3,9 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed badges generation
 - Changed: redone to `minii`
 - Fixed vcsignoring implementation
-- Fixed check for VersionEye badge
 
 ## 0.1.7 2015-11-24
 
