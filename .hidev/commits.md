@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - ca66d21 2015-12-03 fixed badges generation with Twig (sol@hiqdev.com)
 - Fixed badges generation
     - 9413c37 2015-12-03 fixed badges generation with Twig (sol@hiqdev.com)
     - c8d02f2 2015-11-24 removed junk template for gitignore (sol@hiqdev.com)
