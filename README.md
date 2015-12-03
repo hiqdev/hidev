@@ -40,6 +40,7 @@ hidev init the-vendor/my-new-package
 ```
 
 You will receive:
+
 ```yaml
 package:
     type:           project
