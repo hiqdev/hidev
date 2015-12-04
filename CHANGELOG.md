@@ -6,8 +6,8 @@ hiqdev/hidev changelog
 
 ## 0.1.7 2015-12-04
 
+- CHANGED: redone to `minii` and BROKEN build temporary
 - Fixed badges generation
-- Changed: redone to `minii`
 - Fixed vcsignoring implementation
 - Added exit code propagation and running commands facilities
 - Changed: license generation moved to `hidev-license` plugin
