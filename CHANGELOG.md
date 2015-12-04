@@ -3,12 +3,12 @@ hiqdev/hidev changelog
 
 ## Under development
 
+
+## 0.1.7 2015-12-04
+
 - Fixed badges generation
 - Changed: redone to `minii`
 - Fixed vcsignoring implementation
-
-## 0.1.7 2015-11-24
-
 - Added exit code propagation and running commands facilities
 - Changed: license generation moved to `hidev-license` plugin
 - Added `XmlHandler`
