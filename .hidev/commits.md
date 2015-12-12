@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed: separating `hidev-readme`
+    - 4d4cc92 2015-12-12 improved readme badges templates (sol@hiqdev.com)
 
 ## 0.1.7 2015-12-04
 
