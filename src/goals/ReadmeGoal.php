@@ -93,13 +93,13 @@ class ReadmeGoal extends TemplateGoal
     }
 
     public $known_badges = [
-        'github.version'          => '[![GitHub version](https://badge.fury.io/gh/{{ config.vendor.name }}%2F{{ config.package.name }}.svg)](https://badge.fury.io/gh/{{ config.vendor.name }}%2F{{ config.package.name }})',
-        'packagist.stable'        => '[![Latest Stable Version](https://poser.pugx.org/{{ config.composer.fullName }}/v/stable)](//packagist.org/packages/{{ config.composer.fullName }})',
-        'packagist.unstable'      => '[![Latest Unstable Version](https://poser.pugx.org/{{ config.composer.fullName }}/v/unstable)](//packagist.org/packages/{{ config.composer.fullName }})',
-        'packagist.license'       => '[![License](https://poser.pugx.org/{{ config.composer.fullName }}/v/license)](//packagist.org/packages/{{ config.composer.fullName }})',
-        'packagist.downloads'     => '[![Total Downloads](https://poser.pugx.org/{{ config.composer.fullName }}/downloads)](//packagist.org/packages/{{ config.composer.fullName }})',
+        'github.version'          => '[![GitHub version](https://badge.fury.io/gh/{{ config.github.vendor }}%2F{{ config.github.package }}.svg)](https://badge.fury.io/gh/{{ config.github.vendor }}%2F{{ config.github.package }})',
+        'packagist.stable'        => '[![Latest Stable Version](https://poser.pugx.org/{{ config.composer.fullName }}/v/stable)](https://packagist.org/packages/{{ config.composer.fullName }})',
+        'packagist.unstable'      => '[![Latest Unstable Version](https://poser.pugx.org/{{ config.composer.fullName }}/v/unstable)](https://packagist.org/packages/{{ config.composer.fullName }})',
+        'packagist.license'       => '[![License](https://poser.pugx.org/{{ config.composer.fullName }}/v/license)](https://packagist.org/packages/{{ config.composer.fullName }})',
+        'packagist.downloads'     => '[![Total Downloads](https://poser.pugx.org/{{ config.composer.fullName }}/downloads)](https://packagist.org/packages/{{ config.composer.fullName }})',
         'versioneye.dependencies' => '[![Dependency Status](https://www.versioneye.com/php/{{ config.vendor.name }}:{{ config.package.name }}/dev-master/badge.svg)](https://www.versioneye.com/php/{{ config.vendor.name }}:{{ config.package.name }}/dev-master)',
-        'travisci.build'          => '[![Build Status](https://img.shields.io/travis/{{ config.package.fullName }}.svg)](http://travis-ci.org/{{ config.package.fullName }})',
+        'travisci.build'          => '[![Build Status](https://img.shields.io/travis/{{ config.package.fullName }}.svg)](https://travis-ci.org/{{ config.package.fullName }})',
     ];
 
     public function renderBadges()
