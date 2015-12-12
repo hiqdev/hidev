@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - fdad63e 2015-12-12 added GitHubGoal, it will NOT be separate (sol@hiqdev.com)
 - Changed: separating `hidev-readme`
     - 4d4cc92 2015-12-12 improved readme badges templates (sol@hiqdev.com)
 

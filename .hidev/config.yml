@@ -20,7 +20,6 @@ package:
 
 require:
     hiqdev/hidev-php:           "*@dev"
-    hiqdev/hidev-github:        "*@dev"
     hiqdev/hidev-vendor:        "*@dev"
     hiqdev/hidev-license:       "*@dev"
     hiqdev/hidev-phpunit:       "*@dev"

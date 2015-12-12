@@ -1,12 +1,12 @@
 <?php
 
 /*
- * GitHub plugin for HiDev
+ * Task runner, code generator and build tool for easier continuos integration
  *
- * @link      https://github.com/hiqdev/hidev-github
- * @package   hidev-github
+ * @link      https://github.com/hiqdev/hidev
+ * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2014-2015, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\goals;
@@ -14,7 +14,7 @@ namespace hidev\goals;
 /**
  * Goal for GitHub.
  */
-class GitHubGoal extends \hidev\goals\DefaultGoal
+class GitHubGoal extends DefaultGoal
 {
     public function setName($value)
     {
@@ -24,15 +24,21 @@ class GitHubGoal extends \hidev\goals\DefaultGoal
         $this->setItem('package', $package ?: $vendor);
     }
 
+    public function getName()
+    {
+        return $this->getItem('name') ?: $this->config->package->fullName;
+    }
+
     public function getPackage()
     {
-        return $this->getItem('package') ?: $this->package->name;
+        return $this->getItem('package') ?: $this->config->package->name;
     }
 
     public function getVendor()
     {
-        return $this->getItem('vendor') ?: $this->vendor->name;
+        return $this->getItem('vendor') ?: $this->config->vendor->name;
     }
+
     public function actionCreate()
     {
     }

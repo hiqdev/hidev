@@ -79,6 +79,7 @@ $config = [
         'pluginManager' => [
             'class' => 'hiqdev\pluginmanager\PluginManager',
             'goals' => [
+                'github'                => 'hidev\goals\GitHubGoal',
                 'README.md'             => 'readme',
                 'README.txt'            => 'readme',
                 'README.markdown'       => 'readme',
