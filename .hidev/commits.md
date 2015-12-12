@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed minii requirements
+    - 2b908eb 2015-12-12 fixed minii requirements to stable (sol@hiqdev.com)
+- Added `GitHubGoal`
+    - 59ea763 2015-12-12 fixed github goal (sol@hiqdev.com)
     - fdad63e 2015-12-12 added GitHubGoal, it will NOT be separate (sol@hiqdev.com)
 - Changed: separating `hidev-readme`
     - 4d4cc92 2015-12-12 improved readme badges templates (sol@hiqdev.com)

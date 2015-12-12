@@ -3,6 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed minii requirements
+- Added `GitHubGoal`
 - Changed: separating `hidev-readme`
 
 ## 0.1.7 2015-12-04
