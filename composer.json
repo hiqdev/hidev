@@ -44,10 +44,9 @@
         }
     ],
     "require": {
-        "minii/core": "*@dev",
-        "minii/console": "*@dev",
-        "minii/caching": "*@dev",
-        "minii/helpers": "*@dev",
+        "minii/console": "*",
+        "minii/caching": "*",
+        "minii/helpers": "*",
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "~2.7",
         "hiqdev/yii2-pluginmanager": "*"
