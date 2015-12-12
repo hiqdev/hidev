@@ -53,7 +53,7 @@ class PackageGoal extends VendorGoal
 
     public function getSource()
     {
-        return $this->getItem('source') ?: ('https://github.com/' . $this->fullName);
+        return $this->getItem('source') ?: ('https://github.com/' . $this->config->github->name);
     }
 
     public function getNamespace()

@@ -99,7 +99,7 @@ class ReadmeGoal extends TemplateGoal
         'packagist.license'       => '[![License](https://poser.pugx.org/{{ config.composer.fullName }}/v/license)](https://packagist.org/packages/{{ config.composer.fullName }})',
         'packagist.downloads'     => '[![Total Downloads](https://poser.pugx.org/{{ config.composer.fullName }}/downloads)](https://packagist.org/packages/{{ config.composer.fullName }})',
         'versioneye.dependencies' => '[![Dependency Status](https://www.versioneye.com/php/{{ config.vendor.name }}:{{ config.package.name }}/dev-master/badge.svg)](https://www.versioneye.com/php/{{ config.vendor.name }}:{{ config.package.name }}/dev-master)',
-        'travisci.build'          => '[![Build Status](https://img.shields.io/travis/{{ config.package.fullName }}.svg)](https://travis-ci.org/{{ config.package.fullName }})',
+        'travisci.build'          => '[![Build Status](https://img.shields.io/travis/{{ config.github.name }}.svg)](https://travis-ci.org/{{ config.github.name }})',
     ];
 
     public function renderBadges()
