@@ -39,8 +39,6 @@ class View extends \yii\base\View
 
     /**
      * Returns rendering context.
-     *
-     * TODO think of moving to other object from Config Goal
      */
     public function getContext()
     {
@@ -52,8 +50,8 @@ class View extends \yii\base\View
         return file_exists($this->findViewFile($template, $this->getContext()));
     }
 
-    public function render($template, $data)
+    public function render($template, $data = [], $context = null)
     {
-        return parent::render($template, $data, $this->getContext());
+        return parent::render($template, $data, isset($context) ? $context : $this->getContext());
     }
 }
