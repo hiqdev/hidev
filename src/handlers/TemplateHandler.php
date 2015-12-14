@@ -21,7 +21,7 @@ class TemplateHandler extends BaseHandler
     /**
      * {@inheritdoc}
      */
-    public function renderPrepared($data)
+    public function renderPrepared(array $data)
     {
         return $this->getView()->render($this->template, $data);
     }
