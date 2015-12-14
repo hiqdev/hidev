@@ -20,6 +20,7 @@ defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
 $PRJDIR = dirname(__DIR__);
+$RUNDIR = substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : $PRJDIR;
 $VENDOR = "$PRJDIR/vendor";
 
 if (!is_dir($VENDOR)) {
@@ -45,6 +46,7 @@ if (!$isInit) {
 
 Yii::setAlias('@prj',    $PRJDIR);
 Yii::setAlias('@hidev',  '@prj/src');
+Yii::setAlias('@rundir', $RUNDIR);
 Yii::setAlias('@source', getcwd());
 Yii::setAlias('@config', '@source/.hidev');
 Yii::setAlias('@vendor', $VENDOR);
@@ -56,7 +58,7 @@ $config = [
     'isInit'                => $isInit,
     'basePath'              => '@prj/src',
     'vendorPath'            => '@vendor',
-    'runtimePath'           => '@prj/runtime',
+    'runtimePath'           => '@rundir/runtime',
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',
     'defaultRoute'          => 'default/deps',
