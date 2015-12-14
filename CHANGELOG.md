@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added phar compatibility
 - Fixed minii requirements
 - Added `GitHubGoal`
 - Changed: separating `hidev-readme`

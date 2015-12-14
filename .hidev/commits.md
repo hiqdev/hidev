@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added phar compatibility
+    - 5dee3f0 2015-12-14 + RUNDIR detection for phar (sol@hiqdev.com)
+    - 3183775 2015-12-14 + box.json (sol@hiqdev.com)
 - Fixed minii requirements
     - 2b908eb 2015-12-12 fixed minii requirements to stable (sol@hiqdev.com)
 - Added `GitHubGoal`
