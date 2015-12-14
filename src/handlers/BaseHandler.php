@@ -97,7 +97,7 @@ class BaseHandler extends \yii\base\Object
         return $this->write($path, $this->render($data));
     }
 
-    public function parsePath($path)
+    public function parsePath($path, $minimal = null)
     {
         return $this->parse($this->read($path));
     }

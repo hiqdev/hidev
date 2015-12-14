@@ -18,7 +18,7 @@ class GitignoreHandler extends BaseHandler
 {
     public $type = 'gitignore';
 
-    public function parsePath($path)
+    public function parsePath($path, $minimal = null)
     {
         $items = [];
         $lines = is_file($path) ? $this->readArray($path) : [];

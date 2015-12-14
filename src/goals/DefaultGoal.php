@@ -85,7 +85,7 @@ class DefaultGoal extends BaseGoal
         $this->done[$action] = ($time === null || $time === true) ? microtime(1) : $time;
     }
 
-    public function actionPerform()
+    public function actionPerform($name = null, $path = null)
     {
         Yii::trace("Started: $this->goalName");
         return $this->runActions('deps, make');

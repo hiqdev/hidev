@@ -84,7 +84,7 @@ class CommitsHandler extends BaseHandler
         return array_key_exists((string) $hash, $this->_commits);
     }
 
-    public function parsePath($path)
+    public function parsePath($path, $minimal = null)
     {
         $this->tag      = static::getVcs()->lastTag;
         $this->_history = [

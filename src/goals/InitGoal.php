@@ -23,7 +23,7 @@ class InitGoal extends TemplateGoal
 
     protected $_fileType = 'template';
 
-    public function actionPerform($name, $template = '.hidev/config')
+    public function actionPerform($name = null, $template = '.hidev/config')
     {
         list($vendor, $package) = explode('/', $name, 2);
         if (!$package || !$vendor) {

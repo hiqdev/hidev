@@ -16,7 +16,7 @@ namespace hidev\handlers;
  */
 class ChangelogHandler extends BaseHandler
 {
-    public function parsePath($text)
+    public function parsePath($text, $minimal = null)
     {
         /// do nothing
     }

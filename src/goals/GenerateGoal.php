@@ -23,7 +23,7 @@ class GenerateGoal extends TemplateGoal
         return $a['dirname'] . '/' . $a['filename'] . $extension;
     }
 
-    public function actionPerform($template, $file = null)
+    public function actionPerform($template = null, $file = null)
     {
         $this->template = $template;
         $this->file     = $file ?: static::template2file($template);

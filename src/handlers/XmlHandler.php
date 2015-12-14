@@ -31,7 +31,7 @@ class XmlHandler extends TypeHandler
     /**
      * {@inheritdoc}
      */
-    public function parsePath($path, $minimal)
+    public function parsePath($path, $minimal = null)
     {
         $this->_xml = simplexml_load_file(file_exists($path) ? $path : $minimal);
         return ArrayHelper::toArray($this->_xml);
