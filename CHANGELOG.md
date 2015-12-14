@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed PHP7 warnings
 - Added phar compatibility
 - Fixed minii requirements
 - Added `GitHubGoal`

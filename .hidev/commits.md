@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed PHP7 warnings
+    - 4e0b313 2015-12-14 fixed PHP7 warnings (sol@hiqdev.com)
     - 4996078 2015-12-14 fixing PHP7 warnings (sol@hiqdev.com)
 - Added phar compatibility
     - 5dee3f0 2015-12-14 + RUNDIR detection for phar (sol@hiqdev.com)
