@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Fixed using for Travis build
+    - 93f3510 2015-12-15 fixed travis config: dont build 5.4 and dont allow failure 7 (sol@hiqdev.com)
     - ce3ad2d 2015-12-15 - hidev from install (sol@hiqdev.com)
 - Fixed PHP7 warnings
     - 4e0b313 2015-12-14 fixed PHP7 warnings (sol@hiqdev.com)
