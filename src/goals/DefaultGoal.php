@@ -139,6 +139,11 @@ class DefaultGoal extends BaseGoal
         return array_merge(parent::options($actionId), array_keys(Helper::getPublicVars(get_called_class())));
     }
 
+    /**
+     * Prepares given command arguments.
+     * @param string|array $args
+     * @return string
+     */
     public function prepareCommand($args = '')
     {
         if (is_string($args)) {
@@ -153,6 +158,12 @@ class DefaultGoal extends BaseGoal
         return $res;
     }
 
+    /**
+     * Prepares given prog and given arguments and runs it with passthru.
+     * @param string $prog
+     * @param string $args
+     * @return int exit code
+     */
     public function passthru($prog, $args = '')
     {
         // die($this->config->install->getBin($prog) . $this->prepareCommand($args));
