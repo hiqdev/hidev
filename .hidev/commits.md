@@ -3,7 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
-- Fixed using for Travis build
+- Fixed Travis build
+    - 833e973 2015-12-19 fixed travis: fxp plugin moved to `before_install` (sol@hiqdev.com)
     - 93f3510 2015-12-15 fixed travis config: dont build 5.4 and dont allow failure 7 (sol@hiqdev.com)
     - ce3ad2d 2015-12-15 - hidev from install (sol@hiqdev.com)
 - Fixed PHP7 warnings

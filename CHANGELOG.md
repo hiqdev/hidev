@@ -3,7 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
-- Fixed using for Travis build
+- Fixed Travis build
 - Fixed PHP7 warnings
 - Added phar compatibility
 - Fixed minii requirements
