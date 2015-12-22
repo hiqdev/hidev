@@ -81,13 +81,18 @@ $config = [
         'pluginManager' => [
             'class' => 'hiqdev\pluginmanager\PluginManager',
             'goals' => [
+                'git'                   => 'hidev\goals\GitGoal',
                 'github'                => 'hidev\goals\GitHubGoal',
-                'README.md'             => 'readme',
-                'README.txt'            => 'readme',
-                'README.markdown'       => 'readme',
-                'CHANGELOG.md'          => 'changelog',
-                'CHANGELOG.txt'         => 'changelog',
-                'CHANGELOG.markdown'    => 'changelog',
+                'vendor'                => 'hidev\goals\VendorGoal',
+                'commits'               => 'hidev\goals\CommitsGoal',
+                'install'               => [
+                    'class' => 'hidev\goals\InstallGoal',
+                ],
+                'package'               => 'hidev\goals\PackageGoal',
+                'gitignore'             => 'hidev\goals\GitignoreGoal',
+                'CHANGELOG.md'          => 'hidev\goals\ChangelogGoal',
+                'CHANGELOG.txt'         => 'hidev\goals\ChangelogGoal',
+                'CHANGELOG.markdown'    => 'hidev\goals\ChangelogGoal',
             ],
         ],
         'request' => [

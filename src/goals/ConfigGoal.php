@@ -57,24 +57,12 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
         return is_scalar($config) ? ['class' => $config] : (array) $config;
     }
 
-    public static function goal2class($id, $name = null)
-    {
-        $id = $id ?: $name;
-
-        return strpos($id, '\\') !== false ? $id : 'hidev\goals\\' . Helper::id2camel($id) . 'Goal';
-    }
-
-    public function getItemClass($name = null, array $config = [])
-    {
-        $class = static::goal2class($config['goal'], $name);
-
-        return class_exists($class) ? $class : static::goal2class('default');
-    }
-
     public function getItemConfig($name = null, array $config = [])
     {
-        $config = ArrayHelper::merge(['goalName' => $name], static::findGoal($name), $config);
-        $config['class'] = $this->getItemClass($config['class'] ?: $name, $config);
+        $config = ArrayHelper::merge([
+            'goalName' => $name,
+            'class'    => 'hidev\goals\DefaultGoal',
+        ], static::findGoal($name), $config);
 
         return $config;
     }
