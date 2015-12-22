@@ -130,13 +130,13 @@ class PackageGoal extends VendorGoal
 
     public function hasRequire($package)
     {
-        $conf = $this->getPackageManager()->getConfigFile();
+        $conf = $this->getPackageManager()->getConfiguration();
         return array_key_exists($package, $conf->getRequire());
     }
 
     public function hasRequireDev($package)
     {
-        $conf = $this->getPackageManager()->getConfigFile();
+        $conf = $this->getPackageManager()->getConfiguration();
         return array_key_exists($package, $conf->getRequireDev());
     }
 }
