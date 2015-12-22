@@ -11,8 +11,6 @@
 
 namespace hidev\goals;
 
-use Yii;
-
 /**
  * Update goal.
  */

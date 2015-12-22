@@ -47,7 +47,7 @@ class InstallGoal extends DefaultGoal
      * 1. prog.phar in project root directory
      * 2. ./vendor/bin/prog
      * 3. $HOME/.composer/vendor/bin/prog
-     * 4. `which $prog`
+     * 4. `which $prog`.
      *
      * @param string $prog
      * @return string path to the binary prepended with `env php` when found file is not executable

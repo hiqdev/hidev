@@ -12,7 +12,7 @@
 namespace hidev\handlers;
 
 /**
- * Handler for commits.md file.
+ * Handler for `.gitignore` file.
  */
 class GitignoreHandler extends BaseHandler
 {
