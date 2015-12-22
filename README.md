@@ -20,11 +20,51 @@ And more planned. See [ROADMAP](ROADMAP.md).
 
 ## Installation
 
-The preferred way to install this project is through [composer](http://getcomposer.org/download/).
+Three preferred installation ways in order of preference:
 
-```sh
-php composer.phar create-project "hiqdev/hidev:*" directory2install
-```
+1. download PHAR from http://hiqdev.com/hidev/hidev.phar
+2. require `hiqdev/hidev` in your project's composer.json
+3. install globally with `composer global require "hiqdev/hidev:*"`
+
+## Idea
+
+The idea behind the HiDev is to stop copying config files between your projects
+and automate all repeated tasks of course. But firstly generate all the possible
+files you need, namely:
+
+- .gitignore, README.md, LICENSE, CHANGELOG.md
+- composer.json
+- .travis.yml, .scrutinizer.yml
+- phpunit.xml, codeception.yml
+- .php_cs
+- source and test skeleton files
+
+You write a simple config specifying general information about your package
+and plugins to be used. HiDev alone does nothing at all! You specify what
+you want it to do in config or use plugins. There are predefined plugins with
+generally usable configs or you can create plugins yourself.
+
+For example, `hiqdev/hidev-php` plugin is a general config for PHP projects and
+will enable HiDev to create all the listed above files and adds goals to use:
+
+- `hidev default` or simply `hidev` will update config files according to the changes you made
+- `hidev fix`: will update `.php_cs` file and run `php-cs-fixer` to fix code style of your PHP files
+- `hidev test`: will update `phpunit.xml` and run your tests with `phpunit`
+- `hidev build`: will do fix and test alltogether
+- `hidev codeception`: will bootstrap `codeception`, update it's config and run tests with it
+
+HiDev can generate different files: sources, tests, anything else based on templates and
+all the information available in config files or elsewhere.
+
+Now I'm working to enable HiDev to do more:
+
+- version bump
+- project bootstraping and deploy
+- integration with other build tools: robo, grunt, gulp, ...
+- more for Python: pep8, tests, ...
+
+So basically HiDev is the mix of code generator and build tool.
+As simple as that but it gives a great power :)
 
 ## Configuration
 
@@ -58,6 +98,33 @@ vendor:
 require:
     hiqdev/hidev-php: "*"
 ```
+
+Package section holds info on the package:
+
+- **name**: your package name, same as in package manager but without vendor name
+- **title**: single line description of your package (description in composer.json)
+- **type**, **keywords**: same as in package manager
+
+Also you can add more info for better README generation:
+
+- **headline**: short user friendly name of your project, used for README header
+- **description**: longer description
+
+Vendor section holds info about you or your company:
+
+- **name**: same as in package manager
+- **title**: full vendor name, will be used for README, LICENSE and so on
+- **github**, **homepage**, **forum**, **email**: obviously
+- **license**: will be used if package does not specify one
+- **authors**: array of authors, see: HiQDev's [config.yml](https://github.com/hiqdev/hidev-vendor/blob/master/src/config.yml)
+
+Best way of configuring vendor is to create and use your vendor plugin for HiDev.
+It's easy, just copy `hiqdev/hidev-vendor`, change it appropriately and publish
+to packagist.
+
+Require section lists the plugins mentioning versions to be used for your package.
+This info will be copied to `.hidev/composer.json` so versions must be specified
+in composer way.
 
 Good example of configuration is HiDev's own [.hidev/config.yml](.hidev/config.yml).
 
