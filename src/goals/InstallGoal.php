@@ -15,7 +15,7 @@ use Yii;
 use yii\base\InvalidConfigException;
 
 /**
- * Update goal.
+ * Install goal.
  */
 class InstallGoal extends DefaultGoal
 {
@@ -41,14 +41,39 @@ class InstallGoal extends DefaultGoal
         return $this->_bins[$prog];
     }
 
+    /**
+     * Detects how to run given prog.
+     * Searches in this order:
+     * 1. prog.phar in project root directory
+     * 2. ./vendor/bin/prog
+     * 3. $HOME/.composer/vendor/bin/prog
+     * 4. `which $prog`
+     *
+     * @param string $prog
+     * @return string path to the binary prepended with `env php` when found file is not executable
+     */
     public function detectBin($prog)
     {
+        /*
         $pkg = $this->getItem('bin')[$prog];
         if (!$pkg) {
             throw new InvalidConfigException("Unknown bin: $prog");
         }
         $path = $this->package->hasRequireAny($pkg) ? './vendor/bin' : '$HOME/.composer/vendor/bin';
+        */
 
-        return $path . DIRECTORY_SEPARATOR . $prog;
+        $paths = [Yii::getAlias("@source/$prog.phar"), Yii::getAlias("@source/vendor/bin/$prog"), "$_SERVER[HOME]/.composer/vendor/bin/$prog"];
+        foreach ($paths as $path) {
+            if (file_exists($path)) {
+                return is_executable($path) ? $path : 'env php ' . $path;
+            }
+        }
+
+        $path = exec('which ' . $prog);
+        if ($path) {
+            return $prog;
+        }
+
+        throw new InvalidConfigException("Failed to find how to run $prog");
     }
 }
