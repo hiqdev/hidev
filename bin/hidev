@@ -83,6 +83,7 @@ $config = [
             'goals' => [
                 'git'                   => 'hidev\goals\GitGoal',
                 'github'                => 'hidev\goals\GitHubGoal',
+                'update'                => 'hidev\goals\UpdateGoal',
                 'vendor'                => 'hidev\goals\VendorGoal',
                 'commits'               => 'hidev\goals\CommitsGoal',
                 'install'               => [
