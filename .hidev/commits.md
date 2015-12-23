@@ -3,7 +3,18 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added `update` goal
+    - 24cb56b 2015-12-23 + Update goal (sol@hiqdev.com)
+- Changed finding goal class
+    - 91903fe 2015-12-22 CHANGED: simplified finding goal class (sol@hiqdev.com)
+- Fixed InstallGoal::detectBin
+    - e7b3aa5 2015-12-22 fixed InstallGoal::detectBin proper searching for binary (sol@hiqdev.com)
+- Changed: moved README goal to `hidev-readme` plugin
+    - 4692567 2015-12-22 removed getConfigFile <- getConfiguration (sol@hiqdev.com)
+    - 4593f67 2015-12-22 trying new README (sol@hiqdev.com)
+    - 56d9353 2015-12-21 CHANGED: moved README goal to `hidev-readme` (sol@hiqdev.com)
 - Fixed Travis build
+    - 36fd241 2015-12-22 enabled code coverage in scrutinizer (sol@hiqdev.com)
     - 833e973 2015-12-19 fixed travis: fxp plugin moved to `before_install` (sol@hiqdev.com)
     - 93f3510 2015-12-15 fixed travis config: dont build 5.4 and dont allow failure 7 (sol@hiqdev.com)
     - ce3ad2d 2015-12-15 - hidev from install (sol@hiqdev.com)

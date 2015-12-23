@@ -20,7 +20,7 @@ And more planned. See [ROADMAP](ROADMAP.md).
 
 ## Installation
 
-Three preferred installation ways in order of preference:
+There are several ways of installation in order of preference:
 
 1. download PHAR from http://hiqdev.com/hidev/hidev.phar
 2. require `hiqdev/hidev` in your project's composer.json
@@ -28,9 +28,9 @@ Three preferred installation ways in order of preference:
 
 ## Idea
 
-The idea behind the HiDev is to stop copying config files between your projects
-and automate all repeated tasks of course. But firstly generate all the possible
-files you need, namely:
+The idea behind the HiDev is to stop copying config files between your projects.
+And automate all repeated tasks of course. But firstly generate all the files
+that can be generated, namely:
 
 - .gitignore, README.md, LICENSE, CHANGELOG.md
 - composer.json
@@ -47,7 +47,7 @@ generally usable configs or you can create plugins yourself.
 For example, `hiqdev/hidev-php` plugin is a general config for PHP projects and
 will enable HiDev to create all the listed above files and adds goals to use:
 
-- `hidev default` or simply `hidev` will update config files according to the changes you made
+- `hidev all` or simply `hidev` will update config files according to the changes you made
 - `hidev fix`: will update `.php_cs` file and run `php-cs-fixer` to fix code style of your PHP files
 - `hidev test`: will update `phpunit.xml` and run your tests with `phpunit`
 - `hidev build`: will do fix and test alltogether
@@ -120,11 +120,10 @@ Vendor section holds info about you or your company:
 
 Best way of configuring vendor is to create and use your vendor plugin for HiDev.
 It's easy, just copy `hiqdev/hidev-vendor`, change it appropriately and publish
-to packagist.
+to Packagist.
 
 Require section lists the plugins mentioning versions to be used for your package.
-This info will be copied to `.hidev/composer.json` so versions must be specified
-in composer way.
+Versions will be used with composer so must follow it's rules.
 
 Good example of configuration is HiDev's own [.hidev/config.yml](.hidev/config.yml).
 
