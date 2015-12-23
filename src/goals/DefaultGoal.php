@@ -63,6 +63,32 @@ class DefaultGoal extends BaseGoal
         return 0;
     }
 
+    public function runRequest($request)
+    {
+        return $request !== null ? $this->module->runRequest($request) : null;
+    }
+
+    /**
+     * Runs array of requests. Stops on failure and returns exit code.
+     * @param null|string|array $requests
+     */
+    public function runRequests($requests)
+    {
+        if (is_string($requests)) {
+            $requests = [$requests];
+        } elseif (!is_array($requests)) {
+            return 0;
+        }
+        foreach ($requests as $request) {
+            $res = $this->runRequest($request);
+            if (static::isNotOk($res)) {
+                return $res;
+            }
+        }
+
+        return 0;
+    }
+
     public function isDone($action, $timestamp = null)
     {
         if ($this->done[$action]) {
@@ -77,8 +103,8 @@ class DefaultGoal extends BaseGoal
     /**
      * Mark action as already done.
      *
-     * @param $action action id
-     * @param $time microtime when action was done, false for action was not done
+     * @param string $action action id
+     * @param int $time microtime when action was done, false for action was not done
      */
     public function markDone($action, $time = null)
     {
