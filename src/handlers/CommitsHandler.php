@@ -210,16 +210,25 @@ class CommitsHandler extends BaseHandler
 
     public static function skipCommit($commit)
     {
-        static $skips = [
+        $comment = $commit['comment'];
+
+        static $equals = [
             ''      => 1,
             'minor' => 1,
         ];
-        $comment = $commit['comment'];
-        if ($skips[$comment]) {
+        if ($equals[$comment]) {
             return true;
         }
-        if (strpos($comment, "Merge branch 'master'") !== false) {
-            return true;
+
+        static $starts = [
+            'version bump',
+            'bumped version',
+            "merge branch 'master'",
+        ];
+        foreach ($starts as $start) {
+            if (strtolower(substr($comment, 0, strlen($start))) === $start) {
+                return true;
+            }
         }
 
         return false;
