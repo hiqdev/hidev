@@ -53,6 +53,7 @@ class ConfigGoal extends FileGoal implements BootstrapInterface
 
     public static function findGoal($name)
     {
+        // d( Yii::$app->pluginManager->get('goals') );
         $config = Yii::$app->pluginManager->get('goals')[$name];
         return is_scalar($config) ? ['class' => $config] : (array) $config;
     }
