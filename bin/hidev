@@ -82,6 +82,7 @@ $config = [
             'class' => 'hiqdev\pluginmanager\PluginManager',
             'goals' => [
                 'git'                   => 'hidev\goals\GitGoal',
+                'init'                  => 'hidev\goals\InitGoal',
                 'github'                => 'hidev\goals\GitHubGoal',
                 'update'                => 'hidev\goals\UpdateGoal',
                 'vendor'                => 'hidev\goals\VendorGoal',

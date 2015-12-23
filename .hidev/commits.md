@@ -13,6 +13,7 @@ hiqdev/hidev commits history
     - 4692567 2015-12-22 removed getConfigFile <- getConfiguration (sol@hiqdev.com)
     - 4593f67 2015-12-22 trying new README (sol@hiqdev.com)
     - 56d9353 2015-12-21 CHANGED: moved README goal to `hidev-readme` (sol@hiqdev.com)
+    - 4d4cc92 2015-12-12 improved readme badges templates (sol@hiqdev.com)
 - Fixed Travis build
     - 36fd241 2015-12-22 enabled code coverage in scrutinizer (sol@hiqdev.com)
     - 833e973 2015-12-19 fixed travis: fxp plugin moved to `before_install` (sol@hiqdev.com)
@@ -29,8 +30,6 @@ hiqdev/hidev commits history
 - Added `GitHubGoal`
     - 59ea763 2015-12-12 fixed github goal (sol@hiqdev.com)
     - fdad63e 2015-12-12 added GitHubGoal, it will NOT be separate (sol@hiqdev.com)
-- Changed: separating `hidev-readme`
-    - 4d4cc92 2015-12-12 improved readme badges templates (sol@hiqdev.com)
 
 ## 0.1.7 2015-12-04
 

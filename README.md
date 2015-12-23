@@ -6,6 +6,8 @@ HiDev
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable)](https://packagist.org/packages/hiqdev/hidev)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads)](https://packagist.org/packages/hiqdev/hidev)
 [![Build Status](https://img.shields.io/travis/hiqdev/hidev.svg)](https://travis-ci.org/hiqdev/hidev)
+[![Code Coverage](https://scrutinizer-ci.com/g/hiqdev/hidev/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/hidev/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hiqdev/hidev/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/hidev/?branch=master)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:hidev/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hidev/dev-master)
 
 Features:
