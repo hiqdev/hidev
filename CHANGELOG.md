@@ -3,11 +3,11 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed Travis build
 - Added `update` goal
 - Changed finding goal class
 - Fixed InstallGoal::detectBin
 - Changed: moved README goal to `hidev-readme` plugin
-- Fixed Travis build
 - Fixed PHP7 warnings
 - Added phar compatibility
 - Fixed minii requirements

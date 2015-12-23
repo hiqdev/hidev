@@ -3,6 +3,12 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed Travis build
+    - 5628857 2015-12-23 - require fxp composer plugin from travis config (sol@hiqdev.com)
+    - 36fd241 2015-12-22 enabled code coverage in scrutinizer (sol@hiqdev.com)
+    - 833e973 2015-12-19 fixed travis: fxp plugin moved to `before_install` (sol@hiqdev.com)
+    - 93f3510 2015-12-15 fixed travis config: dont build 5.4 and dont allow failure 7 (sol@hiqdev.com)
+    - ce3ad2d 2015-12-15 - hidev from install (sol@hiqdev.com)
 - Added `update` goal
     - 24cb56b 2015-12-23 + Update goal (sol@hiqdev.com)
 - Changed finding goal class
@@ -14,11 +20,6 @@ hiqdev/hidev commits history
     - 4593f67 2015-12-22 trying new README (sol@hiqdev.com)
     - 56d9353 2015-12-21 CHANGED: moved README goal to `hidev-readme` (sol@hiqdev.com)
     - 4d4cc92 2015-12-12 improved readme badges templates (sol@hiqdev.com)
-- Fixed Travis build
-    - 36fd241 2015-12-22 enabled code coverage in scrutinizer (sol@hiqdev.com)
-    - 833e973 2015-12-19 fixed travis: fxp plugin moved to `before_install` (sol@hiqdev.com)
-    - 93f3510 2015-12-15 fixed travis config: dont build 5.4 and dont allow failure 7 (sol@hiqdev.com)
-    - ce3ad2d 2015-12-15 - hidev from install (sol@hiqdev.com)
 - Fixed PHP7 warnings
     - 4e0b313 2015-12-14 fixed PHP7 warnings (sol@hiqdev.com)
     - 4996078 2015-12-14 fixing PHP7 warnings (sol@hiqdev.com)
