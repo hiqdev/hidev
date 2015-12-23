@@ -3,7 +3,14 @@ hiqdev/hidev commits history
 
 ## Under development
 
+
+## 0.2.0 2015-12-23
+
+- Added runRequest and runRequests at DefaultGoal
+    - b307d56 2015-12-23 improved skipCommit to skip version bump (sol@hiqdev.com)
+    - cc841c3 2015-12-23 + runRequest/s at DefaultGoal (sol@hiqdev.com)
 - Fixed Travis build
+    - d9ad16c 2015-12-23 + travis `after_script` (sol@hiqdev.com)
     - 5628857 2015-12-23 - require fxp composer plugin from travis config (sol@hiqdev.com)
     - 36fd241 2015-12-22 enabled code coverage in scrutinizer (sol@hiqdev.com)
     - 833e973 2015-12-19 fixed travis: fxp plugin moved to `before_install` (sol@hiqdev.com)

@@ -3,6 +3,10 @@ hiqdev/hidev changelog
 
 ## Under development
 
+
+## 0.2.0 2015-12-23
+
+- Added runRequest and runRequests at DefaultGoal
 - Fixed Travis build
 - Added `update` goal
 - Changed finding goal class
