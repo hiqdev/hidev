@@ -18,3 +18,5 @@ install:
     - './bin/hidev travis/install'
 script:
     - './bin/hidev travis/script'
+after_script:
+    - './bin/hidev travis/after_script'
