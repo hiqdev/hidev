@@ -51,6 +51,6 @@ class GitHubGoal extends DefaultGoal
      */
     public function actionClone($repo)
     {
-        return $this->passthru('git', ['clone', 'git@github.com:' . $repo);
+        return $this->passthru('git', ['clone', 'git@github.com:' . $repo]);
     }
 }
