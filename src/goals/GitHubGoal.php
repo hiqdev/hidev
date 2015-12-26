@@ -42,4 +42,15 @@ class GitHubGoal extends DefaultGoal
     public function actionCreate()
     {
     }
+
+    /**
+     * Clone repo from github.
+     * TODO to work need to redo HiDev to run this action without normal initilization.
+     * @param string $repo full name vendor/package
+     * @return int exit code
+     */
+    public function actionClone($repo)
+    {
+        return $this->passthru('git', ['clone', 'git@github.com:' . $repo);
+    }
 }
