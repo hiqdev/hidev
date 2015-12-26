@@ -21,6 +21,7 @@ class CommitsGoal extends FileGoal
      */
     public function init()
     {
+        parent::init();
         $this->setDeps($this->getVcs()->goalName);
     }
 
