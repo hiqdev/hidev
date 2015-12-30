@@ -3,6 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed minor issues
+- Added `github/clone` action, NOT finished
 
 ## 0.2.0 2015-12-23
 

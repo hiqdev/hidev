@@ -3,6 +3,11 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed minor issues
+    - 571496d 2015-12-26 fixed vcs/gitignore goals linking (sol@hiqdev.com)
+- Added `github/clone` action, NOT finished
+    - 164599f 2015-12-26 fixed typo (sol@hiqdev.com)
+    - 7fb6929 2015-12-26 + github/clone action not finished (sol@hiqdev.com)
 
 ## 0.2.0 2015-12-23
 
