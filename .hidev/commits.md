@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed to use latest Symfony YAML 3.0 <- 2.7
+    - d2de282 2016-01-02 + scrutinizer config for code rating and duplication checks (sol@hiqdev.com)
+    - 08f8789 2016-01-02 used Symfony YAML 3.0 <- 2.7 (sol@hiqdev.com)
 - Fixed minor issues
     - 571496d 2015-12-26 fixed vcs/gitignore goals linking (sol@hiqdev.com)
 - Added `github/clone` action, NOT finished

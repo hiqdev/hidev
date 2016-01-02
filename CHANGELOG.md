@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed to use latest Symfony YAML 3.0 <- 2.7
 - Fixed minor issues
 - Added `github/clone` action, NOT finished
 
