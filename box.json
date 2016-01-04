@@ -10,7 +10,10 @@
     "finder": [
         {
             "name": "*.php",
-            "exclude": ["tests","Tests"],
+            "exclude": [
+                "tests",
+                "Tests"
+            ],
             "in": "vendor"
         }
     ],
