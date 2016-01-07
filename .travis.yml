@@ -13,7 +13,6 @@ cache:
         - $HOME/.composer/cache
 sudo: false
 install:
-    - 'travis_retry composer global require "fabpot/php-cs-fixer:*" "phpunit/phpunit-skeleton-generator:*" "phpunit/phpunit:^4.8"'
     - 'travis_retry composer install --no-interaction'
     - './bin/hidev travis/install'
 script:

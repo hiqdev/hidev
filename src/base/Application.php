@@ -11,15 +11,17 @@
 
 namespace hidev\base;
 
+use Exception;
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\base\InvalidParamException;
+use yii\console\Exception as ConsoleException;
 use yii\base\Module;
 use yii\base\ViewContextInterface;
 use yii\helpers\ArrayHelper;
 
 /**
  * The Application.
- * Redefined for extending.
  */
 class Application extends \yii\console\Application implements ViewContextInterface
 {
@@ -27,52 +29,51 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     protected $_viewPath;
 
-    protected function bootstrap()
+    public static function main()
     {
-        if (!$this->isInit) {
-            $require = Yii::createObject([
-                'class' => 'hidev\base\File',
-                'path'  => '.hidev/config.yml',
-            ])->load()['require'];
-            if ($require) {
-                Yii::createObject([
-                    'class' => 'hidev\base\File',
-                    'path'  => '.hidev/composer.json',
-                ])->save(compact('require'));
-                if (!is_dir('.hidev/vendor')) {
-                    exec('cd .hidev;composer update --prefer-source');
-                }
-                $main  = Yii::getAlias('@vendor');
-                $local = realpath('./.hidev/vendor');
-                if ($local !== $main) {
-                    $this->extensions = array_merge(
-                        $this->prepareExtensions($main),
-                        $this->prepareExtensions($local)
-                    );
-                }
+        try {
+            Yii::setLogger(Yii::createObject('hidev\base\Logger'));
+            $config = ArrayHelper::merge(
+                require dirname(dirname(__DIR__)) . '/.hidev/vendor/yiisoft/yii2-extraconfig.php',
+                require dirname(dirname(__DIR__)) . '/vendor/yiisoft/yii2-extraconfig.php',
+                require __DIR__ . '/config.php'
+            );
+            # var_dump($config); die();
+            foreach ($config['aliases'] as $name => $alias) {
+                Yii::setAlias($name, $alias);
+            }
+            $exitCode = (new static($config))->run();
+        } catch (Exception $e) {
+            if ($e instanceof InvalidParamException || $e instanceof ConsoleException) {
+                Yii::error($e->getMessage());
+                $exitCode = 1;
+            } else {
+                throw $e;
             }
         }
-        parent::bootstrap();
+
+        return $exitCode;
     }
 
-    public function getViewPath()
+    /*public function getViewPath()
     {
         if ($this->_viewPath === null) {
             $this->_viewPath = Yii::getAlias('@app/views');
         }
 
         return $this->_viewPath;
-    }
+    }*/
 
     public function createControllerByID($id)
     {
-        if (!$this->config->hasGoal($id)) {
-            var_dump(ArrayHelper::toArray($this->config));
-            var_dump(ArrayHelper::toArray(Yii::$app->pluginManager));
+        if (!$this->get('config')->hasGoal($id)) {
+            var_dump("CANT RUN GOAL: $id");
+            #var_dump(ArrayHelper::toArray($this->get('config')));
             throw new InvalidConfigException("can't run goal '$id'");
         }
 
-        return $this->config->getGoal($id);
+        #var_dump( $this->get('config')->get($id) );
+        return $this->get('config')->get($id);
     }
 
     public function runRequest($string)

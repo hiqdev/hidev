@@ -19,6 +19,7 @@ package:
         And more planned. See [ROADMAP](ROADMAP.md).
 
 require:
+    hiqdev/hidev-box:           "*@dev"
     hiqdev/hidev-php:           "*@dev"
     hiqdev/hidev-readme:        "*@dev"
     hiqdev/hidev-vendor:        "*@dev"

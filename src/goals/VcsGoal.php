@@ -22,15 +22,6 @@ class VcsGoal extends DefaultGoal
 
     public $initTag = 'Development started';
 
-    public function init()
-    {
-        parent::init();
-        $vcsignore = Yii::$app->pluginManager->vcsignore;
-        if ($vcsignore) {
-            $this->setIgnore($vcsignore);
-        }
-    }
-
     public function setIgnore($items, $where = '')
     {
         $this->getIgnore()->setItems($items, $where);

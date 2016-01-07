@@ -166,35 +166,14 @@ class DefaultGoal extends BaseGoal
     }
 
     /**
-     * Prepares given command arguments.
-     * @param string|array $args
-     * @return string
-     */
-    public function prepareCommand($args = '')
-    {
-        if (is_string($args)) {
-            $res = ' ' . trim($args);
-        } else {
-            $res = '';
-            foreach ($args as $a) {
-                $res .= ' ' . escapeshellarg($a);
-            }
-        }
-
-        return $res;
-    }
-
-    /**
-     * Prepares given prog and given arguments and runs it with passthru.
-     * @param string $prog
+     * Runs given binary with given arguments.
+     * @param string $name
      * @param string $args
      * @return int exit code
      */
-    public function passthru($prog, $args = '')
+    public function passthru($name, $args = '')
     {
-        // die($this->config->install->getBin($prog) . $this->prepareCommand($args));
-        passthru($this->config->install->getBin($prog) . $this->prepareCommand($args), $exitcode);
-        return $exitcode;
+        return Yii::$app->get('binaries')->passthru($name, $args);
     }
 
     public function getRobo()
@@ -209,17 +188,17 @@ class DefaultGoal extends BaseGoal
 
     public function getPackage()
     {
-        return $this->getConfig()->getItem('package');
+        return $this->getConfig()->get('package');
     }
 
     public function getVendor()
     {
-        return $this->getConfig()->getItem('vendor');
+        return $this->getConfig()->get('vendor');
     }
 
     public function getVcs()
     {
         /// TODO determine VCS
-        return $this->getConfig()->getItem('git');
+        return $this->getConfig()->get('git');
     }
 }

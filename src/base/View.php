@@ -28,7 +28,7 @@ class View extends \yii\base\View
         parent::init();
         $this->theme->pathMap['@app/views'] = array_merge(
             (array) $this->theme->pathMap['@app/views'],
-            (array) Yii::$app->pluginManager->views
+            (array) Yii::$app->get('config')->rawItem('views')
         );
     }
 
