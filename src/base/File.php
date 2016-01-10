@@ -79,6 +79,19 @@ class File extends \yii\base\Object
      */
     public $minimal;
 
+    /**
+     * Create file object.
+     * @param string|array $path or config
+     * @return File
+     */
+    public static function create($path)
+    {
+        $config = is_array($path) ? $path : compact('path');
+        $config['class'] = get_called_class();
+
+        return Yii::createObject($config);
+    }
+
     public function getMinimalPath()
     {
         return Yii::getAlias($this->minimal);
@@ -181,6 +194,11 @@ class File extends \yii\base\Object
         return Helper::id2camel($this->type);
     }
 
+    /**
+     * Save file.
+     * @param mixed $data
+     * @return bool true if file was changed
+     */
     public function save($data = null)
     {
         if ($data !== null) {
