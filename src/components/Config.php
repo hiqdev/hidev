@@ -40,7 +40,6 @@ class Config extends \hiqdev\yii2\collection\Object
 
     public function getItemConfig($id = null, array $config = [])
     {
-    var_dump($config); die('getItemConfig');
         return ArrayHelper::merge([
             'class' => 'hidev\controllers\CommonController',
         ], $config);
@@ -48,14 +47,15 @@ class Config extends \hiqdev\yii2\collection\Object
 
     protected function createItem($id, $config = [])
     {
-        return Yii::createObject($this->getItemConfig($id, $config), [$id, $this->module]);
+        return Yii::createObject($this->getItemConfig($id, $config), [$id, Yii::$app]);
     }
 
     public function getItem($id)
     {
+        if ($id == 'vendor') {
+            $v = 1;
+        }
         $item = &$this->_items[$id];
-        #var_dump($item);
-        #if (is_array($item) || is_null($item)) {
         if (is_array($item)) {
             $item = $this->createItem($id, $item);
         }
@@ -74,7 +74,7 @@ class Config extends \hiqdev\yii2\collection\Object
         $path = $file->getPath();
         if (!isset($this->_included[$path])) {
             $this->_included[$path] = $path;
-            $this->setItems($file->load());
+            $this->mergeItems($file->load());
             return true;
         }
 

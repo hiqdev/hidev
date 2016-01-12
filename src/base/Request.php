@@ -11,7 +11,6 @@
 
 namespace hidev\base;
 
-use hidev\controllers\DefaultController;
 use Yii;
 
 /**
@@ -44,16 +43,6 @@ class Request extends \yii\console\Request
                     array_shift($args);
                     $args = array_merge($alias, $args);
                 }
-/*
-                $action = $args[0];
-                if (Yii::$app->config->hasItem($action)) {
-                    array_shift($args);
-                    array_unshift($args, 'default/run', $action);
-                } elseif (DefaultController::hasAction($action)) {
-                    array_shift($args);
-                    array_unshift($args, "default/$action");
-                }
-*/
                 $this->_args = $args;
             } else {
                 $this->_args = [];

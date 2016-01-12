@@ -24,12 +24,15 @@ class StartController extends CommonController
 {
     const MAIN_CONFIG = '.hidev/config.yml';
 
+    static $started = false;
+
     public function actionMake()
     {
         Yii::setAlias('@prjdir', $this->findDir());
         $this->getConfig()->includeConfig(static::MAIN_CONFIG);
         $this->requireAll();
         $this->includeAll();
+        self::$started = true;
     }
 
     protected function requireAll()
@@ -72,13 +75,11 @@ class StartController extends CommonController
     protected function findDir()
     {
         $configDir = '.hidev';
-        if (!$isInit) {
-            for ($i = 0;$i < 9;++$i) {
-                if (is_dir($configDir)) {
-                    return getcwd();
-                }
-                chdir('..');
+        for ($i = 0;$i < 9;++$i) {
+            if (is_dir($configDir)) {
+                return getcwd();
             }
+            chdir('..');
         }
         throw new InvalidConfigException('Not a hidev project (or any of the parent directories). Use `hidev init` to initialize hidev project.');
     }

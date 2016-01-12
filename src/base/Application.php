@@ -25,8 +25,6 @@ use yii\helpers\ArrayHelper;
  */
 class Application extends \yii\console\Application implements ViewContextInterface
 {
-    public $isInit = false;
-
     protected $_viewPath;
 
     protected $_config;

@@ -16,8 +16,10 @@ use hidev\helpers\Helper;
 /**
  * Package part of the config.
  */
-class PackageController extends VendorController
+class PackageController extends CommonController
 {
+    use \hiqdev\yii2\collection\ObjectTrait;
+
     public function getYears()
     {
         $cur = (integer) date('Y');
@@ -110,10 +112,6 @@ class PackageController extends VendorController
         return $this->getItem('authors') ?: $this->vendor->authors;
     }
 
-    public function getVendor()
-    {
-        return $this->getConfig()->getVendor();
-    }
     /**
      * Composer for the moment.
      * To be changed to get actual Package Manager.

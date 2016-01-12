@@ -217,6 +217,16 @@ class CommonController extends \hidev\base\Controller
         return Yii::$app->createControllerById($id);
     }
 
+    public function getVendor()
+    {
+        return $this->getGoal('vendor');
+    }
+
+    public function getPackage()
+    {
+        return $this->getGoal('package');
+    }
+
     public function getVcs()
     {
         /// TODO determine VCS

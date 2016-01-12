@@ -19,8 +19,10 @@ use yii\helpers\ArrayHelper;
 /**
  * File controller.
  */
-class FileController extends CommonController
+class FileController extends CommonController implements \yii\base\Arrayable, \ArrayAccess
 {
+    use \hiqdev\yii2\collection\ObjectTrait;
+
     /**
      * @var array|File the file to be handled.
      */

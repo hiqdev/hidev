@@ -8,7 +8,7 @@ return [
     'runtimePath'           => dirname(substr(__DIR__, 0, 7) === 'phar://' ? $_SERVER['SCRIPT_NAME'] : dirname(__DIR__)) . '/runtime',
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',
-    'defaultRoute'          => 'default/deps',
+    'defaultRoute'          => 'default',
     'bootstrap'             => ['log'],
     'components'            => [
         'log' => [
@@ -30,6 +30,12 @@ return [
         ],
         'config' => [
             'class' => 'hidev\components\Config',
+            'vendor' => [
+                'class' => 'hidev\controllers\VendorController',
+            ],
+            'package' => [
+                'class' => 'hidev\controllers\PackageController',
+            ],
         ],
         'view' => [
             'class' => 'hidev\base\View',

@@ -18,6 +18,8 @@ use hidev\helpers\Helper;
  */
 class VendorController extends CommonController
 {
+    use \hiqdev\yii2\collection\ObjectTrait;
+
     public function getLabel()
     {
         return $this->getItem('label') ?: ucfirst($this->name);
