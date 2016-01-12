@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 use yii\helpers\ArrayHelper;
 use Symfony\Component\Yaml\Yaml;
@@ -17,8 +17,10 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Dump goal.
  */
-class DumpGoal extends DefaultGoal
+class DumpController extends CommonController
 {
+    protected $_before = ['start'];
+
     public function actionMake()
     {
         $data = $this->getConfig()->getItems();

@@ -9,14 +9,14 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 use Yii;
 
 /**
- * Goal for VCS (Version Control Systems).
+ * Controller for VCS (Version Control Systems).
  */
-class VcsGoal extends DefaultGoal
+class VcsController extends CommonController
 {
     public $lastTag = 'Under development';
 

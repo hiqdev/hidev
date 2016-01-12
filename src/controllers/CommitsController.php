@@ -9,25 +9,16 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 /**
- * Goal for reading and writing commits history to build CHANGELOG.md.
+ * Controller for reading and writing commits history to build CHANGELOG.md.
  */
-class CommitsGoal extends FileGoal
+class CommitsController extends FileController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function init()
-    {
-        parent::init();
-        $this->setDeps($this->getVcs()->goalName);
-    }
-
     protected $_file = '.hidev/commits.md';
 
-    protected $_fileType = 'commits';
+    public $fileType = 'commits';
 
     public function getHistory()
     {

@@ -9,12 +9,14 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\base;
+
+use Yii;
 
 /**
- * Goal for .gitignore files generation.
+ * Basic controller.
  */
-class GitignoreGoal extends VcsignoreGoal
+class Controller extends \yii\console\Controller
 {
-    protected $_fileType = 'gitignore';
+    public $defaultAction = 'perform';
 }

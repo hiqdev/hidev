@@ -9,12 +9,12 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 /**
  * Generate goal to build files by template and params.
  */
-class GenerateGoal extends TemplateGoal
+class GenerateController extends TemplateController
 {
     public static function template2file($template, $extension = '.php')
     {

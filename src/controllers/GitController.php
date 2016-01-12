@@ -9,23 +9,16 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 use Yii;
 
 /**
- * Goal for Git.
+ * Controller for Git.
  */
-class GitGoal extends VcsGoal
+class GitController extends VcsController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function init()
-    {
-        parent::init();
-        $this->setDeps('.gitignore');
-    }
+    protected $_before = ['.gitignore'];
 
     /**
      * @var array VCS tags

@@ -9,14 +9,14 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 use hidev\helpers\Helper;
 
 /**
  * Vendor part of the config.
  */
-class VendorGoal extends DefaultGoal
+class VendorController extends CommonController
 {
     public function getLabel()
     {

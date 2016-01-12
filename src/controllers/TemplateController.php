@@ -9,14 +9,12 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 /**
- * Base Goal.
+ * Controller for templated files.
  */
-class BaseGoal extends \yii\console\Controller implements \ArrayAccess, \IteratorAggregate, \yii\base\Arrayable
+class TemplateController extends FileController
 {
-    use \hiqdev\yii2\collection\ObjectTrait;
-
-    public $defaultAction = 'perform';
+    public $fileType = 'template';
 }

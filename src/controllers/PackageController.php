@@ -9,14 +9,14 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 use hidev\helpers\Helper;
 
 /**
  * Package part of the config.
  */
-class PackageGoal extends VendorGoal
+class PackageController extends VendorController
 {
     public function getYears()
     {

@@ -9,12 +9,12 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 /**
- * Goal for svn:ignore.
+ * Controller for .gitignore files generation.
  */
-class SvnignoreGoal extends VcsignoreGoal
+class GitignoreController extends VcsignoreController
 {
-    protected $_fileType = 'svnignore';
+    public $fileType = 'gitignore';
 }

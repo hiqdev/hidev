@@ -9,14 +9,14 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
-use hidev\helpers\Helper;
-
-class AliasesGoal extends DefaultGoal
+/**
+ * Controller for CHANGELOG.md file.
+ */
+class ChangelogController extends FileController
 {
-    public function getItem($name)
-    {
-        return Helper::csplit(parent::getItem($name), ' ');
-    }
+    protected $_before = ['commits'];
+
+    public $fileType = 'changelog';
 }

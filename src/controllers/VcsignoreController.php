@@ -9,12 +9,12 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 /**
- * Goal for VCS ignore files generation.
+ * Controller for VCS ignore files generation.
  */
-class VcsignoreGoal extends FileGoal
+class VcsignoreController extends FileController
 {
     protected $_items = [
         '.hidev/composer.json' => 'hidev internals',

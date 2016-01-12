@@ -29,19 +29,27 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     protected $_viewPath;
 
-    public static function main()
+    protected $_config;
+
+    public function __construct($config = [])
+    {
+        $this->_config = $config;
+        parent::__construct($config);
+    }
+
+    /**
+     * Creates application with given config and runs it.
+     * @param array $config
+     * @return int exit code
+     */
+    public static function main(array $config)
     {
         try {
             Yii::setLogger(Yii::createObject('hidev\base\Logger'));
             $config = ArrayHelper::merge(
-                require dirname(dirname(__DIR__)) . '/.hidev/vendor/yiisoft/yii2-extraconfig.php',
-                require dirname(dirname(__DIR__)) . '/vendor/yiisoft/yii2-extraconfig.php',
-                require __DIR__ . '/config.php'
+                static::readExtraVendor($config['vendorPath']),
+                $config
             );
-            # var_dump($config); die();
-            foreach ($config['aliases'] as $name => $alias) {
-                Yii::setAlias($name, $alias);
-            }
             $exitCode = (new static($config))->run();
         } catch (Exception $e) {
             if ($e instanceof InvalidParamException || $e instanceof ConsoleException) {
@@ -55,6 +63,50 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         return $exitCode;
     }
 
+    public static function readExtraVendor($dir)
+    {
+        return require $dir . '/yiisoft/yii2-extraconfig.php';
+    }
+
+    /**
+     * Load extra config files.
+     * @param array $config
+     * @return void
+     */
+    public function loadExtraVendor($dir)
+    {
+        $this->setExtraConfig(static::readExtraVendor($dir));
+    }
+
+    /**
+     * Implements extra configuration.
+     * @param array $config
+     * @return void
+     */
+    public function setExtraConfig($config)
+    {
+        $this->_config = $config = ArrayHelper::merge($config, $this->_config);
+
+        if (!empty($config['aliases'])) {
+            $this->setAliases($config['aliases']);
+        }
+        if (!empty($config['modules'])) {
+            $this->setModules($config['modules']);
+            /*$this->setModules(ArrayHelper::merge(
+                $config['modules'],
+                ArrayHelper::getItems($this->modules, array_keys($config['modules']))
+            ));*/
+        }
+        if (!empty($config['components'])) {
+            foreach ($config['components'] as $id => $component) {
+                if ($this->has($id, true)) {
+                    unset($config['components'][$id]);
+                }
+            }
+            $this->setComponents($config['components']);
+        }
+    }
+
     /*public function getViewPath()
     {
         if ($this->_viewPath === null) {
@@ -66,14 +118,14 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public function createControllerByID($id)
     {
-        if (!$this->get('config')->hasGoal($id)) {
-            var_dump("CANT RUN GOAL: $id");
-            #var_dump(ArrayHelper::toArray($this->get('config')));
-            throw new InvalidConfigException("can't run goal '$id'");
+        if ($this->get('config')->hasGoal($id)) {
+            return $this->get('config')->get($id);
         }
 
-        #var_dump( $this->get('config')->get($id) );
-        return $this->get('config')->get($id);
+        $controller = parent::createControllerByID($id);
+        $this->get('config')->set($id, $controller);
+
+        return $controller;
     }
 
     public function runRequest($string)

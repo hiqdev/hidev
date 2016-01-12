@@ -9,17 +9,12 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
-
-use Yii;
+namespace hidev\controllers;
 
 /**
- * Install goal.
+ * Controller for svn:ignore.
  */
-class InstallGoal extends DefaultGoal
+class SvnignoreController extends VcsignoreController
 {
-    public function actionMake()
-    {
-        Yii::warning('install');
-    }
+    public $fileType = 'svnignore';
 }

@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 use hidev\base\File;
 use hidev\helpers\Helper;
@@ -17,9 +17,9 @@ use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
- * A File Goal.
+ * File controller.
  */
-class FileGoal extends DefaultGoal
+class FileController extends CommonController
 {
     /**
      * @var array|File the file to be handled.
@@ -35,7 +35,7 @@ class FileGoal extends DefaultGoal
 
     public function getTemplate()
     {
-        return Helper::file2template($this->_template ?: $this->goalName);
+        return Helper::file2template($this->_template ?: $this->id);
     }
 
     /**
@@ -51,7 +51,7 @@ class FileGoal extends DefaultGoal
                 'class'    => File::className(),
                 'template' => $this->getTemplate(),
                 'goal'     => $this,
-                'path'     => $this->goalName,
+                'path'     => $this->id,
             ], is_string($this->_file)
                 ? ['path' => $this->_file]
                 : (array) $this->_file
@@ -108,7 +108,8 @@ class FileGoal extends DefaultGoal
 
     public function actionSave()
     {
-        $this->_items = Helper::uniqueConfig($this->_items);
-        return $this->getFile()->save($this);
+        #$this->_items = Helper::uniqueConfig($this->_items);
+        $this->getFile()->save($this);
+        return 0;
     }
 }

@@ -3,8 +3,8 @@
 return [
     'id'                    => 'hidev',
     'name'                  => 'HiDev',
-    'basePath'              => '@hidev',
-    'vendorPath'            => '@vendor',
+    'basePath'              => dirname(__DIR__),
+    'vendorPath'            => dirname(dirname(__DIR__)) . '/vendor',
     'runtimePath'           => dirname(substr(__DIR__, 0, 7) === 'phar://' ? $_SERVER['SCRIPT_NAME'] : dirname(__DIR__)) . '/runtime',
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',
@@ -22,26 +22,14 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'request' => [
+        /*'request' => [
             'class' => 'hidev\base\Request',
-        ],
+        ],*/
         'binaries' => [
             'class' => 'hidev\components\Binaries',
         ],
         'config' => [
-            'class'         => 'hidev\components\Config',
-            'git'           => 'hidev\goals\GitGoal',
-            'init'          => 'hidev\goals\InitGoal',
-            'start'         => 'hidev\goals\StartGoal',
-            'github'        => 'hidev\goals\GitHubGoal',
-            'update'        => 'hidev\goals\UpdateGoal',
-            'vendor'        => 'hidev\goals\VendorGoal',
-            'commits'       => 'hidev\goals\CommitsGoal',
-            'install'       => 'hidev\goals\InstallGoal',
-            'package'       => 'hidev\goals\PackageGoal',
-            '.gitignore'    => 'hidev\goals\GitignoreGoal',
-            'vcsignore'     => 'hidev\goals\VcsignoreGoal',
-            'CHANGELOG.md'  => 'hidev\goals\ChangelogGoal',
+            'class' => 'hidev\components\Config',
         ],
         'view' => [
             'class' => 'hidev\base\View',

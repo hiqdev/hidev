@@ -9,28 +9,36 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 use hidev\helpers\Helper;
 use yii\base\InvalidParamException;
 
 /**
- * Init goal to build .hidev/config.yml by template and params.
+ * Init controller.
+ * Builds .hidev/config.yml by template and params.
  */
-class InitGoal extends TemplateGoal
+class InitController extends TemplateController
 {
+    use \hiqdev\yii2\collection\ObjectTrait;
+
     protected $_file = '.hidev/config.yml';
 
-    protected $_fileType = 'template';
+    public $vendor;
+    public $package;
 
     public function actionPerform($name = null, $template = '.hidev/config')
     {
         list($vendor, $package) = explode('/', $name, 2);
-        if (!$package || !$vendor) {
+        if ($vendor) {
+            $this->vendor = $vendor;
+        }
+        if ($package) {
+            $this->package = $package;
+        }
+        if (!$this->package || !$this->vendor) {
             throw new InvalidParamException('Wrong vendor/package given: ' . $name);
         }
-        $this->vendor   = $vendor;
-        $this->package  = $package;
         $this->template = $template;
 
         if (!file_exists($this->dirname)) {
@@ -43,11 +51,6 @@ class InitGoal extends TemplateGoal
     public function options($actionId)
     {
         return array_merge(parent::options($actionId), explode(',', 'namespace,headline,title,type,license,keywords,description,year,nick,author,email,novendor,norequire'));
-    }
-
-    public function getPackage()
-    {
-        return $this->getItem('package');
     }
 
     public function getType()

@@ -21,4 +21,5 @@ defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
 require_once(__DIR__ . '/../_bootstrap.php');
 
-exit(hidev\base\Application::main());
+exit(hidev\base\Application::main(require __DIR__ . '/../src/base/config.php'));
+

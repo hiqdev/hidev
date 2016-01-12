@@ -9,17 +9,17 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
+
+use Yii;
 
 /**
- * Goal for CHANGELOG.md file.
+ * Install goal.
  */
-class ChangelogGoal extends FileGoal
+class InstallController extends CommonController
 {
-    protected $_fileType = 'changelog';
-
-    public function init()
+    public function actionMake()
     {
-        $this->setDeps('commits');
+        Yii::warning('install');
     }
 }

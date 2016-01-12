@@ -9,12 +9,12 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
 /**
- * Goal for GitHub.
+ * Controller for GitHub.
  */
-class GitHubGoal extends DefaultGoal
+class GitHubController extends CommonController
 {
     public function setName($value)
     {

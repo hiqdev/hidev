@@ -81,7 +81,8 @@ class BaseHandler extends \yii\base\Object
 
     public function prepareData($data)
     {
-        return ArrayHelper::toArray($data);
+        return ArrayHelper::toArray($data, [], false);
+        #return $data;
     }
 
     /**

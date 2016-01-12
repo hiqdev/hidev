@@ -9,16 +9,14 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\goals;
+namespace hidev\controllers;
 
-/**
- * Update goal.
- */
-class UpdateGoal extends DefaultGoal
+use hidev\helpers\Helper;
+
+class AliasesController extends CommonController
 {
-    public function actionMake()
+    public function getItem($name)
     {
-        exec('cd .hidev;composer update --prefer-source');
-        $this->module->runRequest('');
+        return Helper::csplit(parent::getItem($name), ' ');
     }
 }

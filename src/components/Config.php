@@ -11,6 +11,7 @@
 
 namespace hidev\components;
 
+use hidev\base\File;
 use hidev\helpers\Helper;
 use Yii;
 use yii\base\BootstrapInterface;
@@ -24,73 +25,59 @@ class Config extends \hiqdev\yii2\collection\Object
 {
     public $file = '.hidev/config.yml';
 
-    public function hasGoal($name)
+    protected $_included = [];
+
+    public function hasGoal($id)
     {
-        return $this->hasItem($name);
+        return $this->hasItem($id);
     }
 
-    /*public function findGoal($name)
+    /*public function findGoal($id)
     {
-        $config = $this->getGoals()->get($name);
+        $config = $this->getGoals()->get($id);
         return is_scalar($config) ? ['class' => $config] : (array) $config;
     }*/
 
-    public function getItemConfig($name = null, array $config = [])
+    public function getItemConfig($id = null, array $config = [])
     {
+    var_dump($config); die('getItemConfig');
         return ArrayHelper::merge([
-            'goalName' => $name,
-            'class'    => 'hidev\goals\DefaultGoal',
+            'class' => 'hidev\controllers\CommonController',
         ], $config);
     }
 
-    protected function createItem($name, $config = [])
+    protected function createItem($id, $config = [])
     {
-        $config = is_scalar($config) ? ['class' => $config] : (array) $config;
-        return Yii::createObject($this->getItemConfig($name, $config), [$name, Yii::$app]);
+        return Yii::createObject($this->getItemConfig($id, $config), [$id, $this->module]);
     }
 
-    public function getItem($name)
+    public function getItem($id)
     {
-        if ($name === 'default') {
-            return $this;
-        }
-        $item = &$this->_items[$name];
+        $item = &$this->_items[$id];
         #var_dump($item);
         #if (is_array($item) || is_null($item)) {
-        if (!is_object($item)) {
-            $item = $this->createItem($name, $item ?: []);
+        if (is_array($item)) {
+            $item = $this->createItem($id, $item);
         }
 
         return $item;
     }
 
     /**
-     * Loads all the configs. Reads or creates if doesn't exist.
-     * @void
+     * Include config file, unique only.
+     * @param string|array $path
+     * @return bool true if the path was unique and loaded
      */
-    public function loadAllConfigs()
-    {
-        if (!file_exists($this->file)) {
-            throw new InvalidParamException('No config found. Use hidev init vendor/package');
-        }
-        if (Yii::$app->get('configs')) {
-            foreach (Yii::$app->get as $path) {
-                $this->includeConfig($path);
-            }
-        }
-        $this->includeConfig($this->file);
-        if ($this->has('include')) {
-            foreach (Helper::csplit($this->rawItem('include')) as $path) {
-                $this->includeConfig($path);
-            }
-        }
-    }
-
     public function includeConfig($path)
     {
-        $file = Yii::createObject(array_merge([
-            'class' => 'hidev\base\File',
-        ], is_array($path) ? $path : compact('path')));
-        $this->setItems($file->load());
+        $file = File::create($path);
+        $path = $file->getPath();
+        if (!isset($this->_included[$path])) {
+            $this->_included[$path] = $path;
+            $this->setItems($file->load());
+            return true;
+        }
+
+        return false;
     }
 }
