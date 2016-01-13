@@ -121,7 +121,7 @@ class FileController extends AbstractController implements \yii\base\Arrayable, 
 
     public function actionSave()
     {
-        #$this->_items = Helper::uniqueConfig($this->_items);
+        $this->_items = Helper::uniqueConfig($this->_items);
         $this->getFile()->save($this);
         return 0;
     }
