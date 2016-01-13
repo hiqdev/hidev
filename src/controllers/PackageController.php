@@ -55,7 +55,7 @@ class PackageController extends CommonController
 
     public function getSource()
     {
-        return $this->getItem('source') ?: ('https://github.com/' . $this->config->github->name);
+        return $this->getItem('source') ?: ('https://github.com/' . $this->getGoal('github')->name);
     }
 
     public function getNamespace()

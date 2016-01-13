@@ -44,8 +44,11 @@ class StartController extends CommonController
             if ($saved || !is_dir('.hidev/vendor')) {
                 $this->getConfig()->get('update')->makeUpdate();
             }
+            /// backup config then reset with extra config then restore
+            $config = $this->getConfig()->getItems();
             Yii::$app->clear('config');
             Yii::$app->loadExtraVendor('.hidev/vendor');
+            $this->getConfig()->mergeItems($config);
         }
     }
 
