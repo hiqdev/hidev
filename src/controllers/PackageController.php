@@ -30,7 +30,7 @@ class PackageController extends CommonController
 
     public function getLicense()
     {
-        return $this->getItem('license') ?: $this->vendor->license ?: 'No license';
+        return $this->getItem('license') ?: $this->takeVendor()->license ?: 'No license';
     }
 
     public function getIssues()
@@ -60,7 +60,7 @@ class PackageController extends CommonController
 
     public function getNamespace()
     {
-        return $this->getItem('namespace') ?: $this->config->composer->namespace ?: self::defaultNamespace($this->takeVendor()->name, $this->name);
+        return $this->getItem('namespace') ?: $this->getPackageManager()->namespace ?: self::defaultNamespace($this->takeVendor()->name, $this->name);
     }
 
     public static function defaultNamespace($vendor, $package)
@@ -80,7 +80,7 @@ class PackageController extends CommonController
 
     public function getForum()
     {
-        return $this->getItem('forum') ?: $this->vendor->forum;
+        return $this->getItem('forum') ?: $this->takeVendor()->forum;
     }
 
     public function getLabel()
@@ -109,7 +109,7 @@ class PackageController extends CommonController
     }
     public function getAuthors()
     {
-        return $this->getItem('authors') ?: $this->vendor->authors;
+        return $this->getItem('authors') ?: $this->takeVendor()->authors;
     }
 
     /**
