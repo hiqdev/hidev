@@ -23,7 +23,8 @@ class DumpController extends CommonController
 
     public function actionMake()
     {
-        $data = $this->getConfig()->getItems();
+        $data = $this->takeConfig()->getItems();
+        unset($data['dump'], $data['start']);
         echo Yaml::dump(ArrayHelper::toArray($data), 4);
     }
 }
