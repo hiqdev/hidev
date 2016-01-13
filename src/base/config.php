@@ -36,6 +36,12 @@ return [
             'package' => [
                 'class' => 'hidev\controllers\PackageController',
             ],
+            'vcsignore' => [
+                'class' => 'hidev\controllers\VcsignoreController',
+            ],
+            '.gitignore' => [
+                'class' => 'hidev\controllers\GitignoreController',
+            ],
             'CHANGELOG.md' => [
                 'class' => 'hidev\controllers\ChangelogController',
             ],

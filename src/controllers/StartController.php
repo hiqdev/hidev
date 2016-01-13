@@ -29,7 +29,7 @@ class StartController extends CommonController
     public function actionMake()
     {
         Yii::setAlias('@prjdir', $this->findDir());
-        $this->getConfig()->includeConfig(static::MAIN_CONFIG);
+        $this->takeConfig()->includeConfig(static::MAIN_CONFIG);
         $this->requireAll();
         $this->includeAll();
         self::$started = true;
@@ -37,18 +37,18 @@ class StartController extends CommonController
 
     protected function requireAll()
     {
-        $require = $this->getConfig()->rawItem('require');
+        $require = $this->takeConfig()->rawItem('require');
         if ($require) {
             $require['hiqdev/composer-extension-plugin'] = '*@dev';
             $saved = File::create('.hidev/composer.json')->save(compact('require'));
             if ($saved || !is_dir('.hidev/vendor')) {
-                $this->getConfig()->get('update')->makeUpdate();
+                $this->takeGoal('update')->makeUpdate();
             }
             /// backup config then reset with extra config then restore
-            $config = $this->getConfig()->getItems();
+            $config = $this->takeConfig()->getItems();
             Yii::$app->clear('config');
             Yii::$app->loadExtraVendor('.hidev/vendor');
-            $this->getConfig()->mergeItems($config);
+            $this->takeConfig()->mergeItems($config);
         }
     }
 
@@ -61,10 +61,10 @@ class StartController extends CommonController
         $still = true;
         while ($still) {
             $still = false;
-            $include = $this->getConfig()->rawItem('include');
+            $include = $this->takeConfig()->rawItem('include');
             if ($include) {
                 foreach ($include as $path) {
-                    $still = $still || $this->getConfig()->includeConfig($path);
+                    $still = $still || $this->takeConfig()->includeConfig($path);
                 }
             }
         }

@@ -32,12 +32,6 @@ class Config extends \hiqdev\yii2\collection\Object
         return $this->hasItem($id);
     }
 
-    /*public function findGoal($id)
-    {
-        $config = $this->getGoals()->get($id);
-        return is_scalar($config) ? ['class' => $config] : (array) $config;
-    }*/
-
     public function getItemConfig($id = null, array $config = [])
     {
         return ArrayHelper::merge([
@@ -52,9 +46,6 @@ class Config extends \hiqdev\yii2\collection\Object
 
     public function getItem($id)
     {
-        if ($id == 'vendor') {
-            $v = 1;
-        }
         $item = &$this->_items[$id];
         if (is_array($item)) {
             $item = $this->createItem($id, $item);
@@ -80,6 +71,7 @@ class Config extends \hiqdev\yii2\collection\Object
 
         return false;
     }
+
     public function getGoal($id)
     {
         return Yii::$app->createControllerById($id);

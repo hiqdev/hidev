@@ -14,7 +14,7 @@ namespace hidev\controllers;
 use Yii;
 
 /**
- * Controller for VCS (Version Control Systems).
+ * Controller for VCSs (Version Control Systems).
  */
 class VcsController extends CommonController
 {
@@ -32,7 +32,7 @@ class VcsController extends CommonController
     public function getIgnore()
     {
         if (!is_object($this->_ignore)) {
-            $this->_ignore = $this->getConfig()->get('vcsignore');
+            $this->_ignore = $this->takeGoal('vcsignore');
         }
 
         return $this->_ignore;

@@ -34,12 +34,12 @@ class VcsignoreController extends FileController
     {
         $items = $this->getFile()->load() ?: [];
         if ($items) {
-            $this->vcs->setIgnore($items);
+            $this->takeVcs()->setIgnore($items);
         }
     }
 
     public function actionSave()
     {
-        return $this->getFile()->save($this->vcs->getIgnore());
+        return $this->getFile()->save($this->takeVcs()->getIgnore());
     }
 }

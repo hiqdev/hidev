@@ -16,6 +16,8 @@ namespace hidev\controllers;
  */
 class CommitsController extends FileController
 {
+    protected $_before = ['git']; /// TODO must be 'vcs' or detected
+
     protected $_file = '.hidev/commits.md';
 
     public $fileType = 'commits';

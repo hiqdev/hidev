@@ -19,9 +19,14 @@ use yii\helpers\ArrayHelper;
 /**
  * File controller.
  */
-class FileController extends CommonController implements \yii\base\Arrayable, \ArrayAccess
+class FileController extends AbstractController implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
 {
     use \hiqdev\yii2\collection\ObjectTrait;
+
+    /**
+     * @var string specifies handler to be used
+     */
+    public $fileType;
 
     /**
      * @var array|File the file to be handled.
@@ -96,6 +101,12 @@ class FileController extends CommonController implements \yii\base\Arrayable, \A
     public function readArray()
     {
         return $this->getFile()->readArray();
+    }
+
+    public function actionPerform($name = null, $path = null)
+    {
+        Yii::trace("Started: '$this->id'");
+        return $this->runActions(['before', 'make', 'after']);
     }
 
     public function actionLoad()

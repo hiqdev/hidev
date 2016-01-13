@@ -25,7 +25,7 @@ class ChangelogHandler extends BaseHandler
     {
         $res = CommitsHandler::renderHeader('changelog');
 
-        foreach ($this->goal->getConfig()->get('commits')->getHistory() as $tag => $notes) {
+        foreach ($this->goal->takeGoal('commits')->getHistory() as $tag => $notes) {
             $tag = CommitsHandler::arrayPop($notes, 'tag') ?: $tag;
             $new = CommitsHandler::arrayPop($notes, '');
             $res .= CommitsHandler::renderTag($tag);

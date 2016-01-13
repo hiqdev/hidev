@@ -50,7 +50,7 @@ class PackageController extends CommonController
 
     public function getFullName()
     {
-        return $this->getItem('fullName') ?: ($this->getVendor()->name . '/' . $this->name);
+        return $this->getItem('fullName') ?: ($this->takeVendor()->name . '/' . $this->name);
     }
 
     public function getSource()
@@ -60,7 +60,7 @@ class PackageController extends CommonController
 
     public function getNamespace()
     {
-        return $this->getItem('namespace') ?: $this->config->composer->namespace ?: self::defaultNamespace($this->getVendor()->name, $this->name);
+        return $this->getItem('namespace') ?: $this->config->composer->namespace ?: self::defaultNamespace($this->takeVendor()->name, $this->name);
     }
 
     public static function defaultNamespace($vendor, $package)
@@ -118,7 +118,7 @@ class PackageController extends CommonController
      */
     public function getPackageManager()
     {
-        return $this->config->get('composer');
+        return $this->takeGoal('composer');
     }
 
     public function hasRequireAny($package)
