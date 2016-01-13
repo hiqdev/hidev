@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 92b2482 2016-01-13 returned back uniqueConfig before saving file (sol@hiqdev.com)
     - 22263b6 2016-01-13 continue renaming get -> take (sol@hiqdev.com)
     - e9b78a1 2016-01-13 continue renaming get -> take (sol@hiqdev.com)
     - 74ba260 2016-01-13 fixed typo (sol@hiqdev.com)
