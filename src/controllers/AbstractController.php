@@ -17,7 +17,7 @@ use hidev\helpers\Helper;
 /**
  * Abstract controller.
  */
-abstract class BasicController extends \hidev\base\Controller
+abstract class AbstractController extends \hidev\base\Controller
 {
     protected $_before = [];
     protected $_after  = [];
