@@ -3,6 +3,12 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed: renamed hidev-travis-ci -> hidev-travis
+    - 2a90b09 2016-01-13 renamed hidev-travis <- hidev-travis-ci (sol@hiqdev.com)
+- Changed: redone goals -> controllers
+    - 325446e 2016-01-13 phpcsfixed (sol@hiqdev.com)
+    - b47ceba 2016-01-13 phpcsfixed (sol@hiqdev.com)
+    - 0003a33 2016-01-13 + do `start` if unknown goal (sol@hiqdev.com)
     - 92b2482 2016-01-13 returned back uniqueConfig before saving file (sol@hiqdev.com)
     - 22263b6 2016-01-13 continue renaming get -> take (sol@hiqdev.com)
     - e9b78a1 2016-01-13 continue renaming get -> take (sol@hiqdev.com)
@@ -16,7 +22,9 @@ hiqdev/hidev commits history
     - 0ff3351 2016-01-12 redoing goals to controllers BROKEN init & dump look working (sol@hiqdev.com)
     - b4a6ad3 2016-01-10 + static File::create to simplify creating object from path or config (sol@hiqdev.com)
     - f68e1dc 2016-01-09 * BaseHandler::write + return if file was changed or not (sol@hiqdev.com)
+- Added `dump` goal
     - da3731a 2016-01-09 + DumpGoal (sol@hiqdev.com)
+- Changed: redone with `composer-extension-plugin` instead of PluginManager
     - 22637e9 2016-01-07 redoing with composer-extension-plugin BROKEN (sol@hiqdev.com)
 - Fixed to use latest Symfony YAML 3.0 <- 2.7
     - d2de282 2016-01-02 + scrutinizer config for code rating and duplication checks (sol@hiqdev.com)

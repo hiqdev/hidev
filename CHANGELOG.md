@@ -3,6 +3,10 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Changed: renamed hidev-travis-ci -> hidev-travis
+- Changed: redone goals -> controllers
+- Added `dump` goal
+- Changed: redone with `composer-extension-plugin` instead of PluginManager
 - Fixed to use latest Symfony YAML 3.0 <- 2.7
 - Fixed minor issues
 - Added `github/clone` action, NOT finished
