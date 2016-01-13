@@ -11,8 +11,8 @@
 
 namespace hidev\controllers;
 
-use Yii;
 use hidev\helpers\Helper;
+use Yii;
 
 /**
  * Abstract controller.
@@ -29,7 +29,7 @@ abstract class AbstractController extends \hidev\base\Controller
     protected $_done = [];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function options($actionId)
     {
@@ -96,11 +96,11 @@ abstract class AbstractController extends \hidev\base\Controller
         if (!$tasks) {
             return [];
         } elseif (!is_array($tasks)) {
-            $tasks = [(string)$tasks => 1];
+            $tasks = [(string) $tasks => 1];
         }
         $res = [];
         foreach ($tasks as $dep => $enabled) {
-            $res[(string)(is_int($dep) ? $enabled : $dep)] = (bool)(is_int($dep) ? 1 : $enabled);
+            $res[(string) (is_int($dep) ? $enabled : $dep)] = (bool) (is_int($dep) ? 1 : $enabled);
         }
 
         return $res;
@@ -137,7 +137,7 @@ abstract class AbstractController extends \hidev\base\Controller
 
     /**
      * Runs list of actions.
-     * TODO: think to redo with runRequests
+     * TODO: think to redo with runRequests.
      * @param null|string|array $actions
      * @return int|Response exit code
      */

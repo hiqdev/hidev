@@ -11,8 +11,8 @@
 
 namespace hidev\controllers;
 
-use yii\helpers\ArrayHelper;
 use Symfony\Component\Yaml\Yaml;
+use yii\helpers\ArrayHelper;
 
 /**
  * Dump goal.
@@ -24,6 +24,6 @@ class DumpController extends CommonController
     public function actionMake()
     {
         $data = $this->getConfig()->getItems();
-        print Yaml::dump(ArrayHelper::toArray($data), 4);
+        echo Yaml::dump(ArrayHelper::toArray($data), 4);
     }
 }

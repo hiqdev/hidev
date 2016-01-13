@@ -11,7 +11,6 @@
 
 namespace hidev\controllers;
 
-use hidev\base\Application;
 use hidev\base\File;
 use Yii;
 use yii\base\InvalidConfigException;
@@ -24,7 +23,7 @@ class StartController extends CommonController
 {
     const MAIN_CONFIG = '.hidev/config.yml';
 
-    static $started = false;
+    public static $started = false;
 
     public function actionMake()
     {
@@ -72,8 +71,8 @@ class StartController extends CommonController
 
     /**
      * Chdirs to project's root by looking for config file in the current directory and up.
-     * @return string path to the root directory of hidev project
      * @throws InvalidConfigException when failed to find
+     * @return string path to the root directory of hidev project
      */
     protected function findDir()
     {

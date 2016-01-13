@@ -12,10 +12,7 @@
 namespace hidev\components;
 
 use hidev\base\File;
-use hidev\helpers\Helper;
 use Yii;
-use yii\base\BootstrapInterface;
-use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
 
 /**

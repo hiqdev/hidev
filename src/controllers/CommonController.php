@@ -12,7 +12,6 @@
 namespace hidev\controllers;
 
 use Yii;
-use hidev\helpers\Helper;
 
 /**
  * Common controller.
@@ -24,5 +23,4 @@ class CommonController extends AbstractController
         Yii::trace("Started: '$this->id'");
         return $this->runActions(['before', 'make', 'after']);
     }
-
 }

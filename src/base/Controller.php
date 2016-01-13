@@ -11,8 +11,6 @@
 
 namespace hidev\base;
 
-use Yii;
-
 /**
  * Basic controller.
  */

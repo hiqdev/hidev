@@ -11,8 +11,6 @@
 
 namespace hidev\controllers;
 
-use Yii;
-
 /**
  * Controller for VCSs (Version Control Systems).
  */
