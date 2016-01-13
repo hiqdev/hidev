@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 22263b6 2016-01-13 continue renaming get -> take (sol@hiqdev.com)
+    - e9b78a1 2016-01-13 continue renaming get -> take (sol@hiqdev.com)
+    - 74ba260 2016-01-13 fixed typo (sol@hiqdev.com)
+    - a47060f 2016-01-13 + AbstractController and getConfig/Goal/.. renamed to takeConfig/Goal to aviod being getters (sol@hiqdev.com)
     - e5936b0 2016-01-13 fixing changelog generation (sol@hiqdev.com)
     - d2b94eb 2016-01-13 fixed loading extra config (sol@hiqdev.com)
     - 83ed325 2016-01-13 redone GitHub goal without collection (sol@hiqdev.com)
