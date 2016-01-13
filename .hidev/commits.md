@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 8f5eda1 2016-01-13 fixed dump controller (sol@hiqdev.com)
 - Changed: renamed hidev-travis-ci -> hidev-travis
     - 2a90b09 2016-01-13 renamed hidev-travis <- hidev-travis-ci (sol@hiqdev.com)
 - Changed: redone goals -> controllers
