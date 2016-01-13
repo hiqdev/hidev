@@ -36,6 +36,9 @@ return [
             'package' => [
                 'class' => 'hidev\controllers\PackageController',
             ],
+            'CHANGELOG.md' => [
+                'class' => 'hidev\controllers\ChangelogController',
+            ],
         ],
         'view' => [
             'class' => 'hidev\base\View',

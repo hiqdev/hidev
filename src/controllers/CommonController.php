@@ -214,7 +214,7 @@ class CommonController extends \hidev\base\Controller
 
     public function getGoal($id)
     {
-        return Yii::$app->createControllerById($id);
+        return $this->getConfig()->getGoal($id);
     }
 
     public function getVendor()
@@ -229,7 +229,6 @@ class CommonController extends \hidev\base\Controller
 
     public function getVcs()
     {
-        /// TODO determine VCS
-        return $this->getGoal('git');
+        return $this->getConfig()->getVcs();
     }
 }

@@ -257,6 +257,6 @@ class CommitsHandler extends BaseHandler
 
     public static function getVcs()
     {
-        return Yii::$app->config->vcs;
+        return Yii::$app->get('config')->getVcs();
     }
 }

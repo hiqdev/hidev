@@ -80,4 +80,14 @@ class Config extends \hiqdev\yii2\collection\Object
 
         return false;
     }
+    public function getGoal($id)
+    {
+        return Yii::$app->createControllerById($id);
+    }
+
+    public function getVcs()
+    {
+        /// TODO determine VCS
+        return $this->getGoal('git');
+    }
 }
