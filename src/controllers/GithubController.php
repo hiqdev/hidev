@@ -31,7 +31,7 @@ class GithubController extends CommonController
     public function getName()
     {
         if ($this->_name === null) {
-            $this->setName($this->getGoal('package')->fullName);
+            $this->setName($this->takeGoal('package')->fullName);
         }
 
         return $this->_name;
@@ -63,7 +63,7 @@ class GithubController extends CommonController
     public function getPackage()
     {
         if ($this->_package === null) {
-            $this->_package = $this->getGoal('package')->name;
+            $this->_package = $this->takeGoal('package')->name;
         }
 
         return $this->_package;
