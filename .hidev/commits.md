@@ -3,6 +3,16 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - e5936b0 2016-01-13 fixing changelog generation (sol@hiqdev.com)
+    - d2b94eb 2016-01-13 fixed loading extra config (sol@hiqdev.com)
+    - 83ed325 2016-01-13 redone GitHub goal without collection (sol@hiqdev.com)
+    - 9675fa6 2016-01-13 redone GitHub goal without collection (sol@hiqdev.com)
+    - 66e2166 2016-01-12 still broken (sol@hiqdev.com)
+    - 0ff3351 2016-01-12 redoing goals to controllers BROKEN init & dump look working (sol@hiqdev.com)
+    - b4a6ad3 2016-01-10 + static File::create to simplify creating object from path or config (sol@hiqdev.com)
+    - f68e1dc 2016-01-09 * BaseHandler::write + return if file was changed or not (sol@hiqdev.com)
+    - da3731a 2016-01-09 + DumpGoal (sol@hiqdev.com)
+    - 22637e9 2016-01-07 redoing with composer-extension-plugin BROKEN (sol@hiqdev.com)
 - Fixed to use latest Symfony YAML 3.0 <- 2.7
     - d2de282 2016-01-02 + scrutinizer config for code rating and duplication checks (sol@hiqdev.com)
     - 08f8789 2016-01-02 used Symfony YAML 3.0 <- 2.7 (sol@hiqdev.com)
