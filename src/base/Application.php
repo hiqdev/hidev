@@ -13,11 +13,10 @@ namespace hidev\base;
 
 use Exception;
 use Yii;
-use yii\base\InvalidConfigException;
 use yii\base\InvalidParamException;
-use yii\console\Exception as ConsoleException;
 use yii\base\Module;
 use yii\base\ViewContextInterface;
+use yii\console\Exception as ConsoleException;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -28,6 +27,8 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     protected $_viewPath;
 
     protected $_config;
+
+    protected $_first = true;
 
     public function __construct($config = [])
     {
@@ -116,6 +117,13 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public function createControllerByID($id)
     {
+        if ($this->_first) {
+            $this->_first = false;
+            if ($id && !$this->get('config')->hasGoal($id)) {
+                $this->runRequest('start');
+            }
+        }
+
         if ($this->get('config')->hasGoal($id)) {
             return $this->get('config')->get($id);
         }
