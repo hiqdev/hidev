@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added installing and vcsignoring PHAR for required binaries
+    - 8a53c89 2016-01-14 added installing binaries (sol@hiqdev.com)
+    - ca62f72 2016-01-14 added ignoring PHARs (sol@hiqdev.com)
+    - ba087e2 2016-01-14 + ignore PHARs (sol@hiqdev.com)
 - Fixed tests
     - 97da7e1 2016-01-14 fixed main config vendorPath (sol@hiqdev.com)
     - 4b5deff 2016-01-14 fixed travis `before_install` (sol@hiqdev.com)

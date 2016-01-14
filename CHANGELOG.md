@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added installing and vcsignoring PHAR for required binaries
 - Fixed tests
 - Changed: renamed hidev-travis-ci -> hidev-travis
 - Changed: redone goals -> controllers
