@@ -119,7 +119,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     {
         if ($this->_first) {
             $this->_first = false;
-            if ($id && !$this->get('config')->hasGoal($id)) {
+            if ($id === 'binaries' || !$this->get('config')->hasGoal($id)) {
                 $this->runRequest('start');
             }
         }

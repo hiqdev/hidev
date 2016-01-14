@@ -33,7 +33,7 @@ class BinaryPhp extends Binary
     /**
      * @var string URL to download PHAR
      */
-    public $phar_url;
+    public $download;
 
     /**
      * Detects how to run the binary.
@@ -62,5 +62,19 @@ class BinaryPhp extends Binary
         $path = parent::detectCommand($path);
 
         return is_executable($path) ? $path : '/usr/bin/env php ' . $path;
+    }
+
+    public function install()
+    {
+        if ($this->installer) {
+            passthru('/usr/bin/env wget ' . escapeshellarg($this->installer) . ' -O- | /usr/bin/env php', $exitcode);
+        } elseif ($this->download) {
+            $dest = Yii::getAlias('@prjdir/' . $this->name . '.phar');
+            passthru('/usr/bin/env wget ' . escapeshellarg($this->download) . ' -O ' . $dest, $exitcode);
+        } else {
+            return parent::install();
+        }
+
+        return $exitcode;
     }
 }

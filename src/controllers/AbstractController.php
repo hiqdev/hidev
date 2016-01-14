@@ -196,7 +196,7 @@ abstract class AbstractController extends \hidev\base\Controller
      */
     public function passthru($name, $args = '')
     {
-        return Yii::$app->get('binaries')->passthru($name, $args);
+        return $this->takeGoal('binaries')->passthru($name, $args);
     }
 
     public function takeGoal($id)

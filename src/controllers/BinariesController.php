@@ -9,11 +9,27 @@
  * @copyright Copyright (c) 2014-2016, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\components;
+namespace hidev\controllers;
 
-class Binaries extends \hiqdev\yii2\collection\Manager
+class BinariesController extends CommonController
 {
+    use \hiqdev\yii2\collection\ManagerTrait;
+
+    protected $_before = ['start'];
+
     public $defaultClass = 'hidev\base\BinaryPhp';
+
+    public function actionMake()
+    {
+        foreach ($this->getItems() as $name => $bin) {
+            if (!$bin->detectPath($name)) {
+                $exitcode = $bin->install();
+                if ($exitcode) {
+                    return $exitcode;
+                }
+            }
+        }
+    }
 
     /**
      * Prepares item config.

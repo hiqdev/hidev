@@ -39,7 +39,13 @@ class Binary extends \yii\base\Object
     {
         // die(  $this->getCommand() . $this->prepareArguments($args));
         passthru($this->getCommand() . $this->prepareArguments($args), $exitcode);
+
         return $exitcode;
+    }
+
+    public function install()
+    {
+        throw new InvalidConfigException('Don\'t know how to install ' . $this->name);
     }
 
     /**
@@ -57,7 +63,7 @@ class Binary extends \yii\base\Object
      */
     public function getPath()
     {
-        if ($this->_path === null) {
+        if (!$this->_path) {
             $this->_path = $this->detectPath($this->name);
         }
 
@@ -101,6 +107,10 @@ class Binary extends \yii\base\Object
      */
     public function detectCommand($path)
     {
+        if (!$path) {
+            $this->install();
+            $path = $this->getPath();
+        }
         if (!$path || !file_exists($path)) {
             throw new InvalidConfigException('Failed to find how to run ' . $this->name);
         }

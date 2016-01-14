@@ -34,9 +34,6 @@ return [
         /*'request' => [
             'class' => 'hidev\base\Request',
         ],*/
-        'binaries' => [
-            'class' => 'hidev\components\Binaries',
-        ],
         'config' => [
             'class' => 'hidev\components\Config',
             'init' => [
@@ -47,6 +44,9 @@ return [
             ],
             'package' => [
                 'class' => 'hidev\controllers\PackageController',
+            ],
+            'binaries' => [
+                'class' => 'hidev\controllers\BinariesController',
             ],
             'vcsignore' => [
                 'class' => 'hidev\controllers\VcsignoreController',
