@@ -49,8 +49,7 @@
         "minii/helpers": "*",
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "^3.0",
-        "hiqdev/yii2-collection": "*",
-        "hiqdev/composer-extension-plugin": "*@dev"
+        "hiqdev/yii2-collection": "*"
     },
     "autoload": {
         "psr-4": {
