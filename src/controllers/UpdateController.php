@@ -24,6 +24,6 @@ class UpdateController extends CommonController
 
     public function makeUpdate()
     {
-        exec('cd .hidev;composer update --prefer-source');
+        $this->passthru('composer', ['update', '-d', '.hidev', '--prefer-source', '--ansi']);
     }
 }
