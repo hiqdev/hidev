@@ -11,6 +11,8 @@ matrix:
 cache:
     directories:
         - $HOME/.composer/cache
+before_install:
+    - 'composer self-update'
 sudo: false
 install:
     - 'travis_retry composer install --no-interaction'
