@@ -29,6 +29,7 @@ hiqdev/hidev commits history
     - 8f5eda1 2016-01-13 fixed dump controller (sol@hiqdev.com)
     - da3731a 2016-01-09 + DumpGoal (sol@hiqdev.com)
 - Changed: redone with `composer-extension-plugin` instead of PluginManager
+    - ea6dd43 2016-01-14 returned back composer-extension-plugin dependency (sol@hiqdev.com)
     - 404225c 2016-01-14 removed composer-extension-plugin dependency, it is only needed at .hidev (sol@hiqdev.com)
     - 22637e9 2016-01-07 redoing with composer-extension-plugin BROKEN (sol@hiqdev.com)
 - Fixed to use latest Symfony YAML 3.0 <- 2.7
