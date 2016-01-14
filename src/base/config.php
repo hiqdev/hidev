@@ -13,7 +13,7 @@ return [
     'id'                    => 'hidev',
     'name'                  => 'HiDev',
     'basePath'              => dirname(__DIR__),
-    'vendorPath'            => dirname(dirname(__DIR__)) . '/vendor',
+    'vendorPath'            => dirname(HIDEV_AUTOLOAD_FILE),
     'runtimePath'           => dirname(substr(__DIR__, 0, 7) === 'phar://' ? $_SERVER['SCRIPT_NAME'] : dirname(__DIR__)) . '/runtime',
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',

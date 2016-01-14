@@ -11,13 +11,13 @@
 
 foreach ([__DIR__ . '/vendor/autoload.php', __DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
     if (file_exists($file)) {
-        define('HIDEV_COMPOSER_INSTALL', $file);
+        define('HIDEV_AUTOLOAD_FILE', $file);
         break;
     }
 }
 
-if (!defined('HIDEV_COMPOSER_INSTALL')) {
+if (!defined('HIDEV_AUTOLOAD_FILE')) {
     fwrite(STDERR, 'You need to set up project dependencies with composer');
 }
 
-require HIDEV_COMPOSER_INSTALL;
+require HIDEV_AUTOLOAD_FILE;
