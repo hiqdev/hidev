@@ -4,6 +4,8 @@ hiqdev/hidev commits history
 ## Under development
 
 - Fixed tests
+    - 97da7e1 2016-01-14 fixed main config vendorPath (sol@hiqdev.com)
+    - 4b5deff 2016-01-14 fixed travis `before_install` (sol@hiqdev.com)
     - 3a0dc90 2016-01-14 fixing tests (sol@hiqdev.com)
     - 9c2fd91 2016-01-14 improved calling composer in UpdateGoal (sol@hiqdev.com)
 - Changed: renamed hidev-travis-ci -> hidev-travis
