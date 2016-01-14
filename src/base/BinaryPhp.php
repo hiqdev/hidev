@@ -38,9 +38,9 @@ class BinaryPhp extends Binary
     /**
      * Detects how to run the binary.
      * Searches in this order:
-     * 1. name.phar in project root directory
-     * 2. ./vendor/bin/name
-     * 3. $HOME/.composer/vendor/bin/name.
+     * 1. PHAR in project's root directory
+     * 2. projects's vendor/bin directory
+     * 3. composer global vendor/bin directory
      *
      * @param string $name
      * @return string path to the binary

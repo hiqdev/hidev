@@ -34,6 +34,11 @@ class StartController extends CommonController
         self::$started = true;
     }
 
+    public function actionUpdate()
+    {
+        return $this->passthru('composer', ['update', '-d', '.hidev', '--prefer-source', '--ansi']);
+    }
+
     protected function requireAll()
     {
         $require = $this->takeConfig()->rawItem('require');
@@ -41,7 +46,7 @@ class StartController extends CommonController
             $require['hiqdev/composer-extension-plugin'] = '*@dev';
             $saved = File::create('.hidev/composer.json')->save(compact('require'));
             if ($saved || !is_dir('.hidev/vendor')) {
-                $this->takeGoal('update')->makeUpdate();
+                $this->runAction('update');
             }
             /// backup config then reset with extra config then restore
             $config = $this->takeConfig()->getItems();

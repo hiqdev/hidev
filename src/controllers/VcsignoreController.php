@@ -40,6 +40,7 @@ class VcsignoreController extends FileController
 
     public function actionSave()
     {
-        return $this->getFile()->save($this->takeVcs()->getIgnore());
+        $this->getFile()->save($this->takeVcs()->getIgnore());
+        return 0;
     }
 }
