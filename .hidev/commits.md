@@ -3,7 +3,9 @@ hiqdev/hidev commits history
 
 ## Under development
 
-    - 8f5eda1 2016-01-13 fixed dump controller (sol@hiqdev.com)
+- Fixed tests
+    - 3a0dc90 2016-01-14 fixing tests (sol@hiqdev.com)
+    - 9c2fd91 2016-01-14 improved calling composer in UpdateGoal (sol@hiqdev.com)
 - Changed: renamed hidev-travis-ci -> hidev-travis
     - 2a90b09 2016-01-13 renamed hidev-travis <- hidev-travis-ci (sol@hiqdev.com)
 - Changed: redone goals -> controllers
@@ -24,8 +26,10 @@ hiqdev/hidev commits history
     - b4a6ad3 2016-01-10 + static File::create to simplify creating object from path or config (sol@hiqdev.com)
     - f68e1dc 2016-01-09 * BaseHandler::write + return if file was changed or not (sol@hiqdev.com)
 - Added `dump` goal
+    - 8f5eda1 2016-01-13 fixed dump controller (sol@hiqdev.com)
     - da3731a 2016-01-09 + DumpGoal (sol@hiqdev.com)
 - Changed: redone with `composer-extension-plugin` instead of PluginManager
+    - 404225c 2016-01-14 removed composer-extension-plugin dependency, it is only needed at .hidev (sol@hiqdev.com)
     - 22637e9 2016-01-07 redoing with composer-extension-plugin BROKEN (sol@hiqdev.com)
 - Fixed to use latest Symfony YAML 3.0 <- 2.7
     - d2de282 2016-01-02 + scrutinizer config for code rating and duplication checks (sol@hiqdev.com)

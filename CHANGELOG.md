@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed tests
 - Changed: renamed hidev-travis-ci -> hidev-travis
 - Changed: redone goals -> controllers
 - Added `dump` goal
