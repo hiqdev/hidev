@@ -20,12 +20,14 @@ class VcsController extends CommonController
 
     public $initTag = 'Development started';
 
+    protected $_ignore;
+
     public function setIgnore($items, $where = '')
     {
-        $this->getIgnore()->setItems($items, $where);
+        if ($items) {
+            $this->getIgnore()->setItems($items, $where);
+        }
     }
-
-    protected $_ignore;
 
     public function getIgnore()
     {
