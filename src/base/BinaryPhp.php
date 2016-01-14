@@ -40,7 +40,7 @@ class BinaryPhp extends Binary
      * Searches in this order:
      * 1. PHAR in project's root directory
      * 2. projects's vendor/bin directory
-     * 3. composer global vendor/bin directory
+     * 3. composer global vendor/bin directory.
      *
      * @param string $name
      * @return string path to the binary
