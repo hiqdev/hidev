@@ -30,5 +30,4 @@ class BumpController extends AbstractController
     {
         return $this->runRequests(['commits/bump', 'CHANGELOG.md']);
     }
-
 }
