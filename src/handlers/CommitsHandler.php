@@ -155,6 +155,18 @@ class CommitsHandler extends BaseHandler
         return $this->_history;
     }
 
+    public function cleanupHistory()
+    {
+        foreach ($this->_history as $tag => $notes) {
+            $tag = static::arrayPop($notes, 'tag') ?: $tag;
+            $new = static::arrayPop($notes, '') ?: [];
+            /// skip empty Under development section
+            if (empty($notes) && stripos($tag, static::getVcs()->lastTag) !== false) {
+                unset($this->_history[$tag]);
+            }
+        }
+    }
+
     public function render($data)
     {
         $res = static::renderHeader('commits history');
@@ -168,6 +180,8 @@ class CommitsHandler extends BaseHandler
         if (!$this->hasHistory(static::getVcs()->initTag)) {
             $this->addHistory(['tag' => static::getVcs()->initTag]);
         }
+
+        $this->cleanupHistory();
 
         foreach ($this->_history as $tag => $notes) {
             $tag = static::arrayPop($notes, 'tag') ?: $tag;
