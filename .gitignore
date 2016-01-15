@@ -27,5 +27,5 @@ coverage.clover
 
 # PHARs
 box.phar
-phpunit.phar
 php-cs-fixer.phar
+phpunit.phar

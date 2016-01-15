@@ -35,7 +35,10 @@ class VcsignoreController extends FileController
         foreach ($this->takeGoal('binaries')->keys() as $name) {
             $items[$name . '.phar'] = 'PHARs';
         }
-        $this->takeVcs()->setIgnore($items);
+        if ($items) {
+            ksort($items);
+            $this->takeVcs()->setIgnore($items);
+        }
         $items = $this->getFile()->load() ?: [];
         $this->takeVcs()->setIgnore($items);
     }
