@@ -155,18 +155,6 @@ class CommitsHandler extends BaseHandler
         return $this->_history;
     }
 
-    public function cleanupHistory()
-    {
-        foreach ($this->_history as $tag => $notes) {
-            $tag = static::arrayPop($notes, 'tag') ?: $tag;
-            $new = static::arrayPop($notes, '') ?: [];
-            /// skip empty Under development section
-            if (empty($notes) && stripos($tag, static::getVcs()->lastTag) !== false) {
-                unset($this->_history[$tag]);
-            }
-        }
-    }
-
     public function render($data)
     {
         $res = static::renderHeader('commits history');
@@ -181,12 +169,15 @@ class CommitsHandler extends BaseHandler
             $this->addHistory(['tag' => static::getVcs()->initTag]);
         }
 
-        $this->cleanupHistory();
+        /// TODO
+        /// $this->cleanupHistory();
 
         foreach ($this->_history as $tag => $notes) {
+            $prev = $res;
             $tag = static::arrayPop($notes, 'tag') ?: $tag;
             $new = static::arrayPop($notes, '') ?: [];
             $res .= static::renderTag($tag);
+            $save = $res;
             foreach ($new as $hash => $lines) {
                 $res .= static::renderLines($lines);
             }
@@ -196,6 +187,12 @@ class CommitsHandler extends BaseHandler
                 foreach ($cs as $hash => $lines) {
                     $res .= static::renderLines($lines);
                 }
+            }
+            /// TODO redo with cleanupHistory
+            /// skip empty Under development section
+            if ($save === $res && stripos($tag, static::getVcs()->lastTag) !== false) {
+                $res = $prev;
+                unset($this->_history[$tag]);
             }
         }
 
