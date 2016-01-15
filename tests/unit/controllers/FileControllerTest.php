@@ -47,5 +47,4 @@ class FileControllerTest extends \PHPUnit_Framework_TestCase
         $this->object->setTemplate($this->template);
         $this->assertSame($this->template, $this->object->getTemplate());
     }
-
 }
