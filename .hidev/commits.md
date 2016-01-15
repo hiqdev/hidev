@@ -18,6 +18,7 @@ hiqdev/hidev commits history
 - Changed: renamed hidev-travis-ci -> hidev-travis
     - 2a90b09 2016-01-13 renamed hidev-travis <- hidev-travis-ci (sol@hiqdev.com)
 - Changed: redone goals -> controllers
+    - a9c7153 2016-01-15 simplified starting (sol@hiqdev.com)
     - 325446e 2016-01-13 phpcsfixed (sol@hiqdev.com)
     - b47ceba 2016-01-13 phpcsfixed (sol@hiqdev.com)
     - 0003a33 2016-01-13 + do `start` if unknown goal (sol@hiqdev.com)
