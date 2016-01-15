@@ -29,3 +29,6 @@ coverage.clover
 box.phar
 php-cs-fixer.phar
 phpunit.phar
+
+# runtime dir
+/runtime
