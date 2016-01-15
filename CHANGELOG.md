@@ -1,8 +1,10 @@
 hiqdev/hidev changelog
 ----------------------
 
-## Under development
+## 0.3.0 2016-01-15
 
+- Added history cleaning from 'Under development' section if it is empty
+- Added `bump` goal for version bumping
 - Fixed tests
 - Added installing and vcsignoring PHAR for required binaries
 - Changed: renamed hidev-travis-ci -> hidev-travis

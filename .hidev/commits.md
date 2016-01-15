@@ -1,8 +1,13 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## Under development
+## 0.3.0 2016-01-15
 
+- Added history cleaning from 'Under development' section if it is empty
+    - 88efe3f 2016-01-15 crutched cleaning up history (sol@hiqdev.com)
+    - fe14804 2016-01-15 + CommitsHandler::cleanupHistory to delete 'Under development' section if it is empty (sol@hiqdev.com)
+- Added `bump` goal for version bumping
+    - 1a4bfac 2016-01-15 + `bump` goal for version bumping (sol@hiqdev.com)
 - Fixed tests
     - 44cdcf4 2016-01-15 fixed tests (sol@hiqdev.com)
     - 97da7e1 2016-01-14 fixed main config vendorPath (sol@hiqdev.com)
