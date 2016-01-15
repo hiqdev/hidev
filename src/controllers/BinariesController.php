@@ -15,8 +15,6 @@ class BinariesController extends CommonController
 {
     use \hiqdev\yii2\collection\ManagerTrait;
 
-    protected $_before = ['start'];
-
     public $defaultClass = 'hidev\base\BinaryPhp';
 
     public function actionMake()

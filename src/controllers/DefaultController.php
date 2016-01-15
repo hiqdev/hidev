@@ -16,8 +16,4 @@ namespace hidev\controllers;
  */
 class DefaultController extends CommonController
 {
-    public function actionMake()
-    {
-        return StartController::$started ? parent::actionMake() : $this->runRequests(['start', 'default']);
-    }
 }

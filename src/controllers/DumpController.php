@@ -19,8 +19,6 @@ use yii\helpers\ArrayHelper;
  */
 class DumpController extends CommonController
 {
-    protected $_before = ['start'];
-
     public function actionMake()
     {
         $data = $this->takeConfig()->getItems();
