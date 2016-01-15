@@ -20,8 +20,6 @@ use yii\base\InvalidParamException;
  */
 class InitController extends TemplateController
 {
-    use \hiqdev\yii2\collection\ObjectTrait;
-
     protected $_file = '.hidev/config.yml';
 
     public $vendor;
@@ -76,11 +74,11 @@ class InitController extends TemplateController
 
     public function getAuthor()
     {
-        return $this->getItem('author') ?: $this->getVcs()->getUserName();
+        return $this->getItem('author') ?: $this->takeVcs()->getUserName();
     }
 
     public function getEmail()
     {
-        return $this->getItem('email') ?: $this->getVcs()->getUserEmail();
+        return $this->getItem('email') ?: $this->takeVcs()->getUserEmail();
     }
 }
