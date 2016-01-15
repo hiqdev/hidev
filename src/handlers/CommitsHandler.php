@@ -145,6 +145,11 @@ class CommitsHandler extends BaseHandler
         return array_key_exists($tag, $this->_history);
     }
 
+    public function setHistory($value)
+    {
+        $this->_history = $value;
+    }
+
     public function getHistory()
     {
         return $this->_history;
