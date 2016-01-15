@@ -43,7 +43,7 @@ class BinariesController extends CommonController
     }
 
     /**
-     * Prepares and runs with passthru.
+     * Prepares and runs with passthru. Returns exit code.
      * @param string $name binary
      * @param string $args
      * @return int exit code
@@ -51,5 +51,16 @@ class BinariesController extends CommonController
     public function passthru($name, $args = [])
     {
         return $this->get($name)->passthru($args);
+    }
+
+    /**
+     * Prepares and runs with exec. Returns stdout string.
+     * @param string $name binary
+     * @param string $args
+     * @return array stdout
+     */
+    public function exec($name, $args = [])
+    {
+        return $this->get($name)->exec($args);
     }
 }

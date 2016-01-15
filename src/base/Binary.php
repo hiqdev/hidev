@@ -31,16 +31,33 @@ class Binary extends \yii\base\Object
     protected $_command;
 
     /**
-     * Prepares and runs with passthru.
+     * Prepares and runs with passthru, returns exit code.
      * @param string|array $args
      * @return int exit code
      */
     public function passthru($args = [])
     {
-        // die(  $this->getCommand() . $this->prepareArguments($args));
-        passthru($this->getCommand() . $this->prepareArguments($args), $exitcode);
+        // error_log($this->prepareCommand($args));
+        passthru($this->prepareCommand($args), $exitcode);
 
         return $exitcode;
+    }
+
+    /**
+     * Prepares and runs with exec, returns stdout array.
+     * @param string|array $args
+     * @return array stdout
+     */
+    public function exec($args = [])
+    {
+        exec($this->prepareCommand($args), $array);
+
+        return $array;
+    }
+
+    public function prepareCommand($args)
+    {
+        return $this->getCommand() . $this->prepareArguments($args);
     }
 
     public function install()

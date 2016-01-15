@@ -189,7 +189,7 @@ abstract class AbstractController extends \hidev\base\Controller
     }
 
     /**
-     * Runs given binary with given arguments.
+     * Runs given binary with given arguments. Returns exit code.
      * @param string $name
      * @param string $args
      * @return int exit code
@@ -197,6 +197,17 @@ abstract class AbstractController extends \hidev\base\Controller
     public function passthru($name, $args = '')
     {
         return $this->takeGoal('binaries')->passthru($name, $args);
+    }
+
+    /**
+     * Runs given binary with given arguments. Returns stdout array.
+     * @param string $name
+     * @param string $args
+     * @return array stdout
+     */
+    public function exec($name, $args = '')
+    {
+        return $this->takeGoal('binaries')->exec($name, $args);
     }
 
     public function takeGoal($id)
