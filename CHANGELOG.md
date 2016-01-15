@@ -1,6 +1,10 @@
 hiqdev/hidev changelog
 ----------------------
 
+## 0.3.1 2016-01-15
+
+- Added `bump/commit` action
+
 ## 0.3.0 2016-01-15
 
 - Added history cleaning from 'Under development' section if it is empty

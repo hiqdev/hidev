@@ -1,6 +1,11 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## 0.3.1 2016-01-15
+
+- Added `bump/commit` action
+    - dab1d8d 2016-01-15 + bump/commit (sol@hiqdev.com)
+
 ## 0.3.0 2016-01-15
 
 - Added history cleaning from 'Under development' section if it is empty
