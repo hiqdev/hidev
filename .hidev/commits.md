@@ -7,6 +7,8 @@ hiqdev/hidev commits history
     - 88efe3f 2016-01-15 crutched cleaning up history (sol@hiqdev.com)
     - fe14804 2016-01-15 + CommitsHandler::cleanupHistory to delete 'Under development' section if it is empty (sol@hiqdev.com)
 - Added `bump` goal for version bumping
+    - 39ddbc3 2016-01-15 fixed typo (sol@hiqdev.com)
+    - 5c90250 2016-01-15 testing version bump (sol@hiqdev.com)
     - 1a4bfac 2016-01-15 + `bump` goal for version bumping (sol@hiqdev.com)
 - Fixed tests
     - 44cdcf4 2016-01-15 fixed tests (sol@hiqdev.com)
