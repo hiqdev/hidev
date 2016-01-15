@@ -120,7 +120,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         /// skip start for init goal
         if ($this->_first) {
             $this->_first = false;
-            if ($id != 'init') {
+            if ($id !== 'init') {
                 $this->runRequest('start');
             }
         }
