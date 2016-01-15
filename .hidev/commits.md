@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Added installing and vcsignoring PHAR for required binaries
+    - 1a02e54 2016-01-15 + binary exec($args) (sol@hiqdev.com)
     - 8a53c89 2016-01-14 added installing binaries (sol@hiqdev.com)
     - ca62f72 2016-01-14 added ignoring PHARs (sol@hiqdev.com)
     - ba087e2 2016-01-14 + ignore PHARs (sol@hiqdev.com)
