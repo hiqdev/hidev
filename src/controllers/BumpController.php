@@ -30,4 +30,10 @@ class BumpController extends AbstractController
     {
         return $this->runRequests(['commits/bump', 'CHANGELOG.md']);
     }
+
+    public function actionCommit($version)
+    {
+        $message = "version bump to $version";
+        $this->passthru('git', ['commit', '-am', $message]);
+    }
 }
