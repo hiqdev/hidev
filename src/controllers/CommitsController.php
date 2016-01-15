@@ -40,7 +40,7 @@ class CommitsController extends FileController
         $first = true;
         foreach ($history as $tag => $value) {
             if (substr($tag, 0, strlen($this->_version)) === $this->_version) {
-                throw new InvalidParamException('Version already there: ' . $this->version);
+                throw new InvalidParamException('Version already there: ' . $this->_version);
             }
             if ($first) {
                 $first = false;
