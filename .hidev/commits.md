@@ -3,6 +3,12 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed tests
+    - 44cdcf4 2016-01-15 fixed tests (sol@hiqdev.com)
+    - 97da7e1 2016-01-14 fixed main config vendorPath (sol@hiqdev.com)
+    - 4b5deff 2016-01-14 fixed travis `before_install` (sol@hiqdev.com)
+    - 3a0dc90 2016-01-14 fixing tests (sol@hiqdev.com)
+    - 9c2fd91 2016-01-14 improved calling composer in UpdateGoal (sol@hiqdev.com)
 - Added installing and vcsignoring PHAR for required binaries
     - bb4d228 2016-01-15 + gitignore runtime dir (sol@hiqdev.com)
     - 521d2d5 2016-01-15 + sorting phar gitignores list (sol@hiqdev.com)
@@ -10,11 +16,6 @@ hiqdev/hidev commits history
     - 8a53c89 2016-01-14 added installing binaries (sol@hiqdev.com)
     - ca62f72 2016-01-14 added ignoring PHARs (sol@hiqdev.com)
     - ba087e2 2016-01-14 + ignore PHARs (sol@hiqdev.com)
-- Fixed tests
-    - 97da7e1 2016-01-14 fixed main config vendorPath (sol@hiqdev.com)
-    - 4b5deff 2016-01-14 fixed travis `before_install` (sol@hiqdev.com)
-    - 3a0dc90 2016-01-14 fixing tests (sol@hiqdev.com)
-    - 9c2fd91 2016-01-14 improved calling composer in UpdateGoal (sol@hiqdev.com)
 - Changed: renamed hidev-travis-ci -> hidev-travis
     - 2a90b09 2016-01-13 renamed hidev-travis <- hidev-travis-ci (sol@hiqdev.com)
 - Changed: redone goals -> controllers
