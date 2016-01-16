@@ -1,6 +1,9 @@
 hiqdev/hidev changelog
 ----------------------
 
+## 0.3.5 2016-01-16
+
+
 ## 0.3.4 2016-01-16
 
 - Fixed `bump/commit` to default to current version
