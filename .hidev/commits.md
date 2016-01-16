@@ -1,6 +1,13 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## 0.3.2 2016-01-16
+
+- Added sorting inside `.gitignore` sections
+    - 797c0ed 2016-01-16 sorted gitignore rendering (sol@hiqdev.com)
+- Fixed PHAR building
+    - 38e6772 2016-01-16 fixed PHAR building (sol@hiqdev.com)
+
 ## 0.3.1 2016-01-15
 
 - Added `bump/commit` action

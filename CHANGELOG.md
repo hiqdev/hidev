@@ -1,6 +1,11 @@
 hiqdev/hidev changelog
 ----------------------
 
+## 0.3.2 2016-01-16
+
+- Added sorting inside `.gitignore` sections
+- Fixed PHAR building
+
 ## 0.3.1 2016-01-15
 
 - Added `bump/commit` action
