@@ -22,6 +22,6 @@ class VersionController extends CommonController
     {
         $v = file_get_contents(Yii::getAlias('@hidev/../version'));
         list($version, $hash, $date, $time, $zone) = explode(' ', $v);
-        print "HiDev version $version $date $time\n";
+        echo "HiDev version $version $date $time\n";
     }
 }
