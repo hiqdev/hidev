@@ -5,6 +5,7 @@
         "src"
     ],
     "files": [
+        "_bootstrap.php",
         "LICENSE"
     ],
     "finder": [
