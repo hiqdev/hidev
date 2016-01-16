@@ -19,18 +19,26 @@ class VersionController extends FileController
     protected $_file = '@hidev/../version';
 
     public $version;
+    public $date;
+    public $time;
+    public $zone;
+    public $hash;
+
+    public function init()
+    {
+        $v = trim($this->getFile()->read());
+        list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $v);
+    }
 
     public function actionMake()
     {
-        $v = trim($this->getFile()->read());
-        list($version, $date, $time, $zone, $hash) = explode(' ', $v);
-        echo "HiDev version $version $date $time $hash\n";
+        echo "HiDev version $this->version $this->date $this->time $this->hash\n";
     }
 
     public function actionBump($version = null)
     {
         $gitinfo = reset($this->exec('git', ['log', '-n', 1, '--pretty=%ai %H']));
-        $version = $version ?: $this->version ?: $this->takeGoal('bump')->version ?: 'dev';
+        $version = $version ?: $this->takeGoal('bump')->version ?: $this->version ?: 'dev';
         $this->getFile()->write("$version $gitinfo\n");
     }
 }
