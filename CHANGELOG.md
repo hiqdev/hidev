@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.3.5 2016-01-16
 
+- Fixed minor and tested version bump
 
 ## 0.3.4 2016-01-16
 

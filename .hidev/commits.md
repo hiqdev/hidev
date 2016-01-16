@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## 0.3.5 2016-01-16
 
+- Fixed minor and tested version bump
     - 2739e53 2016-01-16 minor fixes and testing version bump (sol@hiqdev.com)
 
 ## 0.3.4 2016-01-16
