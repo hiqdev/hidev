@@ -1,6 +1,14 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## 0.3.4 2016-01-16
+
+- Fixed `bump/commit` to default to current version
+    - f9f8ca1 2016-01-16 improved `bump/commit` to default to current version (sol@hiqdev.com)
+- Fixed hidev own version showing
+    - 60fba25 2016-01-16 fixed hidev own version showing (sol@hiqdev.com)
+    - 5d775fa 2016-01-16 fixed error showing when not a hidev project (sol@hiqdev.com)
+
 ## 0.3.3 2016-01-16
 
 - Added proper version bumping with `version/bump` and `bump`
