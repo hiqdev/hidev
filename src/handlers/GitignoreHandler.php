@@ -45,11 +45,12 @@ class GitignoreHandler extends BaseHandler
     public function render($items)
     {
         foreach ($items as $item => $comment) {
-            $comments[$comment] .= $item . "\n";
+            $comments[$comment][$item] = $item;
         }
 
         foreach ($comments as $comment => $items) {
-            $res .= static::renderComment($comment) . $items;
+            ksort($items);
+            $res .= static::renderComment($comment) . implode("\n", $items) . "\n";
         }
 
         return ltrim($res);

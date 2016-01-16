@@ -5,13 +5,13 @@
 
 # IDE & OS files
 .*.swp
-.idea
-nbproject
+.DS_Store
 .buildpath
+.idea
 .project
 .settings
 Thumbs.db
-.DS_Store
+nbproject
 
 # vendor dirs
 vendor
@@ -26,11 +26,11 @@ composer.lock
 coverage.clover
 
 # PHARs
-hidev.phar
 box.phar
+composer.phar
+hidev.phar
 php-cs-fixer.phar
 phpunit.phar
-composer.phar
 
 # runtime dir
 /runtime
