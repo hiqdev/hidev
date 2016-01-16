@@ -13,7 +13,7 @@ namespace hidev\controllers;
 
 use hidev\base\File;
 use Yii;
-use yii\base\InvalidConfigException;
+use yii\base\InvalidParamException;
 
 /**
  * Start goal.
@@ -76,7 +76,7 @@ class StartController extends CommonController
 
     /**
      * Chdirs to project's root by looking for config file in the current directory and up.
-     * @throws InvalidConfigException when failed to find
+     * @throws InvalidParamException when failed to find
      * @return string path to the root directory of hidev project
      */
     protected function findDir()
@@ -88,6 +88,6 @@ class StartController extends CommonController
             }
             chdir('..');
         }
-        throw new InvalidConfigException('Not a hidev project (or any of the parent directories). Use `hidev init` to initialize hidev project.');
+        throw new InvalidParamException("Not a hidev project (or any of the parent directories).\nUse `hidev init` to initialize hidev project.");
     }
 }
