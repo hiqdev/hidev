@@ -42,6 +42,9 @@ return [
             'vendor' => [
                 'class' => 'hidev\controllers\VendorController',
             ],
+            '--version' => [
+                'class' => 'hidev\controllers\VersionController',
+            ],
             'package' => [
                 'class' => 'hidev\controllers\PackageController',
             ],
