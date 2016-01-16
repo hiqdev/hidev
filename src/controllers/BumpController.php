@@ -35,6 +35,6 @@ class BumpController extends AbstractController
     {
         $version = $version ?: $this->version ?: $this->takeGoal('version')->version;
         $message = "version bump to $version";
-        $this->passthru('git', ['commit', '-am', $message]);
+        return $this->passthru('git', ['commit', '-am', $message]);
     }
 }

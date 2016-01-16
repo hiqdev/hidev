@@ -121,7 +121,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         /// skip start for init goal
         if ($this->_first) {
             $this->_first = false;
-            static $skips = ['init' => 1, 'clone' => 1, 'version' =>1];
+            static $skips = ['init' => 1, 'clone' => 1, 'version' => 1];
             if (!$skips[$id]) {
                 $this->runRequest('start');
             }
