@@ -208,6 +208,11 @@ class File extends \yii\base\Object
         return $this->handler->renderPath($this->path, $this->data);
     }
 
+    public function write($content)
+    {
+        return $this->handler->write($this->path, $content);
+    }
+
     public function load()
     {
         return $this->data = $this->handler->parsePath($this->path, $this->minimalPath);
