@@ -11,17 +11,26 @@
 
 namespace hidev\controllers;
 
-use Yii;
-
 /**
- * Version goal.
+ * Goal for HiDev own version management: show and bump.
  */
-class VersionController extends CommonController
+class VersionController extends FileController
 {
+    protected $_file = '@hidev/../version';
+
+    public $version;
+
     public function actionMake()
     {
-        $v = file_get_contents(Yii::getAlias('@hidev/../version'));
-        list($version, $hash, $date, $time, $zone) = explode(' ', $v);
-        echo "HiDev version $version $date $time\n";
+        $v = trim($this->getFile()->read());
+        list($version, $date, $time, $zone, $hash) = explode(' ', $v);
+        echo "HiDev version $version $date $time $hash\n";
+    }
+
+    public function actionBump($version = null)
+    {
+        $gitinfo = reset($this->exec('git', ['log', '-n', 1, '--pretty=%ai %H']));
+        $version = $version ?: $this->version ?: $this->takeGoal('bump')->version ?: 'dev';
+        $this->getFile()->write("$version $gitinfo\n");
     }
 }

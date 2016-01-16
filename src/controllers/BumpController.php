@@ -28,7 +28,7 @@ class BumpController extends AbstractController
 
     public function actionMake()
     {
-        return $this->runRequests(['commits/bump', 'CHANGELOG.md']);
+        return $this->runRequests(['commits/bump', 'version/bump', 'CHANGELOG.md']);
     }
 
     public function actionCommit($version)
