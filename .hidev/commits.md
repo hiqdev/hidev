@@ -1,6 +1,14 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## 0.3.3 2016-01-16
+
+- Added proper version bumping with `version/bump` and `bump`
+    - 9cc9413 2016-01-16 + `version/bump` action (sol@hiqdev.com)
+    - 5b5b7c7 2016-01-16 + File::write() (sol@hiqdev.com)
+- Added version output with `hidev --version` or `hidev version`
+    - efc2436 2016-01-16 + version output with `hidev --version` (sol@hiqdev.com)
+
 ## 0.3.2 2016-01-16
 
 - Added sorting inside `.gitignore` sections
