@@ -14,8 +14,6 @@ namespace hidev\base;
 use Exception;
 use Yii;
 use yii\base\InvalidParamException;
-use yii\base\InvalidRouteException;
-use yii\base\Module;
 use yii\base\ViewContextInterface;
 use yii\console\Exception as ConsoleException;
 use yii\helpers\ArrayHelper;
@@ -145,14 +143,5 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         ]);
 
         return $this->handleRequest($request);
-    }
-
-    public function runAction($route, $params = [])
-    {
-        try {
-            return Module::runAction($route, $params);
-        } catch (InvalidRouteException $e) {
-            throw new ConsoleException("Unknown command \"$route\".", 0, $e);
-        }
     }
 }
