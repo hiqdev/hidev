@@ -1,6 +1,10 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## Under development
+
+    - 4ca3470 2016-01-17 testing new travis plugin (sol@hiqdev.com)
+
 ## 0.3.6 2016-01-17
 
 - Added `version` goal and OwnVersionController for better version management

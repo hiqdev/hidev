@@ -15,6 +15,7 @@ before_install:
     - 'composer self-update'
     - 'composer --version'
     - 'travis_retry composer install --no-interaction'
+    - './bin/hidev --version'
 sudo: false
 install:
     - './bin/hidev travis/install'
