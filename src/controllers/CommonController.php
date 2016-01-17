@@ -21,6 +21,6 @@ class CommonController extends AbstractController
     public function actionPerform($name = null, $path = null)
     {
         Yii::trace("Started: '$this->id'");
-        return $this->runActions(['before', 'make', 'after']);
+        return $this->perform(['before', 'make', 'after']);
     }
 }

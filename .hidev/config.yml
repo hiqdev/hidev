@@ -29,3 +29,7 @@ require:
     hiqdev/hidev-composer:      "*@dev"
     hiqdev/hidev-scrutinizer:   "*@dev"
     hiqdev/hidev-php-cs-fixer:  "*@dev"
+
+default:
+    before:
+        - version

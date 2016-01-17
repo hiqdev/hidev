@@ -43,7 +43,7 @@ return [
                 'class' => 'hidev\controllers\VendorController',
             ],
             '--version' => [
-                'class' => 'hidev\controllers\VersionController',
+                'class' => 'hidev\controllers\OwnVersionController',
             ],
             'package' => [
                 'class' => 'hidev\controllers\PackageController',

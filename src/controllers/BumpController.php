@@ -23,12 +23,12 @@ class BumpController extends AbstractController
     public function actionPerform($version = null)
     {
         $this->version = $version;
-        return $this->runActions(['before', 'make', 'after']);
+        return $this->perform();
     }
 
     public function actionMake()
     {
-        return $this->runRequests(['commits/bump', 'version/bump', 'CHANGELOG.md']);
+        return $this->runRequests(['commits/bump', 'version', 'CHANGELOG.md']);
     }
 
     public function actionCommit($version = null)

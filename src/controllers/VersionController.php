@@ -12,11 +12,11 @@
 namespace hidev\controllers;
 
 /**
- * Goal for HiDev own version management: show and bump.
+ * Goal for version file management.
  */
 class VersionController extends FileController
 {
-    protected $_file = '@hidev/../version';
+    protected $_file = 'version';
 
     public $version;
     public $date;
@@ -24,21 +24,19 @@ class VersionController extends FileController
     public $zone;
     public $hash;
 
-    public function init()
+    public function actionLoad()
     {
         $v = trim($this->getFile()->read());
         list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $v);
     }
 
-    public function actionMake()
+    public function actionSave($version = null)
     {
-        echo "HiDev version $this->version $this->date $this->time $this->hash\n";
-    }
-
-    public function actionBump($version = null)
-    {
-        $gitinfo = reset($this->exec('git', ['log', '-n', 1, '--pretty=%ai %H']));
+        list($date, $time, $zone, $hash) = explode(' ', trim(reset($this->exec('git', ['log', '-n', 1, '--pretty=%ai %H']))));
+        if ($hash != $this->hash) {
+            $this->version = 'dev';
+        }
         $version = $version ?: $this->takeGoal('bump')->version ?: $this->version ?: 'dev';
-        $this->getFile()->write("$version $gitinfo\n");
+        $this->getFile()->write(implode(' ', [$version, $date, $time, $zone, $hash]) . "\n");
     }
 }
