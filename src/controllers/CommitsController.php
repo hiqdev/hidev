@@ -11,7 +11,7 @@
 
 namespace hidev\controllers;
 
-use yii\base\InvalidParamException;
+use Yii;
 
 /**
  * Controller for reading and writing commits history to build CHANGELOG.md.
@@ -40,7 +40,8 @@ class CommitsController extends FileController
         $first = true;
         foreach ($history as $tag => $value) {
             if (substr($tag, 0, strlen($this->_version)) === $this->_version) {
-                throw new InvalidParamException('Version already there: ' . $this->_version);
+                Yii::warning('Version already there: ' . $this->_version);
+                return 0;
             }
             if ($first) {
                 $first = false;
