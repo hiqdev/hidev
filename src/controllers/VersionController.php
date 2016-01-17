@@ -33,7 +33,7 @@ class VersionController extends FileController
     public function actionSave($version = null)
     {
         list($date, $time, $zone, $hash) = explode(' ', trim(reset($this->exec('git', ['log', '-n', 1, '--pretty=%ai %H']))));
-        if ($hash != $this->hash) {
+        if ($hash !== $this->hash) {
             $this->version = 'dev';
         }
         $version = $version ?: $this->takeGoal('bump')->version ?: $this->version ?: 'dev';
