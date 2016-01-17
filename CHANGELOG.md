@@ -1,6 +1,10 @@
 hiqdev/hidev changelog
 ----------------------
 
+## 0.3.6 2016-01-17
+
+- Added `version` goal and OwnVersionController for better version management
+
 ## 0.3.5 2016-01-16
 
 - Fixed minor and tested version bump

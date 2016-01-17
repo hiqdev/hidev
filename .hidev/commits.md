@@ -1,6 +1,14 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## 0.3.6 2016-01-17
+
+- Added `version` goal and OwnVersionController for better version management
+    - da01f6f 2016-01-17 used error instead of warning to warn about Version already there (sol@hiqdev.com)
+    - 53b78cc 2016-01-17 allowed (with warning) repeated version bump (sol@hiqdev.com)
+    - 129309c 2016-01-17 improved version management with OwnVersionController (sol@hiqdev.com)
+    - 3fdb006 2016-01-17 temp quick fix (sol@hiqdev.com)
+
 ## 0.3.5 2016-01-16
 
 - Fixed minor and tested version bump
