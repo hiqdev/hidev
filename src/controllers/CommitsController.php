@@ -40,7 +40,7 @@ class CommitsController extends FileController
         $first = true;
         foreach ($history as $tag => $value) {
             if (substr($tag, 0, strlen($this->_version)) === $this->_version) {
-                Yii::warning('Version already there: ' . $this->_version);
+                Yii::error('Version already there: ' . $this->_version);
                 return 0;
             }
             if ($first) {
