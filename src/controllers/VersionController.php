@@ -32,11 +32,14 @@ class VersionController extends FileController
 
     public function actionMake($version = null)
     {
-        list($date, $time, $zone, $hash) = explode(' ', trim(reset($this->exec('git', ['log', '-n', 1, '--pretty=%ai %H']))));
-        if ($hash !== $this->hash) {
-            $this->version = 'dev';
+        $v = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
+        list($date, $time, $zone, $hash, $commit) = explode(' ', $v, 5);
+        if ($commit !== 'version bump to ' . $this->version) {
+            if ($hash !== $this->hash) {
+                $this->version = 'dev';
+            }
+            $version = $version ?: $this->takeGoal('bump')->version ?: $this->version ?: 'dev';
+            $this->getFile()->write(implode(' ', [$version, $date, $time, $zone, $hash]) . "\n");
         }
-        $version = $version ?: $this->takeGoal('bump')->version ?: $this->version ?: 'dev';
-        $this->getFile()->write(implode(' ', [$version, $date, $time, $zone, $hash]) . "\n");
     }
 }
