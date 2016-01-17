@@ -14,8 +14,9 @@ cache:
 before_install:
     - 'composer self-update'
     - 'composer --version'
-    - 'travis_retry composer install --no-interaction'
+    - 'composer install --no-interaction'
     - './bin/hidev --version'
+    - './bin/hidev travis/before_install'
 sudo: false
 install:
     - './bin/hidev travis/install'
