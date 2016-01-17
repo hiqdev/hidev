@@ -24,7 +24,7 @@ class OwnVersionController extends VersionController
     public $zone;
     public $hash;
 
-    public function actionMake()
+    public function actionMake($version = null)
     {
         echo "HiDev version $this->version $this->date $this->time $this->hash\n";
     }
