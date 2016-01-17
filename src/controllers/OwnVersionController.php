@@ -26,11 +26,6 @@ class OwnVersionController extends VersionController
 
     public function actionMake()
     {
-        return $this->runActions(['load', 'show']);
-    }
-
-    public function actionShow()
-    {
         echo "HiDev version $this->version $this->date $this->time $this->hash\n";
     }
 }

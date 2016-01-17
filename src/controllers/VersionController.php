@@ -24,13 +24,13 @@ class VersionController extends FileController
     public $zone;
     public $hash;
 
-    public function actionLoad()
+    public function init()
     {
         $v = trim($this->getFile()->read());
         list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $v);
     }
 
-    public function actionSave($version = null)
+    public function actionMake($version = null)
     {
         list($date, $time, $zone, $hash) = explode(' ', trim(reset($this->exec('git', ['log', '-n', 1, '--pretty=%ai %H']))));
         if ($hash !== $this->hash) {
