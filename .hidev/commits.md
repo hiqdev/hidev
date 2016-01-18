@@ -3,6 +3,9 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added CollectionController
+    - 2c93cbc 2016-01-18 + abstract CollectionController and used at src/controllers/FileController (sol@hiqdev.com)
+    - 667564a 2016-01-17 simplified: removed runAction (sol@hiqdev.com)
 - Fixed: improved travis `before_install` section
     - 5e410f8 2016-01-17 improved travis `before_install` section (sol@hiqdev.com)
     - 4ca3470 2016-01-17 testing new travis plugin (sol@hiqdev.com)

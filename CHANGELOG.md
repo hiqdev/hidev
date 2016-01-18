@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added CollectionController
 - Fixed: improved travis `before_install` section
 
 ## 0.3.6 2016-01-17
