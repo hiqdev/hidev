@@ -71,7 +71,7 @@ class GithubController extends CommonController
 
     /**
      * Clone repo from github.
-     * TODO to work need to redo HiDev to run this action without normal initilization.
+     * TODO this action must be run without `start`.
      * @param string $repo full name vendor/package
      * @return int exit code
      */
