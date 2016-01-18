@@ -11,12 +11,10 @@
 
 namespace hidev\controllers;
 
-use hidev\helpers\Helper;
-
-class AliasesController extends CommonController
+/**
+ * Abstract controller with collection inside.
+ */
+abstract class CollectionController extends AbstractController implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
 {
-    public function getItem($name)
-    {
-        return Helper::csplit(parent::getItem($name), ' ');
-    }
+    use \hiqdev\yii2\collection\ObjectTrait;
 }

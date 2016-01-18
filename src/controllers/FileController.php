@@ -19,10 +19,8 @@ use yii\helpers\ArrayHelper;
 /**
  * File controller.
  */
-class FileController extends AbstractController implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
+class FileController extends CollectionController
 {
-    use \hiqdev\yii2\collection\ObjectTrait;
-
     /**
      * @var string specifies handler to be used
      */
