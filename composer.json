@@ -57,6 +57,11 @@
             "hidev\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "hidev\\tests\\": "tests"
+        }
+    },
     "bin": [
         "bin/hidev"
     ]
