@@ -1,7 +1,7 @@
 hiqdev/hidev changelog
 ----------------------
 
-## Under development
+## 0.3.7 2016-01-19
 
 - Added getting default package start year with git log
 - Added CollectionController

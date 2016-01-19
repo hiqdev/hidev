@@ -1,9 +1,10 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## Under development
+## 0.3.7 2016-01-19
 
 - Added getting default package start year with git log
+    - 95c5736 2016-01-19 simplified `tests/_bootstrap` (sol@hiqdev.com)
     - 7fd043d 2016-01-19 fixed start year to 2015 everywhere (sol@hiqdev.com)
     - 66e1684 2016-01-19 added getting package start year with git log (sol@hiqdev.com)
 - Added CollectionController
