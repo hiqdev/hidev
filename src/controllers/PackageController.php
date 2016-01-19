@@ -28,6 +28,11 @@ class PackageController extends CommonController
         return ($old && $old < $cur ? $this->year . '-' : '') . $cur;
     }
 
+    public function getYear()
+    {
+        return $this->getItem('year') ?: $this->takeVcs()->getYear();
+    }
+
     public function getLicense()
     {
         return $this->getItem('license') ?: $this->takeVendor()->license ?: 'No license';

@@ -120,4 +120,17 @@ class GitController extends VcsController
     {
         return trim(`git config --get user.email`);
     }
+
+    public function getYear()
+    {
+        $tags = $this->getTags();
+        if ($tags) {
+            $date = array_pop($this->getTags());
+        } else {
+            $date = `git log --reverse --pretty=%ai | head -n 1`;
+        }
+        $year = $date ? date('Y', strtotime($date)) : '';
+
+        return $year;
+    }
 }
