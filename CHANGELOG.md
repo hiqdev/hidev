@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added getting default package start year with git log
 - Added CollectionController
 - Fixed: improved travis `before_install` section
 
