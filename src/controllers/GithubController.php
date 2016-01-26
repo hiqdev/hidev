@@ -11,6 +11,8 @@
 
 namespace hidev\controllers;
 
+use yii\helpers\Json;
+
 /**
  * Goal for GitHub.
  */
@@ -19,6 +21,11 @@ class GithubController extends CommonController
     protected $_name;
     protected $_vendor;
     protected $_package;
+
+    /**
+     * @var string GitHub OAuth access token
+     */
+    protected $_token;
 
     public function setName($value)
     {
@@ -78,5 +85,33 @@ class GithubController extends CommonController
     public function actionClone($repo)
     {
         return $this->passthru('git', ['clone', 'git@github.com:' . $repo]);
+    }
+
+    public function actionRelease($version = null)
+    {
+        $this->runRequest('CHANGELOG.md');
+        $changelog = $this->takeGoal('CHANGELOG.md');
+        $notes = reset($changelog->getFile()->getHandler()->releaseNotes);
+        $version = $this->takeGoal('bump')->getVersion($version);
+
+        return $this->request('POST', '/repos/' . $this->getName() . '/releases', [
+            'tag_name'  => $version,
+            'name'      => $version,
+            'body'      => $notes,
+        ]);
+    }
+
+    public function request($method, $path, $data)
+    {
+        return $this->passthru('curl', ['-X', $method, '--data', Json::encode($data), 'https://api.github.com' . $path . '?access_token=' . $this->getToken()]);
+    }
+
+    public function getToken()
+    {
+        if ($this->_token === null) {
+            $this->_token = $_SERVER['GITHUB_TOKEN'];
+        }
+
+        return $this->_token;
     }
 }

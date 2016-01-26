@@ -1,6 +1,10 @@
 hiqdev/hidev changelog
 ----------------------
 
+## Under development
+
+- Fixed minor issues
+
 ## 0.3.7 2016-01-19
 
 - Added getting default package start year with git log

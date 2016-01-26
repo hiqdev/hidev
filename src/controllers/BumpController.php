@@ -18,11 +18,11 @@ class BumpController extends AbstractController
 {
     protected $_before = ['commits'];
 
-    public $version;
+    protected $_version;
 
     public function actionPerform($version = null)
     {
-        $this->version = $version;
+        $this->setVersion($version);
         return $this->perform();
     }
 
@@ -33,8 +33,26 @@ class BumpController extends AbstractController
 
     public function actionCommit($version = null)
     {
-        $version = $version ?: $this->version ?: $this->takeGoal('version')->version;
+        $version = $this->getVersion($version);
         $message = "version bump to $version";
         return $this->passthru('git', ['commit', '-am', $message]);
+    }
+
+    public function setVersion($value)
+    {
+        if (isset($value)) {
+            $this->_version = $value;
+        }
+    }
+
+    public function getVersion($version = null)
+    {
+        return $version ?: $this->_version ?: $this->takeGoal('version')->version;
+    }
+
+    public function actionRelease($version = null)
+    {
+        $this->setVersion($version);
+        return $this->runRequests(['bump/commit', 'git/push', 'github/release']);
     }
 }

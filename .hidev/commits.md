@@ -1,6 +1,12 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## Under development
+
+- Fixed minor issues
+    - eb61867 2016-01-26 added GithubController to config (sol@hiqdev.com)
+    - fe52e0b 2016-01-20 slightly improved `version` file handling (sol@hiqdev.com)
+
 ## 0.3.7 2016-01-19
 
 - Added getting default package start year with git log
