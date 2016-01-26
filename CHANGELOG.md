@@ -1,6 +1,10 @@
 hiqdev/hidev changelog
 ----------------------
 
+## 0.3.9 2016-01-26
+
+- Fixed GitHub token passing to curl
+
 ## 0.3.8 2016-01-26
 
 - Added `bump/release` and `github/release` actions to automate release
