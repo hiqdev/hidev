@@ -1,8 +1,9 @@
 hiqdev/hidev changelog
 ----------------------
 
-## Under development
+## 0.3.8 2016-01-26
 
+- Added `bump/release` and `github/release` actions to automate release
 - Fixed minor issues
 
 ## 0.3.7 2016-01-19

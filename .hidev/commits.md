@@ -1,8 +1,12 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## Under development
+## 0.3.8 2016-01-26
 
+- Added `bump/release` and `github/release` actions to automate release
+    - d18dbf9 2016-01-26 + `bump/release` and `github/release` actions to automate release (sol@hiqdev.com)
+    - 9465389 2016-01-26 + `git/push` action (sol@hiqdev.com)
+    - c94dfb3 2016-01-26 + keeping releaseNotes in ChangelogHandler (sol@hiqdev.com)
 - Fixed minor issues
     - eb61867 2016-01-26 added GithubController to config (sol@hiqdev.com)
     - fe52e0b 2016-01-20 slightly improved `version` file handling (sol@hiqdev.com)
