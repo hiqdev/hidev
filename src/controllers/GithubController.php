@@ -103,7 +103,9 @@ class GithubController extends CommonController
 
     public function request($method, $path, $data)
     {
-        return $this->passthru('curl', ['-X', $method, '--data', Json::encode($data), 'https://api.github.com' . $path . '?access_token=' . $this->getToken()]);
+        $url = 'https://api.github.com' . $path;
+
+        return $this->passthru('curl', ['-X', $method, '-H', 'Authorization: token ' . $this->getToken(), '--data', Json::encode($data), $url]);
     }
 
     public function getToken()
