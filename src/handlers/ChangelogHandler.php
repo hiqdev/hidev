@@ -16,6 +16,8 @@ namespace hidev\handlers;
  */
 class ChangelogHandler extends BaseHandler
 {
+    public $releaseNotes = [];
+
     public function parsePath($text, $minimal = null)
     {
         /// do nothing
@@ -29,9 +31,11 @@ class ChangelogHandler extends BaseHandler
             $tag = CommitsHandler::arrayPop($notes, 'tag') ?: $tag;
             $new = CommitsHandler::arrayPop($notes, '');
             $res .= CommitsHandler::renderTag($tag);
+            $this->releaseNotes[$tag] = '';
             foreach ($notes as $note => $cs) {
                 $note = CommitsHandler::arrayPop($cs, 'note');
                 $res .= CommitsHandler::renderNote($note) ?: $note;
+                $this->releaseNotes[$tag] .= CommitsHandler::renderNote($note) ?: $note;
             }
         }
 
