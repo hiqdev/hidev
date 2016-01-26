@@ -39,6 +39,9 @@ return [
             'init' => [
                 'class' => 'hidev\controllers\InitController',
             ],
+            'github' => [
+                'class' => 'hidev\controllers\GithubController',
+            ],
             'vendor' => [
                 'class' => 'hidev\controllers\VendorController',
             ],
