@@ -34,7 +34,7 @@ class VersionController extends FileController
     {
         $v = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
         list($date, $time, $zone, $hash, $commit) = explode(' ', $v, 5);
-        if (!in_array($commit, ['minor', 'version bump to ' . $this->version])) {
+        if (!in_array($commit, ['minor', 'version bump to ' . $this->version], true)) {
             if ($hash !== $this->hash) {
                 $this->version = 'dev';
             }
