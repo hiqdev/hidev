@@ -111,6 +111,11 @@ class GitController extends VcsController
         $this->loadHistory();
     }
 
+    public function actionPush()
+    {
+        return $this->passthru('git', 'push');
+    }
+
     public function getUserName()
     {
         return trim(`git config --get user.name`);
