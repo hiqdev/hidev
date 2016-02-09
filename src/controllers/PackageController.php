@@ -133,13 +133,15 @@ class PackageController extends CommonController
 
     public function hasRequire($package)
     {
-        $conf = $this->getPackageManager()->getConfiguration();
-        return array_key_exists($package, $conf->getRequire());
+        $pman = $this->getPackageManager();
+
+        return $pman && array_key_exists($package, $pman->getConfiguration()->getRequire());
     }
 
     public function hasRequireDev($package)
     {
-        $conf = $this->getPackageManager()->getConfiguration();
-        return array_key_exists($package, $conf->getRequireDev());
+        $pman = $this->getPackageManager();
+
+        return $pman && array_key_exists($package, $pman->getConfiguration()->getRequireDev());
     }
 }

@@ -52,7 +52,7 @@ class GithubController extends CommonController
     public function getVendor()
     {
         if ($this->_vendor === null) {
-            $this->_vendor = $this->getVendor()->name;
+            $this->_vendor = $this->takeVendor()->name;
         }
 
         return $this->_vendor;
