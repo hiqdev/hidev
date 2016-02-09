@@ -29,8 +29,15 @@ class Config extends \hiqdev\yii2\collection\Object
         return $this->hasItem($id);
     }
 
+    public function getClass($name)
+    {
+    }
+
     public function getItemConfig($id = null, array $config = [])
     {
+        if (isset($config['class']) && $this->hasItem($config['class'])) {
+            $config = array_merge($config, $this->_items[$config['class']]);
+        }
         return ArrayHelper::merge([
             'class' => 'hidev\controllers\CommonController',
         ], $config);

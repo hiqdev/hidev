@@ -54,6 +54,9 @@ return [
             'binaries' => [
                 'class' => 'hidev\controllers\BinariesController',
             ],
+            'directory' => [
+                'class' => 'hidev\controllers\DirectoryController',
+            ],
             'vcsignore' => [
                 'class' => 'hidev\controllers\VcsignoreController',
             ],
