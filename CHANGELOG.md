@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## 0.3.9 2016-01-26
 
+- Fixed to work for projects without package manager
 - Fixed GitHub token passing to curl
 
 ## 0.3.8 2016-01-26

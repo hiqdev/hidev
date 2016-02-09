@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## 0.3.9 2016-01-26
 
+- Fixed to work for projects without package manager
+    - 84af45b 2016-02-09 fixed to work for projects without package manager (sol@hiqdev.com)
 - Fixed GitHub token passing to curl
     - 675ff34 2016-01-26 fixed passing github token to curl (sol@hiqdev.com)
 
