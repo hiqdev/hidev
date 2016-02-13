@@ -1,6 +1,10 @@
 hiqdev/hidev changelog
 ----------------------
 
+## Under development
+
+- Added DirectoryController with chmod, chown, chgrp
+
 ## 0.3.9 2016-01-26
 
 - Fixed to work for projects without package manager
