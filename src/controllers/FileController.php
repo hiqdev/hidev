@@ -21,15 +21,26 @@ use yii\helpers\ArrayHelper;
  */
 class FileController extends CollectionController
 {
+    protected $_make   = ['load', 'save', 'modify'];
+
     /**
      * @var string specifies handler to be used
      */
     public $fileType;
 
+    public $chown;
+    public $chgrp;
+    public $chmod;
+
     /**
      * @var array|File the file to be handled.
      */
     protected $_file;
+
+    /**
+     * @var string the path to the file.
+     */
+    protected $_path;
 
     protected $_template;
 
@@ -56,7 +67,7 @@ class FileController extends CollectionController
                 'class'    => File::className(),
                 'template' => $this->getTemplate(),
                 'goal'     => $this,
-                'path'     => $this->id,
+                'path'     => $this->_path ?: $this->id,
             ], is_string($this->_file)
                 ? ['path' => $this->_file]
                 : (array) $this->_file
@@ -68,12 +79,20 @@ class FileController extends CollectionController
 
     /**
      * Sets file with given info.
-     *
      * @param mixed $info could be anything that is good for File::create
      */
     public function setFile($info)
     {
         $this->_file = $info;
+    }
+
+    /**
+     * Sets the path to the file, but file info has precendence.
+     * @param string $value
+     */
+    public function setPath($value)
+    {
+        $this->_path = $value;
     }
 
     public function getDirname()
@@ -122,5 +141,15 @@ class FileController extends CollectionController
         $this->_items = Helper::uniqueConfig($this->_items);
         $this->getFile()->save($this);
         return 0;
+    }
+
+    public function actionModify()
+    {
+        foreach (['chown', 'chgrp', 'chmod'] as $k) {
+            $v = $this->{$k};
+            if ($v) {
+                $this->file->{$k}($v);
+            }
+        }
     }
 }

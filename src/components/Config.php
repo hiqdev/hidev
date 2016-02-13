@@ -43,7 +43,7 @@ class Config extends \hiqdev\yii2\collection\Object
         ], $config);
     }
 
-    protected function createItem($id, $config = [])
+    public function createItem($id, $config = [])
     {
         return Yii::createObject($this->getItemConfig($id, $config), [$id, Yii::$app]);
     }

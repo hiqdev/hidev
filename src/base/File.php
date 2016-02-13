@@ -274,4 +274,22 @@ class File extends \yii\base\Object
     {
         return $this->data[$name];
     }
+
+    public function chmod($value)
+    {
+        passthru("chmod $value $this->path");
+        Yii::warning("chmod $this->path '$value'", 'file');
+    }
+
+    public function chown($value)
+    {
+        passthru("chown $value $this->path");
+        Yii::warning("chown $this->path '$value'", 'file');
+    }
+
+    public function chgrp($value)
+    {
+        passthru("chgrp $value $this->path");
+        Yii::warning("chgrp $this->path '$value'", 'file');
+    }
 }
