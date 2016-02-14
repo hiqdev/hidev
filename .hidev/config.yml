@@ -34,17 +34,17 @@ default:
         - version
 
 dirs:
-    path:   .
+    path:   here1
     class:  directory
-    here1/h1:
+    h1:
         chown:  "sol:devteam"
-        chmod:  a+w
+        chmod:  '0755'
         in1:
-            chmod: a+w
+            chmod: '0755'
         in2:
             chgrp: devteam
-    here1/h2:
+    h2:
         in3:
-            chmod: a+w
+            chmod: '0755'
         in4:
 
