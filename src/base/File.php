@@ -334,7 +334,7 @@ class File extends \yii\base\Object
     public function chown($value)
     {
         $ownergroup = $this->getOwner() . ':' . $this->getGroup();
-        if (in_array($value, [$ownergroup, $this->getOwner(), $this->getUid()])) {
+        if (in_array($value, [$ownergroup, $this->getOwner(), $this->getUid()], false)) {
             return;
         }
         passthru("chown $value $this->path");
@@ -343,7 +343,7 @@ class File extends \yii\base\Object
 
     public function chgrp($value)
     {
-        if (in_array($value, [$this->getGroup(), $this->getGid()])) {
+        if (in_array($value, [$this->getGroup(), $this->getGid()], false)) {
             return;
         }
         passthru("chgrp $value $this->path");
