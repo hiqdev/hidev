@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Added DirectoryController with chmod, chown, chgrp
+    - 73d19d3 2016-02-14 + file info returning functions: getUid/Gid/Owner/Group/Permissions and used in chmod, chown, chgrp (sol@hiqdev.com)
     - e513542 2016-02-13 + DirectoryController with chmod, chown, chgrp (sol@hiqdev.com)
 
 ## 0.3.9 2016-01-26
