@@ -55,6 +55,11 @@ class File extends \yii\base\Object
     protected $_extension;
 
     /**
+     * @var array file stat
+     */
+    protected $_stat;
+
+    /**
      * @var array possible types
      */
     public $types = [];
@@ -275,20 +280,72 @@ class File extends \yii\base\Object
         return $this->data[$name];
     }
 
+    public function getStat($field = null)
+    {
+        if ($this->_stat === null) {
+            $this->_stat = stat($this->path);
+        }
+
+        return is_null($field) ? $this->_stat : $this->_stat[$field];
+    }
+
+    public function getUid()
+    {
+        return $this->getStat(4);
+    }
+
+    public function getOwner()
+    {
+        if (!isset($this->_stat['owner'])) {
+            $this->_stat['owner'] = posix_getpwuid($this->getUid());
+        }
+
+        return $this->getStat('owner')['name'];
+    }
+
+    public function getGid()
+    {
+        return $this->getStat(5);
+    }
+
+    public function getGroup()
+    {
+        if (!isset($this->_stat['group'])) {
+            $this->_stat['group'] = posix_getgrgid($this->getGid());
+        }
+
+        return $this->getStat('group')['name'];
+    }
+
+    public function getPermissions()
+    {
+        return substr(sprintf('%o', $this->getStat(2)), -4);
+    }
+
     public function chmod($value)
     {
+        if ($value === $this->getPermissions()) {
+            return;
+        }
         passthru("chmod $value $this->path");
         Yii::warning("chmod $this->path '$value'", 'file');
     }
 
     public function chown($value)
     {
+        $ownergroup = $this->getOwner() . ':' . $this->getGroup();
+        if (in_array($value, [$ownergroup, $this->getOwner(), $this->getUid()])) {
+            return;
+        }
         passthru("chown $value $this->path");
         Yii::warning("chown $this->path '$value'", 'file');
     }
 
     public function chgrp($value)
     {
+        if (in_array($value, [$this->getGroup(), $this->getGid()])) {
+            return;
+        }
         passthru("chgrp $value $this->path");
         Yii::warning("chgrp $this->path '$value'", 'file');
     }
