@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed getting default package `src`
 - Added DirectoryController with chmod, chown, chgrp
 
 ## 0.3.9 2016-01-26

@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed getting default package `src`
+    - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 - Added DirectoryController with chmod, chown, chgrp
     - bdb7086 2016-02-14 implicit non strict comparision in `in_array` (sol@hiqdev.com)
     - 73d19d3 2016-02-14 + file info returning functions: getUid/Gid/Owner/Group/Permissions and used in chmod, chown, chgrp (sol@hiqdev.com)
