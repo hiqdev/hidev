@@ -75,7 +75,9 @@ class PackageController extends CommonController
 
     public function getSrc()
     {
-        return $this->rawItem('src') ?: 'src';
+        $src = $this->rawItem('src');
+
+        return isset($src) ? $src : 'src';
     }
 
     public function getHomepage()
