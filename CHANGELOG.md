@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added creating intermediate directories when necessary before writing file at `BaseHandler`
 - Fixed getting default package `src`
 - Added DirectoryController with chmod, chown, chgrp
 

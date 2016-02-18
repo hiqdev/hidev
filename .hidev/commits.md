@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added creating intermediate directories when necessary before writing file at `BaseHandler`
+    - 35d4887 2016-02-18 * `BaseHandler`: + create intermediate directories when necessary before writing file (sol@hiqdev.com)
 - Fixed getting default package `src`
     - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 - Added DirectoryController with chmod, chown, chgrp
