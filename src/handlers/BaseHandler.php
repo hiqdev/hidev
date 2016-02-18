@@ -105,7 +105,8 @@ class BaseHandler extends \yii\base\Object
 
     /**
      * Writes given content to the file.
-     * TODO Creates intermediate directories when necessary.
+     * Doesn't touch file if it has exactly same content.
+     * Creates intermediate directories when necessary.
      * @param string $path
      * @param string $content
      * @return bool true if file was changed
@@ -113,8 +114,28 @@ class BaseHandler extends \yii\base\Object
     public function write($path, $content)
     {
         if (!is_file($path) || file_get_contents($path) !== $content) {
-            Yii::warning('Written file: ' . $path, 'file');
+            $this->mkdir(dirname($path));
             file_put_contents($path, $content);
+            Yii::warning('Written file: ' . $path, 'file');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Creates directory if not exists.
+     * @param string $path
+     * @return bool true if directory did not exist and was created
+     */
+    public function mkdir($path)
+    {
+        $path = trim(trim($path), '/');
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+            Yii::warning('Created dir:  ' . $path . '/', 'file');
+
             return true;
         }
 
