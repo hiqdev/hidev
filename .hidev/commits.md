@@ -3,11 +3,13 @@ hiqdev/hidev commits history
 
 ## Under development
 
-- Added creating intermediate directories when necessary before writing file at `BaseHandler`
-    - 35d4887 2016-02-18 * `BaseHandler`: + create intermediate directories when necessary before writing file (sol@hiqdev.com)
+- Fixed `bump` and `bump/release`
+    - 274d419 2016-02-19 + added (not finished) waiting until push is actually finished (sol@hiqdev.com)
+    - b8c8f11 2016-02-19 improved `version` file reading/writing (check for existing) (sol@hiqdev.com)
 - Fixed getting default package `src`
     - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 - Added DirectoryController with chmod, chown, chgrp
+    - 35d4887 2016-02-18 * `BaseHandler`: + create intermediate directories when necessary before writing file (sol@hiqdev.com)
     - bdb7086 2016-02-14 implicit non strict comparision in `in_array` (sol@hiqdev.com)
     - 73d19d3 2016-02-14 + file info returning functions: getUid/Gid/Owner/Group/Permissions and used in chmod, chown, chgrp (sol@hiqdev.com)
     - e513542 2016-02-13 + DirectoryController with chmod, chown, chgrp (sol@hiqdev.com)
