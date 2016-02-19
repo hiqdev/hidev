@@ -26,15 +26,17 @@ class VersionController extends FileController
 
     public function init()
     {
-        $v = trim($this->getFile()->read());
-        list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $v);
+        if ($this->exists()) {
+            $v = trim($this->getFile()->read());
+            list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $v);
+        }
     }
 
     public function actionMake($version = null)
     {
         $v = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
         list($date, $time, $zone, $hash, $commit) = explode(' ', $v, 5);
-        if (!in_array($commit, ['minor', 'version bump to ' . $this->version], true)) {
+        if (!$this->exists() || !in_array($commit, ['minor', 'version bump to ' . $this->version], true)) {
             if ($hash !== $this->hash) {
                 $this->version = 'dev';
             }
