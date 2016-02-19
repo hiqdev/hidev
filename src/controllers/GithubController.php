@@ -93,12 +93,28 @@ class GithubController extends CommonController
         $changelog = $this->takeGoal('CHANGELOG.md');
         $notes = reset($changelog->getFile()->getHandler()->releaseNotes);
         $version = $this->takeGoal('bump')->getVersion($version);
+        $wait = $this->actionWaitPush();
+        if ($wait) {
+            return $wait;
+        }
 
         return $this->request('POST', '/repos/' . $this->getName() . '/releases', [
             'tag_name'  => $version,
             'name'      => $version,
             'body'      => $notes,
         ]);
+    }
+
+    /**
+     * Waits for push had actually finished.
+     * TODO Check github if it really has latest local commit.
+     * @return int 0 - success, 1 - failed
+     */
+    public function actionWaitPush()
+    {
+        sleep(7);
+
+        return 0;
     }
 
     public function request($method, $path, $data)
