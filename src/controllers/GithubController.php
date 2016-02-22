@@ -106,7 +106,7 @@ class GithubController extends CommonController
     }
 
     /**
-     * Waits for push had actually finished.
+     * Waits until push is actually finished.
      * TODO Check github if it really has latest local commit.
      * @return int 0 - success, 1 - failed
      */
