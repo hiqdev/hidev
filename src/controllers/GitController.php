@@ -75,6 +75,9 @@ class GitController extends VcsController
 
     public function loadHistory()
     {
+        if (!file_exists('.git')) {
+            return;
+        }
         exec("git log --date=short --pretty='format:%h %ad %ae %s |%d'", $logs);
         $this->tag = $this->lastTag;
         foreach ($logs as $log) {
