@@ -31,6 +31,6 @@ class JsonHandler extends TypeHandler
      */
     public function parse($json)
     {
-        return Json::decode($json);
+        return $json ? Json::decode($json) : [];
     }
 }
