@@ -3,6 +3,17 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added easy creation of templated files with DirectoryController
+    - 960b60c 2016-02-23 enabled easy creation of templated files with DirectoryController (sol@hiqdev.com)
+    - 1a8499d 2016-02-23 + `FileController::$once` option to save file only once, no rewrite (sol@hiqdev.com)
+- Added `github/create` action
+    - 0d87f6f 2016-02-23 + `github/create` with proper name and description (sol@hiqdev.com)
+    - 2fbeaa4 2016-02-23 fixed GitController to git history only if git repository actually exists (sol@hiqdev.com)
+- Added `StartController::$prjdir` variable containing absolute path to the project root directory
+    - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
+- Fixed JsonHandler to parse empty JSON to empty array (died before)
+    - a6f476e 2016-02-23 + explicit TemplateController to config (sol@hiqdev.com)
+    - 9c48c87 2016-02-23 changed JsonHandler to parse empty JSON to empty array (sol@hiqdev.com)
 - Fixed `bump` and `bump/release`
     - 274d419 2016-02-19 + added (not finished) waiting until push is actually finished (sol@hiqdev.com)
     - b8c8f11 2016-02-19 improved `version` file reading/writing (check for existing) (sol@hiqdev.com)
