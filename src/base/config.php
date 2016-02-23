@@ -54,6 +54,9 @@ return [
             'binaries' => [
                 'class' => 'hidev\controllers\BinariesController',
             ],
+            'template' => [
+                'class' => 'hidev\controllers\TemplateController',
+            ],
             'directory' => [
                 'class' => 'hidev\controllers\DirectoryController',
             ],
