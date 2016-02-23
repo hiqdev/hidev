@@ -21,6 +21,7 @@ class GithubController extends CommonController
     protected $_name;
     protected $_vendor;
     protected $_package;
+    protected $_description;
 
     /**
      * @var string GitHub OAuth access token
@@ -38,7 +39,7 @@ class GithubController extends CommonController
     public function getName()
     {
         if ($this->_name === null) {
-            $this->setName($this->takeGoal('package')->fullName);
+            $this->setName($this->takePackage()->fullName);
         }
 
         return $this->_name;
@@ -58,10 +59,6 @@ class GithubController extends CommonController
         return $this->_vendor;
     }
 
-    public function actionCreate()
-    {
-    }
-
     public function setPackage($value)
     {
         $this->_package = $value;
@@ -70,10 +67,36 @@ class GithubController extends CommonController
     public function getPackage()
     {
         if ($this->_package === null) {
-            $this->_package = $this->takeGoal('package')->name;
+            $this->_package = $this->takePackage()->name;
         }
 
         return $this->_package;
+    }
+
+    public function setDescription($value)
+    {
+        $this->_description = $value;
+    }
+
+    public function getDescription()
+    {
+        if ($this->_description === null) {
+            $this->_description = $this->takePackage()->getTitle();
+        }
+
+        return $this->_description;
+    }
+
+    /**
+     * Create the repo on GitHub.
+     * @return int exit code
+     */
+    public function actionCreate()
+    {
+        return $this->request('POST', '/orgs/' . $this->getVendor() . '/repos', [
+            'name'        => $this->getPackage(),
+            'description' => $this->getDescription(),
+        ]);
     }
 
     /**
