@@ -28,6 +28,7 @@ class FileController extends CollectionController
      */
     public $fileType;
 
+    public $once;
     public $chown;
     public $chgrp;
     public $chmod;
@@ -138,6 +139,9 @@ class FileController extends CollectionController
 
     public function actionSave()
     {
+        if ($this->once && $this->exists()) {
+            return 0;
+        }
         $this->_items = Helper::uniqueConfig($this->_items);
         $this->getFile()->save($this);
         return 0;
