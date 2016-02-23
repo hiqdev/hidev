@@ -23,11 +23,16 @@ class StartController extends CommonController
 {
     const MAIN_CONFIG = '.hidev/config.yml';
 
+    /**
+     * @var string absolute path to the project root directory
+     */
+    public $prjdir;
+
     public static $started = false;
 
     public function actionMake()
     {
-        Yii::setAlias('@prjdir', $this->findDir());
+        Yii::setAlias('@prjdir', $this->findPrjDir());
         $this->takeConfig()->includeConfig(static::MAIN_CONFIG);
         $this->requireAll();
         $this->includeAll();
@@ -79,12 +84,13 @@ class StartController extends CommonController
      * @throws InvalidParamException when failed to find
      * @return string path to the root directory of hidev project
      */
-    protected function findDir()
+    protected function findPrjDir()
     {
         $configDir = '.hidev';
         for ($i = 0;$i < 9;++$i) {
             if (is_dir($configDir)) {
-                return getcwd();
+                $this->prjdir = getcwd();
+                return $this->prjdir;
             }
             chdir('..');
         }
