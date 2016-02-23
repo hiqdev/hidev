@@ -39,7 +39,7 @@ class DirectoryController extends FileController
         }
         foreach ($this->getItems() as $id => $config) {
             $defaults = [
-                'class' => 'directory',
+                'class' => isset($config['template']) ? 'template' : 'directory',
                 'file'  => $this->path . '/' . $id,
             ];
             $goal = $this->takeConfig()->createItem($id, array_merge($defaults, $config ?: []));
