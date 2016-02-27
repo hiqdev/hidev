@@ -30,16 +30,16 @@ There are several ways of installation in order of preference:
 
 ## Idea
 
-The idea behind the HiDev is to stop copying config files between your projects.
-And automate all repeated tasks of course. But firstly generate all the files
-that can be generated, namely:
+The main idea behind HiDev is to combine code generator and build tool to stop
+copying config files between your projects. And automate all the repeated tasks
+of course. But firstly generate all the files that can be generated, e.g.:
 
-- .gitignore, README.md, LICENSE, CHANGELOG.md
-- composer.json
-- .travis.yml, .scrutinizer.yml
-- phpunit.xml, codeception.yml
-- .php_cs
-- source and test skeleton files
+- `.gitignore`, `README.md`, `LICENSE`, `CHANGELOG.md`
+- `composer.json`
+- `.travis.yml`, `.scrutinizer.yml`
+- `phpunit.xml`, `codeception.yml`
+- `.php_cs`
+- skeleton source and test files
 
 You write a simple config specifying general information about your package
 and plugins to be used. HiDev alone does nothing at all! You specify what
@@ -54,19 +54,16 @@ will enable HiDev to create all the listed above files and adds goals to use:
 - `hidev test`: will update `phpunit.xml` and run your tests with `phpunit`
 - `hidev build`: will do fix and test alltogether
 - `hidev codeception`: will bootstrap `codeception`, update it's config and run tests with it
+- `hidev bump` and `hidev bump/release` will bump project version and publish release to GitHub
 
 HiDev can generate different files: sources, tests, anything else based on templates and
 all the information available in config files or elsewhere.
 
 Now I'm working to enable HiDev to do more:
 
-- version bump
 - project bootstraping and deploy
 - integration with other build tools: robo, grunt, gulp, ...
 - more for Python: pep8, tests, ...
-
-So basically HiDev is the mix of code generator and build tool.
-As simple as that but it gives a great power :)
 
 ## Configuration
 
