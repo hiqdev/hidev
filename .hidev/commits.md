@@ -4,6 +4,8 @@ hiqdev/hidev commits history
 ## Under development
 
 - Added easy creation of templated files with DirectoryController
+    - 7348679 2016-02-27 improved Idea description (sol@hiqdev.com)
+    - 48eeab0 2016-02-27 removed dirs from config (sol@hiqdev.com)
     - 960b60c 2016-02-23 enabled easy creation of templated files with DirectoryController (sol@hiqdev.com)
     - 1a8499d 2016-02-23 + `FileController::$once` option to save file only once, no rewrite (sol@hiqdev.com)
 - Added `github/create` action
