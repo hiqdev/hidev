@@ -33,18 +33,3 @@ default:
     before:
         - version
 
-dirs:
-    path:   here1
-    class:  directory
-    h1:
-        chown:  "sol:devteam"
-        chmod:  '0755'
-        in1:
-            chmod: '0755'
-        in2:
-            chgrp: devteam
-    h2:
-        in3:
-            chmod: '0755'
-        in4:
-
