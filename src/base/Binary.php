@@ -46,13 +46,14 @@ class Binary extends \yii\base\Object
     /**
      * Prepares and runs with exec, returns stdout array.
      * @param string|array $args
-     * @return array stdout
+     * @param bool $returnExitCode, default false
+     * @return array|int stdout or exit code
      */
-    public function exec($args = [])
+    public function exec($args = [], $returnExitCode = false)
     {
-        exec($this->prepareCommand($args), $array);
+        exec($this->prepareCommand($args), $array, $exitcode);
 
-        return $array;
+        return $returnExitCode ? $exitcode : $array;
     }
 
     public function prepareCommand($args)

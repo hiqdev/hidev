@@ -208,11 +208,12 @@ abstract class AbstractController extends \hidev\base\Controller
      * Runs given binary with given arguments. Returns stdout array.
      * @param string $name
      * @param string $args
-     * @return array stdout
+     * @param bool $returnExitCode, default false
+     * @return array|int stdout or exitcode
      */
-    public function exec($name, $args = '')
+    public function exec($name, $args = '', $returnExitCode = false)
     {
-        return $this->takeGoal('binaries')->exec($name, $args);
+        return $this->takeGoal('binaries')->exec($name, $args, $returnExitCode);
     }
 
     public function takeGoal($id)

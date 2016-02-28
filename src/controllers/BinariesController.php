@@ -57,8 +57,8 @@ class BinariesController extends CommonController
      * @param string $args
      * @return array stdout
      */
-    public function exec($name, $args = [])
+    public function exec($name, $args = '', $returnExitCode = false)
     {
-        return $this->get($name)->exec($args);
+        return $this->get($name)->exec($args, $returnExitCode);
     }
 }
