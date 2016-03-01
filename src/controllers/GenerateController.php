@@ -40,12 +40,4 @@ class GenerateController extends TemplateController
 
         return $this->actionPerform($template, $file);
     }
-
-    public function actionMkdir($dir)
-    {
-        if (file_exists($dir)) {
-            return;
-        }
-        mkdir($dir, 0777, true);
-    }
 }
