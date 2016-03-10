@@ -64,5 +64,8 @@
     },
     "bin": [
         "bin/hidev"
-    ]
+    ],
+    "extra": {
+        "yii2-extraconfig": "src/yii2-extraconfig.php"
+    }
 }
