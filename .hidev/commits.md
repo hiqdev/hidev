@@ -3,6 +3,12 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 5d0a339 2016-03-01 - `GenerateController::actionMkdir` because of DirectoryController (sol@hiqdev.com)
+    - c4a1380 2016-02-28 + github exists action (sol@hiqdev.com)
+    - 0378e33 2016-02-28 + binary exec to return exit code (sol@hiqdev.com)
+- Added empty yii2-extraconfig
+    - 9aafba9 2016-03-10 + yii2-extraconfig (sol@hiqdev.com)
+    - 001c935 2016-03-10 phpcsfixed (sol@hiqdev.com)
 - Added easy creation of templated files with DirectoryController
     - 7348679 2016-02-27 improved Idea description (sol@hiqdev.com)
     - 48eeab0 2016-02-27 removed dirs from config (sol@hiqdev.com)

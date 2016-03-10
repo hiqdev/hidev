@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added empty yii2-extraconfig
 - Added easy creation of templated files with DirectoryController
 - Added `github/create` action
 - Added `StartController::$prjdir` variable containing absolute path to the project root directory
