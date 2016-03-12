@@ -3,23 +3,23 @@ hiqdev/hidev commits history
 
 ## Under development
 
-    - 5d0a339 2016-03-01 - `GenerateController::actionMkdir` because of DirectoryController (sol@hiqdev.com)
-    - c4a1380 2016-02-28 + github exists action (sol@hiqdev.com)
+    - ef8670a 2016-03-12 fixed showing error message when not composered (sol@hiqdev.com)
     - 0378e33 2016-02-28 + binary exec to return exit code (sol@hiqdev.com)
-- Added empty yii2-extraconfig
+- Added empty `yii2-extraconfig`
     - 9aafba9 2016-03-10 + yii2-extraconfig (sol@hiqdev.com)
     - 001c935 2016-03-10 phpcsfixed (sol@hiqdev.com)
-- Added easy creation of templated files with DirectoryController
+- Added easy creation of templated files with `DirectoryController`
     - 7348679 2016-02-27 improved Idea description (sol@hiqdev.com)
     - 48eeab0 2016-02-27 removed dirs from config (sol@hiqdev.com)
     - 960b60c 2016-02-23 enabled easy creation of templated files with DirectoryController (sol@hiqdev.com)
     - 1a8499d 2016-02-23 + `FileController::$once` option to save file only once, no rewrite (sol@hiqdev.com)
-- Added `github/create` action
+- Added `github/create` and `github/exists` actions
+    - c4a1380 2016-02-28 + github exists action (sol@hiqdev.com)
     - 0d87f6f 2016-02-23 + `github/create` with proper name and description (sol@hiqdev.com)
     - 2fbeaa4 2016-02-23 fixed GitController to git history only if git repository actually exists (sol@hiqdev.com)
 - Added `StartController::$prjdir` variable containing absolute path to the project root directory
     - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
-- Fixed JsonHandler to parse empty JSON to empty array (died before)
+- Fixed `JsonHandler` to parse empty JSON to empty array (died before)
     - a6f476e 2016-02-23 + explicit TemplateController to config (sol@hiqdev.com)
     - 9c48c87 2016-02-23 changed JsonHandler to parse empty JSON to empty array (sol@hiqdev.com)
 - Fixed `bump` and `bump/release`
@@ -28,6 +28,7 @@ hiqdev/hidev commits history
 - Fixed getting default package `src`
     - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 - Added DirectoryController with chmod, chown, chgrp
+    - 5d0a339 2016-03-01 - `GenerateController::actionMkdir` because of DirectoryController (sol@hiqdev.com)
     - 35d4887 2016-02-18 * `BaseHandler`: + create intermediate directories when necessary before writing file (sol@hiqdev.com)
     - bdb7086 2016-02-14 implicit non strict comparision in `in_array` (sol@hiqdev.com)
     - 73d19d3 2016-02-14 + file info returning functions: getUid/Gid/Owner/Group/Permissions and used in chmod, chown, chgrp (sol@hiqdev.com)
