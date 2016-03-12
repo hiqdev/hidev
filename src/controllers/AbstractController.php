@@ -216,6 +216,21 @@ abstract class AbstractController extends \hidev\base\Controller
         return $this->takeGoal('binaries')->exec($name, $args, $returnExitCode);
     }
 
+    public function readline($prompt)
+    {
+        return readline($prompt);
+    }
+
+    public function readpassword($prompt)
+    {
+        echo $prompt;
+        system('stty -echo');
+        $password = rtrim(fgets(STDIN), PHP_EOL);
+        system('stty echo');
+        echo "\n";
+        return $password;
+    }
+
     public function takeGoal($id)
     {
         return Yii::$app->get('config')->getGoal($id);
