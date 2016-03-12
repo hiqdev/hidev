@@ -17,7 +17,8 @@ foreach ([__DIR__ . '/vendor/autoload.php', __DIR__ . '/../../autoload.php', __D
 }
 
 if (!defined('HIDEV_AUTOLOAD_FILE')) {
-    fwrite(STDERR, 'You need to set up project dependencies with composer');
+    fwrite(STDERR, "Run composer to set up hidev own dependencies!\n");
+    exit(1);
 }
 
 require HIDEV_AUTOLOAD_FILE;
