@@ -157,10 +157,15 @@ class GithubController extends CommonController
         return $this->passthru('curl', ['-X', $method, '-H', 'Authorization: token ' . $this->getToken(), '--data', Json::encode($data), $url]);
     }
 
+    public function findToken()
+    {
+        return $_SERVER['GITHUB_TOKEN'] ?: $this->readpassword('GitHub token:');
+    }
+
     public function getToken()
     {
         if ($this->_token === null) {
-            $this->_token = $_SERVER['GITHUB_TOKEN'];
+            $this->_token = $this->findToken();
         }
 
         return $this->_token;
