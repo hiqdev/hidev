@@ -63,6 +63,11 @@ class PackageController extends CommonController
         return $this->getItem('source') ?: ('https://github.com/' . $this->takeGoal('github')->name);
     }
 
+    public function getVersion()
+    {
+        return $this->takeGoal('version')->version;
+    }
+
     public function getNamespace()
     {
         return $this->getItem('namespace') ?: $this->getPackageManager()->namespace ?: self::defaultNamespace($this->takeVendor()->name, $this->name);
