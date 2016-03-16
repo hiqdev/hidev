@@ -125,7 +125,7 @@ class GithubController extends CommonController
      * @param string $repo
      * @return bool
      */
-    static public function exists($repo)
+    public static function exists($repo)
     {
         return !static::exec('git', ['ls-remote', 'git@github.com:' . $repo], true);
     }

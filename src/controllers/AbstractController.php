@@ -199,7 +199,7 @@ abstract class AbstractController extends \hidev\base\Controller
      * @param string $args
      * @return int exit code
      */
-    static public function passthru($name, $args = '')
+    public static function passthru($name, $args = '')
     {
         return static::takeGoal('binaries')->passthruBinary($name, $args);
     }
@@ -211,7 +211,7 @@ abstract class AbstractController extends \hidev\base\Controller
      * @param bool $returnExitCode, default false
      * @return array|int stdout or exitcode
      */
-    static public function exec($name, $args = '', $returnExitCode = false)
+    public static function exec($name, $args = '', $returnExitCode = false)
     {
         return static::takeGoal('binaries')->execBinary($name, $args, $returnExitCode);
     }
@@ -231,17 +231,17 @@ abstract class AbstractController extends \hidev\base\Controller
         return $password;
     }
 
-    static public function takeGoal($id)
+    public static function takeGoal($id)
     {
         return Yii::$app->get('config')->getGoal($id);
     }
 
-    static public function takeConfig()
+    public static function takeConfig()
     {
         return Yii::$app->get('config');
     }
 
-    static public function takeVendor()
+    public static function takeVendor()
     {
         return static::takeGoal('vendor');
     }
