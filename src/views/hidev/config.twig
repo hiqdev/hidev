@@ -39,4 +39,7 @@ vendor:
 
 require:
     hiqdev/hidev-php:   "*"
+{% if config.init.vendorRequire %}
+    {{ config.init.vendorRequire }}:
+{% endif %}
 {% endif %}

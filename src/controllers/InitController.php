@@ -25,11 +25,15 @@ class InitController extends TemplateController
     public $vendor;
     public $package;
 
-    public function actionPerform($name = null, $template = '.hidev/config')
+    public function prepareData($name)
     {
         list($vendor, $package) = explode('/', $name, 2);
         if ($vendor) {
             $this->vendor = $vendor;
+            if (GithubController::exists($name)) {
+                $this->setItem('vendorRequire', str_pad($name . ':', 16));
+                $this->setItem('novendor', true);
+            }
         }
         if ($package) {
             $this->package = $package;
@@ -37,8 +41,12 @@ class InitController extends TemplateController
         if (!$this->package || !$this->vendor) {
             throw new InvalidParamException('Wrong vendor/package given: ' . $name);
         }
-        $this->template = $template;
+    }
 
+    public function actionPerform($name = null, $template = '.hidev/config')
+    {
+        $this->_template = $template;
+        $this->prepareData($name);
         if (!file_exists($this->dirname)) {
             mkdir($this->dirname);
         }
