@@ -4,6 +4,8 @@ hiqdev/hidev commits history
 ## Under development
 
 - Added smart vendor require in `hidev/init`
+    - eecb999 2016-03-16 + test for smart require in `hidev/init` (sol@hiqdev.com)
+    - bd9142a 2016-03-16 phpcsfixed (sol@hiqdev.com)
     - af54ce3 2016-03-16 finished addding smart vendor require in `hidev/init` (sol@hiqdev.com)
     - 06571e9 2016-03-16 renamed to passthru/execBinary (sol@hiqdev.com)
     - c331ed4 2016-03-16 + smart vendor require in `hidev/init` (sol@hiqdev.com)
