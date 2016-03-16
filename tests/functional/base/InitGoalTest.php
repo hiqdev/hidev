@@ -51,7 +51,26 @@ vendor:
             email:      author@email.com
 
 require:
-    hiqdev/hidev-php:   "*"
+    hiqdev/hidev-php:       "*"
+        ');
+    }
+
+    /**
+     * Test smart require: init hiqdev/my-new-package.
+     */
+    public function testSmartRequire()
+    {
+        $this->tester->hidev('init hiqdev/my-new-package --nick=sol "--author=Author Name" --email=author@email.com');
+        $this->tester->assertFile('.hidev/config.yml', '
+package:
+    type:           project
+    name:           my-new-package
+    title:          My New Package
+    keywords:       my, new, package
+
+require:
+    hiqdev/hidev-php:       "*"
+    hiqdev/hidev-vendor:    "*"
         ');
     }
 
