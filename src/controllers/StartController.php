@@ -28,22 +28,51 @@ class StartController extends CommonController
      */
     public $prjdir;
 
+    /**
+     * @var bool hidev already started flag
+     */
     public static $started = false;
 
+    /**
+     * Make action.
+     */
     public function actionMake()
     {
-        Yii::setAlias('@prjdir', $this->findPrjDir());
         $this->takeConfig()->includeConfig(static::MAIN_CONFIG);
+        $this->addAliases();
         $this->requireAll();
         $this->includeAll();
         self::$started = true;
     }
 
+    /**
+     * Update action.
+     * @return int exit code
+     */
     public function actionUpdate()
     {
         return $this->passthru('composer', ['update', '-d', '.hidev', '--prefer-source', '--ansi']);
     }
 
+    /**
+     * Adds aliases:
+     * - @prjdir alias to current project root dir
+     * - current package namespace for it could be used from hidev.
+     */
+    public function addAliases()
+    {
+        Yii::setAlias('@prjdir', $this->findPrjDir());
+        $config = $this->takeConfig()->rawItem('package');
+        $alias  = '@' . strtr($config['namespace'], '\\', '/');
+        if ($alias && !Yii::getAlias($alias, false)) {
+            $srcdir = Yii::getAlias('@prjdir/' . ($config['src'] ?: 'src'));
+            Yii::setAlias($alias, $srcdir);
+        }
+    }
+
+    /**
+     * Require all configured requires.
+     */
     protected function requireAll()
     {
         $require = $this->takeConfig()->rawItem('require');
@@ -63,7 +92,6 @@ class StartController extends CommonController
 
     /**
      * Include all configs.
-     * @return void
      */
     public function includeAll()
     {
