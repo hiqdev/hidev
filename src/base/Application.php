@@ -90,10 +90,6 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         }
         if (!empty($config['modules'])) {
             $this->setModules($config['modules']);
-            /*$this->setModules(ArrayHelper::merge(
-                $config['modules'],
-                ArrayHelper::getItems($this->modules, array_keys($config['modules']))
-            ));*/
         }
         if (!empty($config['components'])) {
             foreach ($config['components'] as $id => $component) {
@@ -104,15 +100,6 @@ class Application extends \yii\console\Application implements ViewContextInterfa
             $this->setComponents($config['components']);
         }
     }
-
-    /*public function getViewPath()
-    {
-        if ($this->_viewPath === null) {
-            $this->_viewPath = Yii::getAlias('@app/views');
-        }
-
-        return $this->_viewPath;
-    }*/
 
     public function createControllerByID($id)
     {
