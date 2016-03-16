@@ -57,6 +57,11 @@ class BinaryPhp extends Binary
         return parent::detectPath($name);
     }
 
+    /**
+     * Detect command execution string.
+     * @param mixed $path
+     * @return string
+     */
     public function detectCommand($path)
     {
         $path = parent::detectCommand($path);

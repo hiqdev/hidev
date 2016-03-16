@@ -37,7 +37,6 @@ class Binary extends \yii\base\Object
      */
     public function passthru($args = [])
     {
-        // error_log($this->prepareCommand($args));
         passthru($this->prepareCommand($args), $exitcode);
 
         return $exitcode;
@@ -46,7 +45,7 @@ class Binary extends \yii\base\Object
     /**
      * Prepares and runs with exec, returns stdout array.
      * @param string|array $args
-     * @param bool $returnExitCode, default false
+     * @param bool $returnExitCode default false
      * @return array|int stdout or exit code
      */
     public function exec($args = [], $returnExitCode = false)
@@ -56,6 +55,11 @@ class Binary extends \yii\base\Object
         return $returnExitCode ? $exitcode : $array;
     }
 
+    /**
+     * Prepare full command line ready for execution.
+     * @param string|array $args
+     * @return string
+     */
     public function prepareCommand($args)
     {
         return $this->getCommand() . $this->prepareArguments($args);

@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - fd5497c 2016-03-16 fixing scrutinizer issues (sol@hiqdev.com)
 - Added smart vendor require in `hidev/init`
     - eecb999 2016-03-16 + test for smart require in `hidev/init` (sol@hiqdev.com)
     - bd9142a 2016-03-16 phpcsfixed (sol@hiqdev.com)

@@ -37,17 +37,14 @@ class GitignoreHandler extends BaseHandler
         return $items;
     }
 
-    public function getHistory()
-    {
-        return $this->_history;
-    }
-
     public function render($items)
     {
+        $comments = [];
         foreach ($items as $item => $comment) {
             $comments[$comment][$item] = $item;
         }
 
+        $res = '';
         foreach ($comments as $comment => $items) {
             ksort($items);
             $res .= static::renderComment($comment) . implode("\n", $items) . "\n";

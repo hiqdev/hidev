@@ -142,6 +142,12 @@ class BaseHandler extends \yii\base\Object
         return false;
     }
 
+    /**
+     * Read file into a string or array.
+     * @param string $path
+     * @param bool $asArray
+     * @return string|array
+     */
     public function read($path, $asArray = false)
     {
         if (file_exists($path)) {
@@ -155,6 +161,11 @@ class BaseHandler extends \yii\base\Object
         }
     }
 
+    /**
+     * Read file into array of strings.
+     * @param string $path
+     * @return array
+     */
     public function readArray($path)
     {
         return $this->read($path, true);

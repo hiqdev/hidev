@@ -15,6 +15,10 @@ use hidev\helpers\Helper;
 
 /**
  * Package part of the config.
+ *
+ * @property string name
+ * @property string year
+ * @property string source
  */
 class PackageController extends CommonController
 {
