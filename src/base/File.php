@@ -210,27 +210,27 @@ class File extends \yii\base\Object
             $this->data = $data;
         }
 
-        return $this->handler->renderPath($this->path, $this->data);
+        return $this->getHandler()->renderPath($this->getPath(), $this->data);
     }
 
     public function write($content)
     {
-        return $this->handler->write($this->path, $content);
+        return $this->getHandler()->write($this->getPath(), $content);
     }
 
     public function load()
     {
-        return $this->data = $this->handler->parsePath($this->path, $this->minimalPath);
+        return $this->data = $this->getHandler()->parsePath($this->getPath(), $this->minimalPath);
     }
 
     public function read()
     {
-        return $this->handler->read($this->path);
+        return $this->getHandler()->read($this->getPath());
     }
 
     public function readArray()
     {
-        return $this->handler->readArray($this->path);
+        return $this->getHandler()->readArray($this->getPath());
     }
 
     public function getHandler()
@@ -253,7 +253,7 @@ class File extends \yii\base\Object
 
     public function exists()
     {
-        return file_exists($this->path);
+        return file_exists($this->getPath());
     }
 
     public function find(array $types = [])
@@ -283,7 +283,7 @@ class File extends \yii\base\Object
     public function getStat($field = null)
     {
         if ($this->_stat === null) {
-            $this->_stat = stat($this->path);
+            $this->_stat = stat($this->getPath());
         }
 
         return is_null($field) ? $this->_stat : $this->_stat[$field];
@@ -327,8 +327,9 @@ class File extends \yii\base\Object
         if ($value === $this->getPermissions()) {
             return;
         }
-        passthru("chmod $value $this->path");
-        Yii::warning("chmod $this->path '$value'", 'file');
+        $path = $this->getPath();
+        passthru("chmod $value $path");
+        Yii::warning("chmod $path '$value'", 'file');
     }
 
     public function chown($value)
@@ -337,8 +338,9 @@ class File extends \yii\base\Object
         if (in_array($value, [$ownergroup, $this->getOwner(), $this->getUid()], false)) {
             return;
         }
-        passthru("chown $value $this->path");
-        Yii::warning("chown $this->path '$value'", 'file');
+        $path = $this->getPath();
+        passthru("chown $value $path");
+        Yii::warning("chown $path '$value'", 'file');
     }
 
     public function chgrp($value)
@@ -346,7 +348,8 @@ class File extends \yii\base\Object
         if (in_array($value, [$this->getGroup(), $this->getGid()], false)) {
             return;
         }
-        passthru("chgrp $value $this->path");
-        Yii::warning("chgrp $this->path '$value'", 'file');
+        $path = $this->getPath();
+        passthru("chgrp $value $path");
+        Yii::warning("chgrp $path '$value'", 'file');
     }
 }
