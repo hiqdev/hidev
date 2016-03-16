@@ -201,7 +201,7 @@ abstract class AbstractController extends \hidev\base\Controller
      */
     static public function passthru($name, $args = '')
     {
-        return static::takeGoal('binaries')->passthru($name, $args);
+        return static::takeGoal('binaries')->passthruBinary($name, $args);
     }
 
     /**
@@ -213,7 +213,7 @@ abstract class AbstractController extends \hidev\base\Controller
      */
     static public function exec($name, $args = '', $returnExitCode = false)
     {
-        return static::takeGoal('binaries')->exec($name, $args, $returnExitCode);
+        return static::takeGoal('binaries')->execBinary($name, $args, $returnExitCode);
     }
 
     public function readline($prompt)
