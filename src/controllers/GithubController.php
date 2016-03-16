@@ -111,13 +111,23 @@ class GithubController extends CommonController
     }
 
     /**
-     * Check if repo exists.
+     * Action to check if repo exists.
      * @param string $repo full name vendor/package defaults to this repo name
      * @return int exit code
      */
     public function actionExists($repo = null)
     {
-        return $this->exec('git', ['ls-remote', 'git@github.com:' . ($repo ?: $this->getName())], true);
+        return static::exists($repo ?: $this->getName());
+    }
+
+    /**
+     * Check if repo exists.
+     * @param string $repo
+     * @return bool
+     */
+    static public function exists($repo)
+    {
+        return !static::exec('git', ['ls-remote', 'git@github.com:' . $repo], true);
     }
 
     public function actionRelease($version = null)
