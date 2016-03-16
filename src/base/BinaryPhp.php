@@ -47,7 +47,7 @@ class BinaryPhp extends Binary
      */
     public function detectPath($name)
     {
-        $paths = [Yii::getAlias("@prjdir/$name.phar"), Yii::getAlias("@prjdir/vendor/bin/$name"), "$_SERVER[HOME]/.composer/vendor/bin/$name"];
+        $paths = [Yii::getAlias("@prjdir/$name.phar", false), Yii::getAlias("@prjdir/vendor/bin/$name", false), "$_SERVER[HOME]/.composer/vendor/bin/$name"];
         foreach ($paths as $path) {
             if (file_exists($path)) {
                 return $path;
@@ -69,7 +69,7 @@ class BinaryPhp extends Binary
         if ($this->installer) {
             passthru('/usr/bin/env wget ' . escapeshellarg($this->installer) . ' -O- | /usr/bin/env php', $exitcode);
         } elseif ($this->download) {
-            $dest = Yii::getAlias('@prjdir/' . $this->name . '.phar');
+            $dest = Yii::getAlias('@prjdir/' . $this->name . '.phar', false);
             passthru('/usr/bin/env wget ' . escapeshellarg($this->download) . ' -O ' . $dest, $exitcode);
         } else {
             return parent::install();

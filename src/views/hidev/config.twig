@@ -38,8 +38,8 @@ vendor:
 {% if not config.init.norequire %}
 
 require:
-    hiqdev/hidev-php:   "*"
+    hiqdev/hidev-php:       "*"
 {% if config.init.vendorRequire %}
-    {{ config.init.vendorRequire }}:
+    {{ config.init.vendorRequire|raw }}
 {% endif %}
 {% endif %}

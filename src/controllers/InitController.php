@@ -30,8 +30,14 @@ class InitController extends TemplateController
         list($vendor, $package) = explode('/', $name, 2);
         if ($vendor) {
             $this->vendor = $vendor;
-            if (GithubController::exists($name)) {
-                $this->setItem('vendorRequire', str_pad($name . ':', 16));
+            $vendorPlugin = "$vendor/hidev-vendor";
+            try {
+                $exists = @file_get_contents("https://packagist.org/packages/$vendorPlugin.json");
+            } catch (Exception $e) {
+                $exists = false;
+            }
+            if ($exists) {
+                $this->setItem('vendorRequire', str_pad($vendorPlugin . ':', 23) . ' "*"');
                 $this->setItem('novendor', true);
             }
         }
