@@ -199,9 +199,9 @@ abstract class AbstractController extends \hidev\base\Controller
      * @param string $args
      * @return int exit code
      */
-    public function passthru($name, $args = '')
+    static public function passthru($name, $args = '')
     {
-        return $this->takeGoal('binaries')->passthru($name, $args);
+        return static::takeGoal('binaries')->passthru($name, $args);
     }
 
     /**
@@ -211,9 +211,9 @@ abstract class AbstractController extends \hidev\base\Controller
      * @param bool $returnExitCode, default false
      * @return array|int stdout or exitcode
      */
-    public function exec($name, $args = '', $returnExitCode = false)
+    static public function exec($name, $args = '', $returnExitCode = false)
     {
-        return $this->takeGoal('binaries')->exec($name, $args, $returnExitCode);
+        return static::takeGoal('binaries')->exec($name, $args, $returnExitCode);
     }
 
     public function readline($prompt)
@@ -231,28 +231,28 @@ abstract class AbstractController extends \hidev\base\Controller
         return $password;
     }
 
-    public function takeGoal($id)
+    static public function takeGoal($id)
     {
         return Yii::$app->get('config')->getGoal($id);
     }
 
-    public function takeConfig()
+    static public function takeConfig()
     {
         return Yii::$app->get('config');
     }
 
-    public function takeVendor()
+    static public function takeVendor()
     {
-        return $this->takeGoal('vendor');
+        return static::takeGoal('vendor');
     }
 
     public function takePackage()
     {
-        return $this->takeGoal('package');
+        return static::takeGoal('package');
     }
 
     public function takeVcs()
     {
-        return $this->takeConfig()->getVcs();
+        return static::takeConfig()->getVcs();
     }
 }
