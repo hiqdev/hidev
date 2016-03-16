@@ -3,12 +3,12 @@ hiqdev/hidev changelog
 
 ## Under development
 
-- Added empty `yii2-extraconfig`
+- Added smart vendor require in `hidev/init`
+- Fixed `bump` and `bump/release`
 - Added easy creation of templated files with `DirectoryController`
 - Added `github/create` and `github/exists` actions
 - Added `StartController::$prjdir` variable containing absolute path to the project root directory
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)
-- Fixed `bump` and `bump/release`
 - Fixed getting default package `src`
 - Added DirectoryController with chmod, chown, chgrp
 

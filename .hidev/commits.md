@@ -3,9 +3,20 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added smart vendor require in `hidev/init`
+    - af54ce3 2016-03-16 finished addding smart vendor require in `hidev/init` (sol@hiqdev.com)
+    - 06571e9 2016-03-16 renamed to passthru/execBinary (sol@hiqdev.com)
+    - c331ed4 2016-03-16 + smart vendor require in `hidev/init` (sol@hiqdev.com)
+    - d0078b4 2016-03-16 + static `GithubController::exists` (sol@hiqdev.com)
+    - 41e8686 2016-03-16 redone takeGoal/Config/Vendor/Vcs, exec, passthru to static (sol@hiqdev.com)
+- Fixed `bump` and `bump/release`
+    - e309819 2016-03-12 ask github token from user (sol@hiqdev.com)
+    - 361821f 2016-03-12 + `readline` and `readpassword` (sol@hiqdev.com)
+    - 9039c2b 2016-03-15 + `PackageController::getVersion` (sol@hiqdev.com)
     - ef8670a 2016-03-12 fixed showing error message when not composered (sol@hiqdev.com)
     - 0378e33 2016-02-28 + binary exec to return exit code (sol@hiqdev.com)
-- Added empty `yii2-extraconfig`
+    - 274d419 2016-02-19 + added (not finished) waiting until push is actually finished (sol@hiqdev.com)
+    - b8c8f11 2016-02-19 improved `version` file reading/writing (check for existing) (sol@hiqdev.com)
     - 9aafba9 2016-03-10 + yii2-extraconfig (sol@hiqdev.com)
     - 001c935 2016-03-10 phpcsfixed (sol@hiqdev.com)
 - Added easy creation of templated files with `DirectoryController`
@@ -22,9 +33,6 @@ hiqdev/hidev commits history
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)
     - a6f476e 2016-02-23 + explicit TemplateController to config (sol@hiqdev.com)
     - 9c48c87 2016-02-23 changed JsonHandler to parse empty JSON to empty array (sol@hiqdev.com)
-- Fixed `bump` and `bump/release`
-    - 274d419 2016-02-19 + added (not finished) waiting until push is actually finished (sol@hiqdev.com)
-    - b8c8f11 2016-02-19 improved `version` file reading/writing (check for existing) (sol@hiqdev.com)
 - Fixed getting default package `src`
     - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 - Added DirectoryController with chmod, chown, chgrp
