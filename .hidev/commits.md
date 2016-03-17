@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - 2b8592a 2016-03-16 + `StartController::addAliases` to add @prjdir and current package namespace (sol@hiqdev.com)
+    - 4956d3a 2016-03-16 fixing scrutinizer issues (sol@hiqdev.com)
+    - c1a7eae 2016-03-16 removed old History class (sol@hiqdev.com)
+    - 41f76b5 2016-03-16 removed commented out code (sol@hiqdev.com)
     - fd5497c 2016-03-16 fixing scrutinizer issues (sol@hiqdev.com)
 - Added smart vendor require in `hidev/init`
     - eecb999 2016-03-16 + test for smart require in `hidev/init` (sol@hiqdev.com)
