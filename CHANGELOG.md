@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed a lot of scrutinized issues
 - Added smart vendor require in `hidev/init`
 - Fixed `bump` and `bump/release`
 - Added easy creation of templated files with `DirectoryController`
