@@ -20,7 +20,6 @@ class GithubController extends CommonController
 {
     protected $_name;
     protected $_vendor;
-    protected $_package;
     protected $_description;
 
     /**
@@ -28,18 +27,35 @@ class GithubController extends CommonController
      */
     protected $_token;
 
+    public function setFull_name($value)
+    {
+        list($this->_vendor, $this->_name) = explode('/', $value, 2);
+    }
+
+    public function getFull_name()
+    {
+        return $this->getVendor() . '/' . $this->getName();
+    }
+
+    public function setFullName($value)
+    {
+        return $this->setFull_name($value);
+    }
+
+    public function getFullName()
+    {
+        return $this->getFull_name();
+    }
+
     public function setName($value)
     {
-        list($vendor, $package) = explode('/', $value, 2);
-        $this->_name    = $value;
-        $this->_vendor  = $vendor ?: $package;
-        $this->_package = $package ?: $vendor;
+        $this->_name = $value;
     }
 
     public function getName()
     {
-        if ($this->_name === null) {
-            $this->setName($this->takePackage()->fullName);
+        if (!$this->_name) {
+            $this->_name = $this->takePackage()->name;
         }
 
         return $this->_name;
@@ -52,25 +68,11 @@ class GithubController extends CommonController
 
     public function getVendor()
     {
-        if ($this->_vendor === null) {
+        if (!$this->_vendor) {
             $this->_vendor = $this->takeVendor()->name;
         }
 
         return $this->_vendor;
-    }
-
-    public function setPackage($value)
-    {
-        $this->_package = $value;
-    }
-
-    public function getPackage()
-    {
-        if ($this->_package === null) {
-            $this->_package = $this->takePackage()->name;
-        }
-
-        return $this->_package;
     }
 
     public function setDescription($value)
@@ -94,7 +96,7 @@ class GithubController extends CommonController
     public function actionCreate()
     {
         return $this->request('POST', '/orgs/' . $this->getVendor() . '/repos', [
-            'name'        => $this->getPackage(),
+            'name'        => $this->getName(),
             'description' => $this->getDescription(),
         ]);
     }
@@ -117,7 +119,7 @@ class GithubController extends CommonController
      */
     public function actionExists($repo = null)
     {
-        return static::exists($repo ?: $this->getName());
+        return static::exists($repo ?: $this->getFull_name());
     }
 
     /**
@@ -141,7 +143,7 @@ class GithubController extends CommonController
             return $wait;
         }
 
-        return $this->request('POST', '/repos/' . $this->getName() . '/releases', [
+        return $this->request('POST', '/repos/' . $this->getFull_name() . '/releases', [
             'tag_name'  => $version,
             'name'      => $version,
             'body'      => $notes,

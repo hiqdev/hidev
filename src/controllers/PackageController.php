@@ -64,7 +64,7 @@ class PackageController extends CommonController
 
     public function getSource()
     {
-        return $this->getItem('source') ?: ('https://github.com/' . $this->takeGoal('github')->name);
+        return $this->getItem('source') ?: ('https://github.com/' . $this->takeGoal('github')->full_name);
     }
 
     public function getVersion()
