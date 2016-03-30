@@ -13,6 +13,13 @@
 Thumbs.db
 nbproject
 
+# PHARs
+box.phar
+composer.phar
+hidev.phar
+php-cs-fixer.phar
+phpunit.phar
+
 # vendor dirs
 vendor
 
@@ -24,13 +31,6 @@ composer.lock
 
 # phpunit generated files
 coverage.clover
-
-# PHARs
-box.phar
-composer.phar
-hidev.phar
-php-cs-fixer.phar
-phpunit.phar
 
 # runtime dir
 /runtime
