@@ -3,6 +3,7 @@ hiqdev/hidev commits history
 
 ## Under development
 
+    - d905002 2016-03-22 CHANGED github name -> full_name to correspond github api (sol@hiqdev.com)
     - e8761fe 2016-03-17 + allow use `symfony/yaml` 2.0 (sol@hiqdev.com)
     - 2b8592a 2016-03-16 + `StartController::addAliases` to add @prjdir and current package namespace (sol@hiqdev.com)
 - Fixed a lot of scrutinized issues
