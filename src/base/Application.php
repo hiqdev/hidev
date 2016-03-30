@@ -63,7 +63,8 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public static function readExtraVendor($dir)
     {
-        return require $dir . '/yiisoft/yii2-extraconfig.php';
+        $path = $dir . '/hiqdev/extensions-config.php';
+        return file_exists($path) ? require $path : [];
     }
 
     /**

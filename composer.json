@@ -52,6 +52,9 @@
         "hiqdev/yii2-collection": "*",
         "hiqdev/composer-extension-plugin": "*"
     },
+    "require-dev": {
+        "hiqdev/composer-extension-plugin": "*@dev"
+    },
     "autoload": {
         "psr-4": {
             "hidev\\": "src"
