@@ -3,7 +3,9 @@ hiqdev/hidev changelog
 
 ## Under development
 
-- Fixed a lot of scrutinized issues
+- Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
+- Changed github `name` -> `full_name` to correspond github api
+- Fixed minor and scrutinized issues
 - Added smart vendor require in `hidev/init`
 - Fixed `bump` and `bump/release`
 - Added easy creation of templated files with `DirectoryController`

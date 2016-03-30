@@ -3,10 +3,13 @@ hiqdev/hidev commits history
 
 ## Under development
 
-    - d905002 2016-03-22 CHANGED github name -> full_name to correspond github api (sol@hiqdev.com)
+- Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
+    - 9259403 2016-03-30 changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php` (sol@hiqdev.com)
+- Changed github `name` -> `full_name` to correspond github api
+    - d905002 2016-03-22 CHANGED github name -> `full_name` to correspond github api (sol@hiqdev.com)
+- Fixed minor and scrutinized issues
     - e8761fe 2016-03-17 + allow use `symfony/yaml` 2.0 (sol@hiqdev.com)
     - 2b8592a 2016-03-16 + `StartController::addAliases` to add @prjdir and current package namespace (sol@hiqdev.com)
-- Fixed a lot of scrutinized issues
     - 4956d3a 2016-03-16 fixing scrutinizer issues (sol@hiqdev.com)
     - c1a7eae 2016-03-16 removed old History class (sol@hiqdev.com)
     - 41f76b5 2016-03-16 removed commented out code (sol@hiqdev.com)
