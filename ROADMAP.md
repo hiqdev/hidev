@@ -1,40 +1,25 @@
 ROADMAP
 -------
 
-### 0.2.0
+### 0.4.0
 
-- travis
-- scrutinizer
-- codeception plugin: generate basic tests
 - tests for: init, .gitignore, composer.json, LICENSE
-- interpolate $variables in config
-- robo plugin: run goals from Robo
-- before/after options
-- status/install/update super goals: run status/install/update action on every goal that has it
 
-### 0.3.0
+### 0.5.0
 
+- interpolate {{ variables }} in config
 - change $done to hold timestamp of goal completion and use it to determine if goal needs to be done
+- split out chkipper
 
-### 1.0.0
+### 0.9.0
 
-- phpunit plugin
-- other build tools integration grunt, gulp, make,  phing, phake plugins: run & load goals
-- CI tools integration: Jenkins, TeamCity
-
-### Refactoring
-
-- generalization for composer, git, testing
-  - PackageManagerGoal or PmGoal
-  - VersionControlGoal or VcsGoal, VcsIgnoreGoal
-- redo CommitsHandler to History component
-- rewrite without yii?
+- other build tools integration: robo, grunt, gulp, make, phing, phake plugins: run & load goals
 
 ### General goals
 
 - **Package management**: composer.json, Packagist
 - **Release automation**: README, LICENSE, CHANGELOG, CONTRIBUTING
-- **Code generation**: php, twig, smarty
+- **Code generation** with php, twig, smarty templates
 - **Documentation**: github wiki, apidoc, phpdoc
 - **Development tools**: swager
 - **Build tools**: robo, grunt, phing, phake, make, ...
