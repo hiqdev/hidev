@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
+    - ede5419 2016-03-31 improved ROADMAP (sol@hiqdev.com)
     - 6514c7d 2016-03-30 redoing to `extension-config` <- `yii2-extraconfig` (sol@hiqdev.com)
     - 9259403 2016-03-30 changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php` (sol@hiqdev.com)
 - Changed github `name` -> `full_name` to correspond github api
