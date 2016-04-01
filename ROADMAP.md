@@ -10,6 +10,7 @@ ROADMAP
 - interpolate {{ variables }} in config
 - change $done to hold timestamp of goal completion and use it to determine if goal needs to be done
 - split out chkipper
+- docker
 
 ### 0.9.0
 
@@ -27,4 +28,5 @@ ROADMAP
 - **Code quality**: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
 - **Testing**: codeception, phpunit, Coveralls
 - **CI**: Travis, Jenkins, TeamCity, AppVeyor
+- **Project deploy**: docker, capistrano
 
