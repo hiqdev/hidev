@@ -111,7 +111,7 @@ class PackageController extends CommonController
 
     public function isDomain()
     {
-        return preg_match('/^[a-z0-9.-]+$/', $this->name);
+        return preg_match('/^[a-z0-9-]+(\.[a-z0-9]+)+$/', $this->name);
     }
 
     public function getTitle()
