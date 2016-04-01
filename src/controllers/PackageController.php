@@ -24,6 +24,11 @@ class PackageController extends CommonController
 {
     use \hiqdev\yii2\collection\ObjectTrait;
 
+    public function getType()
+    {
+        return $this->getItem('type') ?: 'project';
+    }
+
     public function getYears()
     {
         $cur = (integer) date('Y');
@@ -91,7 +96,7 @@ class PackageController extends CommonController
 
     public function getHomepage()
     {
-        return $this->getItem('homepage') ?: $this->getSource();
+        return $this->getItem('homepage') ?: ($this->isDomain() ? 'http://' . $this->name . '/' : $this->getSource());
     }
 
     public function getForum()
@@ -104,9 +109,14 @@ class PackageController extends CommonController
         return $this->getItem('label') ?: $this->getHeadline() ?: Helper::id2camel($this->name);
     }
 
+    public function isDomain()
+    {
+        return preg_match('/^[a-z0-9.-]+$/', $this->name);
+    }
+
     public function getTitle()
     {
-        return $this->getItem('title') ?: Helper::titleize($this->name);
+        return $this->getItem('title') ?: ($this->isDomain() ? $this->name : Helper::titleize($this->name));
     }
 
     public function getHeadline()
