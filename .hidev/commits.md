@@ -3,6 +3,8 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed back to yii2 <- minii
+    - 66a75bc 2016-04-02 CHANGED back to yii2 <- minii (sol@hiqdev.com)
 - Added `StartController::addAutoloader` to load project's own autoloader
     - 04baf42 2016-04-02 cleaned up unused bootstraps at tests (sol@hiqdev.com)
     - 7c43216 2016-04-02 + `StartController::addAutoloader` to load autoloader of the project (sol@hiqdev.com)
