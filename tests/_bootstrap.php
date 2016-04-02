@@ -11,6 +11,6 @@
 
 error_reporting(-1);
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../src/_bootstrap.php';
 
 Yii::setAlias('@hidev', dirname(__DIR__));
