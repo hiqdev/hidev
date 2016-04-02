@@ -9,16 +9,17 @@
  * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
  */
 
-foreach ([__DIR__ . '/vendor/autoload.php', __DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
-    if (file_exists($file)) {
-        define('HIDEV_AUTOLOAD_FILE', $file);
+foreach ([__DIR__ . '/vendor', dirname(dirname(__DIR__)), dirname(__DIR__) . '/vendor'] as $dir) {
+    if (file_exists($dir . '/autoload.php')) {
+        define('HIDEV_VENDOR_DIR', $dir);
         break;
     }
 }
 
-if (!defined('HIDEV_AUTOLOAD_FILE')) {
+if (!defined('HIDEV_VENDOR_DIR')) {
     fwrite(STDERR, "Run composer to set up hidev own dependencies!\n");
     exit(1);
 }
 
-require HIDEV_AUTOLOAD_FILE;
+require_once HIDEV_VENDOR_DIR . '/autoload.php';
+require_once HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';

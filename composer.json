@@ -44,9 +44,7 @@
         }
     ],
     "require": {
-        "minii/console": "*",
-        "minii/caching": "*",
-        "minii/helpers": "*",
+        "yiisoft/yii2": "~2.0.0",
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "^3.0 | ^2.0",
         "hiqdev/yii2-collection": "*",
@@ -59,6 +57,12 @@
         "psr-4": {
             "hidev\\": "src"
         }
+    },
+    "replace": {
+        "bower-asset/jquery": "*",
+        "bower-asset/jquery.inputmask": "*",
+        "bower-asset/punycode": "*",
+        "bower-asset/yii2-pjax": "*"
     },
     "autoload-dev": {
         "psr-4": {
