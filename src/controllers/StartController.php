@@ -40,9 +40,20 @@ class StartController extends CommonController
     {
         $this->takeConfig()->includeConfig(static::MAIN_CONFIG);
         $this->addAliases();
+        $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
         self::$started = true;
+    }
+
+    public function addAutoloader()
+    {
+        $autoloader = Yii::getAlias('@prjdir/vendor/autoload.php');
+        if (file_exists($autoloader)) {
+            spl_autoload_unregister(['Yii', 'autoload']);
+            require $autoloader;
+            spl_autoload_register(['Yii', 'autoload'], true, true);
+        }
     }
 
     /**
