@@ -3,9 +3,11 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added `StartController::addAutoloader` to load project's own autoloader
+- Added better defaults when package name is domain
 - Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
 - Changed github `name` -> `full_name` to correspond github api
-- Fixed minor and scrutinized issues
+- Fixed minor and scrutinizer issues
 - Added smart vendor require in `hidev/init`
 - Fixed `bump` and `bump/release`
 - Added easy creation of templated files with `DirectoryController`

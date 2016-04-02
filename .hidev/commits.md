@@ -3,13 +3,20 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added `StartController::addAutoloader` to load project's own autoloader
+    - 04baf42 2016-04-02 cleaned up unused bootstraps at tests (sol@hiqdev.com)
+    - 7c43216 2016-04-02 + `StartController::addAutoloader` to load autoloader of the project (sol@hiqdev.com)
+- Added better defaults when package name is domain
+    - c7f604b 2016-04-01 fixed isDomain checking (sol@hiqdev.com)
+    - 732eec5 2016-04-01 + ideas to roadmap (sol@hiqdev.com)
+    - bb6db97 2016-04-01 + better defaults: type=project and title=name when domain (sol@hiqdev.com)
 - Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
     - ede5419 2016-03-31 improved ROADMAP (sol@hiqdev.com)
     - 6514c7d 2016-03-30 redoing to `extension-config` <- `yii2-extraconfig` (sol@hiqdev.com)
     - 9259403 2016-03-30 changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php` (sol@hiqdev.com)
 - Changed github `name` -> `full_name` to correspond github api
     - d905002 2016-03-22 CHANGED github name -> `full_name` to correspond github api (sol@hiqdev.com)
-- Fixed minor and scrutinized issues
+- Fixed minor and scrutinizer issues
     - e8761fe 2016-03-17 + allow use `symfony/yaml` 2.0 (sol@hiqdev.com)
     - 2b8592a 2016-03-16 + `StartController::addAliases` to add @prjdir and current package namespace (sol@hiqdev.com)
     - 4956d3a 2016-03-16 fixing scrutinizer issues (sol@hiqdev.com)
