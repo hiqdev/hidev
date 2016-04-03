@@ -3,8 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added loading of project's own bootstrap and config
 - Changed back to yii2 <- minii
-- Added `StartController::addAutoloader` to load project's own autoloader
 - Added better defaults when package name is domain
 - Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
 - Changed github `name` -> `full_name` to correspond github api
