@@ -43,6 +43,7 @@ class StartController extends CommonController
         $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
+        $this->loadConfig();
         self::$started = true;
     }
 
@@ -53,6 +54,14 @@ class StartController extends CommonController
             spl_autoload_unregister(['Yii', 'autoload']);
             require $autoloader;
             spl_autoload_register(['Yii', 'autoload'], true, true);
+        }
+    }
+
+    public function loadConfig()
+    {
+        $config = $this->takeConfig()->rawItem('config');
+        if ($config) {
+            Yii::$app->loadExtraConfig($config);
         }
     }
 
