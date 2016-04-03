@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
  */
 
-if (!defined('HIDEV_DIR')) {
+if (!defined('HIDEV_VENDOR_DIR')) {
     foreach ([dirname(__DIR__) . '/vendor', dirname(dirname(dirname(__DIR__)))] as $dir) {
         if (file_exists($dir . '/autoload.php')) {
             define('HIDEV_VENDOR_DIR', $dir);
@@ -22,6 +22,6 @@ if (!defined('HIDEV_DIR')) {
         exit(1);
     }
 
-    require_once HIDEV_VENDOR_DIR . '/autoload.php';
-    require_once HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';
+    require HIDEV_VENDOR_DIR . '/autoload.php';
+    require HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';
 }
