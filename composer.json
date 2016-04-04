@@ -58,12 +58,6 @@
             "hidev\\": "src"
         }
     },
-    "replace": {
-        "bower-asset/jquery": "*",
-        "bower-asset/jquery.inputmask": "*",
-        "bower-asset/punycode": "*",
-        "bower-asset/yii2-pjax": "*"
-    },
     "autoload-dev": {
         "psr-4": {
             "hidev\\tests\\": "tests"
@@ -74,5 +68,11 @@
     ],
     "extra": {
         "extension-config": "src/extension-config.php"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://asset-packagist.hiqdev.com"
+        }
+    ]
 }
