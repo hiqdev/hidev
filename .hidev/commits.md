@@ -3,14 +3,18 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed back to yii2 <- minii, used `asset-packagist.hiqdev.com` repository
+    - a72c3cb 2016-04-04 fixed travis build (sol@hiqdev.com)
+    - 9b4e898 2016-04-04 debugging travis build (sol@hiqdev.com)
+    - af84f05 2016-04-04 switched to https asset-packagist.hiqdev.com (sol@hiqdev.com)
+    - f588f49 2016-04-04 used asset-packagist.hiqdev.com repository (sol@hiqdev.com)
+    - 165bc08 2016-04-03 fixed typos at `src/_bootstrap.php` (sol@hiqdev.com)
+    - 5142b11 2016-04-02 redone bootstrapping (sol@hiqdev.com)
+    - 66a75bc 2016-04-02 CHANGED back to yii2 <- minii (sol@hiqdev.com)
 - Added loading of project's own bootstrap and config
     - 1257928 2016-04-03 + `StartController::loadConfig` to load project's own config (sol@hiqdev.com)
     - 04baf42 2016-04-02 cleaned up unused bootstraps at tests (sol@hiqdev.com)
     - 7c43216 2016-04-02 + `StartController::addAutoloader` to load autoloader of the project (sol@hiqdev.com)
-- Changed back to yii2 <- minii
-    - 165bc08 2016-04-03 fixed typos at `src/_bootstrap.php` (sol@hiqdev.com)
-    - 5142b11 2016-04-02 redone bootstrapping (sol@hiqdev.com)
-    - 66a75bc 2016-04-02 CHANGED back to yii2 <- minii (sol@hiqdev.com)
 - Added better defaults when package name is domain
     - c7f604b 2016-04-01 fixed isDomain checking (sol@hiqdev.com)
     - 732eec5 2016-04-01 + ideas to roadmap (sol@hiqdev.com)
