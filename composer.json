@@ -72,7 +72,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://asset-packagist.hiqdev.com"
+            "url": "https://asset-packagist.hiqdev.com"
         }
     ]
 }
