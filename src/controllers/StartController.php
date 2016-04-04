@@ -57,14 +57,6 @@ class StartController extends CommonController
         }
     }
 
-    public function loadConfig()
-    {
-        $config = $this->takeConfig()->rawItem('config');
-        if ($config) {
-            Yii::$app->loadExtraConfig($config);
-        }
-    }
-
     /**
      * Update action.
      * @return int exit code
@@ -124,6 +116,17 @@ class StartController extends CommonController
                     $still = $still || $this->takeConfig()->includeConfig($path);
                 }
             }
+        }
+    }
+
+    /**
+     * Load project's config if configured.
+     */
+    public function loadConfig()
+    {
+        $path = $this->takeConfig()->rawItem('config');
+        if ($path) {
+            Yii::$app->loadExtraConfig($path);
         }
     }
 
