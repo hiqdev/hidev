@@ -16,6 +16,8 @@ use Yii;
 
 /**
  * A file to be processed with hidev.
+ *
+ * @property string $minimalPath path to minimal example file
  */
 class File extends \yii\base\Object
 {
@@ -220,7 +222,7 @@ class File extends \yii\base\Object
 
     public function load()
     {
-        return $this->data = $this->getHandler()->parsePath($this->getPath(), $this->minimalPath);
+        return $this->data = $this->getHandler()->parsePath($this->getPath(), $this->getMinimalPath());
     }
 
     public function read()
@@ -258,7 +260,7 @@ class File extends \yii\base\Object
 
     public function find(array $types = [])
     {
-        if (!$types) {
+        if (empty($types)) {
             $types = $this->types;
         }
         foreach ($types as $type) {
