@@ -43,7 +43,7 @@ class BinariesController extends CommonController
     /**
      * Prepares and runs with passthru. Returns exit code.
      * @param string $name binary
-     * @param string $args
+     * @param array|string $args
      * @return int exit code
      */
     public function passthruBinary($name, $args = [])

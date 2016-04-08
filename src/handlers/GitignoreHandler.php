@@ -22,6 +22,7 @@ class GitignoreHandler extends BaseHandler
     {
         $items = [];
         $lines = is_file($path) ? $this->readArray($path) : [];
+        $comment = '';
         foreach ($lines as $str) {
             $str = trim($str);
             if (!$str) {

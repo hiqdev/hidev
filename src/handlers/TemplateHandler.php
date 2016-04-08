@@ -40,11 +40,6 @@ class TemplateHandler extends BaseHandler
         ], parent::prepareData($data));
     }
 
-    public function parse($json)
-    {
-        return [];
-    }
-
     public function existsTemplate()
     {
         return $this->template && $this->view->existsTemplate($this->template);

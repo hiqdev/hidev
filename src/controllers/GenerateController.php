@@ -25,8 +25,8 @@ class GenerateController extends TemplateController
 
     public function actionPerform($template = null, $file = null)
     {
-        $this->template = $template;
-        $this->file     = $file ?: static::template2file($template);
+        $this->setTemplate($template);
+        $this->setFile($file ?: static::template2file($template));
 
         return parent::actionPerform();
     }

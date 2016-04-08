@@ -68,9 +68,9 @@ class CommitsHandler extends BaseHandler
 
     public function addNote($note, $label = null)
     {
-        $this->note = $note;
-        $ref        = &$this->_history[$this->tag][$note]['note'];
-        $ref        = $label ?: $ref ?: $note;
+        $this->setNote($note);
+        $ref = &$this->_history[$this->getTag()][$note]['note'];
+        $ref = $label ?: $ref ?: $note;
     }
 
     public function addHash($hash, $label)
@@ -86,11 +86,12 @@ class CommitsHandler extends BaseHandler
 
     public function parsePath($path, $minimal = null)
     {
-        $this->tag      = static::getVcs()->lastTag;
+        $this->setTag(static::getVcs()->lastTag);
         $this->_history = [
-            $this->tag => [],
+            $this->getTag() => [],
         ];
         $lines = is_file($path) ? $this->readArray($path) : [];
+        $no = 0;
         foreach ($lines as $str) {
             $str = rtrim($str);
             ++$no;
@@ -119,7 +120,7 @@ class CommitsHandler extends BaseHandler
             if (preg_match('/^\s+- ([0-9a-fA-F]{7})/', $str, $m)) {
                 $this->addHash($m[1], $str);
             }
-            $this->_history[$this->tag][$this->note][$this->hash][] = $str;
+            $this->_history[$this->getTag()][$this->getNote()][$this->getHash()][] = $str;
         }
 
         return $this->_history;
@@ -169,13 +170,10 @@ class CommitsHandler extends BaseHandler
             $this->addHistory(['tag' => static::getVcs()->initTag]);
         }
 
-        /// TODO
-        /// $this->cleanupHistory();
-
         foreach ($this->_history as $tag => $notes) {
             $prev = $res;
-            $tag = static::arrayPop($notes, 'tag') ?: $tag;
-            $new = static::arrayPop($notes, '') ?: [];
+            $tag  = static::arrayPop($notes, 'tag') ?: $tag;
+            $new  = static::arrayPop($notes, '') ?: [];
             $res .= static::renderTag($tag);
             $save = $res;
             foreach ($new as $hash => $lines) {
@@ -188,8 +186,6 @@ class CommitsHandler extends BaseHandler
                     $res .= static::renderLines($lines);
                 }
             }
-            /// TODO redo with cleanupHistory
-            /// skip empty Under development section
             if ($save === $res && stripos($tag, static::getVcs()->lastTag) !== false) {
                 $res = $prev;
                 unset($this->_history[$tag]);

@@ -30,8 +30,12 @@ class VcsignoreController extends FileController
         '.DS_Store'            => 'IDE & OS files',
     ];
 
+    /**
+     * Load action.
+     */
     public function actionLoad()
     {
+        $items = [];
         foreach ($this->takeGoal('binaries')->keys() as $name) {
             $items[$name . '.phar'] = 'PHARs';
         }
@@ -41,10 +45,11 @@ class VcsignoreController extends FileController
         $this->takeVcs()->setIgnore($items);
     }
 
+    /**
+     * Save action.
+     */
     public function actionSave()
     {
         $this->getFile()->save($this->takeVcs()->getIgnore());
-
-        return 0;
     }
 }

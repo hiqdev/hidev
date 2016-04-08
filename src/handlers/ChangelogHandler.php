@@ -29,7 +29,7 @@ class ChangelogHandler extends BaseHandler
 
         foreach ($this->goal->takeGoal('commits')->getHistory() as $tag => $notes) {
             $tag = CommitsHandler::arrayPop($notes, 'tag') ?: $tag;
-            $new = CommitsHandler::arrayPop($notes, '');
+            CommitsHandler::arrayPop($notes, '');
             $res .= CommitsHandler::renderTag($tag);
             $this->releaseNotes[$tag] = '';
             foreach ($notes as $note => $cs) {

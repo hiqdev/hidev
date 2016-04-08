@@ -104,6 +104,16 @@ class BaseHandler extends \yii\base\Object
     }
 
     /**
+     * Parses string input. To be redefined in real handlers.
+     * @param string $json 
+     * @return array
+     */
+    public function parse($json)
+    {
+        return [];
+    }
+
+    /**
      * Writes given content to the file.
      * Doesn't touch file if it has exactly same content.
      * Creates intermediate directories when necessary.

@@ -11,7 +11,7 @@
 
 namespace hidev\controllers;
 
-use Yii;
+use yii\base\InvalidConfigException;
 
 /**
  * Controller for Git.
@@ -73,6 +73,10 @@ class GitController extends VcsController
         $this->_history[$this->tag][$hash] = $commit;
     }
 
+    /**
+     * Loads raw git history.
+     * @throws InvalidConfigException
+     */
     public function loadHistory()
     {
         if (!file_exists('.git')) {
@@ -80,10 +84,12 @@ class GitController extends VcsController
         }
         exec("git log --date=short --pretty='format:%h %ad %ae %s |%d'", $logs);
         $this->tag = $this->lastTag;
+        if (empty($logs)) {
+            return;
+        }
         foreach ($logs as $log) {
             if (!preg_match('/^(\w+) ([0-9-]+) (\S+) (.*?)\s+\| ?(\([^\(\)]+\))?$/', $log, $m)) {
-                Yii::error('failed parse git log');
-                die();
+                throw new InvalidConfigException('failed parse git log');
             }
             $this->addHistory([
                 'hash'    => $m[1],
@@ -132,10 +138,10 @@ class GitController extends VcsController
     public function getYear()
     {
         $tags = $this->getTags();
-        if ($tags) {
-            $date = array_pop($this->getTags());
-        } else {
+        if (empty($tags)) {
             $date = `git log --reverse --pretty=%ai | head -n 1`;
+        } else {
+            $date = array_pop($tags);
         }
         $year = $date ? date('Y', strtotime($date)) : '';
 

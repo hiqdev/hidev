@@ -13,6 +13,7 @@ namespace hidev\controllers;
 
 use hidev\helpers\Helper;
 use Yii;
+use yii\console\Response;
 
 /**
  * Abstract controller.
@@ -46,6 +47,9 @@ abstract class AbstractController extends \hidev\base\Controller
         return $this->runRequests($this->getBefore());
     }
 
+    /**
+     * @return int|Response exit code
+     */
     public function actionMake()
     {
         return $this->runActions($this->getMake());
@@ -196,10 +200,10 @@ abstract class AbstractController extends \hidev\base\Controller
     /**
      * Runs given binary with given arguments. Returns exit code.
      * @param string $name
-     * @param string $args
+     * @param array|string $args
      * @return int exit code
      */
-    public static function passthru($name, $args = '')
+    public static function passthru($name, $args = [])
     {
         return static::takeGoal('binaries')->passthruBinary($name, $args);
     }

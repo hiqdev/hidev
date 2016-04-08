@@ -11,6 +11,7 @@
 
 namespace hidev\controllers;
 
+use Exception;
 use hidev\helpers\Helper;
 use yii\base\InvalidParamException;
 
