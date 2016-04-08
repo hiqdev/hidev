@@ -4,6 +4,9 @@ hiqdev/hidev commits history
 ## Under development
 
 - Changed back to yii2 <- minii, used `asset-packagist.hiqdev.com` repository
+    - 21166ab 2016-04-08 removed RoboFile (sol@hiqdev.com)
+    - e8776fd 2016-04-08 fixed scrutinizer issues (sol@hiqdev.com)
+    - 24d81b7 2016-04-07 fixed scrutinizer issues (sol@hiqdev.com)
     - a72c3cb 2016-04-04 fixed travis build (sol@hiqdev.com)
     - 9b4e898 2016-04-04 debugging travis build (sol@hiqdev.com)
     - af84f05 2016-04-04 switched to https asset-packagist.hiqdev.com (sol@hiqdev.com)
