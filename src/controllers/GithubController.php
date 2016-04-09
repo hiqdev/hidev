@@ -95,10 +95,15 @@ class GithubController extends CommonController
      */
     public function actionCreate()
     {
-        return $this->request('POST', '/orgs/' . $this->getVendor() . '/repos', [
+        $res = $this->request('POST', '/orgs/' . $this->getVendor() . '/repos', [
             'name'        => $this->getName(),
             'description' => $this->getDescription(),
         ]);
+        if (static::isOk($res)) {
+            print "\ngit remote add origin git@github.com:{$this->getFullName()}.git\ngit push -u origin master\n";
+        }
+
+        return $res;
     }
 
     /**
