@@ -33,6 +33,6 @@ class YamlHandler extends TypeHandler
      */
     public function parse($yaml)
     {
-        return Yaml::parse($yaml);
+        return (array) Yaml::parse($yaml);
     }
 }

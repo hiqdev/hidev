@@ -139,9 +139,24 @@ abstract class AbstractController extends \hidev\base\Controller
         return $request === null ? null : $this->module->runRequest($request);
     }
 
+    /**
+     * Is response NOT Ok.
+     * @param Response|int $res
+     * @return bool
+     */
     public static function isNotOk($res)
     {
         return is_object($res) ? $res->exitStatus : $res;
+    }
+
+    /**
+     * Is response Ok.
+     * @param Response|int $res
+     * @return bool
+     */
+    public static function isOk($res)
+    {
+        return !static::isNotOk($res);
     }
 
     /**
