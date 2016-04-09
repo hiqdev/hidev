@@ -3,7 +3,13 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added `github/create` and `github/exists` actions
+    - c186f54 2016-04-09 improved `github/create` to show instructions (sol@hiqdev.com)
+    - c4a1380 2016-02-28 + github exists action (sol@hiqdev.com)
+    - 0d87f6f 2016-02-23 + `github/create` with proper name and description (sol@hiqdev.com)
+    - 2fbeaa4 2016-02-23 fixed GitController to git history only if git repository actually exists (sol@hiqdev.com)
 - Changed back to yii2 <- minii, used `asset-packagist.hiqdev.com` repository
+    - a894630 2016-04-09 fixed cs (sol@hiqdev.com)
     - 21166ab 2016-04-08 removed RoboFile (sol@hiqdev.com)
     - e8776fd 2016-04-08 fixed scrutinizer issues (sol@hiqdev.com)
     - 24d81b7 2016-04-07 fixed scrutinizer issues (sol@hiqdev.com)
@@ -58,10 +64,6 @@ hiqdev/hidev commits history
     - 48eeab0 2016-02-27 removed dirs from config (sol@hiqdev.com)
     - 960b60c 2016-02-23 enabled easy creation of templated files with DirectoryController (sol@hiqdev.com)
     - 1a8499d 2016-02-23 + `FileController::$once` option to save file only once, no rewrite (sol@hiqdev.com)
-- Added `github/create` and `github/exists` actions
-    - c4a1380 2016-02-28 + github exists action (sol@hiqdev.com)
-    - 0d87f6f 2016-02-23 + `github/create` with proper name and description (sol@hiqdev.com)
-    - 2fbeaa4 2016-02-23 fixed GitController to git history only if git repository actually exists (sol@hiqdev.com)
 - Added `StartController::$prjdir` variable containing absolute path to the project root directory
     - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)

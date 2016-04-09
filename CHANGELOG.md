@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added `github/create` and `github/exists` actions
 - Changed back to yii2 <- minii, used `asset-packagist.hiqdev.com` repository
 - Added loading of project's own bootstrap and config
 - Added better defaults when package name is domain
@@ -12,7 +13,6 @@ hiqdev/hidev changelog
 - Added smart vendor require in `hidev/init`
 - Fixed `bump` and `bump/release`
 - Added easy creation of templated files with `DirectoryController`
-- Added `github/create` and `github/exists` actions
 - Added `StartController::$prjdir` variable containing absolute path to the project root directory
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)
 - Fixed getting default package `src`
