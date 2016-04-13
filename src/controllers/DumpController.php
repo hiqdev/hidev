@@ -12,6 +12,7 @@
 namespace hidev\controllers;
 
 use Symfony\Component\Yaml\Yaml;
+use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -24,5 +25,13 @@ class DumpController extends CommonController
         $data = $this->takeConfig()->getItems();
         unset($data['dump'], $data['start']);
         echo Yaml::dump(ArrayHelper::toArray($data), 4);
+    }
+
+    public function actionInternals()
+    {
+        $internals = [
+            'aliases'   => Yii::$aliases,
+        ];
+        echo Yaml::dump($internals, 4);
     }
 }
