@@ -90,7 +90,7 @@ class StartController extends CommonController
     {
         $require = $this->takeConfig()->rawItem('require');
         if ($require) {
-            $require['hiqdev/composer-extension-plugin'] = '*@dev';
+            $require['hiqdev/composer-extension-plugin'] = 'dev-master';
             $saved = File::create('.hidev/composer.json')->save(compact('require'));
             if ($saved || !is_dir('.hidev/vendor')) {
                 $this->runAction('update');
