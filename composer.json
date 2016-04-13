@@ -51,6 +51,7 @@
         "hiqdev/composer-extension-plugin": "*"
     },
     "require-dev": {
+        "yiisoft/yii2": "dev-master",
         "hiqdev/composer-extension-plugin": "dev-master"
     },
     "autoload": {
