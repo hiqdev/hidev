@@ -3,11 +3,11 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Changed to use `hiqdev/composer-extension-plugin` instead of PluginManager
 - Added `github/create` and `github/exists` actions
 - Changed back to yii2 <- minii, used `asset-packagist.hiqdev.com` repository
 - Added loading of project's own bootstrap and config
 - Added better defaults when package name is domain
-- Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
 - Changed github `name` -> `full_name` to correspond github api
 - Fixed minor and scrutinizer issues
 - Added smart vendor require in `hidev/init`

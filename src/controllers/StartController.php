@@ -131,7 +131,6 @@ class StartController extends CommonController
         }
     }
 
-
     public function getPrjDir()
     {
         if ($this->prjdir === null) {

@@ -3,6 +3,15 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed to use `hiqdev/composer-extension-plugin` instead of PluginManager
+    - 26e6f42 2016-04-13 redone to `hidev-config` <- `extension-config` (sol@hiqdev.com)
+    - 6563e6d 2016-04-13 fixed readExtraVendor for new hiqdev/composer-extension-plugin (sol@hiqdev.com)
+    - 671164a 2016-04-13 forced to use `dev-master` version of `hiqdev/composer-extension-plugin` (sol@hiqdev.com)
+    - d10132e 2016-04-13 fixed cding to prjdir (sol@hiqdev.com)
+    - ede5419 2016-03-31 improved ROADMAP (sol@hiqdev.com)
+    - 6514c7d 2016-03-30 redoing to `extension-config` <- `yii2-extraconfig` (sol@hiqdev.com)
+    - 9259403 2016-03-30 changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php` (sol@hiqdev.com)
+    - 9aafba9 2016-03-10 + yii2-extraconfig (sol@hiqdev.com)
 - Added `github/create` and `github/exists` actions
     - c186f54 2016-04-09 improved `github/create` to show instructions (sol@hiqdev.com)
     - c4a1380 2016-02-28 + github exists action (sol@hiqdev.com)
@@ -28,10 +37,6 @@ hiqdev/hidev commits history
     - c7f604b 2016-04-01 fixed isDomain checking (sol@hiqdev.com)
     - 732eec5 2016-04-01 + ideas to roadmap (sol@hiqdev.com)
     - bb6db97 2016-04-01 + better defaults: type=project and title=name when domain (sol@hiqdev.com)
-- Changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php`
-    - ede5419 2016-03-31 improved ROADMAP (sol@hiqdev.com)
-    - 6514c7d 2016-03-30 redoing to `extension-config` <- `yii2-extraconfig` (sol@hiqdev.com)
-    - 9259403 2016-03-30 changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php` (sol@hiqdev.com)
 - Changed github `name` -> `full_name` to correspond github api
     - d905002 2016-03-22 CHANGED github name -> `full_name` to correspond github api (sol@hiqdev.com)
 - Fixed minor and scrutinizer issues
@@ -57,7 +62,6 @@ hiqdev/hidev commits history
     - 0378e33 2016-02-28 + binary exec to return exit code (sol@hiqdev.com)
     - 274d419 2016-02-19 + added (not finished) waiting until push is actually finished (sol@hiqdev.com)
     - b8c8f11 2016-02-19 improved `version` file reading/writing (check for existing) (sol@hiqdev.com)
-    - 9aafba9 2016-03-10 + yii2-extraconfig (sol@hiqdev.com)
     - 001c935 2016-03-10 phpcsfixed (sol@hiqdev.com)
 - Added easy creation of templated files with `DirectoryController`
     - 7348679 2016-02-27 improved Idea description (sol@hiqdev.com)
