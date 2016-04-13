@@ -47,8 +47,7 @@
         "yiisoft/yii2": "~2.0.0",
         "yiisoft/yii2-twig": "~2.0",
         "symfony/yaml": "^3.0 | ^2.0",
-        "hiqdev/yii2-collection": "*",
-        "hiqdev/composer-extension-plugin": "*"
+        "hiqdev/yii2-collection": "*"
     },
     "require-dev": {
         "yiisoft/yii2": "dev-master",
