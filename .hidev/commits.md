@@ -6,6 +6,7 @@ hiqdev/hidev commits history
 - Added `dump/internals` action
     - 596dc67 2016-04-13 + `dump/internals` (sol@hiqdev.com)
 - Changed to use `hiqdev/composer-extension-plugin` instead of PluginManager
+    - ccead93 2016-04-13 - forced require hiqdev/composer-extension-plugin at `composer.json` and `.hidev/composer.json` (sol@hiqdev.com)
     - 26e6f42 2016-04-13 redone to `hidev-config` <- `extension-config` (sol@hiqdev.com)
     - 6563e6d 2016-04-13 fixed readExtraVendor for new hiqdev/composer-extension-plugin (sol@hiqdev.com)
     - 671164a 2016-04-13 forced to use `dev-master` version of `hiqdev/composer-extension-plugin` (sol@hiqdev.com)
