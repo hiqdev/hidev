@@ -38,6 +38,7 @@ class StartController extends CommonController
      */
     public function actionMake()
     {
+        $this->getPrjDir();
         $this->takeConfig()->includeConfig(static::MAIN_CONFIG);
         $this->addAliases();
         $this->addAutoloader();
@@ -73,10 +74,10 @@ class StartController extends CommonController
      */
     public function addAliases()
     {
-        Yii::setAlias('@prjdir', $this->findPrjDir());
+        Yii::setAlias('@prjdir', $this->getPrjDir());
         $config = $this->takeConfig()->rawItem('package');
-        $alias  = '@' . strtr($config['namespace'], '\\', '/');
-        if ($alias && !Yii::getAlias($alias, false)) {
+        $alias  = strtr($config['namespace'], '\\', '/');
+        if ($alias && !Yii::getAlias('@' . $alias, false)) {
             $srcdir = Yii::getAlias('@prjdir/' . ($config['src'] ?: 'src'));
             Yii::setAlias($alias, $srcdir);
         }
@@ -128,6 +129,16 @@ class StartController extends CommonController
         if ($path) {
             Yii::$app->loadExtraConfig($path);
         }
+    }
+
+
+    public function getPrjDir()
+    {
+        if ($this->prjdir === null) {
+            $this->prjdir = $this->findPrjDir();
+        }
+
+        return $this->prjdir;
     }
 
     /**
