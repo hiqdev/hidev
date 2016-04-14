@@ -12,5 +12,3 @@
 error_reporting(-1);
 
 require __DIR__ . '/../src/_bootstrap.php';
-
-Yii::setAlias('@hidev', dirname(__DIR__));
