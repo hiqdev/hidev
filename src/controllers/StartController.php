@@ -89,15 +89,24 @@ class StartController extends CommonController
     protected function requireAll()
     {
         $require = $this->takeConfig()->rawItem('require');
+        $vendors = [];
         if ($require) {
             $saved = File::create('.hidev/composer.json')->save(compact('require'));
             if ($saved || !is_dir('.hidev/vendor')) {
                 $this->runAction('update');
             }
+            $vendors[] = '.hidev/vendor';
+        }
+        if (file_exists('vendor/hiqdev')) {
+            $vendors[] = 'vendor';
+        }
+        if (!empty($vendors)) {
             /// backup config then reset with extra config then restore
             $config = $this->takeConfig()->getItems();
             Yii::$app->clear('config');
-            Yii::$app->loadExtraVendor('.hidev/vendor');
+            foreach (array_unique($vendors) as $dir) {
+                Yii::$app->loadExtraVendor($dir);
+            }
             $this->takeConfig()->mergeItems($config);
         }
     }
