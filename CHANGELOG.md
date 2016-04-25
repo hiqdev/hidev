@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added command controller class
 - Added `dump/internals` action
 - Changed to use `hiqdev/composer-extension-plugin` instead of PluginManager
 - Added `github/create` and `github/exists` actions

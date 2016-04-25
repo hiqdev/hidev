@@ -3,6 +3,15 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added command controller class
+    - 210ff02 2016-04-25 phpcsfixed (sol@hiqdev.com)
+    - 9a246f3 2016-04-25 + recursive behavior at DirectoryController (sol@hiqdev.com)
+    - d905e0f 2016-04-25 fixed chown and chgrp at File (sol@hiqdev.com)
+    - 6243660 2016-04-25 + command controller (sol@hiqdev.com)
+    - 2d359c1 2016-04-25 fixed runtime path to be next to vendor (sol@hiqdev.com)
+    - 951f0fa 2016-04-25 + empty view (sol@hiqdev.com)
+    - e0cd62b 2016-04-18 fixed loading extra vendor config (sol@hiqdev.com)
+    - 1ab4f8e 2016-04-14 fixed bootstrapping: + set alias for hidev (sol@hiqdev.com)
 - Added `dump/internals` action
     - 596dc67 2016-04-13 + `dump/internals` (sol@hiqdev.com)
 - Changed to use `hiqdev/composer-extension-plugin` instead of PluginManager

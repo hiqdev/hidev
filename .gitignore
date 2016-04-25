@@ -30,6 +30,7 @@ box.phar
 composer.phar
 hidev.phar
 php-cs-fixer.phar
+phpunit-skelgen.phar
 phpunit.phar
 
 # runtime dir
