@@ -144,7 +144,6 @@ class FileController extends CollectionController
         }
         $this->_items = Helper::uniqueConfig($this->_items);
         $this->getFile()->save($this);
-        return 0;
     }
 
     public function actionModify()

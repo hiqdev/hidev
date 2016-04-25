@@ -18,6 +18,7 @@ use Yii;
  */
 class DirectoryController extends FileController
 {
+    public $recursive = [];
     /**
      * Load action.
      * @return void
@@ -42,6 +43,14 @@ class DirectoryController extends FileController
                 'class' => isset($config['template']) ? 'template' : 'directory',
                 'file'  => $this->path . '/' . $id,
             ];
+            if ($this->recursive) {
+                $defaults['recursive'] = $this->recursive;
+                foreach ((array)$this->recursive as $key) {
+                    if ($this->{$key}) {
+                        $defaults[$key] = $this->{$key};
+                    }
+                }
+            }
             $goal = $this->takeConfig()->createItem($id, array_merge($defaults, $config ?: []));
             $goal->perform();
         }
