@@ -293,7 +293,7 @@ class File extends \yii\base\Object
 
     public function getUid()
     {
-        return $this->getStat(4);
+        return (string)$this->getStat(4);
     }
 
     public function getOwner()
@@ -307,7 +307,7 @@ class File extends \yii\base\Object
 
     public function getGid()
     {
-        return $this->getStat(5);
+        return (string)$this->getStat(5);
     }
 
     public function getGroup()
@@ -321,11 +321,17 @@ class File extends \yii\base\Object
 
     public function getPermissions()
     {
-        return substr(sprintf('%o', $this->getStat(2)), -4);
+        return static::formatOctal($this->getStat(2));
+    }
+
+    static public function formatOctal($value)
+    {
+        return substr(sprintf('%o', $value), -4);
     }
 
     public function chmod($value)
     {
+        $value = is_int($value) ? static::formatOctal($value) : (string)$value;
         if ($value === $this->getPermissions()) {
             return;
         }
@@ -337,7 +343,7 @@ class File extends \yii\base\Object
     public function chown($value)
     {
         $ownergroup = $this->getOwner() . ':' . $this->getGroup();
-        if (in_array($value, [$ownergroup, $this->getOwner(), $this->getUid()], false)) {
+        if (in_array((string)$value, [$ownergroup, $this->getOwner(), $this->getUid()], true)) {
             return;
         }
         $path = $this->getPath();
@@ -347,7 +353,7 @@ class File extends \yii\base\Object
 
     public function chgrp($value)
     {
-        if (in_array($value, [$this->getGroup(), $this->getGid()], false)) {
+        if (in_array((string)$value, [$this->getGroup(), $this->getGid()], true)) {
             return;
         }
         $path = $this->getPath();
