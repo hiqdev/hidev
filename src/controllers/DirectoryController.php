@@ -45,7 +45,7 @@ class DirectoryController extends FileController
             ];
             if ($this->recursive) {
                 $defaults['recursive'] = $this->recursive;
-                foreach ((array)$this->recursive as $key) {
+                foreach ((array) $this->recursive as $key) {
                     if ($this->{$key}) {
                         $defaults[$key] = $this->{$key};
                     }
