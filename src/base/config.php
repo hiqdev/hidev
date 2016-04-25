@@ -14,7 +14,7 @@ return [
     'name'                  => 'HiDev',
     'basePath'              => dirname(__DIR__),
     'vendorPath'            => HIDEV_VENDOR_DIR,
-    'runtimePath'           => dirname(substr(__DIR__, 0, 7) === 'phar://' ? $_SERVER['SCRIPT_NAME'] : dirname(__DIR__)) . '/runtime',
+    'runtimePath'           => substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR) . '/runtime',
     'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',
     'defaultRoute'          => 'default',
@@ -44,6 +44,9 @@ return [
             ],
             'vendor' => [
                 'class' => 'hidev\controllers\VendorController',
+            ],
+            'command' => [
+                'class' => 'hidev\controllers\CommandController',
             ],
             '--version' => [
                 'class' => 'hidev\controllers\OwnVersionController',
