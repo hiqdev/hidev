@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Changed `require:` option to `plugins:`
+    - 37c8406 2016-04-27 fixed composer install (sol@hiqdev.com)
     - fb36fc9 2016-04-27 renamed `require:` to `plugins:` (sol@hiqdev.com)
     - 17bfe3f 2016-04-27 changed StartController to do composer install if has plugins in composer (sol@hiqdev.com)
 - Added `CommandController`
