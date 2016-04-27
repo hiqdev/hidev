@@ -96,12 +96,12 @@ class StartController extends CommonController
                 $this->runAction('update');
             }
             $vendors[] = '.hidev/vendor';
-        } elseif ($this->hasPluginsInController()) {
-            if (!file_exists('vendor')) {
-                return $this->passthru('composer', ['install', '--ansi']);
+        } elseif ($this->needsComposerInstall()) {
+            if ($this->passthru('composer', ['install', '--ansi'])) {
+                throw new InvalidParamException("Failed initialize project with composer install");
             }
         }
-        if (file_exists('vendor/hiqdev')) {
+        if (file_exists('vendor/hiqdev/hidev-config.php')) {
             $vendors[] = 'vendor';
         }
         if (!empty($vendors)) {
@@ -115,8 +115,11 @@ class StartController extends CommonController
         }
     }
 
-    public function hasPluginsInController()
+    public function needsComposerInstall()
     {
+        if (file_exists('vendor')) {
+            return false;
+        }
         if (!file_exists('composer.json')) {
             return false;
         }
