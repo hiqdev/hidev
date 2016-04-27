@@ -88,14 +88,18 @@ class StartController extends CommonController
      */
     protected function requireAll()
     {
-        $require = $this->takeConfig()->rawItem('require');
+        $plugins = $this->takeConfig()->rawItem('plugins');
         $vendors = [];
-        if ($require) {
-            $saved = File::create('.hidev/composer.json')->save(compact('require'));
+        if ($plugins) {
+            $saved = File::create('.hidev/composer.json')->save(['require' => $plugins]);
             if ($saved || !is_dir('.hidev/vendor')) {
                 $this->runAction('update');
             }
             $vendors[] = '.hidev/vendor';
+        } elseif ($this->hasPluginsInController()) {
+            if (!file_exists('vendor')) {
+                return $this->passthru('composer', ['install', '--ansi']);
+            }
         }
         if (file_exists('vendor/hiqdev')) {
             $vendors[] = 'vendor';
@@ -109,6 +113,26 @@ class StartController extends CommonController
             }
             $this->takeConfig()->mergeItems($config);
         }
+    }
+
+    public function hasPluginsInController()
+    {
+        if (!file_exists('composer.json')) {
+            return false;
+        }
+        $data = File::create('composer.json')->load();
+        foreach (['require', 'require-dev'] as $key) {
+            if (isset($data[$key])) {
+                foreach ($data[$key] as $package => $version) {
+                    list(, $name) = explode('/', $package);
+                    if (strncmp($name, 'hidev-', 6) === 0) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     /**
