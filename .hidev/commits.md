@@ -3,7 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
-- Added command controller class
+- Changed `require:` option to `plugins:`
+    - fb36fc9 2016-04-27 renamed `require:` to `plugins:` (sol@hiqdev.com)
+    - 17bfe3f 2016-04-27 changed StartController to do composer install if has plugins in composer (sol@hiqdev.com)
+- Added `CommandController`
     - 210ff02 2016-04-25 phpcsfixed (sol@hiqdev.com)
     - 9a246f3 2016-04-25 + recursive behavior at DirectoryController (sol@hiqdev.com)
     - d905e0f 2016-04-25 fixed chown and chgrp at File (sol@hiqdev.com)
@@ -45,6 +48,7 @@ hiqdev/hidev commits history
     - 1257928 2016-04-03 + `StartController::loadConfig` to load project's own config (sol@hiqdev.com)
     - 04baf42 2016-04-02 cleaned up unused bootstraps at tests (sol@hiqdev.com)
     - 7c43216 2016-04-02 + `StartController::addAutoloader` to load autoloader of the project (sol@hiqdev.com)
+    - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
 - Added better defaults when package name is domain
     - c7f604b 2016-04-01 fixed isDomain checking (sol@hiqdev.com)
     - 732eec5 2016-04-01 + ideas to roadmap (sol@hiqdev.com)
@@ -75,24 +79,21 @@ hiqdev/hidev commits history
     - 274d419 2016-02-19 + added (not finished) waiting until push is actually finished (sol@hiqdev.com)
     - b8c8f11 2016-02-19 improved `version` file reading/writing (check for existing) (sol@hiqdev.com)
     - 001c935 2016-03-10 phpcsfixed (sol@hiqdev.com)
-- Added easy creation of templated files with `DirectoryController`
+- Added easy creation of templated dirs and files with `DirectoryController`
     - 7348679 2016-02-27 improved Idea description (sol@hiqdev.com)
     - 48eeab0 2016-02-27 removed dirs from config (sol@hiqdev.com)
     - 960b60c 2016-02-23 enabled easy creation of templated files with DirectoryController (sol@hiqdev.com)
     - 1a8499d 2016-02-23 + `FileController::$once` option to save file only once, no rewrite (sol@hiqdev.com)
-- Added `StartController::$prjdir` variable containing absolute path to the project root directory
-    - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
-- Fixed `JsonHandler` to parse empty JSON to empty array (died before)
-    - a6f476e 2016-02-23 + explicit TemplateController to config (sol@hiqdev.com)
-    - 9c48c87 2016-02-23 changed JsonHandler to parse empty JSON to empty array (sol@hiqdev.com)
-- Fixed getting default package `src`
-    - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
-- Added DirectoryController with chmod, chown, chgrp
     - 5d0a339 2016-03-01 - `GenerateController::actionMkdir` because of DirectoryController (sol@hiqdev.com)
     - 35d4887 2016-02-18 * `BaseHandler`: + create intermediate directories when necessary before writing file (sol@hiqdev.com)
     - bdb7086 2016-02-14 implicit non strict comparision in `in_array` (sol@hiqdev.com)
     - 73d19d3 2016-02-14 + file info returning functions: getUid/Gid/Owner/Group/Permissions and used in chmod, chown, chgrp (sol@hiqdev.com)
     - e513542 2016-02-13 + DirectoryController with chmod, chown, chgrp (sol@hiqdev.com)
+- Fixed `JsonHandler` to parse empty JSON to empty array (died before)
+    - a6f476e 2016-02-23 + explicit TemplateController to config (sol@hiqdev.com)
+    - 9c48c87 2016-02-23 changed JsonHandler to parse empty JSON to empty array (sol@hiqdev.com)
+- Fixed getting default package `src`
+    - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 
 ## 0.3.9 2016-01-26
 

@@ -3,7 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
-- Added command controller class
+- Changed `require:` option to `plugins:`
+- Added `CommandController`
 - Added `dump/internals` action
 - Changed to use `hiqdev/composer-extension-plugin` instead of PluginManager
 - Added `github/create` and `github/exists` actions
@@ -14,11 +15,9 @@ hiqdev/hidev changelog
 - Fixed minor and scrutinizer issues
 - Added smart vendor require in `hidev/init`
 - Fixed `bump` and `bump/release`
-- Added easy creation of templated files with `DirectoryController`
-- Added `StartController::$prjdir` variable containing absolute path to the project root directory
+- Added easy creation of templated dirs and files with `DirectoryController`
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)
 - Fixed getting default package `src`
-- Added DirectoryController with chmod, chown, chgrp
 
 ## 0.3.9 2016-01-26
 
