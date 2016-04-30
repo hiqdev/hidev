@@ -40,7 +40,7 @@ class DirectoryController extends FileController
         }
         foreach ($this->getItems() as $id => $config) {
             $defaults = [
-                'class' => isset($config['template']) ? 'template' : 'directory',
+                'class' => isset($config['template']) || isset($config['copy']) ? 'template' : 'directory',
                 'file'  => $this->path . '/' . $id,
             ];
             if ($this->recursive) {

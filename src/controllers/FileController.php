@@ -39,6 +39,11 @@ class FileController extends CollectionController
     protected $_file;
 
     /**
+     * @var string path to copy from.
+     */
+    public $_copy;
+
+    /**
      * @var string the path to the file.
      */
     protected $_path;
@@ -56,7 +61,7 @@ class FileController extends CollectionController
     }
 
     /**
-     * Returns file object.
+     * Returns the file object.
      * Instantiates it if necessary.
      *
      * @return File
@@ -94,6 +99,17 @@ class FileController extends CollectionController
     public function setPath($value)
     {
         $this->_path = $value;
+    }
+
+    public function setCopy($value)
+    {
+        $this->fileType = 'copy';
+        $this->_copy = $value;
+    }
+
+    public function getCopy()
+    {
+        return Yii::getAlias($this->_copy);
     }
 
     public function getDirname()
