@@ -20,17 +20,11 @@ use yii\helpers\ArrayHelper;
  */
 class Config extends \hiqdev\yii2\collection\Object
 {
-    public $file = '.hidev/config.yml';
-
     protected $_included = [];
 
     public function hasGoal($id)
     {
         return $this->hasItem($id);
-    }
-
-    public function getClass($name)
-    {
     }
 
     public function getItemConfig($id = null, array $config = [])
