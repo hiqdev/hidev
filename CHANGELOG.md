@@ -3,6 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added `hidev help`
+- Added copying in `FileController`
 - Changed `require:` option to `plugins:`
 - Added `CommandController`
 - Added `dump/internals` action

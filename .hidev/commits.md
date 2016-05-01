@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added `hidev help`
+    - aff402f 2016-05-01 removed junk - enabled `hidev help` (sol@hiqdev.com)
+- Added copying in `FileController`
+    - 7d90a5e 2016-04-30 added copying with `CopyHandler` (sol@hiqdev.com)
 - Changed `require:` option to `plugins:`
     - 37c8406 2016-04-27 fixed composer install (sol@hiqdev.com)
     - fb36fc9 2016-04-27 renamed `require:` to `plugins:` (sol@hiqdev.com)
