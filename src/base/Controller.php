@@ -17,4 +17,6 @@ namespace hidev\base;
 class Controller extends \yii\console\Controller
 {
     public $defaultAction = 'perform';
+
+    public $layout = false;
 }
