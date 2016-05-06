@@ -26,7 +26,7 @@ class StartController extends CommonController
     /**
      * @var string absolute path to the project root directory
      */
-    public $prjdir;
+    protected $_rootDir;
 
     /**
      * @var bool hidev already started flag
@@ -38,7 +38,7 @@ class StartController extends CommonController
      */
     public function actionMake()
     {
-        $this->getPrjDir();
+        $this->getRootDir();
         $this->takeConfig()->includeConfig(static::MAIN_CONFIG);
         $this->addAliases();
         $this->addAutoloader();
@@ -50,7 +50,7 @@ class StartController extends CommonController
 
     public function addAutoloader()
     {
-        $autoloader = Yii::getAlias('@prjdir/vendor/autoload.php');
+        $autoloader = Yii::getAlias('@root/vendor/autoload.php');
         if (file_exists($autoloader)) {
             spl_autoload_unregister(['Yii', 'autoload']);
             require $autoloader;
@@ -69,16 +69,16 @@ class StartController extends CommonController
 
     /**
      * Adds aliases:
-     * - @prjdir alias to current project root dir
+     * - @root alias to current project root dir
      * - current package namespace for it could be used from hidev.
      */
     public function addAliases()
     {
-        Yii::setAlias('@prjdir', $this->getPrjDir());
+        Yii::setAlias('@root', $this->getRootDir());
         $config = $this->takeConfig()->rawItem('package');
         $alias  = strtr($config['namespace'], '\\', '/');
         if ($alias && !Yii::getAlias('@' . $alias, false)) {
-            $srcdir = Yii::getAlias('@prjdir/' . ($config['src'] ?: 'src'));
+            $srcdir = Yii::getAlias('@root/' . ($config['src'] ?: 'src'));
             Yii::setAlias($alias, $srcdir);
         }
     }
@@ -166,13 +166,18 @@ class StartController extends CommonController
         }
     }
 
-    public function getPrjDir()
+    public function setRootDir($value)
     {
-        if ($this->prjdir === null) {
-            $this->prjdir = $this->findPrjDir();
+        $this->_rootDir = $value;
+    }
+
+    public function getRootDir()
+    {
+        if ($this->_rootDir === null) {
+            $this->_rootDir = $this->findRootDir();
         }
 
-        return $this->prjdir;
+        return $this->_rootDir;
     }
 
     /**
@@ -180,13 +185,12 @@ class StartController extends CommonController
      * @throws InvalidParamException when failed to find
      * @return string path to the root directory of hidev project
      */
-    protected function findPrjDir()
+    protected function findRootDir()
     {
         $configDir = '.hidev';
         for ($i = 0;$i < 9;++$i) {
             if (is_dir($configDir)) {
-                $this->prjdir = getcwd();
-                return $this->prjdir;
+                return getcwd();
             }
             chdir('..');
         }
