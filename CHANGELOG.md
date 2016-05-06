@@ -3,6 +3,8 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added `hidev\tests` namespace
+- Added `@root` instead of `@prjdir`
 - Added `hidev help`
 - Added copying in `FileController`
 - Changed `require:` option to `plugins:`

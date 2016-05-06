@@ -3,6 +3,13 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added `hidev\tests` namespace
+    - f961e79 2016-05-06 + `hidev\tests` namespace (sol@hiqdev.com)
+- Added `@root` instead of `@prjdir`
+    - 2318a07 2016-05-06 REDONE @prjdir to @root (sol@hiqdev.com)
+    - d10132e 2016-04-13 fixed cding to prjdir (sol@hiqdev.com)
+    - 2b8592a 2016-03-16 + `StartController::addAliases` to add @prjdir and current package namespace (sol@hiqdev.com)
+    - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
 - Added `hidev help`
     - aff402f 2016-05-01 removed junk - enabled `hidev help` (sol@hiqdev.com)
 - Added copying in `FileController`
@@ -27,7 +34,6 @@ hiqdev/hidev commits history
     - 26e6f42 2016-04-13 redone to `hidev-config` <- `extension-config` (sol@hiqdev.com)
     - 6563e6d 2016-04-13 fixed readExtraVendor for new hiqdev/composer-extension-plugin (sol@hiqdev.com)
     - 671164a 2016-04-13 forced to use `dev-master` version of `hiqdev/composer-extension-plugin` (sol@hiqdev.com)
-    - d10132e 2016-04-13 fixed cding to prjdir (sol@hiqdev.com)
     - ede5419 2016-03-31 improved ROADMAP (sol@hiqdev.com)
     - 6514c7d 2016-03-30 redoing to `extension-config` <- `yii2-extraconfig` (sol@hiqdev.com)
     - 9259403 2016-03-30 changed `hiqdev/extensions-config.php` <- `yiisoft/yii2-extraconfig.php` (sol@hiqdev.com)
@@ -53,7 +59,6 @@ hiqdev/hidev commits history
     - 1257928 2016-04-03 + `StartController::loadConfig` to load project's own config (sol@hiqdev.com)
     - 04baf42 2016-04-02 cleaned up unused bootstraps at tests (sol@hiqdev.com)
     - 7c43216 2016-04-02 + `StartController::addAutoloader` to load autoloader of the project (sol@hiqdev.com)
-    - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
 - Added better defaults when package name is domain
     - c7f604b 2016-04-01 fixed isDomain checking (sol@hiqdev.com)
     - 732eec5 2016-04-01 + ideas to roadmap (sol@hiqdev.com)
@@ -62,7 +67,6 @@ hiqdev/hidev commits history
     - d905002 2016-03-22 CHANGED github name -> `full_name` to correspond github api (sol@hiqdev.com)
 - Fixed minor and scrutinizer issues
     - e8761fe 2016-03-17 + allow use `symfony/yaml` 2.0 (sol@hiqdev.com)
-    - 2b8592a 2016-03-16 + `StartController::addAliases` to add @prjdir and current package namespace (sol@hiqdev.com)
     - 4956d3a 2016-03-16 fixing scrutinizer issues (sol@hiqdev.com)
     - c1a7eae 2016-03-16 removed old History class (sol@hiqdev.com)
     - 41f76b5 2016-03-16 removed commented out code (sol@hiqdev.com)
