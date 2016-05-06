@@ -25,5 +25,5 @@ if (!defined('HIDEV_VENDOR_DIR')) {
     require HIDEV_VENDOR_DIR . '/autoload.php';
     require HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';
 
-    Yii::setAlias('@hidev', dirname(__DIR__));
+    Yii::setAlias('@hidev', __DIR__);
 }
