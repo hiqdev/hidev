@@ -15,9 +15,11 @@ use Yii;
 
 class Tester
 {
+    public $dir;
+
     public $test;
 
-    public $dir;
+    public $clean = true;
 
     public function __construct($test)
     {
@@ -26,7 +28,7 @@ class Tester
         $this->test = $test;
         $this->now  = date('c', $this->getTime());
         $this->dir  = $this->path($this->now . '-' . $no, Yii::getAlias('@hidev/tests/_output'));
-        mkdir($this->dir);
+        static::mkdir($this->dir);
         chdir($this->dir);
     }
 
@@ -45,25 +47,40 @@ class Tester
     {
         $path = ($dir ?: $this->dir) . DIRECTORY_SEPARATOR . $file;
         $dirname = dirname($path);
-        if (!file_exists($dirname)) {
-            mkdir($dirname, 0777, true);
-        }
+        static::mkdir($dirname);
         return $path;
     }
 
     public function __destruct()
     {
-        exec('rm -rf ' . $this->dir);
+        if ($this->clean) {
+            exec('rm -rf ' . $this->dir);
+        }
     }
 
     public function hidev($params)
     {
-        $command = Yii::getAlias('@hidev/bin/hidev') . ' ' . $params;
+        $command = Yii::getAlias('@hidev/../bin/hidev') . ' ' . $params;
         exec($command);
     }
 
-    public function assertFile($file, $content)
+    public function config($content)
     {
+        if ($content[0] === '/' && file_exists($content)) {
+            $content = file_get_contents($content);
+        }
+        static::mkdir('.hidev');
+        $this->writeFile('.hidev/config.yml', $content);
+    }
+
+    public function assertFile($file, $content, $subs = [])
+    {
+        if ($content[0] === '/' && file_exists($content)) {
+            $content = file_get_contents($content);
+        }
+        if ($subs) {
+            $content = strtr($content, $subs);
+        }
         $this->test->assertEquals(trim($this->readFile($file)), trim($content));
     }
 
@@ -88,5 +105,11 @@ class Tester
     public function readFile($file)
     {
         return file_get_contents($this->path($file));
+    }
+    public static function mkdir($dir)
+    {
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
     }
 }
