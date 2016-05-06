@@ -55,11 +55,7 @@
     },
     "autoload": {
         "psr-4": {
-            "hidev\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
+            "hidev\\": "src",
             "hidev\\tests\\": "tests"
         }
     },
