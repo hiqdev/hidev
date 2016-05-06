@@ -3,6 +3,10 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed functional testing base
+    - 66b43c5 2016-05-06 fixed @hidev at `src/_bootstrap.php` (sol@hiqdev.com)
+    - a4bef9c 2016-05-06 improved functional Tester: + config() (sol@hiqdev.com)
+    - d490419 2016-05-06 disabled layout for controllers (sol@hiqdev.com)
 - Added `hidev\tests` namespace
     - f961e79 2016-05-06 + `hidev\tests` namespace (sol@hiqdev.com)
 - Added `@root` instead of `@prjdir`

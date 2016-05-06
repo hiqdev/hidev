@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed functional testing base
 - Added `hidev\tests` namespace
 - Added `@root` instead of `@prjdir`
 - Added `hidev help`
