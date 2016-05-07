@@ -57,11 +57,11 @@ class Config extends \hiqdev\yii2\collection\Object
      * @param string|array $path
      * @return bool true if the path was unique and loaded
      */
-    public function includeConfig($path)
+    public function includeConfig($path, $force=false)
     {
         $file = File::create($path);
         $path = $file->getPath();
-        if (!isset($this->_included[$path])) {
+        if (!isset($this->_included[$path]) || $force) {
             $this->_included[$path] = $path;
             $this->mergeItems($file->load());
             return true;
