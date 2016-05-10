@@ -25,9 +25,20 @@ class CommandController extends CommonController
 
     protected $_cwd;
 
+    public function setCommands($value)
+    {
+        $this->command = $value;
+    }
+
     public function actionSave()
     {
-        passthru(($this->sudo ? 'sudo ' : '') . $this->command);
+        $commands = explode("\n", $this->command);
+        foreach ($commands as $command) {
+            $command = trim($command);
+            if ($command) {
+                passthru(($this->sudo ? 'sudo ' : '') . $command);
+            }
+        }
     }
 
     public function actionBefore()
