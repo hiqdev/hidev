@@ -105,10 +105,10 @@ class BaseHandler extends \yii\base\Object
 
     /**
      * Parses string input. To be redefined in real handlers.
-     * @param string $json 
+     * @param string $input to parse
      * @return array
      */
-    public function parse($json)
+    public function parse($input)
     {
         return [];
     }

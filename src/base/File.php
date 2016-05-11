@@ -99,6 +99,20 @@ class File extends \yii\base\Object
         return Yii::createObject($config);
     }
 
+    /**
+     * Create plain file (with plain handler).
+     * @param string $path
+     * @return File
+     */
+    public static function plain($path)
+    {
+        return Yii::createObject([
+            'class' => get_called_class(),
+            'type'  => 'plain',
+            'path'  => $path,
+        ]);
+    }
+
     public function getMinimalPath()
     {
         return Yii::getAlias($this->minimal);
@@ -136,6 +150,10 @@ class File extends \yii\base\Object
 
     public function findType()
     {
+        if ($this->type === 'plain') {
+            return $this->type;
+        }
+
         return ($this->goal ? $this->goal->fileType : null) ?: static::getTypeByExtension($this->_extension) ?: 'template';
     }
 
@@ -359,5 +377,13 @@ class File extends \yii\base\Object
         $path = $this->getPath();
         passthru("chgrp $value $path");
         Yii::warning("chgrp $path '$value'", 'file');
+    }
+    public function symlink($dest)
+    {
+        if (file_exists($dest)) {
+            return true;
+        }
+        symlink($this->path, $dest);
+        Yii::warning("Symlinked $this->path $dest", 'file');
     }
 }
