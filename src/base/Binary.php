@@ -153,5 +153,4 @@ class Binary extends \yii\base\Object
 
         return $path;
     }
-
 }

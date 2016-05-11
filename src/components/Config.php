@@ -57,7 +57,7 @@ class Config extends \hiqdev\yii2\collection\Object
      * @param string|array $path
      * @return bool true if the path was unique and loaded
      */
-    public function includeConfig($path, $force=false)
+    public function includeConfig($path, $force = false)
     {
         $file = File::create($path);
         $path = $file->getPath();

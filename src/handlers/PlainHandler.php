@@ -11,8 +11,6 @@
 
 namespace hidev\handlers;
 
-use Yii;
-
 /**
  * Handler for plain file operations.
  */
