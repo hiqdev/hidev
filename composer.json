@@ -64,13 +64,13 @@
     ],
     "extra": {
         "extension-plugin": {
-            "hidev-config": "src/hidev-config.php"
+            "hidev-config": "src/config/hidev.php"
         }
     },
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.hiqdev.com"
+            "url": "https://asset-packagist.org"
         }
     ]
 }

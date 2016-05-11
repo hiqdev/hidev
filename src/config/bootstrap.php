@@ -10,7 +10,7 @@
  */
 
 if (!defined('HIDEV_VENDOR_DIR')) {
-    foreach ([dirname(__DIR__) . '/vendor', dirname(dirname(dirname(__DIR__)))] as $dir) {
+    foreach ([dirname(dirname(__DIR__)) . '/vendor', dirname(dirname(dirname(dirname(__DIR__))))] as $dir) {
         if (file_exists($dir . '/autoload.php')) {
             define('HIDEV_VENDOR_DIR', $dir);
             break;
@@ -25,5 +25,5 @@ if (!defined('HIDEV_VENDOR_DIR')) {
     require HIDEV_VENDOR_DIR . '/autoload.php';
     require HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';
 
-    Yii::setAlias('@hidev', __DIR__);
+    Yii::setAlias('@hidev', dirname(__DIR__));
 }

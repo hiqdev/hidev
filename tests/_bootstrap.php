@@ -11,4 +11,4 @@
 
 error_reporting(-1);
 
-require __DIR__ . '/../src/_bootstrap.php';
+require __DIR__ . '/../src/config/bootstrap.php';
