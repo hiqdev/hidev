@@ -4,7 +4,8 @@ hiqdev/hidev commits history
 ## Under development
 
 - Changed: rearranged config files
-    - 4eee27c 2016-05-11 rearranged config files (sol@hiqdev.com)
+    - 61d7d4d 2016-05-11 fixed `Application::setExtraConfig` added merging of params (sol@hiqdev.com)
+    - 5a3d030 2016-05-11 rearranged config files (sol@hiqdev.com)
 - Added sudo modifier
     - 4807e1c 2016-05-11 csfixed (sol@hiqdev.com)
     - d4a481f 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
