@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Added sudo modifier
+    - 4807e1c 2016-05-11 csfixed (sol@hiqdev.com)
     - d4a481f 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
     - 5feebc7 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
 - Fixed minor issues
