@@ -3,6 +3,7 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Changed: rearranged config files
 - Added sudo modifier
 - Fixed minor issues
 - Fixed functional testing base
