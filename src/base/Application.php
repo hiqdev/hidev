@@ -50,12 +50,13 @@ class Application extends \yii\console\Application implements ViewContextInterfa
             );
             $exitCode = (new static($config))->run();
         } catch (Exception $e) {
-            if ($e instanceof InvalidParamException || $e instanceof ConsoleException) {
+            /*if ($e instanceof InvalidParamException || $e instanceof ConsoleException) {
                 Yii::error($e->getMessage());
                 $exitCode = 1;
             } else {
                 throw $e;
-            }
+            }*/
+                throw $e;
         }
 
         return $exitCode;
