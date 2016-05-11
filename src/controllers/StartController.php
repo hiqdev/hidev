@@ -45,6 +45,7 @@ class StartController extends CommonController
         $this->requireAll();
         $this->includeAll();
         $this->loadConfig();
+        $this->takeConfig()->includeConfig(static::MAIN_CONFIG, true);
         self::$started = true;
     }
 
