@@ -11,6 +11,7 @@
 
 namespace hidev\base;
 
+use hidev\modifiers\ModifierInterface;
 use yii\base\InvalidConfigException;
 
 class Binary extends \yii\base\Object
@@ -62,7 +63,20 @@ class Binary extends \yii\base\Object
      */
     public function prepareCommand($args)
     {
-        return $this->getCommand() . $this->prepareArguments($args);
+        $command = $this->getCommand();
+        if (is_string($args)) {
+            return $command . ' ' . trim($args);
+        }
+
+        foreach ($args as $arg) {
+            if ($arg instanceof ModifierInterface) {
+                $command = $arg->modify($command);
+            } else {
+                $command .= ' ' . escapeshellarg($arg);
+            }
+        }
+
+        return $command;
     }
 
     public function install()
@@ -140,22 +154,4 @@ class Binary extends \yii\base\Object
         return $path;
     }
 
-    /**
-     * Prepares given command arguments.
-     * @param string|array $args
-     * @return string
-     */
-    public function prepareArguments($args)
-    {
-        if (is_string($args)) {
-            $res = ' ' . trim($args);
-        } else {
-            $res = '';
-            foreach ($args as $a) {
-                $res .= ' ' . escapeshellarg($a);
-            }
-        }
-
-        return $res;
-    }
 }
