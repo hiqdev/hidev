@@ -3,17 +3,28 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Added sudo modifier
+    - d4a481f 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
+    - 5feebc7 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
+- Fixed minor issues
+    - 9db4c09 2016-05-11 questinable second time main config set (sol@hiqdev.com)
+    - b1bf360 2016-05-11 disabled brief error output (sol@hiqdev.com)
+    - 16e130b 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
+    - 7104741 2016-05-11 + plain file handler (sol@hiqdev.com)
+    - 2efa1a1 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
+    - 40bc31c 2016-05-10 improved CommandController: + multiline commands (sol@hiqdev.com)
+    - 05cfb26 2016-05-07 added force option to includeConfig() (sol@hiqdev.com)
 - Fixed functional testing base
     - 66b43c5 2016-05-06 fixed @hidev at `src/_bootstrap.php` (sol@hiqdev.com)
     - a4bef9c 2016-05-06 improved functional Tester: + config() (sol@hiqdev.com)
     - d490419 2016-05-06 disabled layout for controllers (sol@hiqdev.com)
-- Added `hidev\tests` namespace
     - f961e79 2016-05-06 + `hidev\tests` namespace (sol@hiqdev.com)
 - Added `@root` instead of `@prjdir`
     - 2318a07 2016-05-06 REDONE @prjdir to @root (sol@hiqdev.com)
     - d10132e 2016-04-13 fixed cding to prjdir (sol@hiqdev.com)
     - 2b8592a 2016-03-16 + `StartController::addAliases` to add @prjdir and current package namespace (sol@hiqdev.com)
     - 8c5ef59 2016-02-23 + `StartController::$prjdir` variable containing absolute path to the project root directory (sol@hiqdev.com)
+    - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 - Added `hidev help`
     - aff402f 2016-05-01 removed junk - enabled `hidev help` (sol@hiqdev.com)
 - Added copying in `FileController`
@@ -69,7 +80,7 @@ hiqdev/hidev commits history
     - bb6db97 2016-04-01 + better defaults: type=project and title=name when domain (sol@hiqdev.com)
 - Changed github `name` -> `full_name` to correspond github api
     - d905002 2016-03-22 CHANGED github name -> `full_name` to correspond github api (sol@hiqdev.com)
-- Fixed minor and scrutinizer issues
+- Fixed scrutinizer issues
     - e8761fe 2016-03-17 + allow use `symfony/yaml` 2.0 (sol@hiqdev.com)
     - 4956d3a 2016-03-16 fixing scrutinizer issues (sol@hiqdev.com)
     - c1a7eae 2016-03-16 removed old History class (sol@hiqdev.com)
@@ -105,8 +116,6 @@ hiqdev/hidev commits history
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)
     - a6f476e 2016-02-23 + explicit TemplateController to config (sol@hiqdev.com)
     - 9c48c87 2016-02-23 changed JsonHandler to parse empty JSON to empty array (sol@hiqdev.com)
-- Fixed getting default package `src`
-    - 34300e8 2016-02-16 fixed getting default `src` (sol@hiqdev.com)
 
 ## 0.3.9 2016-01-26
 

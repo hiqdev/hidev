@@ -3,8 +3,9 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Added sudo modifier
+- Fixed minor issues
 - Fixed functional testing base
-- Added `hidev\tests` namespace
 - Added `@root` instead of `@prjdir`
 - Added `hidev help`
 - Added copying in `FileController`
@@ -17,12 +18,11 @@ hiqdev/hidev changelog
 - Added loading of project's own bootstrap and config
 - Added better defaults when package name is domain
 - Changed github `name` -> `full_name` to correspond github api
-- Fixed minor and scrutinizer issues
+- Fixed scrutinizer issues
 - Added smart vendor require in `hidev/init`
 - Fixed `bump` and `bump/release`
 - Added easy creation of templated dirs and files with `DirectoryController`
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)
-- Fixed getting default package `src`
 
 ## 0.3.9 2016-01-26
 
