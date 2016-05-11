@@ -96,6 +96,9 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     {
         $this->_config = $config = ArrayHelper::merge($config, $this->_config);
 
+        if (!empty($config['params'])) {
+            $this->params = ArrayHelper::merge($this->params, $config['params']);
+        }
         if (!empty($config['aliases'])) {
             $this->setAliases($config['aliases']);
         }
