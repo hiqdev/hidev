@@ -3,9 +3,9 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Fixed minor issues
 - Changed: rearranged config files
 - Added sudo modifier
-- Fixed minor issues
 - Fixed functional testing base
 - Added `@root` instead of `@prjdir`
 - Added `hidev help`

@@ -3,6 +3,17 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Fixed minor issues
+    - c235413 2016-05-12 improved AbstractController::perform() (sol@hiqdev.com)
+    - d99b3eb 2016-05-12 fixed stupid bug with trimming (sol@hiqdev.com)
+    - 4aa3cc4 2016-05-12 + `StartController::buildRootPath` (sol@hiqdev.com)
+    - 9db4c09 2016-05-11 questionable second time main config set (sol@hiqdev.com)
+    - b1bf360 2016-05-11 disabled brief error output (sol@hiqdev.com)
+    - 16e130b 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
+    - 7104741 2016-05-11 + plain file handler (sol@hiqdev.com)
+    - 2efa1a1 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
+    - 40bc31c 2016-05-10 improved CommandController: + multiline commands (sol@hiqdev.com)
+    - 05cfb26 2016-05-07 added force option to includeConfig() (sol@hiqdev.com)
 - Changed: rearranged config files
     - 61d7d4d 2016-05-11 fixed `Application::setExtraConfig` added merging of params (sol@hiqdev.com)
     - 5a3d030 2016-05-11 rearranged config files (sol@hiqdev.com)
@@ -10,14 +21,6 @@ hiqdev/hidev commits history
     - 4807e1c 2016-05-11 csfixed (sol@hiqdev.com)
     - d4a481f 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
     - 5feebc7 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
-- Fixed minor issues
-    - 9db4c09 2016-05-11 questinable second time main config set (sol@hiqdev.com)
-    - b1bf360 2016-05-11 disabled brief error output (sol@hiqdev.com)
-    - 16e130b 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
-    - 7104741 2016-05-11 + plain file handler (sol@hiqdev.com)
-    - 2efa1a1 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
-    - 40bc31c 2016-05-10 improved CommandController: + multiline commands (sol@hiqdev.com)
-    - 05cfb26 2016-05-07 added force option to includeConfig() (sol@hiqdev.com)
 - Fixed functional testing base
     - 66b43c5 2016-05-06 fixed @hidev at `src/_bootstrap.php` (sol@hiqdev.com)
     - a4bef9c 2016-05-06 improved functional Tester: + config() (sol@hiqdev.com)
