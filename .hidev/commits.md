@@ -4,6 +4,7 @@ hiqdev/hidev commits history
 ## Under development
 
 - Fixed minor issues
+    - 5c02142 2016-05-12 added more checks to setExtraConfig (sol@hiqdev.com)
     - c235413 2016-05-12 improved AbstractController::perform() (sol@hiqdev.com)
     - d99b3eb 2016-05-12 fixed stupid bug with trimming (sol@hiqdev.com)
     - 4aa3cc4 2016-05-12 + `StartController::buildRootPath` (sol@hiqdev.com)
