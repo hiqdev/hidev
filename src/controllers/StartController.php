@@ -197,4 +197,9 @@ class StartController extends CommonController
         }
         throw new InvalidParamException("Not a hidev project (or any of the parent directories).\nUse `hidev init` to initialize hidev project.");
     }
+
+    public function buildRootPath($subpath)
+    {
+        return $this->getRootDir() . DIRECTORY_SEPARATOR . $subpath;
+    }
 }
