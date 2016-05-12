@@ -141,7 +141,7 @@ class BaseHandler extends \yii\base\Object
      */
     public function mkdir($path)
     {
-        $path = trim(trim($path), '/');
+        $path = rtrim(trim($path), '/');
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
             Yii::warning('Created dir:  ' . $path . '/', 'file');
