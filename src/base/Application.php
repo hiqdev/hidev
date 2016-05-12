@@ -80,7 +80,6 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     /**
      * Load extra config files.
      * @param array $config
-     * @return void
      */
     public function loadExtraVendor($dir)
     {
@@ -90,28 +89,65 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     /**
      * Implements extra configuration.
      * @param array $config
-     * @return void
      */
     public function setExtraConfig($config)
     {
         $this->_config = $config = ArrayHelper::merge($config, $this->_config);
 
-        if (!empty($config['params'])) {
-            $this->params = ArrayHelper::merge($this->params, $config['params']);
+        foreach (['params', 'aliases', 'modules', 'components'] as $key) {
+            if (isset($config[$key])) {
+                $this->{'setExtra' . ucfirst($key)}($config[$key]);
+            }
         }
-        if (!empty($config['aliases'])) {
-            $this->setAliases($config['aliases']);
+    }
+
+    /**
+     * Implements extra params.
+     * @param array $params
+     */
+    public function setExtraParams($params)
+    {
+        if (is_array($params) && !empty($params)) {
+            $this->params = ArrayHelper::merge($this->params, $params);
         }
-        if (!empty($config['modules'])) {
-            $this->setModules($config['modules']);
+    }
+
+    /**
+     * Implements extra aliases.
+     * @param array $aliases
+     */
+    public function setExtraAliases($aliases)
+    {
+        if (is_array($aliases) && !empty($aliases)) {
+            $this->setAliases($aliases);
         }
-        if (!empty($config['components'])) {
-            foreach ($config['components'] as $id => $component) {
+    }
+
+    /**
+     * Implements extra modules.
+     * @param array $modules
+     */
+    public function setExtraModules($modules)
+    {
+        if (is_array($modules) && !empty($modules)) {
+            $this->setModules($modules);
+        }
+    }
+
+    /**
+     * Implements extra components.
+     * Does NOT touch already instantiated components.
+     * @param array $components
+     */
+    public function setExtraComponents($components)
+    {
+        if (is_array($components) && !empty($components)) {
+            foreach ($components as $id => $component) {
                 if ($this->has($id, true)) {
-                    unset($config['components'][$id]);
+                    unset($components[$id]);
                 }
             }
-            $this->setComponents($config['components']);
+            $this->setComponents($components);
         }
     }
 
