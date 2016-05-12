@@ -18,9 +18,14 @@ use Yii;
  */
 class CommonController extends AbstractController
 {
+    public $performName;
+    public $performPath;
+
     public function actionPerform($name = null, $path = null)
     {
+        $this->performName = $name;
+        $this->performPath = $path;
         Yii::trace("Started: '$this->id'");
-        return $this->perform(['before', 'make', 'after']);
+        return $this->perform();
     }
 }

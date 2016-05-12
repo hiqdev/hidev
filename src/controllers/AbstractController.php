@@ -37,9 +37,9 @@ abstract class AbstractController extends \hidev\base\Controller
         return array_merge(parent::options($actionId), array_keys(Helper::getPublicVars(get_called_class())));
     }
 
-    public function perform()
+    public function perform($action = 'make')
     {
-        return $this->runActions(['before', 'make', 'after']);
+        return $this->runActions(['before', $action, 'after']);
     }
 
     public function actionBefore()
