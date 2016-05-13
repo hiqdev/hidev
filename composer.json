@@ -44,14 +44,14 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.0",
-        "yiisoft/yii2-twig": "~2.0",
-        "symfony/yaml": "^3.0 | ^2.0",
+        "yiisoft/yii2": "2.x",
+        "yiisoft/yii2-twig": "2.x",
+        "symfony/yaml": "3.x | 2.x",
         "hiqdev/yii2-collection": "*"
     },
     "require-dev": {
         "yiisoft/yii2": "dev-master",
-        "hiqdev/composer-extension-plugin": "dev-master"
+        "hiqdev/composer-extension-plugin": "<2.0"
     },
     "autoload": {
         "psr-4": {
