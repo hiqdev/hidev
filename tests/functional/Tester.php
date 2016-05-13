@@ -73,18 +73,36 @@ class Tester
         $this->writeFile('.hidev/config.yml', $content);
     }
 
-    public function assertFile($file, $content, $subs = [])
+    public function assertFile($content, $file, array $subs = null)
     {
         if ($content[0] === '/' && file_exists($content)) {
             $content = file_get_contents($content);
         }
-        if ($subs) {
+        if (!empty($subs)) {
             $content = strtr($content, $subs);
         }
-        $this->test->assertEquals(trim($this->readFile($file)), trim($content));
+        $this->test->assertEquals($content, $this->readFile($file));
     }
 
-    public function assertFileHas($file, array $strings)
+    public function assertFiles($dir, $files, array $subs = [])
+    {
+        foreach ($files as $file) {
+            $path = $dir . DIRECTORY_SEPARATOR . $file;
+            if (is_dir($path)) {
+                $fs = [];
+                foreach (scandir($path) as $f) {
+                    if ($f !== '.' && $f !== '..') {
+                        $fs[] = $file . DIRECTORY_SEPARATOR . $f;
+                    }
+                }
+                $this->assertFiles($dir, $fs, $subs);
+            } else {
+                $this->assertFile($path, $file, $subs);
+            }
+        }
+    }
+
+    public function assertFileHas(array $strings, $file)
     {
         $contents = trim($this->readFile($file));
         foreach ($strings as $s) {

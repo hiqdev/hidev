@@ -1,0 +1,10 @@
+package:
+    type:           library
+    name:           new-package
+    namespace:      thevendor\other\newpackage
+    headline:       New Package
+    title:          The new library package
+    keywords:       new,package,of,the,vendor
+    license:        MIT
+    year:           2014
+    description:    The project longer description

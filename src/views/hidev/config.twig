@@ -37,7 +37,7 @@ vendor:
 {% endif %}
 {% if not config.init.norequire %}
 
-require:
+plugins:
     hiqdev/hidev-php:       "*"
 {% if config.init.vendorRequire %}
     {{ config.init.vendorRequire|raw }}
