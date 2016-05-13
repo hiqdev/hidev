@@ -3,7 +3,14 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed: greatly improved functional tests
+    - 8eb455e 2016-05-13 greatly improved functional tests: + assertFiles (sol@hiqdev.com)
+    - 66b43c5 2016-05-06 fixed @hidev at `src/_bootstrap.php` (sol@hiqdev.com)
+    - a4bef9c 2016-05-06 improved functional Tester: + config() (sol@hiqdev.com)
+    - d490419 2016-05-06 disabled layout for controllers (sol@hiqdev.com)
+    - f961e79 2016-05-06 + `hidev\tests` namespace (sol@hiqdev.com)
 - Fixed minor issues
+    - 639f133 2016-05-13 fixed dependencies constraints (sol@hiqdev.com)
     - 5c02142 2016-05-12 added more checks to setExtraConfig (sol@hiqdev.com)
     - c235413 2016-05-12 improved AbstractController::perform() (sol@hiqdev.com)
     - d99b3eb 2016-05-12 fixed stupid bug with trimming (sol@hiqdev.com)
@@ -22,11 +29,6 @@ hiqdev/hidev commits history
     - 4807e1c 2016-05-11 csfixed (sol@hiqdev.com)
     - d4a481f 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
     - 5feebc7 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
-- Fixed functional testing base
-    - 66b43c5 2016-05-06 fixed @hidev at `src/_bootstrap.php` (sol@hiqdev.com)
-    - a4bef9c 2016-05-06 improved functional Tester: + config() (sol@hiqdev.com)
-    - d490419 2016-05-06 disabled layout for controllers (sol@hiqdev.com)
-    - f961e79 2016-05-06 + `hidev\tests` namespace (sol@hiqdev.com)
 - Added `@root` instead of `@prjdir`
     - 2318a07 2016-05-06 REDONE @prjdir to @root (sol@hiqdev.com)
     - d10132e 2016-04-13 fixed cding to prjdir (sol@hiqdev.com)

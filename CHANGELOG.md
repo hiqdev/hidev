@@ -3,10 +3,10 @@ hiqdev/hidev changelog
 
 ## Under development
 
+- Changed: greatly improved functional tests
 - Fixed minor issues
 - Changed: rearranged config files
 - Added sudo modifier
-- Fixed functional testing base
 - Added `@root` instead of `@prjdir`
 - Added `hidev help`
 - Added copying in `FileController`
