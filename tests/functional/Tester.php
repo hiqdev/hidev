@@ -110,8 +110,18 @@ class Tester
         }
     }
 
+    /**
+     * Write file.
+     * @param string $file relative path to file
+     * @param string $contents to be written or path to file or dir
+     */
     public function writeFile($file, $contents)
     {
+        if (file_exists($contents)) {
+            $contents = file_get_contents($contents . DIRECTORY_SEPARATOR . $file);
+        } elseif (file_exists($contents)) {
+            $contents = file_get_contents($contents);
+        }
         file_put_contents($this->path($file), rtrim($contents) . "\n");
     }
 
