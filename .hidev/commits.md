@@ -10,6 +10,7 @@ hiqdev/hidev commits history
     - d490419 2016-05-06 disabled layout for controllers (sol@hiqdev.com)
     - f961e79 2016-05-06 + `hidev\tests` namespace (sol@hiqdev.com)
 - Fixed minor issues
+    - ea170e3 2016-05-15 added phpdocs (sol@hiqdev.com)
     - 639f133 2016-05-13 fixed dependencies constraints (sol@hiqdev.com)
     - 5c02142 2016-05-12 added more checks to setExtraConfig (sol@hiqdev.com)
     - c235413 2016-05-12 improved AbstractController::perform() (sol@hiqdev.com)
