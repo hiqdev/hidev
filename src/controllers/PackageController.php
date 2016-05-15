@@ -31,6 +31,10 @@ class PackageController extends CommonController
 
     public function getYears()
     {
+        $years = $this->getItem('years');
+        if (!empty($years)) {
+            return $years;
+        }
         $cur = (integer) date('Y');
         $old = (integer) $this->year;
 
