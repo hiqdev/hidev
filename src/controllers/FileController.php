@@ -18,19 +18,38 @@ use yii\helpers\ArrayHelper;
 
 /**
  * File controller.
+ * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class FileController extends CollectionController
 {
-    protected $_make   = ['load', 'save', 'modify'];
+    /**
+     * {@inheritdoc}
+     */
+    protected $_make = ['load', 'save', 'modify'];
 
     /**
-     * @var string specifies handler to be used
+     * @var string specifies handler to be used.
      */
     public $fileType;
 
+    /**
+     * @var bool Don't touch file if exists.
+     */
     public $once;
+
+    /**
+     * @var string Username to change file owner to.
+     */
     public $chown;
+
+    /**
+     * @var string Group to change file group to.
+     */
     public $chgrp;
+
+    /**
+     * @var string|integer Permissions to change to.
+     */
     public $chmod;
 
     /**
@@ -41,20 +60,30 @@ class FileController extends CollectionController
     /**
      * @var string path to copy from.
      */
-    public $_copy;
+    protected $_copy;
 
     /**
      * @var string the path to the file.
      */
     protected $_path;
 
+    /**
+     * @var string the template name.
+     */
     protected $_template;
 
+    /**
+     * Template setter.
+     * @param string $template name.
+     */
     public function setTemplate($template)
     {
         $this->_template = $template;
     }
 
+    /**
+     * Template getter.
+     */
     public function getTemplate()
     {
         return Helper::file2template($this->_template ?: $this->id);
@@ -101,42 +130,67 @@ class FileController extends CollectionController
         $this->_path = $value;
     }
 
+    /**
+     * Copy setter. Turns this file type to `copy`.
+     */
     public function setCopy($value)
     {
         $this->fileType = 'copy';
         $this->_copy = $value;
     }
 
+    /**
+     * Copy getter. Processes aliases.
+     */
     public function getCopy()
     {
         return Yii::getAlias($this->_copy);
     }
 
+    /**
+     * Dirname getter.
+     */
     public function getDirname()
     {
         return $this->getFile()->getDirname();
     }
 
+    /**
+     * Path getter.
+     */
     public function getPath()
     {
         return $this->getFile()->getPath();
     }
 
+    /**
+     * Checks if the file exists.
+     */
     public function exists()
     {
         return $this->getFile()->exists();
     }
 
+    /**
+     * Read the file.
+     */
     public function read()
     {
         return $this->getFile()->read();
     }
 
+    /**
+     * Read the file into array.
+     * @return array
+     */
     public function readArray()
     {
         return $this->getFile()->readArray();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function actionPerform($name = null, $path = null)
     {
         Yii::trace("Started: '$this->id'");
@@ -153,6 +207,9 @@ class FileController extends CollectionController
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function actionSave()
     {
         if ($this->once && $this->exists()) {
@@ -162,6 +219,9 @@ class FileController extends CollectionController
         $this->getFile()->save($this);
     }
 
+    /**
+     * Modify action.
+     */
     public function actionModify()
     {
         foreach (['chown', 'chgrp', 'chmod'] as $k) {
