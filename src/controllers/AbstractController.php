@@ -192,7 +192,7 @@ abstract class AbstractController extends \hidev\base\Controller
 
     public function isDone($action, $timestamp = null)
     {
-        if ($this->_done[$action]) {
+        if (isset($this->_done[$action])) {
             Yii::trace("Already done: '$this->id/$action'");
 
             return true;
