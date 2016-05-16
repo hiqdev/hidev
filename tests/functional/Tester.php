@@ -11,6 +11,7 @@
 
 namespace hidev\tests\functional;
 
+use hidev\base\Application;
 use Yii;
 
 class Tester
@@ -20,6 +21,8 @@ class Tester
     public $test;
 
     public $clean = true;
+
+    protected $_app;
 
     public function __construct($test)
     {
@@ -58,16 +61,39 @@ class Tester
         }
     }
 
-    public function hidev($params)
+    /**
+     * Run hidev.
+     * @param string $request
+     */
+    public function hidev($request)
     {
-        $command = Yii::getAlias('@hidev/../bin/hidev') . ' ' . $params;
-        exec($command);
+        #$command = Yii::getAlias('@hidev/../bin/hidev') . ' ' . $params;
+        #exec($command);
+        $this->getApp()->runRequest($request);
     }
 
-    public function config($content)
+    public function setAlias($alias, $path)
+    {
+        Yii::setAlias($alias, $path);
+    }
+
+    public function getApp()
+    {
+        if (!$this->_app) {
+            $this->_app = Application::create(require Yii::getAlias('@hidev/config/base.php'));
+            Yii::getLogger()->setSpamLevel('quiet');
+        }
+
+        return $this->_app;
+    }
+
+    public function config($content, array $subs = null)
     {
         if ($content[0] === '/' && file_exists($content)) {
             $content = file_get_contents($content);
+        }
+        if (!empty($subs)) {
+            $content = strtr($content, $subs);
         }
         static::mkdir('.hidev');
         $this->writeFile('.hidev/config.yml', $content);
