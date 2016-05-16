@@ -4,6 +4,16 @@ hiqdev/hidev commits history
 ## Under development
 
 - Changed: greatly improved functional tests
+    - 71c5e53 2016-05-16 csfixed (sol@hiqdev.com)
+    - 7e12fc1 2016-05-16 GREATLY improved functional tests to run internally instead of exec (sol@hiqdev.com)
+    - b4b8e10 2016-05-16 redone `Yii::$app` to `$this->module` (sol@hiqdev.com)
+    - 24dff74 2016-05-16 + `aliases` option (sol@hiqdev.com)
+    - ff80ee0 2016-05-16 changed setExtraConfig to force setting config component (sol@hiqdev.com)
+    - 1e626df 2016-05-16 fixed notices (sol@hiqdev.com)
+    - 2f2770b 2016-05-16 + spam level (sol@hiqdev.com)
+    - ab3d1ec 2016-05-16 fixed notice (sol@hiqdev.com)
+    - 32412ca 2016-05-15 improved writeFile at functional Tester (sol@hiqdev.com)
+    - 7c5fbbb 2016-05-15 + package `years` parameter (sol@hiqdev.com)
     - 8eb455e 2016-05-13 greatly improved functional tests: + assertFiles (sol@hiqdev.com)
     - 66b43c5 2016-05-06 fixed @hidev at `src/_bootstrap.php` (sol@hiqdev.com)
     - a4bef9c 2016-05-06 improved functional Tester: + config() (sol@hiqdev.com)
