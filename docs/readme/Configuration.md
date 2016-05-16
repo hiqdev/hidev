@@ -25,7 +25,7 @@ vendor:
             name:       Andrii Vasyliev
             email:      sol@hiqdev.com
 
-require:
+plugins:
     hiqdev/hidev-php: "*"
 ```
 
@@ -52,8 +52,8 @@ Best way of configuring vendor is to create and use your vendor plugin for HiDev
 It's easy, just copy `hiqdev/hidev-vendor`, change it appropriately and publish
 to Packagist.
 
-Require section lists the plugins mentioning versions to be used for your package.
-Versions will be used with composer so must follow it's rules.
+Plugins section lists the plugins mentioning versions to be used for your package.
+Version constraints will be used with composer so must follow it's rules.
 
 Good example of configuration is HiDev's own [.hidev/config.yml](.hidev/config.yml).
 
