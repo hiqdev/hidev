@@ -145,7 +145,7 @@ class File extends \yii\base\Object
 
     public function getTypeByExtension($extension)
     {
-        return static::$_extension2type[$extension];
+        return isset(static::$_extension2type[$extension]) ? static::$_extension2type[$extension] : null;
     }
 
     public function findType()
@@ -162,10 +162,10 @@ class File extends \yii\base\Object
         $path             = Yii::getAlias($path);
         $info             = pathinfo($path);
         $this->_path      = $path;
-        $this->_dirname   = $info['dirname'];
-        $this->_basename  = $info['basename'];
-        $this->_filename  = $info['filename'];
-        $this->_extension = $info['extension'];
+        $this->_dirname   = isset($info['dirname']) ? $info['dirname'] : null;
+        $this->_basename  = isset($info['basename']) ? $info['basename'] : null;
+        $this->_filename  = isset($info['filename']) ? $info['filename'] : null;
+        $this->_extension = isset($info['extension']) ? $info['extension'] : null;
         $this->type       = $this->findType();
     }
 
