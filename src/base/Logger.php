@@ -14,6 +14,7 @@ namespace hidev\base;
 use yii\helpers\Console;
 
 /**
+ * XXX TODO REDO to:
  * ConsoleTarget sends selected log messages to the console stdout.
  *
  * ```php
@@ -36,12 +37,23 @@ class Logger extends \yii\log\Logger
         self::LEVEL_ERROR   => [Console::FG_RED],
     ];
 
+    public static $levels = [
+        'warning' => self::LEVEL_WARNING,
+        'error'   => self::LEVEL_ERROR,
+        'quiet'   => 0,
+    ];
+
+    /**
+     * @var integer level to send log messages to stdout.
+     */
+    protected $_spamLevel;
+
     /**
      * Logs a message to console and then to yii\log\Logger.
      */
     public function log($message, $level, $category = 'application')
     {
-        if ($level <= static::LEVEL_WARNING) {
+        if ($level <= $this->getSpamLevel()) {
             $style = self::$styles[$level];
             if ($style) {
                 $message = Console::ansiFormat($message, $style);
@@ -49,5 +61,30 @@ class Logger extends \yii\log\Logger
             Console::stdout($message . "\n");
         }
         parent::log($message, $level, $category);
+    }
+
+    /**
+     * Spam level getter. Default `warning` level.
+     * @return integer
+     */
+    public function getSpamLevel()
+    {
+        if ($this->_spamLevel) {
+            $this->setSpamLevel('warning');
+        }
+
+        return $this->_spamLevel;
+    }
+
+    /**
+     * Spam level setter
+     * @param integer $value
+     */
+    public function setSpamLevel($value)
+    {
+        if (isset(static::$levels[$value])) {
+            $value = static::$levels[$value];
+        }
+        $this->_spamLevel = $value;
     }
 }
