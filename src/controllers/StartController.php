@@ -82,10 +82,25 @@ class StartController extends CommonController
             $srcdir = Yii::getAlias('@root/' . ($config['src'] ?: 'src'));
             Yii::setAlias($alias, $srcdir);
         }
+        $aliases = $this->takeConfig()->rawItem('aliases');
+        if (!empty($aliases) && is_array($aliases)) {
+            foreach ($aliases as $alias => $path) {
+                if (!$this->hasAlias($alias)) {
+                    Yii::setAlias($alias, $path);
+                }
+            }
+        }
+    }
+
+    public function hasAlias($alias, $exact = true)
+    {
+        $pos = strpos($alias, '/');
+
+        return $pos === false ? isset(Yii::$aliases[$alias]) : isset(Yii::$aliases[substr($alias, 0, $pos)][$alias]);
     }
 
     /**
-     * Require all configured requires.
+* Require all configured requires.
      */
     protected function requireAll()
     {
@@ -106,13 +121,9 @@ class StartController extends CommonController
             $vendors[] = 'vendor';
         }
         if (!empty($vendors)) {
-            /// backup config then reset with extra config then restore
-            $config = $this->takeConfig()->getItems();
-            Yii::$app->clear('config');
             foreach (array_unique($vendors) as $dir) {
-                Yii::$app->loadExtraVendor($dir);
+                $this->module->loadExtraVendor($dir);
             }
-            $this->takeConfig()->mergeItems($config);
         }
     }
 
@@ -163,7 +174,7 @@ class StartController extends CommonController
     {
         $path = $this->takeConfig()->rawItem('config');
         if ($path) {
-            Yii::$app->loadExtraConfig($path);
+            $this->module->loadExtraConfig($path);
         }
     }
 
