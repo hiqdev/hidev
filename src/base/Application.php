@@ -43,12 +43,8 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     public static function main(array $config)
     {
         try {
-            Yii::setLogger(Yii::createObject('hidev\base\Logger'));
-            $config = ArrayHelper::merge(
-                static::readExtraVendor($config['vendorPath']),
-                $config
-            );
-            $exitCode = (new static($config))->run();
+            $app = static::create($config);
+            $exitCode = $app->run();
         } catch (Exception $e) {
             /*if ($e instanceof InvalidParamException || $e instanceof ConsoleException) {
                 Yii::error($e->getMessage());
@@ -62,6 +58,16 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         return $exitCode;
     }
 
+    public static function create(array $config)
+    {
+        Yii::setLogger(Yii::createObject('hidev\base\Logger'));
+        $config = ArrayHelper::merge(
+            static::readExtraVendor($config['vendorPath']),
+            $config
+        );
+        return new static($config);
+    }
+
     public static function readExtraVendor($dir)
     {
         return static::readExtraConfig($dir . '/hiqdev/hidev-config.php');
@@ -69,6 +75,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public static function readExtraConfig($path)
     {
+        $path = Yii::getAlias($path);
         return file_exists($path) ? require $path : [];
     }
 
@@ -93,12 +100,16 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     public function setExtraConfig($config)
     {
         $this->_config = $config = ArrayHelper::merge($config, $this->_config);
+        $backup = $this->get('config')->getItems();
+        $this->clear('config');
 
         foreach (['params', 'aliases', 'modules', 'components'] as $key) {
             if (isset($config[$key])) {
                 $this->{'setExtra' . ucfirst($key)}($config[$key]);
             }
         }
+
+        $this->get('config')->mergeItems($backup);
     }
 
     /**
@@ -157,7 +168,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         if ($this->_first) {
             $this->_first = false;
             static $skips = ['init' => 1, 'clone' => 1, '--version' => 1];
-            if (!$skips[$id]) {
+            if (!isset($skips[$id])) {
                 $this->runRequest('start');
             }
         }
@@ -172,11 +183,16 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         return $controller;
     }
 
-    public function runRequest($string)
+    /**
+     * Run request.
+     * @param string|array $query
+     * @return Response
+     */
+    public function runRequest($query)
     {
         $request = Yii::createObject([
             'class'  => 'hidev\base\Request',
-            'params' => array_filter(explode(' ', $string)),
+            'params' => is_array($query) ? $query : array_filter(explode(' ', $query)),
         ]);
 
         return $this->handleRequest($request);
