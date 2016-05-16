@@ -69,7 +69,7 @@ class Logger extends \yii\log\Logger
      */
     public function getSpamLevel()
     {
-        if ($this->_spamLevel) {
+        if ($this->_spamLevel === null) {
             $this->setSpamLevel('warning');
         }
 
@@ -77,7 +77,7 @@ class Logger extends \yii\log\Logger
     }
 
     /**
-     * Spam level setter
+     * Spam level setter.
      * @param integer $value
      */
     public function setSpamLevel($value)

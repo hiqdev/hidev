@@ -54,7 +54,7 @@ class InitTest extends \PHPUnit_Framework_TestCase
         $this->tester->hidev([
             'init', 'the-vendor/new-package', '--nick=sol', '--namespace=thevendor\\other\\newpackage', '--headline=New Package',
             '--title=The new library package', '--type=library', '--keywords=new,package,of,the,vendor', '--license=MIT',
-            '--description=The project longer description', '--year=2014', '--novendor', '--norequire'
+            '--description=The project longer description', '--year=2014', '--novendor', '--norequire',
         ]);
         $this->tester->assertFiles(__DIR__ . '/options', ['.hidev/config.yml']);
     }

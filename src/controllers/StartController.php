@@ -100,7 +100,7 @@ class StartController extends CommonController
     }
 
     /**
-* Require all configured requires.
+     * Require all configured requires.
      */
     protected function requireAll()
     {
