@@ -15,4 +15,6 @@ ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_NOTICE);
 require __DIR__ . '/../src/config/defines.php';
 require __DIR__ . '/../src/config/bootstrap.php';
 
-exit(hidev\base\Application::main(require __DIR__ . '/../src/config/base.php'));
+$config = require __DIR__ . '/../src/config/main.php';
+
+exit(hidev\base\Application::main($config));

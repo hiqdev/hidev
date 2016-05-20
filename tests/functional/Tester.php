@@ -80,7 +80,7 @@ class Tester
     public function getApp()
     {
         if (!$this->_app) {
-            $this->_app = Application::create(require Yii::getAlias('@hidev/config/base.php'));
+            $this->_app = Application::create(require Yii::getAlias('@hidev/config/main.php'));
             Yii::getLogger()->setSpamLevel('quiet');
         }
 
