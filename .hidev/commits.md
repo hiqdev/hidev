@@ -3,6 +3,12 @@ hiqdev/hidev commits history
 
 ## Under development
 
+- Changed: rearranged config files
+    - 6fd2f95 2016-05-20 rearranged initial configuration (sol@hiqdev.com)
+    - e0d5355 2016-05-20 added `config/defines.php` (sol@hiqdev.com)
+    - 2d54bb5 2016-05-20 removed fcgi patching from bin/hidev (sol@hiqdev.com)
+    - 61d7d4d 2016-05-11 fixed `Application::setExtraConfig` added merging of params (sol@hiqdev.com)
+    - 5a3d030 2016-05-11 rearranged config files (sol@hiqdev.com)
 - Changed: greatly improved functional tests
     - 71c5e53 2016-05-16 csfixed (sol@hiqdev.com)
     - 7e12fc1 2016-05-16 GREATLY improved functional tests to run internally instead of exec (sol@hiqdev.com)
@@ -33,9 +39,6 @@ hiqdev/hidev commits history
     - 2efa1a1 2016-05-11 added modifiers: interface, singleton and sudo (sol@hiqdev.com)
     - 40bc31c 2016-05-10 improved CommandController: + multiline commands (sol@hiqdev.com)
     - 05cfb26 2016-05-07 added force option to includeConfig() (sol@hiqdev.com)
-- Changed: rearranged config files
-    - 61d7d4d 2016-05-11 fixed `Application::setExtraConfig` added merging of params (sol@hiqdev.com)
-    - 5a3d030 2016-05-11 rearranged config files (sol@hiqdev.com)
 - Added sudo modifier
     - 4807e1c 2016-05-11 csfixed (sol@hiqdev.com)
     - d4a481f 2016-05-11 used modifiers in `Binary::prepareCommand` (sol@hiqdev.com)
