@@ -1,9 +1,10 @@
 hiqdev/hidev commits history
 ----------------------------
 
-## Under development
+## 0.4.0 2016-05-21
 
-- Changed: rearranged config files
+- Changed: redone to `composer-config-plugin`
+    - 2972338 2016-05-21 redone to composer-config-plugin (sol@hiqdev.com)
     - 6fd2f95 2016-05-20 rearranged initial configuration (sol@hiqdev.com)
     - e0d5355 2016-05-20 added `config/defines.php` (sol@hiqdev.com)
     - 2d54bb5 2016-05-20 removed fcgi patching from bin/hidev (sol@hiqdev.com)

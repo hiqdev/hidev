@@ -1,9 +1,9 @@
 hiqdev/hidev changelog
 ----------------------
 
-## Under development
+## 0.4.0 2016-05-21
 
-- Changed: rearranged config files
+- Changed: redone to `composer-config-plugin`
 - Changed: greatly improved functional tests
 - Fixed minor issues
 - Added sudo modifier
