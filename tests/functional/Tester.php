@@ -26,6 +26,10 @@ class Tester
 
     public function __construct($test)
     {
+        if (!Yii::getAlias('@app', false)) {
+            $this->loadAliases('./vendor/hiqdev/config/aliases.php');
+            $this->loadAliases('./.hidev/vendor/hiqdev/config/aliases.php');
+        }
         static $no = 0;
         ++$no;
         $this->test = $test;
@@ -36,6 +40,16 @@ class Tester
     }
 
     public static $time;
+
+    public function loadAliases($file)
+    {
+        if (!file_exists($file)) {
+            return;
+        }
+        foreach (require($file) as $alias => $path) {
+            Yii::setAlias($alias, $path);
+        }
+    }
 
     public function getTime()
     {
