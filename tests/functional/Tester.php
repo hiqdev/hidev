@@ -171,7 +171,7 @@ class Tester
         } elseif (file_exists($contents)) {
             $contents = file_get_contents($contents);
         }
-        file_put_contents($this->path($file), rtrim($contents) . "\n");
+        file_put_contents($this->path($file), $contents);
     }
 
     public function appendFile($file, $contents)
