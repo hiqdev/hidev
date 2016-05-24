@@ -91,9 +91,13 @@ class Tester
         Yii::setAlias($alias, $path);
     }
 
+    /**
+     * Returns Application, creates if necessary.
+     * @return Application
+     */
     public function getApp()
     {
-        if (!$this->_app) {
+        if ($this->_app === null) {
             $this->_app = Application::create(require Yii::getAlias('@hidev/config/main.php'));
             Yii::getLogger()->setSpamLevel('quiet');
         }
@@ -101,6 +105,11 @@ class Tester
         return $this->_app;
     }
 
+    /**
+     * Writes configuration file for sample hidev.
+     * @param string $content the configuration
+     * @param array $subs
+     */
     public function config($content, array $subs = null)
     {
         if ($content[0] === '/' && file_exists($content)) {
