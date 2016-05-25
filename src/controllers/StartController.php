@@ -21,8 +21,6 @@ use yii\base\InvalidParamException;
  */
 class StartController extends CommonController
 {
-    const MAIN_CONFIG = '.hidev/config.yml';
-
     /**
      * @var string absolute path to the project root directory
      */
@@ -39,13 +37,15 @@ class StartController extends CommonController
     public function actionMake()
     {
         $this->getRootDir();
-        $this->takeConfig()->includeConfig(static::MAIN_CONFIG);
+        $this->takeConfig()->includeConfig('.hidev/config.yml');
+        if (file_exists('.hidev/config-local.yml')) {
+            $this->takeConfig()->includeConfig('.hidev/config-local.yml');
+        }
         $this->addAliases();
         $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
         $this->loadConfig();
-        $this->takeConfig()->includeConfig(static::MAIN_CONFIG, true);
         self::$started = true;
     }
 
