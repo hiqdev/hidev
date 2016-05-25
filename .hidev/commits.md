@@ -1,6 +1,14 @@
 hiqdev/hidev commits history
 ----------------------------
 
+## dev 2016-05-25
+
+- Added including of `.hidev/config-local.yml`
+    - a8e0a44 2016-05-25 added including of `.hidev/config-local.yml` (sol@hiqdev.com)
+- Fixed functional tester
+    - 32cfbc0 2016-05-24 removed trim from Tester::writeFile (sol@hiqdev.com)
+    - a5a7080 2016-05-21 added loading aliases in functional Tester (sol@hiqdev.com)
+
 ## 0.4.0 2016-05-21
 
 - Changed: redone to `composer-config-plugin`

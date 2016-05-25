@@ -1,6 +1,11 @@
 hiqdev/hidev changelog
 ----------------------
 
+## dev 2016-05-25
+
+- Added including of `.hidev/config-local.yml`
+- Fixed functional tester
+
 ## 0.4.0 2016-05-21
 
 - Changed: redone to `composer-config-plugin`
