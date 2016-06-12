@@ -31,7 +31,7 @@ class InitController extends TemplateController
         list($vendor, $package) = explode('/', $name, 2);
         if ($vendor) {
             $this->vendor = $vendor;
-            $vendorPlugin = "$vendor/hidev-vendor";
+            $vendorPlugin = "$vendor/hidev-$vendor";
             try {
                 $exists = @file_get_contents("https://packagist.org/packages/$vendorPlugin.json");
             } catch (Exception $e) {
