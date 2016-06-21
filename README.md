@@ -1,7 +1,7 @@
 HiDev
 =====
 
-**Task runner, code generator and build tool for easier continuos integration**
+**Build tool mixed with code generator for easier automation and continuos integration**
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable)](https://packagist.org/packages/hiqdev/hidev)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads)](https://packagist.org/packages/hiqdev/hidev)
@@ -10,14 +10,14 @@ HiDev
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/hidev.svg)](https://scrutinizer-ci.com/g/hiqdev/hidev/)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:hidev/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hidev/dev-master)
 
-Features:
+Simplifies and automates:
 
 - package management: [Composer](https://getcomposer.org/), [Packagist](https://packagist.org/)
-- release automation: README, LICENSE, CHANGELOG, version bump
-- CI services: [Travis](https://travis-ci.org/), [Scrutinizer](https://scrutinizer-ci.com/)
+- releasing: README, LICENSE, CHANGELOG, version bumping
+- CI services integration: [Travis](https://travis-ci.org/), [Scrutinizer](https://scrutinizer-ci.com/)
 - testing: [PHPUnit](https://phpunit.de/), [Codeception](http://codeception.com/)
-- code quality: [PHP-CS-Fixer](http://cs.sensiolabs.org/), [VersionEye](https://www.versioneye.com/)
-- version control: .gitignore, commits history
+- code quality checking: [PHP-CS-Fixer](http://cs.sensiolabs.org/), [VersionEye](https://www.versioneye.com/)
+- version control management: .gitignore, GitHub
 - PHAR building with [Box](https://github.com/box-project/box2)
 - code generation with php and twig templates
 
@@ -101,7 +101,7 @@ plugins:
     hiqdev/hidev-php: "*"
 ```
 
-Package section holds info on the package:
+Package section holds info about the package:
 
 - **name**: your package name, same as in package manager but without vendor name
 - **title**: single line description of your package (description in composer.json)
@@ -118,10 +118,10 @@ Vendor section holds info about you or your company:
 - **title**: full vendor name, will be used for README, LICENSE and so on
 - **github**, **homepage**, **forum**, **email**: obviously
 - **license**: will be used if package does not specify one
-- **authors**: array of authors, see: HiQDev's [config.yml](https://github.com/hiqdev/hidev-vendor/blob/master/src/config.yml)
+- **authors**: array of authors, see: HiQDev's [config.yml](https://github.com/hiqdev/hidev-hiqdev/blob/master/src/config.yml)
 
 Best way of configuring vendor is to create and use your vendor plugin for HiDev.
-It's easy, just copy `hiqdev/hidev-vendor`, change it appropriately and publish
+It's easy, just fork `hiqdev/hidev-hiqdev`, change it appropriately and publish
 to Packagist.
 
 Plugins section lists the plugins mentioning versions to be used for your package.

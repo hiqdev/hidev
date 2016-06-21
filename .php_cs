@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<EOF
-Task runner, code generator and build tool for easier continuos integration
+Build tool mixed with code generator for easier automation and continuos integration
 
 @link      https://github.com/hiqdev/hidev
 @package   hidev
