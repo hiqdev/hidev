@@ -99,7 +99,7 @@ class FileController extends CollectionController
     {
         if (!is_object($this->_file)) {
             $this->_file = Yii::createObject(array_merge([
-                'class'    => File::className(),
+                'class'    => File::class,
                 'template' => $this->getTemplate(),
                 'goal'     => $this,
                 'path'     => $this->_path ?: $this->id,
