@@ -1,12 +1,12 @@
-hiqdev/hidev changelog
-----------------------
+hiqdev/hidev commits history
+----------------------------
 
-## dev 2016-05-25
+## [Under development]
 
 - Added including of `.hidev/config-local.yml`
 - Fixed functional tester
 
-## 0.4.0 2016-05-21
+## [0.4.0] - 2016-05-21
 
 - Changed: redone to `composer-config-plugin`
 - Changed: greatly improved functional tests
@@ -30,50 +30,50 @@ hiqdev/hidev changelog
 - Added easy creation of templated dirs and files with `DirectoryController`
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before)
 
-## 0.3.9 2016-01-26
+## [0.3.9] - 2016-01-26
 
 - Fixed to work for projects without package manager
 - Fixed GitHub token passing to curl
 
-## 0.3.8 2016-01-26
+## [0.3.8] - 2016-01-26
 
 - Added `bump/release` and `github/release` actions to automate release
 - Fixed minor issues
 
-## 0.3.7 2016-01-19
+## [0.3.7] - 2016-01-19
 
 - Added getting default package start year with git log
 - Added CollectionController
 - Fixed: improved travis `before_install` section
 
-## 0.3.6 2016-01-17
+## [0.3.6] - 2016-01-17
 
 - Added `version` goal and OwnVersionController for better version management
 
-## 0.3.5 2016-01-16
+## [0.3.5] - 2016-01-16
 
 - Fixed minor and tested version bump
 
-## 0.3.4 2016-01-16
+## [0.3.4] - 2016-01-16
 
 - Fixed `bump/commit` to default to current version
 - Fixed hidev own version showing
 
-## 0.3.3 2016-01-16
+## [0.3.3] - 2016-01-16
 
 - Added proper version bumping with `version/bump` and `bump`
 - Added version output with `hidev --version` or `hidev version`
 
-## 0.3.2 2016-01-16
+## [0.3.2] - 2016-01-16
 
 - Added sorting inside `.gitignore` sections
 - Fixed PHAR building
 
-## 0.3.1 2016-01-15
+## [0.3.1] - 2016-01-15
 
 - Added `bump/commit` action
 
-## 0.3.0 2016-01-15
+## [0.3.0] - 2016-01-15
 
 - Added history cleaning from 'Under development' section if it is empty
 - Added `bump` goal for version bumping
@@ -87,7 +87,7 @@ hiqdev/hidev changelog
 - Fixed minor issues
 - Added `github/clone` action, NOT finished
 
-## 0.2.0 2015-12-23
+## [0.2.0] - 2015-12-23
 
 - Added runRequest and runRequests at DefaultGoal
 - Fixed Travis build
@@ -100,7 +100,7 @@ hiqdev/hidev changelog
 - Fixed minii requirements
 - Added `GitHubGoal`
 
-## 0.1.7 2015-12-04
+## [0.1.7] - 2015-12-04
 
 - CHANGED: redone to `minii` and BROKEN build temporary
 - Fixed badges generation
@@ -113,36 +113,36 @@ hiqdev/hidev changelog
 - Added more options to init goal
 - Fixed and improved tests and minor issues
 
-## 0.1.6 2015-11-09
+## [0.1.6] - 2015-11-09
 
 - Fixed composer.json generation: follow schema, only name, role, email and homepage for authors
 
-## 0.1.5 2015-11-09
+## [0.1.5] - 2015-11-09
 
 - Added support for VCS ignoring list configuring in plugins
 
-## 0.1.4 2015-11-09
+## [0.1.4] - 2015-11-09
 
 - Fixed php short tags
 
-## 0.1.3 2015-11-06
+## [0.1.3] - 2015-11-06
 
 - Fixed 'hidev update' to do default procedure after updating
 - Changed README generation: added package headline
 
-## 0.1.2 2015-10-26
+## [0.1.2] - 2015-10-26
 
 - Added basic Usage readme section
 - Added control of readme sections to be rendered
 - Added 'update' goal to update hidev internals
 
-## 0.1.1 2015-10-25
+## [0.1.1] - 2015-10-25
 
 - Added better badges configuring and rendering
 - Fixed package title to: HiDev - integrated development
 - Fixed getRepositoryUrl
 
-## 0.1.0 2015-10-15
+## [0.1.0] - 2015-10-15
 
 - Added improved README generation with render functions and section templates
 - Changed License section in README
@@ -151,19 +151,19 @@ hiqdev/hidev changelog
 - Added tests for 'hidev init'
 - Fixed exception catching for proper showing user errors
 
-## 0.0.10 2015-09-09
+## [0.0.10] - 2015-09-09
 
 - Fixed init: made even smaller basic config
 - Fixed getting/setting namespace
 
-## 0.0.9 2015-09-08
+## [0.0.9] - 2015-09-08
 
 - Added VersionEye badge generation
 - Added showing user errors (instead of exception stack trace)
 - Added init command: hidev init vendor/package
 - Removed 'runtime' gitignoring by default
 
-## 0.0.8 2015-08-17
+## [0.0.8] - 2015-08-17
 
 - Added better README generation with badges and additional sections
 - Added runAction/s
@@ -181,7 +181,7 @@ hiqdev/hidev changelog
 - Changed config loading
 - Changed: redone goals like controllers
 
-## 0.0.7 2015-06-19
+## [0.0.7] - 2015-06-19
 
 - Changed composer.json: dont add empty require
 - Fixed code styling with php-cs-fixer
@@ -189,34 +189,34 @@ hiqdev/hidev changelog
 - Added plugin archtecture
 - Fixed portability
 
-## 0.0.6 June 6, 2015
+## [0.0.6] - 2015-06-06
 
 - Changed: GREAT RENAMING OF CLASSES
 - Added cool CHANGELOG.md generation
 - Added gen action to generate files by templates
 - Added "No licence" default license
 
-## 0.0.5 June 1, 2015
+## [0.0.5] - 2015-06-01
 
 - Changed decreased default verbosity
 
-## 0.0.4 June 1, 2015
+## [0.0.4] - 2015-06-01
 
 - Added twig templates
 
-## 0.0.3 June 1, 2015
+## [0.0.3] - 2015-06-01
 
 - Added YAML config
 - Added ROADMAP.md
 
-## 0.0.2 May 30, 2015
+## [0.0.2] - 2015-05-30
 
 - Added parent config
 - Added use of Robo (started robo integration)
 - Changed namespace to 'hidev'
 - Fixed different minor thing
 
-## 0.0.1 May 12, 2015
+## [0.0.1] - 2015-05-12
 
 - Added basics
 - Added colorized console output
@@ -225,6 +225,3 @@ hiqdev/hidev changelog
 - Added composer.json generation
 - Added simple .gitignore generation
 - Added LICENSE generation
-
-## Development started April 28, 2015
-
