@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<EOF
-Build tool mixed with code generator for easier automation and continuos integration
+Automation tool mixed with code generator for easier continuos integration
 
 @link      https://github.com/hiqdev/hidev
 @package   hidev
@@ -13,7 +13,7 @@ Symfony\CS\Fixer\Contrib\HeaderCommentFixer::setHeader($header);
 
 return Symfony\CS\Config\Config::create()
     ->setUsingCache(true)
-    ->level(Symfony\CS\FixerInterface::SYMFONY_LEVEL)
+    ->level(Symfony\CS\FixerInterface::PSR2_LEVEL)
     ->fixers([
         '-long_array_syntax',                    /// Arrays should use the long syntax
         '-php4_constructor',                     /// Convert PHP4-style constructors to __construct. Warning! This could change code behavior

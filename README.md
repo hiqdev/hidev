@@ -1,7 +1,7 @@
 HiDev
 =====
 
-**Build tool mixed with code generator for easier automation and continuos integration**
+**Automation tool mixed with code generator for easier continuos integration**
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev/v/stable)](https://packagist.org/packages/hiqdev/hidev)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hidev/downloads)](https://packagist.org/packages/hiqdev/hidev)

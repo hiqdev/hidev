@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Build tool mixed with code generator for easier automation and continuos integration
+ * Automation tool mixed with code generator for easier continuos integration
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
