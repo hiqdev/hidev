@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Automation tool mixed with code generator for easier continuos integration
+ * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
@@ -59,5 +59,4 @@ class FileHelper
 
         return false;
     }
-
 }

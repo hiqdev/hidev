@@ -1,9 +1,9 @@
 package:
     type:           project
     name:           hidev
-    title:          Automation tool mixed with code generator for easier continuos integration
+    title:          Automation tool mixed with code generator for easier continuous development
     headline:       HiDev
-    keywords:       automation, build tool, task runner, code generator, continuous integration
+    keywords:       automation, build tool, task runner, code generator, continuous development, continuous integration
     namespace:      hidev
     description:    |
         Simplifies and automates:
