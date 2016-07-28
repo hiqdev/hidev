@@ -11,6 +11,7 @@
 
 namespace hidev\handlers;
 
+use hidev\helpers\FileHelper;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
@@ -123,15 +124,7 @@ class BaseHandler extends \yii\base\Object
      */
     public function write($path, $content)
     {
-        if (!is_file($path) || file_get_contents($path) !== $content) {
-            $this->mkdir(dirname($path));
-            file_put_contents($path, $content);
-            Yii::warning('Written file: ' . $path, 'file');
-
-            return true;
-        }
-
-        return false;
+        return FileHelper::write($path, $content);
     }
 
     /**
@@ -141,15 +134,7 @@ class BaseHandler extends \yii\base\Object
      */
     public function mkdir($path)
     {
-        $path = rtrim(trim($path), '/');
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
-            Yii::warning('Created dir:  ' . $path . '/', 'file');
-
-            return true;
-        }
-
-        return false;
+        return FileHelper::mkdir($path);
     }
 
     /**
