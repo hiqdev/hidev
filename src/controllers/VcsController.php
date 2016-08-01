@@ -16,10 +16,6 @@ namespace hidev\controllers;
  */
 class VcsController extends CommonController
 {
-    public $lastTag = 'Under development';
-
-    public $initTag = 'Development started';
-
     protected $_ignore;
 
     public function setIgnore($items, $where = '')

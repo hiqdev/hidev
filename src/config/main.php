@@ -69,9 +69,6 @@ return [
             '.gitignore' => [
                 'class' => 'hidev\controllers\GitignoreController',
             ],
-            'CHANGELOG.md' => [
-                'class' => 'hidev\controllers\ChangelogController',
-            ],
         ],
         'view' => [
             'class' => 'hidev\base\View',
