@@ -27,6 +27,7 @@ coverage.clover
 
 # PHARs
 box.phar
+chkipper.phar
 composer.phar
 hidev.phar
 php-cs-fixer.phar
