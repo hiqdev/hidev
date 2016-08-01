@@ -46,7 +46,11 @@ class Config extends \hiqdev\yii2\collection\Object
     {
         $item = &$this->_items[$id];
         if (is_array($item)) {
-            $item = $this->createItem($id, $item);
+            if (count($item) === 1 && key($item) === 'alias') {
+                $item = $this->getItem($item['alias']);
+            } else {
+                $item = $this->createItem($id, $item);
+            }
         }
 
         return $item;
