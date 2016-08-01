@@ -137,12 +137,13 @@ class GithubController extends CommonController
         return !static::exec('git', ['ls-remote', 'git@github.com:' . $repo], true);
     }
 
+    /**
+     * Creates github release.
+     */
     public function actionRelease($version = null)
     {
-        $this->runRequest('CHANGELOG.md');
-        $changelog = $this->takeGoal('CHANGELOG.md');
-        $notes = reset($changelog->getFile()->getHandler()->releaseNotes);
-        $version = $this->takeGoal('bump')->getVersion($version);
+        $version = $this->takeGoal('version')->getVersion($version);
+        $notes = $this->takeGoal('chkipper')->getReleaseNotes();
         $wait = $this->actionWaitPush();
         if ($wait) {
             return $wait;
