@@ -1,13 +1,12 @@
 hiqdev/hidev
 ------------
 
-## [Under development]
-
-    - [1b4772e] 2016-08-01 redone VersionController [sol@hiqdev.com]
-
-## [0.4.1] - 2016-08-01
+## [0.5.0] - 2016-08-01
 
 - Changed bumping with use of `chkipper`
+    - [347befd] 2016-08-01 removed old bumping [sol@hiqdev.com]
+    - [368e810] 2016-08-01 removing old bumping [sol@hiqdev.com]
+    - [1b4772e] 2016-08-01 redone VersionController [sol@hiqdev.com]
     - [671d39e] 2016-08-01 switching to `chkipper` [sol@hiqdev.com]
     - [ee2d1b9] 2016-08-01 improved `github/release` action [sol@hiqdev.com]
     - [cb5f93c] 2016-08-01 enabled `alias` goals [sol@hiqdev.com]
@@ -1184,3 +1183,5 @@ hiqdev/hidev
 [639c664]: https://github.com/hiqdev/hidev/commit/639c664
 [671d39e]: https://github.com/hiqdev/hidev/commit/671d39e
 [1b4772e]: https://github.com/hiqdev/hidev/commit/1b4772e
+[368e810]: https://github.com/hiqdev/hidev/commit/368e810
+[347befd]: https://github.com/hiqdev/hidev/commit/347befd

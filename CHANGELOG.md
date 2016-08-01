@@ -1,9 +1,7 @@
 hiqdev/hidev
 ------------
 
-## [Under development]
-
-## [0.4.1] - 2016-08-01
+## [0.5.0] - 2016-08-01
 
 - Changed bumping with use of `chkipper`
 - Fixed package title
