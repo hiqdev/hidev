@@ -1,8 +1,12 @@
-hiqdev/hidev commits history
-----------------------------
+hiqdev/hidev
+------------
 
 ## [Under development]
 
+## [0.4.1] - 2016-08-01
+
+- Changed bumping with use of `chkipper`
+- Fixed package title
 - Added including of `.hidev/config-local.yml`
 - Fixed functional tester
 
@@ -225,3 +229,5 @@ hiqdev/hidev commits history
 - Added composer.json generation
 - Added simple .gitignore generation
 - Added LICENSE generation
+
+## [Development started] - 2015-04-28

@@ -1,13 +1,28 @@
-hiqdev/hidev commits history
-----------------------------
+hiqdev/hidev
+------------
 
 ## [Under development]
 
-    - [fbb973d] 2016-06-21 improved package title [sol@hiqdev.com]
+    - [1b4772e] 2016-08-01 redone VersionController [sol@hiqdev.com]
+
+## [0.4.1] - 2016-08-01
+
+- Changed bumping with use of `chkipper`
+    - [671d39e] 2016-08-01 switching to `chkipper` [sol@hiqdev.com]
+    - [ee2d1b9] 2016-08-01 improved `github/release` action [sol@hiqdev.com]
+    - [cb5f93c] 2016-08-01 enabled `alias` goals [sol@hiqdev.com]
+    - [883d418] 2016-08-01 added `git/release` action [sol@hiqdev.com]
+    - [a9ea1aa] 2016-07-29 changed package title again [sol@hiqdev.com]
+    - [87ec52f] 2016-07-29 added FileHelper [sol@hiqdev.com]
+    - [696eea4] 2016-07-09 csfixed [sol@hiqdev.com]
+    - [639c664] 2016-07-09 testing chkipper [sol@hiqdev.com]
     - [45d1b47] 2016-06-21 added history, started switching to chkipper [sol@hiqdev.com]
     - [133dd20] 2016-06-12 csfixed [sol@hiqdev.com]
     - [9e41dae] 2016-06-12 fixed generating vendor plugin name [sol@hiqdev.com]
     - [d41e819] 2016-06-12 allowed to fail 5.5 at travis [sol@hiqdev.com]
+- Fixed package title
+    - [4292b81] 2016-07-21 changed package title [sol@hiqdev.com]
+    - [fbb973d] 2016-06-21 improved package title [sol@hiqdev.com]
 - Added including of `.hidev/config-local.yml`
     - [a8e0a44] 2016-05-25 added including of `.hidev/config-local.yml` [sol@hiqdev.com]
 - Fixed functional tester
@@ -690,8 +705,9 @@ hiqdev/hidev commits history
     - [ad8d8d0] 2015-04-30 improving LICENSE [sol@hiqdev.com]
     - [e4b5cd2] 2015-04-30 GREAT move ahead: now making LICENSE :) [sol@hiqdev.com]
     - [04777ec] 2015-04-28 inited [sol@hiqdev.com]
-
 ## Development started - 2015-04-28
+
+## [Development started] - 2015-04-28
 
 [a8e0a44]: https://github.com/hiqdev/hidev/commit/a8e0a44
 [32cfbc0]: https://github.com/hiqdev/hidev/commit/32cfbc0
@@ -1158,3 +1174,13 @@ hiqdev/hidev commits history
 [133dd20]: https://github.com/hiqdev/hidev/commit/133dd20
 [9e41dae]: https://github.com/hiqdev/hidev/commit/9e41dae
 [d41e819]: https://github.com/hiqdev/hidev/commit/d41e819
+[ee2d1b9]: https://github.com/hiqdev/hidev/commit/ee2d1b9
+[cb5f93c]: https://github.com/hiqdev/hidev/commit/cb5f93c
+[883d418]: https://github.com/hiqdev/hidev/commit/883d418
+[a9ea1aa]: https://github.com/hiqdev/hidev/commit/a9ea1aa
+[87ec52f]: https://github.com/hiqdev/hidev/commit/87ec52f
+[4292b81]: https://github.com/hiqdev/hidev/commit/4292b81
+[696eea4]: https://github.com/hiqdev/hidev/commit/696eea4
+[639c664]: https://github.com/hiqdev/hidev/commit/639c664
+[671d39e]: https://github.com/hiqdev/hidev/commit/671d39e
+[1b4772e]: https://github.com/hiqdev/hidev/commit/1b4772e

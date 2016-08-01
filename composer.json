@@ -1,12 +1,13 @@
 {
     "name": "hiqdev/hidev",
     "type": "project",
-    "description": "Automation tool mixed with code generator for easier continuos integration",
+    "description": "Automation tool mixed with code generator for easier continuous development",
     "keywords": [
         "automation",
         "build tool",
         "task runner",
         "code generator",
+        "continuous development",
         "continuous integration"
     ],
     "homepage": "https://github.com/hiqdev/hidev",
