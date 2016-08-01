@@ -18,30 +18,49 @@ class VersionController extends FileController
 {
     protected $_file = 'version';
 
+    public $fileVersion;
+
     public $version;
     public $date;
     public $time;
     public $zone;
     public $hash;
+    public $commit;
 
     public function init()
     {
         if ($this->exists()) {
-            $v = trim($this->getFile()->read());
-            list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $v);
+            $line = trim($this->getFile()->read());
+            list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $line);
+            $this->fileVersion = $this->version;
         }
     }
 
     public function actionMake($version = null)
     {
-        $v = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
-        list($date, $time, $zone, $hash, $commit) = explode(' ', $v, 5);
-        if (!$this->exists() || !in_array($commit, ['minor', 'version bump to ' . $this->version], true)) {
-            if ($hash !== $this->hash) {
-                $this->version = 'dev';
-            }
-            $version = $version ?: $this->takeGoal('bump')->version ?: $this->version ?: 'dev';
-            $this->getFile()->write(implode(' ', [$version, $date, $time, $zone, $hash]) . "\n");
-        }
+        $this->setVersion($version);
+        $this->actionLoad();
+        $this->actionSave();
+    }
+
+    public function actionLoad()
+    {
+        $line = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
+        list($this->date, $this->time, $this->zone, $this->hash, $this->commit) = explode(' ', $line, 5);
+    }
+
+    public function actionSave()
+    {
+        $this->getFile()->write(implode(' ', [$this->version, $this->date, $this->time, $this->zone, $this->hash]) . "\n");
+    }
+
+    public function setVersion($version = null)
+    {
+        $this->version = $this->getVersion($version);
+    }
+
+    public function getVersion($version = null)
+    {
+        return $version ?: $this->version ?: 'dev';
     }
 }
