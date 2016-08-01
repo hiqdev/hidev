@@ -120,6 +120,20 @@ class GitController extends VcsController
         $this->loadHistory();
     }
 
+    public function actionRelease($version = null)
+    {
+        $version = $this->takeGoal('version')->getVersion($version);
+        $message = "version bump to $version";
+        $this->actionCommit($message);
+        /// $this->actionTag($version);
+        return $this->actionPush();
+    }
+
+    public function actionCommit($message)
+    {
+        return $this->passthru('git', ['commit', '-am', $message]);
+    }
+
     public function actionPush()
     {
         return $this->passthru('git', 'push');
