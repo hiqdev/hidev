@@ -69,6 +69,25 @@ return [
             '.gitignore' => [
                 'class' => 'hidev\controllers\GitignoreController',
             ],
+            /// Yii built-in controllers
+            'asset' => [
+                'class' => 'yii\console\controllers\AssetController',
+            ],
+            'cache' => [
+                'class' => 'yii\console\controllers\CacheController',
+            ],
+            'fixture' => [
+                'class' => 'yii\console\controllers\FixtureController',
+            ],
+            'message' => [
+                'class' => 'yii\console\controllers\MessageController',
+            ],
+            'migrate' => [
+                'class' => 'yii\console\controllers\MigrateController',
+            ],
+            'serve' => [
+                'class' => 'yii\console\controllers\ServeController',
+            ],
         ],
         'view' => [
             'class' => 'hidev\base\View',
