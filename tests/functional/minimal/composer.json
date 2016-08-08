@@ -1,0 +1,13 @@
+{
+    "name": "the-vendor/my-new-package",
+    "type": "project",
+    "description": "My New Package",
+    "keywords": [
+        "my",
+        "new",
+        "package"
+    ],
+    "require-dev": {
+        "hiqdev/hidev-php": "<2.0 || dev-master"
+    }
+}

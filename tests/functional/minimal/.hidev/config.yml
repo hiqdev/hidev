@@ -10,6 +10,3 @@ vendor:
         sol:
             name:       Author Name
             email:      author@email.com
-
-plugins:
-    hiqdev/hidev-php:       "*"

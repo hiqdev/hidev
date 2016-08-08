@@ -34,7 +34,7 @@ class InitTest extends \PHPUnit_Framework_TestCase
     public function testMinimal()
     {
         $this->tester->hidev(['init', 'the-vendor/my-new-package', '--nick=sol', '--author=Author Name', '--email=author@email.com']);
-        $this->tester->assertFiles(__DIR__ . '/minimal', ['.hidev/config.yml']);
+        $this->tester->assertFiles(__DIR__ . '/minimal', ['.hidev/config.yml', 'composer.json']);
     }
 
     /**
@@ -43,7 +43,7 @@ class InitTest extends \PHPUnit_Framework_TestCase
     public function testPlugins()
     {
         $this->tester->hidev(['init', 'hiqdev/my-new-package', '--nick=sol', '--author=Author Name', '--email=author@email.com']);
-        $this->tester->assertFiles(__DIR__ . '/plugins', ['.hidev/config.yml']);
+        $this->tester->assertFiles(__DIR__ . '/plugins', ['.hidev/config.yml', 'composer.json']);
     }
 
     /**
@@ -54,7 +54,7 @@ class InitTest extends \PHPUnit_Framework_TestCase
         $this->tester->hidev([
             'init', 'the-vendor/new-package', '--nick=sol', '--namespace=thevendor\\other\\newpackage', '--headline=New Package',
             '--title=The new library package', '--type=library', '--keywords=new,package,of,the,vendor', '--license=MIT',
-            '--description=The project longer description', '--year=2014', '--novendor', '--norequire',
+            '--description=The project longer description', '--year=2014', '--novendor', '--norequire', '--nocomposer',
         ]);
         $this->tester->assertFiles(__DIR__ . '/options', ['.hidev/config.yml']);
     }

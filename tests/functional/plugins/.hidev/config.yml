@@ -3,7 +3,3 @@ package:
     name:           my-new-package
     title:          My New Package
     keywords:       my, new, package
-
-plugins:
-    hiqdev/hidev-php:       "*"
-    hiqdev/hidev-hiqdev:    "*"
