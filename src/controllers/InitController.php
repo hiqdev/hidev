@@ -12,6 +12,7 @@
 namespace hidev\controllers;
 
 use Exception;
+use hidev\base\File;
 use hidev\helpers\Helper;
 use yii\base\InvalidParamException;
 
@@ -23,11 +24,13 @@ class InitController extends TemplateController
 {
     protected $_file = '.hidev/config.yml';
 
+    public $name;
     public $vendor;
     public $package;
 
     public function prepareData($name)
     {
+        $this->name = $name;
         list($vendor, $package) = explode('/', $name, 2);
         if ($vendor) {
             $this->vendor = $vendor;
@@ -38,7 +41,7 @@ class InitController extends TemplateController
                 $exists = false;
             }
             if ($exists) {
-                $this->setItem('vendorRequire', str_pad($vendorPlugin . ':', 23) . ' "*"');
+                $this->setItem('vendorRequire', $vendorPlugin);
                 $this->setItem('novendor', true);
             }
         }
@@ -57,13 +60,31 @@ class InitController extends TemplateController
         if (!file_exists($this->dirname)) {
             mkdir($this->dirname);
         }
+        if (!$this->nocomposer) {
+            $this->actionComposer();
+        }
 
         return parent::actionPerform();
     }
 
+    public function actionComposer()
+    {
+        $file = new File(['path' => 'composer.json']);
+        $data = array_filter([
+            'name'        => $this->name,
+            'type'        => $this->getType(),
+            'description' => $this->getTitle(),
+            'keywords'    => preg_split('/\s*,\s*/', $this->getKeywords()),
+            'require-dev' => $this->getPlugins(),
+            'license'     => $this->getItem('license'),
+        ]);
+        $file->save($data);
+        $this->setItem('norequire', true);
+    }
+
     public function options($actionId)
     {
-        return array_merge(parent::options($actionId), explode(',', 'namespace,headline,title,type,license,keywords,description,year,nick,author,email,novendor,norequire'));
+        return array_merge(parent::options($actionId), explode(',', 'namespace,headline,title,type,license,keywords,description,year,nick,author,email,novendor,norequire,nocomposer'));
     }
 
     public function getType()
@@ -95,5 +116,24 @@ class InitController extends TemplateController
     public function getEmail()
     {
         return $this->getItem('email') ?: $this->takeVcs()->getUserEmail();
+    }
+
+    /**
+     * Returns list of plugins in composer requirements format: name => version.
+     * @return array
+     */
+    public function getPlugins()
+    {
+        if ($this->norequire) {
+            return [];
+        }
+        $res = [
+            'hiqdev/hidev-php' => '<2.0 || dev-master',
+        ];
+        if ($this->vendorRequire) {
+            $res[$this->vendorRequire] = '<2.0 || dev-master';
+        }
+
+        return $res;
     }
 }

@@ -35,11 +35,10 @@ vendor:
             email:      {{ config.init.email }}
 {% endif %}
 {% endif %}
-{% if not config.init.norequire %}
+{% if config.init.plugins %}
 
 plugins:
-    hiqdev/hidev-php:       "*"
-{% if config.init.vendorRequire %}
-    {{ config.init.vendorRequire|raw }}
-{% endif %}
+{% for plugin, version in config.init.plugins %}
+    {{ "%-23s"|format(plugin ~ ':') }} "{{ version|raw }}"
+{% endfor %}
 {% endif %}
