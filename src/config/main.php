@@ -9,6 +9,10 @@
  * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
  */
 
+if (!defined('HIDEV_VENDOR_DIR')) {
+    define('HIDEV_VENDOR_DIR', dirname(dirname(dirname(dirname(__DIR__)))));
+}
+
 return [
     'id'                    => 'hidev',
     'name'                  => 'HiDev',
