@@ -110,7 +110,7 @@ class StartController extends CommonController
         if ($plugins) {
             $file = File::create('.hidev/composer.json');
             $data = ArrayHelper::merge($file->load(), ['require' => $plugins]);
-            if ($file->save() || !is_dir('.hidev/vendor')) {
+            if ($file->save($data) || !is_dir('.hidev/vendor')) {
                 $this->runAction('update');
             }
             $vendors[] = '.hidev/vendor';
