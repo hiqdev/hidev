@@ -235,6 +235,11 @@ abstract class AbstractController extends \hidev\base\Controller
         return $this->takeGoal('binaries')->execBinary($name, $args, $returnExitCode);
     }
 
+    public function execCode($name, $args = '')
+    {
+        return $this->takeGoal('binaries')->execBinary($name, $args, true);
+    }
+
     public function readline($prompt)
     {
         return readline($prompt);
