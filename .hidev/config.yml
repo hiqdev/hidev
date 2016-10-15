@@ -27,6 +27,7 @@ plugins:
     hiqdev/hidev-vendor:        "*@dev"
     hiqdev/hidev-license:       "*@dev"
     hiqdev/hidev-phpunit:       "*@dev"
+    hiqdev/hidev-chkipper:      "*@dev"
     hiqdev/hidev-composer:      "*@dev"
     hiqdev/hidev-scrutinizer:   "*@dev"
     hiqdev/hidev-php-cs-fixer:  "*@dev"

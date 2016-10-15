@@ -1,6 +1,21 @@
 hiqdev/hidev
 ------------
 
+## [Under development]
+
+- Fixed writing `.hidev/composer.json`, now mergning
+    - [d82ee5e] 2016-10-15 fixed merging `.hidev/composer.json` [sol@hiqdev.com]
+    - [452c33f] 2016-10-15 changed writing `.hidev/composer.json`: it is merging now [sol@hiqdev.com]
+- Added more python compatibility
+    - [6c78455] 2016-10-15 added BinaryPython [sol@hiqdev.com]
+    - [9971c91] 2016-10-15 + detect `HIDEV_VENDOR_DIR` [sol@hiqdev.com]
+    - [a6d06bf] 2016-10-15 + `execCode()` [sol@hiqdev.com]
+- Added creating `composer.json` at `init`
+    - [1de67f0] 2016-08-09 fixed tests [sol@hiqdev.com]
+    - [7e65328] 2016-08-09 improved `init` to create `composer.json` file [sol@hiqdev.com]
+- Added Yii build-in controllers
+    - [032f166] 2016-08-07 added Yii built-in controllers [sol@hiqdev.com]
+
 ## [0.5.0] - 2016-08-01
 
 - Changed bumping with use of `chkipper`
@@ -1185,3 +1200,11 @@ hiqdev/hidev
 [1b4772e]: https://github.com/hiqdev/hidev/commit/1b4772e
 [368e810]: https://github.com/hiqdev/hidev/commit/368e810
 [347befd]: https://github.com/hiqdev/hidev/commit/347befd
+[6c78455]: https://github.com/hiqdev/hidev/commit/6c78455
+[452c33f]: https://github.com/hiqdev/hidev/commit/452c33f
+[9971c91]: https://github.com/hiqdev/hidev/commit/9971c91
+[a6d06bf]: https://github.com/hiqdev/hidev/commit/a6d06bf
+[1de67f0]: https://github.com/hiqdev/hidev/commit/1de67f0
+[7e65328]: https://github.com/hiqdev/hidev/commit/7e65328
+[032f166]: https://github.com/hiqdev/hidev/commit/032f166
+[d82ee5e]: https://github.com/hiqdev/hidev/commit/d82ee5e
