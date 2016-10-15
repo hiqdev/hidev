@@ -14,6 +14,7 @@ namespace hidev\controllers;
 use hidev\base\File;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\helpers\ArrayHelper;
 
 /**
  * Start goal.
@@ -107,8 +108,9 @@ class StartController extends CommonController
         $plugins = $this->takeConfig()->rawItem('plugins');
         $vendors = [];
         if ($plugins) {
-            $saved = File::create('.hidev/composer.json')->save(['require' => $plugins]);
-            if ($saved || !is_dir('.hidev/vendor')) {
+            $file = File::create('.hidev/composer.json');
+            $data = ArrayHelper::merge($file->load(), ['require' => $plugins]);
+            if ($file->save() || !is_dir('.hidev/vendor')) {
                 $this->runAction('update');
             }
             $vendors[] = '.hidev/vendor';
