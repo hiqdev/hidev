@@ -33,6 +33,7 @@ hidev.phar
 php-cs-fixer.phar
 phpunit-skelgen.phar
 phpunit.phar
+pip.phar
 
 # runtime dir
 /runtime
