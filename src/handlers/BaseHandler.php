@@ -33,7 +33,7 @@ class BaseHandler extends \yii\base\Object
     public $template;
 
     /**
-     * @var View object.
+     * @var View object
      */
     protected $_view;
 
@@ -41,7 +41,7 @@ class BaseHandler extends \yii\base\Object
      * Returns the view object that can be used to render views or view files.
      * If not set, it will default to the "view" application component.
      *
-     * @return View|\yii\web\View the view object that can be used to render views or view files.
+     * @return View|\yii\web\View the view object that can be used to render views or view files
      */
     public function getView()
     {
@@ -83,7 +83,7 @@ class BaseHandler extends \yii\base\Object
     public function prepareData($data)
     {
         return ArrayHelper::toArray($data, [], false);
-        #return $data;
+        //return $data;
     }
 
     /**

@@ -29,7 +29,7 @@ class Request extends \yii\console\Request
     /**
      * Returns the command line arguments.
      *
-     * @return array the command line arguments. It does not include the entry script name.
+     * @return array the command line arguments. It does not include the entry script name
      */
     public function getParams()
     {

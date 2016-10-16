@@ -65,6 +65,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
             static::readExtraVendor($config['vendorPath']),
             $config
         );
+
         return new static($config);
     }
 
@@ -76,6 +77,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     public static function readExtraConfig($path)
     {
         $path = Yii::getAlias($path);
+
         return file_exists($path) ? require $path : [];
     }
 

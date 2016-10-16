@@ -40,7 +40,7 @@ class BinaryPython extends Binary
      * Searches in this order:
      * 1. exexcutable in project's root directory
      * 2. XXX ??? vendor directory
-     * 3. /home/user/.local/bin
+     * 3. /home/user/.local/bin.
      *
      * @param string $name
      * @return string path to the binary

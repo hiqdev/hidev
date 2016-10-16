@@ -252,6 +252,7 @@ abstract class AbstractController extends \hidev\base\Controller
         $password = rtrim(fgets(STDIN), PHP_EOL);
         system('stty echo');
         echo "\n";
+
         return $password;
     }
 

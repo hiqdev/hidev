@@ -44,7 +44,7 @@ class Logger extends \yii\log\Logger
     ];
 
     /**
-     * @var integer level to send log messages to stdout.
+     * @var integer level to send log messages to stdout
      */
     protected $_spamLevel;
 

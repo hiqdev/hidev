@@ -26,6 +26,7 @@ class CommonController extends AbstractController
         $this->performName = $name;
         $this->performPath = $path;
         Yii::trace("Started: '$this->id'");
+
         return $this->perform();
     }
 }

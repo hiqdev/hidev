@@ -11,8 +11,6 @@
 
 namespace hidev\controllers;
 
-use yii\base\InvalidConfigException;
-
 /**
  * Controller for Git.
  */

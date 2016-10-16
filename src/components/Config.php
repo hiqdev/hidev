@@ -32,6 +32,7 @@ class Config extends \hiqdev\yii2\collection\Object
         if (isset($config['class']) && $this->hasItem($config['class'])) {
             $config = array_merge($config, $this->_items[$config['class']]);
         }
+
         return ArrayHelper::merge([
             'class' => 'hidev\controllers\CommonController',
         ], $config);
@@ -68,6 +69,7 @@ class Config extends \hiqdev\yii2\collection\Object
         if (!isset($this->_included[$path]) || $force) {
             $this->_included[$path] = $path;
             $this->mergeItems($file->load());
+
             return true;
         }
 

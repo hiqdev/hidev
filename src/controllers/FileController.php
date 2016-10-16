@@ -28,53 +28,53 @@ class FileController extends CollectionController
     protected $_make = ['load', 'save', 'modify'];
 
     /**
-     * @var string specifies handler to be used.
+     * @var string specifies handler to be used
      */
     public $fileType;
 
     /**
-     * @var bool Don't touch file if exists.
+     * @var bool Don't touch file if exists
      */
     public $once;
 
     /**
-     * @var string Username to change file owner to.
+     * @var string Username to change file owner to
      */
     public $chown;
 
     /**
-     * @var string Group to change file group to.
+     * @var string Group to change file group to
      */
     public $chgrp;
 
     /**
-     * @var string|integer Permissions to change to.
+     * @var string|integer Permissions to change to
      */
     public $chmod;
 
     /**
-     * @var array|File the file to be handled.
+     * @var array|File the file to be handled
      */
     protected $_file;
 
     /**
-     * @var string path to copy from.
+     * @var string path to copy from
      */
     protected $_copy;
 
     /**
-     * @var string the path to the file.
+     * @var string the path to the file
      */
     protected $_path;
 
     /**
-     * @var string the template name.
+     * @var string the template name
      */
     protected $_template;
 
     /**
      * Template setter.
-     * @param string $template name.
+     * @param string $template name
      */
     public function setTemplate($template)
     {
@@ -194,6 +194,7 @@ class FileController extends CollectionController
     public function actionPerform($name = null, $path = null)
     {
         Yii::trace("Started: '$this->id'");
+
         return $this->runActions(['before', 'make', 'after']);
     }
 

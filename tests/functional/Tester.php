@@ -65,6 +65,7 @@ class Tester
         $path = ($dir ?: $this->dir) . DIRECTORY_SEPARATOR . $file;
         $dirname = dirname($path);
         static::mkdir($dirname);
+
         return $path;
     }
 
@@ -81,8 +82,8 @@ class Tester
      */
     public function hidev($request)
     {
-        #$command = Yii::getAlias('@hidev/../bin/hidev') . ' ' . $params;
-        #exec($command);
+        //$command = Yii::getAlias('@hidev/../bin/hidev') . ' ' . $params;
+        //exec($command);
         $this->getApp()->runRequest($request);
     }
 

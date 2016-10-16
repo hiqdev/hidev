@@ -35,8 +35,8 @@ class PackageController extends CommonController
         if (!empty($years)) {
             return $years;
         }
-        $cur = (integer) date('Y');
-        $old = (integer) $this->year;
+        $cur = (int) date('Y');
+        $old = (int) $this->year;
 
         return ($old && $old < $cur ? $this->year . '-' : '') . $cur;
     }
