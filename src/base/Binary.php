@@ -17,6 +17,11 @@ use yii\base\InvalidConfigException;
 class Binary extends \yii\base\Object
 {
     /**
+     * @var BinariesController parent controller
+     */
+    public $controller;
+
+    /**
      * @var string command name, eg.: phpunit, composer
      */
     public $name;
@@ -30,6 +35,31 @@ class Binary extends \yii\base\Object
      * @var string full command to run the binary, possibly with added command runner, eg.: /usr/bin/env php /home/user/command.phar
      */
     protected $_command;
+
+    /**
+     * @var string package full name, e.g. pytest
+     */
+    public $package;
+
+    /**
+     * @var string package version constraint, e.g. ^1.1
+     */
+    public $version;
+
+    /**
+     * @var string installer URL
+     */
+    public $installer;
+
+    /**
+     * @var array installer options
+     */
+    public $installer_options = [];
+
+    /**
+     * @var string URL to download binary
+     */
+    public $download;
 
     /**
      * Prepares and runs with passthru, returns exit code.

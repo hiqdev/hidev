@@ -16,26 +16,6 @@ use Yii;
 class BinaryPhp extends Binary
 {
     /**
-     * @var string package full name, e.g. fabpot/php-cs-fixer
-     */
-    public $package;
-
-    /**
-     * @var string package version constraint, e.g. ^1.1
-     */
-    public $version;
-
-    /**
-     * @var string installer URL
-     */
-    public $installer;
-
-    /**
-     * @var string URL to download PHAR
-     */
-    public $download;
-
-    /**
      * Detects how to run the binary.
      * Searches in this order:
      * 1. PHAR in project's root directory

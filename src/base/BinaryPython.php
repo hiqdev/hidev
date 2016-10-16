@@ -16,26 +16,6 @@ use Yii;
 class BinaryPython extends Binary
 {
     /**
-     * @var string package full name, e.g. pytest
-     */
-    public $package;
-
-    /**
-     * @var string package version constraint, e.g. ^1.1
-     */
-    public $version;
-
-    /**
-     * @var string installer URL
-     */
-    public $installer;
-
-    /**
-     * @var string URL to download PHAR
-     */
-    public $download;
-
-    /**
      * Detects how to run the binary.
      * Searches in this order:
      * 1. exexcutable in project's root directory
@@ -81,7 +61,7 @@ class BinaryPython extends Binary
             $dest = Yii::getAlias('@root/' . $this->name, false);
             passthru('/usr/bin/env wget ' . escapeshellarg($this->download) . ' -O ' . $dest, $exitcode);
         } else {
-            passthru("/usr/bin/pip install {$this->package}", $exitcode);
+            $exitcode = $this->controller->passthru('pip', ['install', $this->package]);
         }
 
         return $exitcode;

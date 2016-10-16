@@ -37,6 +37,7 @@ class BinariesController extends CommonController
         return array_merge([
             'name'  => $name,
             'class' => $this->defaultClass,
+            'controller' => $this,
         ], $config);
     }
 
