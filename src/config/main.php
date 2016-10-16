@@ -60,6 +60,10 @@ return [
             ],
             'binaries' => [
                 'class' => 'hidev\controllers\BinariesController',
+                'pip' => [
+                    'class' => \hidev\base\BinaryPython::class,
+                    'installer' => 'https://bootstrap.pypa.io/get-pip.py',
+                ],
             ],
             'template' => [
                 'class' => 'hidev\controllers\TemplateController',
