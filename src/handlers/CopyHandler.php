@@ -32,6 +32,6 @@ class CopyHandler extends BaseHandler
      */
     public function parsePath($path, $minimal = null)
     {
-        return null;
+        return;
     }
 }
