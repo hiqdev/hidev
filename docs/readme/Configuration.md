@@ -46,7 +46,7 @@ Vendor section holds info about you or your company:
 - **title**: full vendor name, will be used for README, LICENSE and so on
 - **github**, **homepage**, **forum**, **email**: obviously
 - **license**: will be used if package does not specify one
-- **authors**: array of authors, see: HiQDev's [config.yml](https://github.com/hiqdev/hidev-hiqdev/blob/master/src/config.yml)
+- **authors**: array of authors, see: [HiQDev's config](https://github.com/hiqdev/hidev-hiqdev/blob/master/src/config/goals.yml)
 
 Best way of configuring vendor is to create and use your vendor plugin for HiDev.
 It's easy, just fork `hiqdev/hidev-hiqdev`, change it appropriately and publish
