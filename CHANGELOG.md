@@ -3,6 +3,8 @@ hiqdev/hidev
 
 ## [Under development]
 
+- Added basic `update` action
+- Added installation configs for composer and pip
 - Fixed writing `.hidev/composer.json`, now mergning
 - Added more python compatibility
 - Added creating `composer.json` at `init`

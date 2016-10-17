@@ -3,6 +3,14 @@ hiqdev/hidev
 
 ## [Under development]
 
+- Added basic `update` action
+    - [315b8e8] 2016-10-17 + basic `update` action [sol@hiqdev.com]
+- Added installation configs for composer and pip
+    - [7be2e9a] 2016-10-16 + composer binary config [sol@hiqdev.com]
+    - [e41aa3d] 2016-10-16 reorganized Binary/Php/Python [sol@hiqdev.com]
+    - [d2e8884] 2016-10-16 fixed plugins list in `.hidev/config.yml` [sol@hiqdev.com]
+    - [62f786e] 2016-10-16 csfixed [sol@hiqdev.com]
+    - [6834123] 2016-10-16 + pip installer config [sol@hiqdev.com]
 - Fixed writing `.hidev/composer.json`, now mergning
     - [d82ee5e] 2016-10-15 fixed merging `.hidev/composer.json` [sol@hiqdev.com]
     - [452c33f] 2016-10-15 changed writing `.hidev/composer.json`: it is merging now [sol@hiqdev.com]
@@ -1208,3 +1216,9 @@ hiqdev/hidev
 [7e65328]: https://github.com/hiqdev/hidev/commit/7e65328
 [032f166]: https://github.com/hiqdev/hidev/commit/032f166
 [d82ee5e]: https://github.com/hiqdev/hidev/commit/d82ee5e
+[315b8e8]: https://github.com/hiqdev/hidev/commit/315b8e8
+[7be2e9a]: https://github.com/hiqdev/hidev/commit/7be2e9a
+[e41aa3d]: https://github.com/hiqdev/hidev/commit/e41aa3d
+[d2e8884]: https://github.com/hiqdev/hidev/commit/d2e8884
+[62f786e]: https://github.com/hiqdev/hidev/commit/62f786e
+[6834123]: https://github.com/hiqdev/hidev/commit/6834123
