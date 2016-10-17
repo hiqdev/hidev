@@ -29,6 +29,11 @@ class PackageController extends CommonController
         return $this->getItem('type') ?: 'project';
     }
 
+    public function getLanguage()
+    {
+        return $this->getItem('language') ?: 'php';
+    }
+
     public function getYears()
     {
         $years = $this->getItem('years');

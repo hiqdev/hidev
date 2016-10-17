@@ -62,6 +62,11 @@ class Binary extends \yii\base\Object
     public $download;
 
     /**
+     * @var string filename to be added to VCS ignore file
+     */
+    protected $_vcsignore;
+
+    /**
      * Prepares and runs with passthru, returns exit code.
      * @param string|array $args
      * @return int exit code
@@ -182,5 +187,14 @@ class Binary extends \yii\base\Object
         }
 
         return $path;
+    }
+    public function setVcsignore($value)
+    {
+        $this->_vcsignore = $value;
+    }
+
+    public function getVcsignore()
+    {
+        return $this->_vcsignore;
     }
 }

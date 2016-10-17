@@ -62,4 +62,9 @@ class BinaryPhp extends Binary
 
         return $exitcode;
     }
+
+    public function getVcsignore()
+    {
+        return $this->name . '.phar';
+    }
 }
