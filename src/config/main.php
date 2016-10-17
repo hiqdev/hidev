@@ -40,40 +40,49 @@ return [
         ],*/
         'config' => [
             'class' => 'hidev\components\Config',
+            /// internally used actions
+            'binaries' => [
+                'class' => 'hidev\controllers\BinariesController',
+                'composer' => [
+                    'class' => 'hidev\base\BinaryPhp',
+                    'installer' => 'https://getcomposer.org/installer',
+                ],
+                'pip' => [
+                    'class' => 'hidev\base\BinaryPython',
+                    'installer' => 'https://bootstrap.pypa.io/get-pip.py',
+                ],
+            ],
+            /// basic actions
             'init' => [
                 'class' => 'hidev\controllers\InitController',
-            ],
-            'github' => [
-                'class' => 'hidev\controllers\GithubController',
-            ],
-            'vendor' => [
-                'class' => 'hidev\controllers\VendorController',
-            ],
-            'command' => [
-                'class' => 'hidev\controllers\CommandController',
             ],
             '--version' => [
                 'class' => 'hidev\controllers\OwnVersionController',
             ],
+            'update' => [
+                'before' => [
+                    'start/update',
+                ],
+            ],
+            /// standart actions
+            'vendor' => [
+                'class' => 'hidev\controllers\VendorController',
+            ],
             'package' => [
                 'class' => 'hidev\controllers\PackageController',
             ],
-            'binaries' => [
-                'class' => 'hidev\controllers\BinariesController',
-                'composer' => [
-                    'class' => \hidev\base\BinaryPhp::class,
-                    'installer' => 'https://getcomposer.org/installer',
-                ],
-                'pip' => [
-                    'class' => \hidev\base\BinaryPython::class,
-                    'installer' => 'https://bootstrap.pypa.io/get-pip.py',
-                ],
+            'command' => [
+                'class' => 'hidev\controllers\CommandController',
             ],
             'template' => [
                 'class' => 'hidev\controllers\TemplateController',
             ],
             'directory' => [
                 'class' => 'hidev\controllers\DirectoryController',
+            ],
+            /// git/vcs actions
+            'github' => [
+                'class' => 'hidev\controllers\GithubController',
             ],
             'vcsignore' => [
                 'class' => 'hidev\controllers\VcsignoreController',
