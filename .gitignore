@@ -25,7 +25,7 @@ composer.lock
 # phpunit generated files
 coverage.clover
 
-# PHARs
+# Binaries
 box.phar
 chkipper.phar
 composer.phar
@@ -33,7 +33,6 @@ hidev.phar
 php-cs-fixer.phar
 phpunit-skelgen.phar
 phpunit.phar
-pip.phar
 
 # runtime dir
 /runtime
