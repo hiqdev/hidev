@@ -37,8 +37,9 @@ class StartController extends CommonController
      */
     public function actionMake()
     {
+        self::$started = true;
         $this->getRootDir();
-        $this->takeConfig()->includeConfig('.hidev/config.yml');
+        $this->includeMainConfig();
         if (file_exists('.hidev/config-local.yml')) {
             $this->takeConfig()->includeConfig('.hidev/config-local.yml');
         }
@@ -47,7 +48,12 @@ class StartController extends CommonController
         $this->requireAll();
         $this->includeAll();
         $this->loadConfig();
-        self::$started = true;
+        $this->includeMainConfig();
+    }
+
+    public function includeMainConfig()
+    {
+        $this->takeConfig()->includeConfig('.hidev/config.yml');
     }
 
     public function addAutoloader()
