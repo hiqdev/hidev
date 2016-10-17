@@ -21,7 +21,7 @@ hiqdev/hidev
 - Added creating `composer.json` at `init`
     - [1de67f0] 2016-08-09 fixed tests [sol@hiqdev.com]
     - [7e65328] 2016-08-09 improved `init` to create `composer.json` file [sol@hiqdev.com]
-- Added Yii build-in controllers
+- Added Yii built-in controllers
     - [032f166] 2016-08-07 added Yii built-in controllers [sol@hiqdev.com]
 
 ## [0.5.0] - 2016-08-01

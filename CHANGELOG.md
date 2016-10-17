@@ -8,7 +8,7 @@ hiqdev/hidev
 - Fixed writing `.hidev/composer.json`, now mergning
 - Added more python compatibility
 - Added creating `composer.json` at `init`
-- Added Yii build-in controllers
+- Added Yii built-in controllers
 
 ## [0.5.0] - 2016-08-01
 
