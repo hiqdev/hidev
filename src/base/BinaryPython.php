@@ -61,7 +61,7 @@ class BinaryPython extends Binary
             $dest = Yii::getAlias('@root/' . $this->name, false);
             passthru('/usr/bin/env wget ' . escapeshellarg($this->download) . ' -O ' . $dest, $exitcode);
         } else {
-            $exitcode = $this->controller->passthru('pip', ['install', $this->package]);
+            $exitcode = $this->controller->passthru('pip', ['install', '--user', $this->package]);
         }
 
         return $exitcode;
