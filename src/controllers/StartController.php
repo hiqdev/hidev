@@ -72,7 +72,9 @@ class StartController extends CommonController
      */
     public function actionUpdate()
     {
-        return $this->passthru('composer', ['update', '-d', '.hidev', '--prefer-source', '--ansi']);
+        if (file_exists('.hidev/composer.json')) {
+            return $this->passthru('composer', ['update', '-d', '.hidev', '--prefer-source', '--ansi']);
+        }
     }
 
     /**
