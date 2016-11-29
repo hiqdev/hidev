@@ -40,9 +40,6 @@ class StartController extends CommonController
         self::$started = true;
         $this->getRootDir();
         $this->includeMainConfig();
-        if (file_exists('.hidev/config-local.yml')) {
-            $this->takeConfig()->includeConfig('.hidev/config-local.yml');
-        }
         $this->addAliases();
         $this->addAutoloader();
         $this->requireAll();
@@ -54,6 +51,9 @@ class StartController extends CommonController
     public function includeMainConfig()
     {
         $this->takeConfig()->includeConfig('.hidev/config.yml');
+        if (file_exists('.hidev/config-local.yml')) {
+            $this->takeConfig()->includeConfig('.hidev/config-local.yml');
+        }
     }
 
     public function addAutoloader()
