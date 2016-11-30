@@ -64,7 +64,7 @@ return [
                     'start/update',
                 ],
             ],
-            /// standart actions
+            /// standard actions
             'vendor' => [
                 'class' => 'hidev\controllers\VendorController',
             ],
