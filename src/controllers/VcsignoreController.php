@@ -17,6 +17,7 @@ namespace hidev\controllers;
 class VcsignoreController extends FileController
 {
     protected $_items = [
+        '.hidev/config-local.yml'   => 'hidev internals',
         '.hidev/composer.json' => 'hidev internals',
         '.hidev/composer.lock' => 'hidev internals',
         '.hidev/vendor'        => 'hidev internals',
