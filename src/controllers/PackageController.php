@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
@@ -142,6 +141,7 @@ class PackageController extends CommonController
     {
         return 'https://github.com/' . $this->getFullName() . '/blob/master/' . $file;
     }
+
     public function getAuthors()
     {
         return $this->getItem('authors') ?: $this->takeVendor()->authors;

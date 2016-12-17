@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
@@ -184,6 +183,7 @@ class Tester
     {
         return file_get_contents($this->path($file));
     }
+
     public static function mkdir($dir)
     {
         if (!file_exists($dir)) {

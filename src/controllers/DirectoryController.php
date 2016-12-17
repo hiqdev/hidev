@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
@@ -19,9 +18,9 @@ use Yii;
 class DirectoryController extends FileController
 {
     public $recursive = [];
+
     /**
      * Load action.
-     * @return void
      */
     public function actionLoad()
     {

@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
@@ -378,6 +377,7 @@ class File extends \yii\base\Object
         passthru("chgrp $value $path");
         Yii::warning("chgrp $path '$value'", 'file');
     }
+
     public function symlink($dest)
     {
         if (file_exists($dest)) {
