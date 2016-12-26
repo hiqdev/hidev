@@ -126,7 +126,7 @@ class StartController extends CommonController
                 throw new InvalidParamException('Failed initialize project with composer install');
             }
         }
-        if (file_exists('vendor/hiqdev/config/hidev.php')) {
+        if (file_exists('vendor/hiqdev/composer-config-plugin-output/hidev.php')) {
             $vendors[] = 'vendor';
         }
         if (!empty($vendors)) {
