@@ -85,7 +85,7 @@ class StartController extends CommonController
     {
         Yii::setAlias('@root', $this->getRootDir());
         $config = $this->takeConfig()->rawItem('package');
-        $alias  = strtr($config['namespace'], '\\', '/');
+        $alias  = isset($config['namespace']) ? strtr($config['namespace'], '\\', '/') : '';
         if ($alias && !Yii::getAlias('@' . $alias, false)) {
             $srcdir = Yii::getAlias('@root/' . ($config['src'] ?: 'src'));
             Yii::setAlias($alias, $srcdir);
