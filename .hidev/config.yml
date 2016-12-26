@@ -20,17 +20,18 @@ package:
         And more planned. See [ROADMAP](ROADMAP.md).
 
 plugins:
-    hiqdev/hidev-box:           "*@dev"
-    hiqdev/hidev-php:           "*@dev"
-    hiqdev/hidev-readme:        "*@dev"
-    hiqdev/hidev-travis:        "*@dev"
-    hiqdev/hidev-license:       "*@dev"
-    hiqdev/hidev-phpunit:       "*@dev"
-    hiqdev/hidev-chkipper:      "*@dev"
-    hiqdev/hidev-composer:      "*@dev"
-    hiqdev/hidev-scrutinizer:   "*@dev"
-    hiqdev/hidev-php-cs-fixer:  "*@dev"
-    hiqdev/hidev-hiqdev:        "*@dev"
+    hiqdev/composer-config-plugin:  "dev-master"
+    hiqdev/hidev-box:               "*@dev"
+    hiqdev/hidev-php:               "*@dev"
+    hiqdev/hidev-readme:            "*@dev"
+    hiqdev/hidev-travis:            "*@dev"
+    hiqdev/hidev-license:           "*@dev"
+    hiqdev/hidev-phpunit:           "*@dev"
+    hiqdev/hidev-chkipper:          "*@dev"
+    hiqdev/hidev-composer:          "*@dev"
+    hiqdev/hidev-scrutinizer:       "*@dev"
+    hiqdev/hidev-php-cs-fixer:      "*@dev"
+    hiqdev/hidev-hiqdev:            "*@dev"
 
 default:
     before:
