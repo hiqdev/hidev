@@ -1,6 +1,7 @@
 # hidev internals
 .hidev/composer.json
 .hidev/composer.lock
+.hidev/config-local.yml
 .hidev/vendor
 
 # IDE & OS files
@@ -30,6 +31,7 @@ box.phar
 chkipper.phar
 composer.phar
 hidev.phar
+ocular.phar
 php-cs-fixer.phar
 phpunit-skelgen.phar
 phpunit.phar
