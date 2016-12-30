@@ -42,7 +42,7 @@ class Config extends \hiqdev\yii2\collection\Object
         return Yii::createObject($this->getItemConfig($id, $config), [$id, Yii::$app]);
     }
 
-    public function getItem($id)
+    public function getItem($id, $default = null)
     {
         $item = &$this->_items[$id];
         if (is_array($item)) {
