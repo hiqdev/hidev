@@ -32,8 +32,3 @@ plugins:
     hiqdev/hidev-scrutinizer:       "*@dev"
     hiqdev/hidev-php-cs-fixer:      "*@dev"
     hiqdev/hidev-hiqdev:            "*@dev"
-
-default:
-    before:
-        - version
-
