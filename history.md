@@ -38,8 +38,8 @@ hiqdev/hidev
 - Added creating `composer.json` at `init`
     - [1de67f0] 2016-08-09 fixed tests [@hiqsol]
     - [7e65328] 2016-08-09 improved `init` to create `composer.json` file [@hiqsol]
-- Added [Yii built-in controllers]
-    - [032f166] 2016-08-07 added [Yii built-in controllers] [@hiqsol]
+- Added [Yii built-in controllers].
+    - [032f166] 2016-08-07 added [Yii built-in controllers]. [@hiqsol]
 
 ## [0.5.0] - 2016-08-01
 

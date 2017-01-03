@@ -9,7 +9,7 @@ hiqdev/hidev
 - Fixed writing `.hidev/composer.json`, now mergning ([@hiqsol])
 - Added more python compatibility ([@hiqsol])
 - Added creating `composer.json` at `init` ([@hiqsol])
-- Added [Yii built-in controllers] ([@hiqsol])
+- Added [Yii built-in controllers]. ([@hiqsol])
 
 ## [0.5.0] - 2016-08-01
 
