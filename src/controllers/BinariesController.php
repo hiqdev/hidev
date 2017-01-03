@@ -10,11 +10,13 @@
 
 namespace hidev\controllers;
 
+use hidev\base\BinaryPhp;
+
 class BinariesController extends CommonController
 {
     use \hiqdev\yii2\collection\ManagerTrait;
 
-    public $defaultClass = 'hidev\base\BinaryPhp';
+    public $defaultClass = BinaryPhp::class;
 
     public function actionMake()
     {
