@@ -11,3 +11,5 @@
 error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
 
 require __DIR__ . '/../src/config/bootstrap.php';
+
+require __DIR__ . '/../.hidev/vendor/autoload.php';
