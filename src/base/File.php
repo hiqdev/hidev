@@ -11,6 +11,7 @@
 namespace hidev\base;
 
 use hidev\helpers\Helper;
+use hidev\helpers\FileHelper;
 use Yii;
 
 /**
@@ -383,7 +384,7 @@ class File extends \yii\base\Object
         if (file_exists($dest)) {
             return true;
         }
-        symlink($this->path, $dest);
+        FileHelper::symlink($this->path, $dest);
         Yii::warning("Symlinked $this->path $dest", 'file');
     }
 }

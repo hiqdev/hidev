@@ -28,15 +28,23 @@ class FileHelper
     public static function write($path, $content)
     {
         $path = Yii::getAlias($path);
-        if (!is_file($path) || file_get_contents($path) !== $content) {
-            static::mkdir(dirname($path));
-            file_put_contents($path, $content);
-            Yii::warning('Written file: ' . $path, 'file');
-
-            return true;
+        if (is_file($path) && file_get_contents($path) === $content) {
+            return false;
         }
 
-        return false;
+        static::mkdir(dirname($path));
+        if (!is_writable($path) && posix_isatty(0)) {
+            $tmp = tempnam('/tmp', 'hidev.');
+            file_put_contents($tmp, $content);
+            chmod($tmp, 0644);
+            passthru("sudo cp $tmp $path");
+            unlink($tmp);
+        } else {
+            file_put_contents($path, $content);
+        }
+        Yii::warning('Written file: ' . $path, 'file');
+
+        return true;
     }
 
     /**
@@ -57,5 +65,21 @@ class FileHelper
         }
 
         return false;
+    }
+
+    /**
+     * Creates a symlink.
+     * @param string $src existing source path
+     * @param string $dst destionation path to be created
+     * @return true on success or false on failure
+     */
+    public static function symlink($src, $dst)
+    {
+        if (!is_writable($dst) && posix_isatty(0)) {
+            passthru("sudo ln -s $src $dst", $retval);
+            return $retval === 0;
+        } else {
+            return symlink($this->path, $dest);
+        }
     }
 }
