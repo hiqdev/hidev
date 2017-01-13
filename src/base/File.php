@@ -10,8 +10,8 @@
 
 namespace hidev\base;
 
-use hidev\helpers\Helper;
 use hidev\helpers\FileHelper;
+use hidev\helpers\Helper;
 use Yii;
 
 /**
