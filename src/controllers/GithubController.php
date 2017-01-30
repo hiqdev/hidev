@@ -99,7 +99,8 @@ class GithubController extends CommonController
             'description' => $this->getDescription(),
         ]);
         if (static::isOk($res)) {
-            echo "\ngit remote add origin git@github.com:{$this->getFullName()}.git\ngit push -u origin master\n";
+            echo "\ngit remote add origin git@github.com:{$this->getFullName()}.git\n";
+            echo "git push -u origin master\n";
         }
 
         return $res;
