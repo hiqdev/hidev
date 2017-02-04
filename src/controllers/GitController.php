@@ -27,7 +27,8 @@ class GitController extends VcsController
         $version = $this->takeGoal('version')->getVersion($version);
         $message = "version bump to $version";
         $this->actionCommit($message);
-        /// $this->actionTag($version);
+        $this->actionTag($version);
+
         return $this->actionPush();
     }
 
@@ -36,9 +37,14 @@ class GitController extends VcsController
         return $this->passthru('git', ['commit', '-am', $message]);
     }
 
+    public function actionTag($tag)
+    {
+        return $this->passthru('git', ['tag', $tag]);
+    }
+
     public function actionPush()
     {
-        return $this->passthru('git', 'push');
+        return $this->passthru('git', 'push', '--tags');
     }
 
     public function getUserName()
