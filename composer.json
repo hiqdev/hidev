@@ -29,19 +29,19 @@
         {
             "name": "Dmitry Naumenko",
             "role": "Lead backend developer",
-            "email": "d.naumenko.a@gmail.com",
+            "email": "silverfire@hiqdev.com",
             "homepage": "http://silverfire.me/"
         },
         {
             "name": "Andrey Klochok",
             "role": "Lead frontend developer",
-            "email": "andreyklochok@gmail.com",
+            "email": "tafid@hiqdev.com",
             "homepage": "http://hiqdev.com/"
         },
         {
             "name": "Yuriy Myronchuk",
             "role": "QA Lead",
-            "email": "bladeroot@gmail.com",
+            "email": "bladeroot@hiqdev.com",
             "homepage": "http://hiqdev.com/"
         }
     ],

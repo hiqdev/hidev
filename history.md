@@ -1,6 +1,16 @@
 hiqdev/hidev
 ------------
 
+## [Under development]
+
+- Added creating and pushing tag in `git/release`
+    - [77f8616] 2017-02-04 added creating and pushing tag in git/release [@hiqsol]
+    - [1177cb4] 2017-01-13 fixed tests [@hiqsol]
+- Added sudo for file write and symlink
+    - [c3045d7] 2017-01-13 redone sudoing for file write and symlink [@hiqsol]
+    - [666f341] 2017-01-13 added sudo for file writing and symlinking [@hiqsol]
+    - [dc6ae9d] 2017-01-03 fixed markdown issue: github needs delimiter between two consecutive links [@hiqsol]
+
 ## [0.5.1] - 2017-01-03
 
 - Changed getting config assembled with composer-config-plugin
@@ -1258,7 +1268,7 @@ hiqdev/hidev
 [2977a70]: https://github.com/hiqdev/hidev/commit/2977a70
 [9e216ec]: https://github.com/hiqdev/hidev/commit/9e216ec
 [9e02ac4]: https://github.com/hiqdev/hidev/commit/9e02ac4
-[Under development]: https://github.com/hiqdev/hidev/compare/0.5.0...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.5.1...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
@@ -1292,3 +1302,8 @@ hiqdev/hidev
 [0.0.1]: https://github.com/hiqdev/hidev/releases/tag/0.0.1
 [90e4e6f]: https://github.com/hiqdev/hidev/commit/90e4e6f
 [0.5.1]: https://github.com/hiqdev/hidev/compare/0.5.0...0.5.1
+[77f8616]: https://github.com/hiqdev/hidev/commit/77f8616
+[1177cb4]: https://github.com/hiqdev/hidev/commit/1177cb4
+[c3045d7]: https://github.com/hiqdev/hidev/commit/c3045d7
+[666f341]: https://github.com/hiqdev/hidev/commit/666f341
+[dc6ae9d]: https://github.com/hiqdev/hidev/commit/dc6ae9d

@@ -1,6 +1,11 @@
 hiqdev/hidev
 ------------
 
+## [Under development]
+
+- Added creating and pushing tag in `git/release` ([@hiqsol])
+- Added sudo for file write and symlink ([@hiqsol])
+
 ## [0.5.1] - 2017-01-03
 
 - Changed getting config assembled with composer-config-plugin ([@hiqsol], [@SilverFire])
@@ -245,7 +250,7 @@ hiqdev/hidev
 [@SilverFire]: https://github.com/SilverFire
 [d.naumenko.a@gmail.com]: https://github.com/SilverFire
 [Yii built-in controllers]: http://www.yiiframework.com/doc-2.0/guide-tutorial-console.html
-[Under development]: https://github.com/hiqdev/hidev/compare/0.5.0...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.5.1...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
