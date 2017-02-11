@@ -1,5 +1,4 @@
-HiDev
-=====
+# HiDev
 
 **Automation tool mixed with code generator for easier continuous development**
 
@@ -131,13 +130,9 @@ Good example of configuration is HiDev's own [.hidev/config.yml](.hidev/config.y
 
 ## Usage
 
-Just run it.
-
 ```sh
-hidev
+hidev goal[/action]
 ```
-
-And see the magic.
 
 ## License
 

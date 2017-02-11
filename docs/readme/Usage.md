@@ -1,7 +1,4 @@
-Just run it.
-
 ```sh
-hidev
+hidev goal[/action]
 ```
 
-And see the magic.
