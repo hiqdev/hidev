@@ -1,5 +1,4 @@
-ROADMAP
--------
+# ROADMAP
 
 ### 0.4.0
 
@@ -28,5 +27,5 @@ ROADMAP
 - **Code quality**: php-cs-fixer, phpcs, Scrutinizer, Insight, CodeClimate, VersionEye
 - **Testing**: codeception, phpunit, Coveralls
 - **CI**: Travis, Jenkins, TeamCity, AppVeyor
-- **Project deploy**: docker, capistrano
+- **Project deploy**: nginx, docker, capistrano
 
