@@ -130,7 +130,7 @@ class Tester
         if (!empty($subs)) {
             $content = strtr($content, $subs);
         }
-        $this->test->assertEquals($content, $this->readFile($file));
+        $this->test->assertEquals(trim($content), trim($this->readFile($file)));
     }
 
     public function assertFiles($dir, $files, array $subs = [])
