@@ -25,6 +25,8 @@ class OwnVersionController extends VersionController
 
     public function actionMake($version = null)
     {
-        echo "HiDev version $this->version $this->date $this->time $this->hash\n";
+        $path = dirname(dirname(__DIR__)) . '/bin/hidev';
+        echo "HiDev $this->version $this->date $this->time $this->hash\n";
+        echo "run from $path\n";
     }
 }
