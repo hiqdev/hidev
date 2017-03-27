@@ -33,8 +33,9 @@ class TemplateHandler extends BaseHandler
     public function prepareData($data)
     {
         return array_merge([
-            'config' => Yii::$app->config,
-            'file'   => $data->file,
+            'config'  => Yii::$app->config,
+            'file'    => $data->file,
+            'handler' => $this
         ], parent::prepareData($data));
     }
 
