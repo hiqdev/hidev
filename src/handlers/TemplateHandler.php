@@ -1,6 +1,6 @@
 <?php
 /**
- * Automation tool mixed with code generator for easier continuous development
+ * Automation tool mixed with code generator for easier continuous development.
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
@@ -35,7 +35,7 @@ class TemplateHandler extends BaseHandler
         return array_merge([
             'config'  => Yii::$app->config,
             'file'    => $data->file,
-            'handler' => $this
+            'handler' => $this,
         ], parent::prepareData($data));
     }
 
