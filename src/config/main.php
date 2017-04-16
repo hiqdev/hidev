@@ -128,6 +128,12 @@ return [
             ],
         ],
     ],
+    'container' => [
+        'singletons' => [
+            \hidev\components\Interpolator::class => [
+            ],
+        ],
+    ],
     'params' => [
     ],
 ];
