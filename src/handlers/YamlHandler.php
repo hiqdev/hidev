@@ -11,6 +11,7 @@
 namespace hidev\handlers;
 
 use Symfony\Component\Yaml\Yaml;
+use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -32,6 +33,22 @@ class YamlHandler extends TypeHandler
      */
     public function parse($yaml)
     {
-        return (array) Yaml::parse($yaml);
+        $data = (array) Yaml::parse($yaml);
+        $this->interpolateParams($data);
+
+        return $data;
+    }
+
+    public function interpolateParams(&$data)
+    {
+        if (is_array($data)) {
+            foreach ($data as &$item) {
+                $this->interpolateParams($item);
+            }
+        } elseif (is_string($data)) {
+            $data = preg_replace_callback('/\$params\[\'(.*?)\'\]/', function ($matches) {
+                return Yii::$app->params[$matches[1]];
+            }, $data);
+        }
     }
 }
