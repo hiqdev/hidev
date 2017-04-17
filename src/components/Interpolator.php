@@ -3,6 +3,7 @@
 namespace hidev\components;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 class Interpolator
 {
@@ -25,8 +26,17 @@ class Interpolator
 
         if ($scope === 'params') {
             return Yii::$app->params[$subname];
+        } elseif ($scope === 'config') {
+            return $this->getConfig($subname);
         } else {
-            return null;
+            return $this->getConfig($name);
         }
+    }
+
+    public function getConfig($name)
+    {
+        list($goal, $subname) = explode('.', $name, 2);
+
+        return ArrayHelper::getValue(Yii::$app->get('config')->getGoal($goal), $subname);
     }
 }
