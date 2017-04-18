@@ -11,6 +11,7 @@
 namespace hidev\base;
 
 use Exception;
+use hiqdev\composer\config\Builder;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\base\ViewContextInterface;
@@ -61,23 +62,23 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     {
         Yii::setLogger(Yii::createObject('hidev\base\Logger'));
         $config = ArrayHelper::merge(
-            static::readExtraVendor($config['vendorPath']),
+            static::readVendorConfig($config['vendorPath'], 'hidev'),
             $config
         );
 
         return new static($config);
     }
 
-    public static function readExtraVendor($dir)
+    public static function readVendorConfig($vendor, $name)
     {
-        return static::readExtraConfig($dir . '/hiqdev/composer-config-plugin-output/hidev.php');
-    }
-
-    public static function readExtraConfig($path)
-    {
-        $path = Yii::getAlias($path);
+        $path = Yii::getAlias(static::buildVendorPath($vendor, $name));
 
         return file_exists($path) ? require $path : [];
+    }
+
+    public static function buildVendorPath($vendor, $name)
+    {
+        return Builder::path($name, $vendor);
     }
 
     public function loadExtraConfig($path)
@@ -87,11 +88,23 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     /**
      * Load extra config files.
+     * @param string $vendor path to vendor dir
+     */
+    public function loadExtraVendor($vendor)
+    {
+        $this->setExtraEnv(static::readVendorConfig($vendor, 'dotenv'));
+        $this->setExtraConfig(static::readVendorConfig($vendor, 'hidev'));
+    }
+
+    /**
+     * Sets extra environment variables.
      * @param array $config
      */
-    public function loadExtraVendor($dir)
+    public function setExtraEnv($vars)
     {
-        $this->setExtraConfig(static::readExtraVendor($dir));
+        foreach ($vars as $key => $value) {
+            $_ENV[$key] = $value;
+        }
     }
 
     /**
