@@ -14,22 +14,20 @@ class Interpolator
                 $this->interpolate($item);
             }
         } elseif (is_string($data)) {
-            $data = preg_replace_callback('/\{{ (.*?) }}/', function ($matches) {
-                return $this->get($matches[1]);
+            $data = preg_replace_callback('/\\$(\\w+)\\[\'(.+?)\'\\]/', function ($matches) {
+                return $this->get($matches[1], $matches[2]);
             }, $data);
         }
     }
 
-    public function get($name)
+    public function get($scope, $name)
     {
-        list($scope, $subname) = explode('.', $name, 2);
-
         if ($scope === 'params') {
-            return Yii::$app->params[$subname];
+            return Yii::$app->params[$name];
         } elseif ($scope === 'config') {
-            return $this->getConfig($subname);
-        } else {
             return $this->getConfig($name);
+        } else {
+            return "\$${scope}['$name']";
         }
     }
 
