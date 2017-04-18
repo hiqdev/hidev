@@ -24,6 +24,8 @@ class Interpolator
     {
         if ($scope === 'params') {
             return Yii::$app->params[$name];
+        } elseif ($scope === '_ENV') {
+            return $_ENV[$name];
         } elseif ($scope === 'config') {
             return $this->getConfig($name);
         } else {
