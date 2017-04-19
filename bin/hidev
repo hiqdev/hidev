@@ -12,9 +12,10 @@
 
 ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_NOTICE);
 
-require __DIR__ . '/../src/config/defines.php';
-require __DIR__ . '/../src/config/bootstrap.php';
+require_once __DIR__ . '/../src/config/bootstrap.php';
 
 $config = require __DIR__ . '/../src/config/main.php';
+$app = new \hidev\base\Application($config);
+$exitCode = $app->run();
 
-exit(hidev\base\Application::main($config));
+exit($exitCode);

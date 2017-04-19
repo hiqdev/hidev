@@ -98,8 +98,9 @@ class Tester
     public function getApp()
     {
         if ($this->_app === null) {
-            $this->_app = Application::create(require Yii::getAlias('@hidev/config/main.php'));
-            Yii::getLogger()->setSpamLevel('quiet');
+            $config = require Yii::getAlias('@hidev/config/main.php');
+            unset($config['components']['log']);
+            $this->_app = new Application($config);
         }
 
         return $this->_app;

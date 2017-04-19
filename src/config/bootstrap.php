@@ -8,6 +8,8 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
+require_once __DIR__ . '/defines.php';
+
 if (!defined('HIDEV_VENDOR_DIR')) {
     foreach ([dirname(dirname(__DIR__)) . '/vendor', dirname(dirname(dirname(dirname(__DIR__))))] as $dir) {
         if (file_exists($dir . '/autoload.php')) {
@@ -15,14 +17,15 @@ if (!defined('HIDEV_VENDOR_DIR')) {
             break;
         }
     }
-
-    if (!defined('HIDEV_VENDOR_DIR')) {
-        fwrite(STDERR, "Run composer to set up hidev own dependencies!\n");
-        exit(1);
-    }
-
-    require HIDEV_VENDOR_DIR . '/autoload.php';
-    require HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';
-
-    Yii::setAlias('@hidev', dirname(__DIR__));
 }
+
+if (!defined('HIDEV_VENDOR_DIR') || !file_exists(HIDEV_VENDOR_DIR . '/autoload.php')) {
+    fwrite(STDERR, "Run composer to set up dependencies!\n");
+    exit(1);
+}
+
+require_once HIDEV_VENDOR_DIR . '/autoload.php';
+require_once HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';
+
+Yii::setAlias('@hidev', dirname(__DIR__));
+Yii::setAlias('@vendor', HIDEV_VENDOR_DIR);

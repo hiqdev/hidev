@@ -35,40 +35,6 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         parent::__construct($config);
     }
 
-    /**
-     * Creates application with given config and runs it.
-     * @param array $config
-     * @return int exit code
-     */
-    public static function main(array $config)
-    {
-        try {
-            $app = static::create($config);
-            $exitCode = $app->run();
-        } catch (Exception $e) {
-            /*if ($e instanceof InvalidParamException || $e instanceof ConsoleException) {
-                Yii::error($e->getMessage());
-                $exitCode = 1;
-            } else {
-                throw $e;
-            }*/
-                throw $e;
-        }
-
-        return $exitCode;
-    }
-
-    public static function create(array $config)
-    {
-        // Yii::setLogger(Yii::createObject(\hidev\base\Logger::class));
-        /*$config = ArrayHelper::merge(
-            static::readVendorConfig($config['vendorPath'], 'hidev'),
-            $config
-        );*/
-
-        return new static($config);
-    }
-
     public function loadExtraConfig($path)
     {
         $this->setExtraConfig(static::readConfig($path));
