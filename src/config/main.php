@@ -25,9 +25,9 @@ return [
     'components'            => [
         'log' => [
             'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning', 'info'],
+                'console' => [
+                    'class' => \hidev\log\ConsoleTarget::class,
+                    'levels' => ['error', 'warning'],
                 ],
             ],
         ],

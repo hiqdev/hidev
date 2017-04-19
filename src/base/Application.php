@@ -60,7 +60,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public static function create(array $config)
     {
-        Yii::setLogger(Yii::createObject(\hidev\base\Logger::class));
+        // Yii::setLogger(Yii::createObject(\hidev\base\Logger::class));
         /*$config = ArrayHelper::merge(
             static::readVendorConfig($config['vendorPath'], 'hidev'),
             $config
