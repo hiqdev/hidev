@@ -11,6 +11,7 @@
 namespace hidev\base;
 
 use Exception;
+use hidev\helpers\ConfigPlugin;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\base\ViewContextInterface;
@@ -59,32 +60,25 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public static function create(array $config)
     {
-        Yii::setLogger(Yii::createObject('hidev\base\Logger'));
-        $config = ArrayHelper::merge(
+        Yii::setLogger(Yii::createObject(\hidev\base\Logger::class));
+        /*$config = ArrayHelper::merge(
             static::readVendorConfig($config['vendorPath'], 'hidev'),
             $config
-        );
+        );*/
 
         return new static($config);
     }
 
-    public static function readVendorConfig($vendor, $name)
-    {
-        $path = Yii::getAlias(static::buildConfigPath($vendor, $name));
-
-        return file_exists($path) ? require $path : [];
-    }
-
-    public static function buildConfigPath($vendor, $name)
-    {
-        /// doesn't work when dependencies are not installed
-        /// return \hiqdev\composer\config\Builder::path($name, $vendor);
-        return "$vendor/hiqdev/composer-config-plugin-output/$name.php";
-    }
-
     public function loadExtraConfig($path)
     {
-        $this->setExtraConfig(static::readExtraConfig($path));
+        $this->setExtraConfig(static::readConfig($path));
+    }
+
+    public static function readConfig($path)
+    {
+        $path = Yii::getAlias($path);
+
+        return file_exists($path) ? require $path : [];
     }
 
     /**
@@ -95,6 +89,11 @@ class Application extends \yii\console\Application implements ViewContextInterfa
     {
         $this->setExtraEnv(static::readVendorConfig($vendor, 'dotenv'));
         $this->setExtraConfig(static::readVendorConfig($vendor, 'hidev'));
+    }
+
+    public function readVendorConfig($vendor, $name)
+    {
+        return static::readConfig(ConfigPlugin::path($vendor, $name));
     }
 
     /**

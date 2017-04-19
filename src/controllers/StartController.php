@@ -11,6 +11,7 @@
 namespace hidev\controllers;
 
 use hidev\base\File;
+use hidev\helpers\ConfigPlugin;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
@@ -126,7 +127,7 @@ class StartController extends CommonController
                 throw new InvalidParamException('Failed initialize project with composer install');
             }
         }
-        if (file_exists('vendor/hiqdev/composer-config-plugin-output/hidev.php')) {
+        if (file_exists(ConfigPlugin::path('vendor', 'hidev'))) {
             $vendors[] = 'vendor';
         }
         if (!empty($vendors)) {
