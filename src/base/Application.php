@@ -11,7 +11,6 @@
 namespace hidev\base;
 
 use Exception;
-use hiqdev\composer\config\Builder;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\base\ViewContextInterface;
@@ -71,14 +70,16 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public static function readVendorConfig($vendor, $name)
     {
-        $path = Yii::getAlias(static::buildVendorPath($vendor, $name));
+        $path = Yii::getAlias(static::buildConfigPath($vendor, $name));
 
         return file_exists($path) ? require $path : [];
     }
 
-    public static function buildVendorPath($vendor, $name)
+    public static function buildConfigPath($vendor, $name)
     {
-        return Builder::path($name, $vendor);
+        /// doesn't work when dependencies are not installed
+        /// return \hiqdev\composer\config\Builder::path($name, $vendor);
+        return "$vendor/hiqdev/composer-config-plugin-output/$name.php";
     }
 
     public function loadExtraConfig($path)
