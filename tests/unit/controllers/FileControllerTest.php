@@ -15,7 +15,7 @@ use hidev\controllers\FileController;
 /**
  * Tests from FileController.
  */
-class FileControllerTest extends \PHPUnit_Framework_TestCase
+class FileControllerTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var FileController
