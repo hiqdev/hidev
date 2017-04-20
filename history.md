@@ -1,9 +1,37 @@
-hiqdev/hidev
-------------
+# hiqdev/hidev
 
-## [Under development]
+## [0.5.2] - 2017-04-20
 
+- Improved tests, switched to phpunit 6
+    - [c1784ef] 2017-04-20 csfixed [@hiqsol]
+    - [2279aeb] 2017-04-20 switched to phpunit 6 [@hiqsol]
+    - [a8ec614] 2017-03-14 added tests config [@hiqsol]
+    - [887f9d7] 2017-03-30 updated travis config: build + 7.1, - 5.5 [@hiqsol]
+    - [e76360d] 2017-03-27 Added PHPUnit 6 compatibility [@SilverFire]
+    - [df42c35] 2017-02-16 changed `Tester::assertFile` to trim before compare to allow difference in spaces [@hiqsol]
+- Redone bootstrap process
+    - [76847df] 2017-04-19 greatly simplified bootstrap process [@hiqsol]
+    - [1626fc1] 2017-04-19 added ConfigPlugin helper [@hiqsol]
+    - [770069b] 2017-04-19 fixed buildConfigPath, removed use of `Builder::path` [@hiqsol]
+    - [5f97d8b] 2017-03-31 fixed problem with empty params with adding default for params in main config [@hiqsol]
+- Redone own Logger to log `ConsoleTarget`
+    - [8e919bd] 2017-04-19 redone own Logger to log `ConsoleTarget` [@hiqsol]
+- Added interpolation in configs
+    - [2a3256d] 2017-04-18 added loading `dotenv` in `Application::loadExtraVendor` [@hiqsol]
+    - [332f786] 2017-04-18 added `$_ENV` interpolation [@hiqsol]
+    - [83baf53] 2017-04-18 changed Interpolator to substitute `$params[name]` [@hiqsol]
+    - [9f7ab14] 2017-04-17 added interpolation of data from config [@hiqsol]
+    - [8a5a611] 2017-04-16 added `Interpolator` [@hiqsol]
+    - [49324f9] 2017-04-16 + interpolateParams in YAML [@hiqsol]
+- Changed passing config to template
+    - [7b689e6] 2017-03-30 csfixed [@hiqsol]
+    - [8975676] 2017-03-27 Added passing handler to template [@SilverFire]
+    - [1d2efab] 2017-03-27 Removed passing `$this` to template [@SilverFire]
+- Changed showing own version
+    - [3148f15] 2017-03-16 changed showing own version [@hiqsol]
 - Added creating and pushing tag in `git/release`
+    - [3410254] 2017-02-12 docs [@hiqsol]
+    - [9afd5c0] 2017-02-11 csfixed [@hiqsol]
     - [77f8616] 2017-02-04 added creating and pushing tag in git/release [@hiqsol]
     - [1177cb4] 2017-01-13 fixed tests [@hiqsol]
 - Added sudo for file write and symlink
@@ -219,7 +247,7 @@ hiqdev/hidev
     - [a6f476e] 2016-02-23 + explicit TemplateController to config [@hiqsol]
     - [9c48c87] 2016-02-23 changed JsonHandler to parse empty JSON to empty array [@hiqsol]
 
-## [0.3.9] - 2016-01-26
+## [0.3.9] - 2016-02-09
 
 - Fixed to work for projects without package manager
     - [84af45b] 2016-02-09 fixed to work for projects without package manager [@hiqsol]
@@ -757,6 +785,10 @@ hiqdev/hidev
 
 ## [Development started] - 2015-04-28
 
+[@tafid]: https://github.com/tafid
+[andreyklochok@gmail.com]: https://github.com/tafid
+[@BladeRoot]: https://github.com/BladeRoot
+[bladeroot@gmail.com]: https://github.com/BladeRoot
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
 [@SilverFire]: https://github.com/SilverFire
@@ -1307,3 +1339,27 @@ hiqdev/hidev
 [c3045d7]: https://github.com/hiqdev/hidev/commit/c3045d7
 [666f341]: https://github.com/hiqdev/hidev/commit/666f341
 [dc6ae9d]: https://github.com/hiqdev/hidev/commit/dc6ae9d
+[c1784ef]: https://github.com/hiqdev/hidev/commit/c1784ef
+[2279aeb]: https://github.com/hiqdev/hidev/commit/2279aeb
+[76847df]: https://github.com/hiqdev/hidev/commit/76847df
+[8e919bd]: https://github.com/hiqdev/hidev/commit/8e919bd
+[1626fc1]: https://github.com/hiqdev/hidev/commit/1626fc1
+[770069b]: https://github.com/hiqdev/hidev/commit/770069b
+[2a3256d]: https://github.com/hiqdev/hidev/commit/2a3256d
+[332f786]: https://github.com/hiqdev/hidev/commit/332f786
+[83baf53]: https://github.com/hiqdev/hidev/commit/83baf53
+[9f7ab14]: https://github.com/hiqdev/hidev/commit/9f7ab14
+[8a5a611]: https://github.com/hiqdev/hidev/commit/8a5a611
+[49324f9]: https://github.com/hiqdev/hidev/commit/49324f9
+[5f97d8b]: https://github.com/hiqdev/hidev/commit/5f97d8b
+[887f9d7]: https://github.com/hiqdev/hidev/commit/887f9d7
+[7b689e6]: https://github.com/hiqdev/hidev/commit/7b689e6
+[8975676]: https://github.com/hiqdev/hidev/commit/8975676
+[e76360d]: https://github.com/hiqdev/hidev/commit/e76360d
+[1d2efab]: https://github.com/hiqdev/hidev/commit/1d2efab
+[3148f15]: https://github.com/hiqdev/hidev/commit/3148f15
+[a8ec614]: https://github.com/hiqdev/hidev/commit/a8ec614
+[df42c35]: https://github.com/hiqdev/hidev/commit/df42c35
+[3410254]: https://github.com/hiqdev/hidev/commit/3410254
+[9afd5c0]: https://github.com/hiqdev/hidev/commit/9afd5c0
+[0.5.2]: https://github.com/hiqdev/hidev/compare/0.5.1...0.5.2

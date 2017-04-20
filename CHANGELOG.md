@@ -1,8 +1,13 @@
-hiqdev/hidev
-------------
+# hiqdev/hidev
 
-## [Under development]
+## [0.5.2] - 2017-04-20
 
+- Improved tests, switched to phpunit 6 ([@hiqsol], [@SilverFire])
+- Redone bootstrap process ([@hiqsol])
+- Redone own Logger to log `ConsoleTarget` ([@hiqsol])
+- Added interpolation in configs ([@hiqsol])
+- Changed passing config to template ([@hiqsol], [@SilverFire])
+- Changed showing own version ([@hiqsol])
 - Added creating and pushing tag in `git/release` ([@hiqsol])
 - Added sudo for file write and symlink ([@hiqsol])
 
@@ -47,7 +52,7 @@ hiqdev/hidev
 - Added easy creation of templated dirs and files with `DirectoryController` ([@hiqsol])
 - Fixed `JsonHandler` to parse empty JSON to empty array (died before) ([@hiqsol])
 
-## [0.3.9] - 2016-01-26
+## [0.3.9] - 2016-02-09
 
 - Fixed to work for projects without package manager ([@hiqsol])
 - Fixed GitHub token passing to curl ([@hiqsol])
@@ -245,6 +250,10 @@ hiqdev/hidev
 
 ## [Development started] - 2015-04-28
 
+[@tafid]: https://github.com/tafid
+[andreyklochok@gmail.com]: https://github.com/tafid
+[@BladeRoot]: https://github.com/BladeRoot
+[bladeroot@gmail.com]: https://github.com/BladeRoot
 [@hiqsol]: https://github.com/hiqsol
 [sol@hiqdev.com]: https://github.com/hiqsol
 [@SilverFire]: https://github.com/SilverFire
@@ -283,3 +292,4 @@ hiqdev/hidev
 [0.0.2]: https://github.com/hiqdev/hidev/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/hidev/releases/tag/0.0.1
 [0.5.1]: https://github.com/hiqdev/hidev/compare/0.5.0...0.5.1
+[0.5.2]: https://github.com/hiqdev/hidev/compare/0.5.1...0.5.2
