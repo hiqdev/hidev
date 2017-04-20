@@ -1,6 +1,6 @@
 <?php
 /**
- * Automation tool mixed with code generator for easier continuous development.
+ * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
@@ -10,12 +10,9 @@
 
 namespace hidev\base;
 
-use Exception;
 use hidev\helpers\ConfigPlugin;
 use Yii;
-use yii\base\InvalidParamException;
 use yii\base\ViewContextInterface;
-use yii\console\Exception as ConsoleException;
 use yii\helpers\ArrayHelper;
 
 /**
