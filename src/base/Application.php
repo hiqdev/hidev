@@ -50,7 +50,11 @@ class Application extends \yii\console\Application implements ViewContextInterfa
      */
     public function loadExtraVendor($vendor)
     {
+        /// XXX SHOCK! first time reads wrong file :(
+        /// XXX Don't know why! need help!
+        static::readVendorConfig($vendor, 'dotenv');
         $this->setExtraEnv(static::readVendorConfig($vendor, 'dotenv'));
+        static::readVendorConfig($vendor, 'hidev');
         $this->setExtraConfig(static::readVendorConfig($vendor, 'hidev'));
     }
 
