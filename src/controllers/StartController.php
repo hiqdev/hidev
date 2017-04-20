@@ -121,14 +121,15 @@ class StartController extends CommonController
             if ($file->save($data) || !is_dir('.hidev/vendor')) {
                 $this->runAction('update');
             }
-            $vendors[] = '.hidev/vendor';
+            $vendors[] = $this->getRootDir() . '/.hidev/vendor';
         } elseif ($this->needsComposerInstall()) {
             if ($this->passthru('composer', ['install', '--ansi'])) {
                 throw new InvalidParamException('Failed initialize project with composer install');
             }
         }
-        if (file_exists(ConfigPlugin::path('vendor', 'hidev'))) {
-            $vendors[] = 'vendor';
+        $localVendor = $this->getRootDir() . '/vendor';
+        if (file_exists(ConfigPlugin::path($localVendor, 'hidev'))) {
+            $vendors[] = $localVendor;
         }
         if (!empty($vendors)) {
             foreach (array_unique($vendors) as $dir) {
