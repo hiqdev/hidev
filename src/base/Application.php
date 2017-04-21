@@ -80,7 +80,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         $backup = $this->get('config')->getItems();
         $this->clear('config');
 
-        foreach (['params', 'aliases', 'modules', 'components'] as $key) {
+        foreach (['params', 'aliases', 'modules', 'components', 'container'] as $key) {
             if (isset($config[$key])) {
                 $this->{'setExtra' . ucfirst($key)}($config[$key]);
             }
@@ -137,6 +137,15 @@ class Application extends \yii\console\Application implements ViewContextInterfa
             }
             $this->setComponents($components);
         }
+    }
+
+    /**
+     * Implements extra container config.
+     * @param array $container config
+     */
+    public function setExtraContainer($container)
+    {
+        $this->setContainer($container);
     }
 
     public function createControllerByID($id)
