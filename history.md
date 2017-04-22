@@ -1,5 +1,13 @@
 # hiqdev/hidev
 
+## [Under development]
+
+- Added `setExtraConfig` providing set extra container configuration
+    - [0021373] 2017-04-21 added setExtraContainer [@hiqsol]
+- Fixed problem with reading file from vendor when run as PHAR by creating full paths
+    - [5024455] 2017-04-20 fixed problem with reading file from vendor when run as phar by creating full paths [@hiqsol]
+    - [c2ee93d] 2017-04-20 fixing strange bug [@hiqsol]
+
 ## [0.5.2] - 2017-04-20
 
 - Improved tests, switched to phpunit 6
@@ -1300,7 +1308,7 @@
 [2977a70]: https://github.com/hiqdev/hidev/commit/2977a70
 [9e216ec]: https://github.com/hiqdev/hidev/commit/9e216ec
 [9e02ac4]: https://github.com/hiqdev/hidev/commit/9e02ac4
-[Under development]: https://github.com/hiqdev/hidev/compare/0.5.1...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.5.2...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
@@ -1363,3 +1371,6 @@
 [3410254]: https://github.com/hiqdev/hidev/commit/3410254
 [9afd5c0]: https://github.com/hiqdev/hidev/commit/9afd5c0
 [0.5.2]: https://github.com/hiqdev/hidev/compare/0.5.1...0.5.2
+[0021373]: https://github.com/hiqdev/hidev/commit/0021373
+[5024455]: https://github.com/hiqdev/hidev/commit/5024455
+[c2ee93d]: https://github.com/hiqdev/hidev/commit/c2ee93d

@@ -1,5 +1,10 @@
 # hiqdev/hidev
 
+## [Under development]
+
+- Added `setExtraConfig` providing set extra container configuration ([@hiqsol])
+- Fixed problem with reading file from vendor when run as PHAR by creating full paths ([@hiqsol])
+
 ## [0.5.2] - 2017-04-20
 
 - Improved tests, switched to phpunit 6 ([@hiqsol], [@SilverFire])
@@ -259,7 +264,7 @@
 [@SilverFire]: https://github.com/SilverFire
 [d.naumenko.a@gmail.com]: https://github.com/SilverFire
 [Yii built-in controllers]: http://www.yiiframework.com/doc-2.0/guide-tutorial-console.html
-[Under development]: https://github.com/hiqdev/hidev/compare/0.5.1...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.5.2...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
