@@ -17,12 +17,19 @@ use yii\helpers\ArrayHelper;
 /**
  * Dump goal.
  */
-class DumpController extends CommonController
+class DumpController extends \yii\console\Controller
 {
-    public function actionMake()
+    public function actionIndex($name = null)
     {
         $data = Yii::$app->controllerMap;
-        echo Yaml::dump(ArrayHelper::toArray($data), 4);
+        if ($name) {
+            if (empty($data[$name])) {
+                echo "'$name' not defined\n";
+                return;
+            }
+            $data = [$name => $data[$name]];
+        }
+        echo Yaml::dump($data, 4);
     }
 
     public function actionInternals()
