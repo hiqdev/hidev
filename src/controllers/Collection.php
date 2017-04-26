@@ -8,17 +8,20 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\components;
+namespace hidev\controllers;
 
 use hidev\base\File;
 use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
- * The Config. Keeps config and Goals.
+ * Controllers collection.
+ * Keeps and creates controllers from configs.
  */
-class Config extends \hiqdev\yii2\collection\Object
+class Collection extends \hiqdev\yii2\collection\Object
 {
+    public $defaultClass = CommonController::class;
+    
     protected $_included = [];
 
     public function hasGoal($id)
@@ -33,7 +36,7 @@ class Config extends \hiqdev\yii2\collection\Object
         }
 
         return ArrayHelper::merge([
-            'class' => 'hidev\controllers\CommonController',
+            'class' => $this->defaultClass,
         ], $config);
     }
 
@@ -54,25 +57,6 @@ class Config extends \hiqdev\yii2\collection\Object
         }
 
         return $item;
-    }
-
-    /**
-     * Include config file, unique only.
-     * @param string|array $path
-     * @return bool true if the path was unique and loaded
-     */
-    public function includeConfig($path, $force = false)
-    {
-        $file = File::create($path);
-        $path = $file->getPath();
-        if (!isset($this->_included[$path]) || $force) {
-            $this->_included[$path] = $path;
-            $this->mergeItems($file->load());
-
-            return true;
-        }
-
-        return false;
     }
 
     public function getGoal($id)
