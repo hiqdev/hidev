@@ -11,6 +11,7 @@
 namespace hidev\base;
 
 use hidev\helpers\ConfigPlugin;
+use hidev\controllers\AliasController;
 use Yii;
 use yii\base\ViewContextInterface;
 use yii\helpers\ArrayHelper;
@@ -41,6 +42,9 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         }
 
         $controller = parent::createControllerByID($id);
+        if ($controller instanceof AliasController) {
+            $controller = $controller->getController();
+        }
         $this->controllers[$id] = $controller;
 
         return $controller;
