@@ -23,7 +23,7 @@ use yii\helpers\ArrayHelper;
  * Chdirs to the project's root directory and loads dependencies and configs.
  *
  * XXX it's important to distinguish:
- * - goals definitions
+ * - goals definitions (hidev config)
  * - application config
  */
 class Starter
@@ -32,11 +32,6 @@ class Starter
      * @var string absolute path to the project root directory
      */
     private $_rootDir;
-
-    /**
-     * @var bool hidev already started flag
-     */
-    public static $started = false;
 
     /**
      * @var array goals definitions
@@ -55,17 +50,25 @@ class Starter
      */
     public function __construct()
     {
-        self::$started = true;
         $this->getRootDir();
-        $this->loadConfig();
+        $this->loadGoals();
         $this->addAliases();
         //  $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
-        $this->moreAppConfig();
+        $this->moreConfig();
     }
 
     public function getConfig()
+    {
+        $config = ArrayHelper::merge($this->readConfig(), [
+            'controllerMap' => $this->goals,
+        ]);
+
+        return $config;
+    }
+
+    public function readConfig()
     {
         $config = [];
         foreach ($this->appFiles as $file) {
@@ -81,20 +84,22 @@ class Starter
         return $this->goals;
     }
 
-    private function loadConfig()
+    private function loadGoals()
     {
-        $this->includeConfig('hidev.yml');
+        $this->includeGoals('hidev.yml');
         if (file_exists('hidev-local.yml')) {
-            $this->includeConfig('hidev-local.yml');
+            $this->includeGoals('hidev-local.yml');
         }
     }
 
-    private function includeConfig($path)
+    private function includeGoals($paths)
     {
-        $this->config = ArrayHelper::merge(
-            $this->config,
-            $this->readYaml($path)
-        );
+        foreach ((array)$paths as $path) {
+            $this->goals = ArrayHelper::merge(
+                $this->goals,
+                $this->readYaml($path)
+            );
+        }
     }
 
     private function readYaml($path)
@@ -123,13 +128,13 @@ class Starter
     {
         Yii::setAlias('@root', $this->getRootDir());
         Yii::setAlias('@hidev', dirname(__DIR__));
-        $package = $this->config['package'];
+        $package = $this->goals['package'];
         $alias  = isset($package['namespace']) ? strtr($package['namespace'], '\\', '/') : '';
         if ($alias && !Yii::getAlias('@' . $alias, false)) {
             $srcdir = Yii::getAlias('@root/' . ($package['src'] ?: 'src'));
             Yii::setAlias($alias, $srcdir);
         }
-        $aliases = $this->config['aliases'];
+        $aliases = $this->goals['aliases'];
         if (!empty($aliases) && is_array($aliases)) {
             foreach ($aliases as $alias => $path) {
                 if (!$this->hasAlias($alias)) {
@@ -153,7 +158,7 @@ class Starter
      */
     private function requireAll()
     {
-        $plugins = $this->config['plugins'];
+        $plugins = $this->goals['plugins'];
         if ($plugins) {
             $file = File::create('.hidev/composer.json');
             $data = ArrayHelper::merge($file->load(), ['require' => $plugins]);
@@ -232,26 +237,24 @@ class Starter
      */
     private function includeAll()
     {
-        $still = true;
-        while ($still) {
-            $still = false;
-            $include = $this->config['include'];
-            if ($include) {
-                foreach ($include as $path) {
-                    $still = $still || $this->includeConfig($path);
-                }
-            }
-        }
+        $config = $this->readConfig();
+        $files = array_merge(
+            (array)$this->goals['include'],
+            (array)$config['controllerMap']['include']
+        );
+        $this->includeGoals($files);
     }
 
     /**
      * Registers more application config to load.
      */
-    private function moreAppConfig()
+    private function moreConfig()
     {
-        $path = $this->config['config'];
-        if ($path) {
-            $this->appFiles[] = $path;
+        $paths = $this->goals['config'];
+        foreach ((array)$paths as $path) {
+            if ($path) {
+                $this->appFiles[] = $path;
+            }
         }
     }
 

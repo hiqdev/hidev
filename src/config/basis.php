@@ -32,93 +32,16 @@ return [
             ],
         ],
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => \yii\caching\FileCache::class,
         ],
         /*'request' => [
             'class' => 'hidev\base\Request',
         ],*/
-        'config' => [
-            'class' => 'hidev\components\Config',
-            /// internally used actions
-            'binaries' => [
-                'class' => 'hidev\controllers\BinariesController',
-                'composer' => [
-                    'class' => 'hidev\base\BinaryPhp',
-                    'installer' => 'https://getcomposer.org/installer',
-                ],
-                'pip' => [
-                    'class' => 'hidev\base\BinaryPython',
-                    'installer' => 'https://bootstrap.pypa.io/get-pip.py',
-                ],
-            ],
-            /// basic actions
-            'init' => [
-                'class' => 'hidev\controllers\InitController',
-            ],
-            '--version' => [
-                'class' => 'hidev\controllers\OwnVersionController',
-            ],
-            'update' => [
-                'before' => [
-                    'start/update',
-                ],
-            ],
-            /// standard actions
-            'vendor' => [
-                'class' => 'hidev\controllers\VendorController',
-            ],
-            'package' => [
-                'class' => 'hidev\controllers\PackageController',
-            ],
-            'command' => [
-                'class' => 'hidev\controllers\CommandController',
-            ],
-            'template' => [
-                'class' => 'hidev\controllers\TemplateController',
-            ],
-            'directory' => [
-                'class' => 'hidev\controllers\DirectoryController',
-            ],
-            /// git/vcs actions
-            'github' => [
-                'class' => 'hidev\controllers\GithubController',
-            ],
-            'vcsignore' => [
-                'class' => 'hidev\controllers\VcsignoreController',
-            ],
-            '.gitignore' => [
-                'class' => 'hidev\controllers\GitignoreController',
-            ],
-            /// Yii built-in controllers
-            'asset' => [
-                'class' => 'yii\console\controllers\AssetController',
-            ],
-            'cache' => [
-                'class' => 'yii\console\controllers\CacheController',
-            ],
-            'fixture' => [
-                'class' => 'yii\console\controllers\FixtureController',
-            ],
-            'message' => [
-                'class' => 'yii\console\controllers\MessageController',
-            ],
-            'migrate' => [
-                'class' => 'yii\console\controllers\MigrateController',
-            ],
-            'serve' => [
-                'class' => 'yii\console\controllers\ServeController',
-            ],
-        ],
         'view' => [
-            'class' => 'hidev\base\View',
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => ['@hidev/views'],
-                ],
-            ],
+            'class' => \hidev\base\View::class,
             'renderers' => [
                 'twig' => [
-                    'class' => 'yii\twig\ViewRenderer',
+                    'class' => \yii\twig\ViewRenderer::class,
                     'cachePath' => '@runtime/Twig/cache',
                     'options' => [
                         'auto_reload' => true,
@@ -126,6 +49,77 @@ return [
                     'extensions' => ['Twig_Extension_StringLoader'],
                 ],
             ],
+        ],
+    ],
+    'controllerMap' => [
+        /// internally used actions
+        'binaries' => [
+            'class' => \hidev\controllers\BinariesController::class,
+            'composer' => [
+                'class' => \hidev\base\BinaryPhp::class,
+                'installer' => 'https://getcomposer.org/installer',
+            ],
+            'pip' => [
+                'class' => \hidev\base\BinaryPython::class,
+                'installer' => 'https://bootstrap.pypa.io/get-pip.py',
+            ],
+        ],
+        /// basic actions
+        'init' => [
+            'class' => 'hidev\controllers\InitController',
+        ],
+        '--version' => [
+            'class' => 'hidev\controllers\OwnVersionController',
+        ],
+        'update' => [
+            'before' => [
+                'start/update',
+            ],
+        ],
+        /// standard actions
+        'vendor' => [
+            'class' => 'hidev\controllers\VendorController',
+        ],
+        'package' => [
+            'class' => 'hidev\controllers\PackageController',
+        ],
+        'command' => [
+            'class' => 'hidev\controllers\CommandController',
+        ],
+        'template' => [
+            'class' => 'hidev\controllers\TemplateController',
+        ],
+        'directory' => [
+            'class' => 'hidev\controllers\DirectoryController',
+        ],
+        /// git/vcs actions
+        'github' => [
+            'class' => 'hidev\controllers\GithubController',
+        ],
+        'vcsignore' => [
+            'class' => 'hidev\controllers\VcsignoreController',
+        ],
+        '.gitignore' => [
+            'class' => 'hidev\controllers\GitignoreController',
+        ],
+        /// Yii built-in controllers
+        'asset' => [
+            'class' => 'yii\console\controllers\AssetController',
+        ],
+        'cache' => [
+            'class' => 'yii\console\controllers\CacheController',
+        ],
+        'fixture' => [
+            'class' => 'yii\console\controllers\FixtureController',
+        ],
+        'message' => [
+            'class' => 'yii\console\controllers\MessageController',
+        ],
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+        ],
+        'serve' => [
+            'class' => 'yii\console\controllers\ServeController',
         ],
     ],
     'container' => [

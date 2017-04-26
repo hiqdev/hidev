@@ -22,15 +22,6 @@ class View extends \yii\base\View
      */
     public $defaultExtension = 'twig';
 
-    public function init()
-    {
-        parent::init();
-        $this->theme->pathMap['@app/views'] = array_merge(
-            (array) $this->theme->pathMap['@app/views'],
-            (array) Yii::$app->get('config')->rawItem('views')
-        );
-    }
-
     public function getConfig()
     {
         return Yii::$app->config;

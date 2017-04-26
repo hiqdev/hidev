@@ -21,15 +21,15 @@ class DumpController extends CommonController
 {
     public function actionMake()
     {
-        $data = $this->takeConfig()->getItems();
-        unset($data['dump'], $data['start']);
+        $data = Yii::$app->controllerMap;
         echo Yaml::dump(ArrayHelper::toArray($data), 4);
     }
 
     public function actionInternals()
     {
         $internals = [
-            'aliases'   => Yii::$aliases,
+            'aliases' => Yii::$aliases,
+            'view.theme.pathMap' => Yii::$app->view->theme->pathMap,
         ];
         echo Yaml::dump($internals, 4);
     }
