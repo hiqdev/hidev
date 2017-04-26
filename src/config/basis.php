@@ -104,22 +104,25 @@ return [
         ],
         /// Yii built-in controllers
         'asset' => [
-            'class' => 'yii\console\controllers\AssetController',
+            'class' => \yii\console\controllers\AssetController::class,
         ],
         'cache' => [
-            'class' => 'yii\console\controllers\CacheController',
+            'class' => \yii\console\controllers\CacheController::class,
         ],
         'fixture' => [
-            'class' => 'yii\console\controllers\FixtureController',
+            'class' => \yii\console\controllers\FixtureController::class,
+        ],
+        'help' => [
+            'class' => \yii\console\controllers\HelpController::class,
         ],
         'message' => [
-            'class' => 'yii\console\controllers\MessageController',
+            'class' => \yii\console\controllers\MessageController::class,
         ],
         'migrate' => [
-            'class' => 'yii\console\controllers\MigrateController',
+            'class' => \yii\console\controllers\MigrateController::class,
         ],
         'serve' => [
-            'class' => 'yii\console\controllers\ServeController',
+            'class' => \yii\console\controllers\ServeController::class,
         ],
     ],
     'container' => [

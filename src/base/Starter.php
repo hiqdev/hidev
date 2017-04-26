@@ -65,6 +65,14 @@ class Starter
             'controllerMap' => $this->goals,
         ]);
 
+        foreach ($config['controllerMap'] as $id => &$def) {
+            if (is_array($def) && empty($def['class'])) {
+                $def['class'] = \hidev\controllers\CommonController::class;
+            }
+        }
+        unset($config['controllerMap']['include']);
+        unset($config['controllerMap']['plugins']);
+
         return $config;
     }
 
@@ -158,6 +166,7 @@ class Starter
      */
     private function requireAll()
     {
+        $vendors = [];
         $plugins = $this->goals['plugins'];
         if ($plugins) {
             $file = File::create('.hidev/composer.json');
@@ -165,16 +174,22 @@ class Starter
             if ($file->save($data) || !is_dir('.hidev/vendor')) {
                 $this->updateDotHidev();
             }
-            $this->appFiles[] = ConfigPlugin::path('hidev', $this->buildRootPath('.hidev/vendor'));
+            $vendors[] = $this->buildRootPath('.hidev/vendor');
         }
         if ($this->needsComposerInstall()) {
             if ($this->passthru('composer', ['install', '--ansi'])) {
                 throw new InvalidParamException('Failed initialize project with composer install');
             }
         }
-        $path = ConfigPlugin::path('hidev', $this->buildRootPath('vendor'));
-        if (file_exists($path)) {
-            $this->appFiles[] = $path;
+        $vendors[] = $this->buildRootPath('vendor');
+
+        foreach ($vendors as $vendor) {
+            foreach (['console', 'hidev'] as $name) {
+                $path = ConfigPlugin::path($name, $vendor);
+                if (file_exists($path)) {
+                    $this->appFiles[] = $path;
+                }
+            }
         }
     }
 
