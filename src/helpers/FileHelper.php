@@ -11,12 +11,32 @@
 namespace hidev\helpers;
 
 use Yii;
+use yii\log\Logger;
 
 /**
  * Hidev FileHelper.
  */
 class FileHelper
 {
+    /**
+     * Reads and returns file content.
+     * @param string $path
+     * @return string|false false if can't read
+     */
+    public static function read($path, $die = true)
+    {
+        $path = Yii::getAlias($path);
+
+        if (is_readable($path)) {
+            return file_get_contents($path);
+        }
+
+        $level = $die ? Logger::LEVEL_ERROR : Logger::LEVEL_WARNING;
+        Yii::getLogger()->log('Failed to read file: ' . $path, $level, 'file');
+        
+        return false;
+    }
+
     /**
      * Writes given content to the file.
      * Doesn't touch file if it has exactly same content.

@@ -8,24 +8,30 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\controllers;
+namespace hidev\base;
 
 use hidev\base\File;
 use hidev\helpers\ConfigPlugin;
+use hidev\helpers\FileHelper;
+use Symfony\Component\Yaml\Yaml;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
 
 /**
- * Start goal.
+ * Application starter.
  * Chdirs to the project's root directory and loads dependencies and configs.
+ *
+ * XXX it's important to distinguish:
+ * - goals definitions
+ * - application config
  */
-class StartController extends CommonController
+class Starter
 {
     /**
      * @var string absolute path to the project root directory
      */
-    protected $_rootDir;
+    private $_rootDir;
 
     /**
      * @var bool hidev already started flag
@@ -33,30 +39,70 @@ class StartController extends CommonController
     public static $started = false;
 
     /**
+     * @var array goals definitions
+     */
+    private $goals = [];
+
+    private $hidevFiles = [];
+
+    /**
+     * @var array application config files
+     */
+    private $appFiles = ['@hidev/config/basis.php'];
+
+    /**
      * Make action.
      */
-    public function actionMake()
+    public function __construct()
     {
         self::$started = true;
         $this->getRootDir();
-        $this->includeMainConfig();
+        $this->loadConfig();
         $this->addAliases();
-        $this->addAutoloader();
+        //  $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
-        $this->loadConfig();
-        $this->includeMainConfig();
+        $this->moreAppConfig();
     }
 
-    public function includeMainConfig()
+    public function getConfig()
     {
-        $this->takeConfig()->includeConfig('.hidev/config.yml');
-        if (file_exists('.hidev/config-local.yml')) {
-            $this->takeConfig()->includeConfig('.hidev/config-local.yml');
+        $config = [];
+        foreach ($this->appFiles as $file) {
+            $path = Yii::getAlias($file);
+            $config = ArrayHelper::merge($config, require $path);
+        }
+
+        return $config;
+    }
+
+    public function getGoals()
+    {
+        return $this->goals;
+    }
+
+    private function loadConfig()
+    {
+        $this->includeConfig('hidev.yml');
+        if (file_exists('hidev-local.yml')) {
+            $this->includeConfig('hidev-local.yml');
         }
     }
 
-    public function addAutoloader()
+    private function includeConfig($path)
+    {
+        $this->config = ArrayHelper::merge(
+            $this->config,
+            $this->readYaml($path)
+        );
+    }
+
+    private function readYaml($path)
+    {
+        return Yaml::parse(FileHelper::read($path));
+    }
+
+    private function addAutoloader()
     {
         $autoloader = Yii::getAlias('@root/vendor/autoload.php');
         if (file_exists($autoloader)) {
@@ -67,31 +113,23 @@ class StartController extends CommonController
     }
 
     /**
-     * Update action.
-     * @return int exit code
-     */
-    public function actionUpdate()
-    {
-        if (file_exists('.hidev/composer.json')) {
-            return $this->passthru('composer', ['update', '-d', '.hidev', '--prefer-source', '--ansi']);
-        }
-    }
-
-    /**
      * Adds aliases:
      * - @root alias to current project root dir
-     * - current package namespace for it could be used from hidev.
+     * - @hidev own alias
+     * - current package namespace for it could be used from hidev
+     * - aliases listed in config
      */
-    public function addAliases()
+    private function addAliases()
     {
         Yii::setAlias('@root', $this->getRootDir());
-        $config = $this->takeConfig()->rawItem('package');
-        $alias  = isset($config['namespace']) ? strtr($config['namespace'], '\\', '/') : '';
+        Yii::setAlias('@hidev', dirname(__DIR__));
+        $package = $this->config['package'];
+        $alias  = isset($package['namespace']) ? strtr($package['namespace'], '\\', '/') : '';
         if ($alias && !Yii::getAlias('@' . $alias, false)) {
-            $srcdir = Yii::getAlias('@root/' . ($config['src'] ?: 'src'));
+            $srcdir = Yii::getAlias('@root/' . ($package['src'] ?: 'src'));
             Yii::setAlias($alias, $srcdir);
         }
-        $aliases = $this->takeConfig()->rawItem('aliases');
+        $aliases = $this->config['aliases'];
         if (!empty($aliases) && is_array($aliases)) {
             foreach ($aliases as $alias => $path) {
                 if (!$this->hasAlias($alias)) {
@@ -101,7 +139,7 @@ class StartController extends CommonController
         }
     }
 
-    public function hasAlias($alias, $exact = true)
+    private function hasAlias($alias, $exact = true)
     {
         $pos = strpos($alias, '/');
 
@@ -109,36 +147,59 @@ class StartController extends CommonController
     }
 
     /**
-     * Require all configured requires.
+     * - install configured plugins and register their app config
+     * - install project dependencies and register
+     * - register application config files
      */
-    protected function requireAll()
+    private function requireAll()
     {
-        $plugins = $this->takeConfig()->rawItem('plugins');
-        $vendors = [];
+        $plugins = $this->config['plugins'];
         if ($plugins) {
             $file = File::create('.hidev/composer.json');
             $data = ArrayHelper::merge($file->load(), ['require' => $plugins]);
             if ($file->save($data) || !is_dir('.hidev/vendor')) {
-                $this->runAction('update');
+                $this->updateDotHidev();
             }
-            $vendors[] = $this->getRootDir() . '/.hidev/vendor';
-        } elseif ($this->needsComposerInstall()) {
+            $this->appFiles[] = ConfigPlugin::path('hidev', $this->buildRootPath('.hidev/vendor'));
+        }
+        if ($this->needsComposerInstall()) {
             if ($this->passthru('composer', ['install', '--ansi'])) {
                 throw new InvalidParamException('Failed initialize project with composer install');
             }
         }
-        $localVendor = $this->getRootDir() . '/vendor';
-        if (file_exists(ConfigPlugin::path($localVendor, 'hidev'))) {
-            $vendors[] = $localVendor;
-        }
-        if (!empty($vendors)) {
-            foreach (array_unique($vendors) as $dir) {
-                $this->module->loadExtraVendor($dir);
-            }
+        $path = ConfigPlugin::path('hidev', $this->buildRootPath('vendor'));
+        if (file_exists($path)) {
+            $this->appFiles[] = $path;
         }
     }
 
-    public function needsComposerInstall()
+    /**
+     * Update action.
+     * @return int exit code
+     */
+    public function updateDotHidev()
+    {
+        if (file_exists('.hidev/composer.json')) {
+            return $this->passthru('composer', ['update', '-d', '.hidev', '--prefer-source', '--ansi']);
+        }
+    }
+
+    /**
+     * Passthru command.
+     * @param string $command
+     * @param array $args
+     * @return int exit code
+     */
+    private function passthru($command, $args)
+    {
+        $binary = new BinaryPhp([
+            'name' => $command,
+        ]);
+
+        return $binary->passthru($args);
+    }
+
+    private function needsComposerInstall()
     {
         if (file_exists('vendor')) {
             return false;
@@ -146,6 +207,10 @@ class StartController extends CommonController
         if (!file_exists('composer.json')) {
             return false;
         }
+
+        return true;
+
+    /*
         $data = File::create('composer.json')->load();
         foreach (['require', 'require-dev'] as $key) {
             if (isset($data[$key])) {
@@ -159,33 +224,34 @@ class StartController extends CommonController
         }
 
         return false;
+    */
     }
 
     /**
-     * Include all configs.
+     * Include all configured includes.
      */
-    public function includeAll()
+    private function includeAll()
     {
         $still = true;
         while ($still) {
             $still = false;
-            $include = $this->takeConfig()->rawItem('include');
+            $include = $this->config['include'];
             if ($include) {
                 foreach ($include as $path) {
-                    $still = $still || $this->takeConfig()->includeConfig($path);
+                    $still = $still || $this->includeConfig($path);
                 }
             }
         }
     }
 
     /**
-     * Load project's config if configured.
+     * Registers more application config to load.
      */
-    public function loadConfig()
+    private function moreAppConfig()
     {
-        $path = $this->takeConfig()->rawItem('config');
+        $path = $this->config['config'];
         if ($path) {
-            $this->module->loadExtraConfig($path);
+            $this->appFiles[] = $path;
         }
     }
 
@@ -208,11 +274,11 @@ class StartController extends CommonController
      * @throws InvalidParamException when failed to find
      * @return string path to the root directory of hidev project
      */
-    protected function findRootDir()
+    private function findRootDir()
     {
-        $configDir = '.hidev';
+        $configFile = 'hidev.yml';
         for ($i = 0; $i < 9; ++$i) {
-            if (is_dir($configDir)) {
+            if (file_exists($configFile)) {
                 return getcwd();
             }
             chdir('..');

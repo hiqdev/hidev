@@ -15,7 +15,7 @@ namespace hidev\helpers;
  */
 class ConfigPlugin
 {
-    public static function path($vendor, $name)
+    public static function path($name, $vendor)
     {
         /// doesn't work when dependencies are not installed
         /// return \hiqdev\composer\config\Builder::path($name, $vendor);

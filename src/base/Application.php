@@ -56,7 +56,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public function readVendorConfig($vendor, $name)
     {
-        return static::readConfig(ConfigPlugin::path($vendor, $name));
+        return static::readConfig(ConfigPlugin::path($name, $vendor));
     }
 
     /**
@@ -150,7 +150,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     public function createControllerByID($id)
     {
-        /// skip start for init goal
+        /*
         if ($this->_first) {
             $this->_first = false;
             static $skips = ['init' => 1, 'clone' => 1, '--version' => 1];
@@ -158,6 +158,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
                 $this->runRequest('start');
             }
         }
+        */
 
         if ($this->get('config')->hasGoal($id)) {
             return $this->get('config')->get($id);
