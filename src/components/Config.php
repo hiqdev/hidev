@@ -8,12 +8,17 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\controllers;
+namespace hidev\components;
+
+use Yii;
 
 /**
- * Controller for templated files.
+ * Proxy to modules.
  */
-class TemplateController extends \yii\console\Controller
+class Config extends \yii\base\Object
 {
-    public $fileType = 'template';
+    public function __get($id)
+    {
+        return Yii::$app->getModule($id);
+    }
 }

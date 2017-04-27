@@ -18,7 +18,6 @@ return [
     'basePath'              => dirname(__DIR__),
     'vendorPath'            => HIDEV_VENDOR_DIR,
     'runtimePath'           => substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR) . '/runtime',
-    'enableCoreCommands'    => false,
     'controllerNamespace'   => 'hidev\\controllers',
     'defaultRoute'          => 'default',
     'bootstrap'             => ['log'],
@@ -49,6 +48,9 @@ return [
                     'extensions' => ['Twig_Extension_StringLoader'],
                 ],
             ],
+        ],
+        'config' => [
+            'class' => \hidev\components\Config::class,
         ],
     ],
     'controllerMap' => [
@@ -101,28 +103,6 @@ return [
         ],
         '.gitignore' => [
             'class' => 'hidev\controllers\GitignoreController',
-        ],
-        /// Yii built-in controllers
-        'asset' => [
-            'class' => \yii\console\controllers\AssetController::class,
-        ],
-        'cache' => [
-            'class' => \yii\console\controllers\CacheController::class,
-        ],
-        'fixture' => [
-            'class' => \yii\console\controllers\FixtureController::class,
-        ],
-        'help' => [
-            'class' => \yii\console\controllers\HelpController::class,
-        ],
-        'message' => [
-            'class' => \yii\console\controllers\MessageController::class,
-        ],
-        'migrate' => [
-            'class' => \yii\console\controllers\MigrateController::class,
-        ],
-        'serve' => [
-            'class' => \yii\console\controllers\ServeController::class,
         ],
     ],
     'container' => [

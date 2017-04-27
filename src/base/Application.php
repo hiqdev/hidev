@@ -23,17 +23,78 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 {
     protected $_viewPath;
 
-    protected $_config;
+    protected $controllers = [];
 
-    protected $_first = true;
-
-    public function __construct($config = [])
+    public function createController($route)
     {
-        $this->_config = $config;
-        parent::__construct($config);
+        $res = parent::createController($route);
+        if (!is_array($res)) {
+            return $res;
+        }
+            list($controller, $subroute);
+        }
+
+        // module and controller map take precedence
+        if (isset($this->controllerMap[$id])) {
+            $definition = $this->controllerMap[$id];
+            $controller = is_object($definition) ? $definition : Yii::createObject($definition, [$id, $this]);
+            return [$controller, $route];
+        }
+        $module = $this->getModule($id);
+        if ($module !== null) {
+            return $module->createController($route);
+        }
+
+        if (($pos = strrpos($route, '/')) !== false) {
+            $id .= '/' . substr($route, 0, $pos);
+            $route = substr($route, $pos + 1);
+        }
+
+        $controller = $this->createControllerByID($id);
+        if ($controller === null && $route !== '') {
+            $controller = $this->createControllerByID($id . '/' . $route);
+            $route = '';
+        }
+
+        return $controller === null ? false : [$controller, $route];
     }
 
-    protected $controllers = [];
+    private function parseRoute($route)
+    {
+        if ($route === '') {
+            $route = $this->defaultRoute;
+        }
+
+        // double slashes or leading/ending slashes may cause substr problem
+        $route = trim($route, '/');
+        if (strpos($route, '//') !== false) {
+            return false;
+        }
+
+        if (strpos($route, '/') !== false) {
+            list ($id, $route) = explode('/', $route, 2);
+        } else {
+            $id = $route;
+            $route = '';
+        }
+
+        return [$id, $route];
+    }
+
+    private function extractId($route)
+    {
+        return $this->parseRoute($route)[0];
+    }
+
+    private function saveController($id, $controller)
+    {
+        $this->controllers[$id] = $controller;
+    }
+
+    private function returnProxy($result)
+    {
+
+    }
 
     public function createControllerByID($id)
     {
@@ -42,26 +103,15 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         }
 
         $controller = parent::createControllerByID($id);
+        if ($id === 'readme') {
+            var_dump($controller);
+            die;
+        };
         if ($controller instanceof AliasController) {
             $controller = $controller->getController();
         }
         $this->controllers[$id] = $controller;
 
         return $controller;
-    }
-
-    /**
-     * Run request.
-     * @param string|array $query
-     * @return Response
-     */
-    public function runRequest($query)
-    {
-        $request = Yii::createObject([
-            'class'  => 'hidev\base\Request',
-            'params' => is_array($query) ? $query : array_filter(explode(' ', $query)),
-        ]);
-
-        return $this->handleRequest($request);
     }
 }

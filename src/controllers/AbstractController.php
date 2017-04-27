@@ -12,6 +12,7 @@ namespace hidev\controllers;
 
 use hidev\helpers\Helper;
 use Yii;
+use yii\base\InvalidCallException;
 use yii\console\Response;
 
 /**
@@ -257,12 +258,12 @@ abstract class AbstractController extends \hidev\base\Controller
 
     public function takeGoal($id)
     {
-        return $this->module->get('config')->getGoal($id);
+        return $this->module->createController($id);
     }
 
     public function takeConfig()
     {
-        return $this->module->get('config');
+        throw new InvalidCallException('no takeConfig anymore');
     }
 
     public function takeVendor()

@@ -15,7 +15,7 @@ ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_NOTICE);
 require_once __DIR__ . '/../src/config/bootstrap.php';
 
 $starter = new \hidev\base\Starter();
-$app = new \hidev\base\Application($starter->getConfig());
+$app = new \yii\console\Application($starter->getConfig());
 $exitCode = $app->run();
 
 exit($exitCode);

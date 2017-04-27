@@ -61,11 +61,12 @@ class Starter
 
     public function getConfig()
     {
-        $config = ArrayHelper::merge($this->readConfig(), [
-            'controllerMap' => $this->goals,
-        ]);
+        $config = $this->readConfig();
+        /*$config = ArrayHelper::merge($this->readConfig(), [
+            'modules' => $this->goals,
+        ]);*/
 
-        foreach ($config['controllerMap'] as $id => &$def) {
+        foreach ($config['controllerMap'] as &$def) {
             if (is_array($def) && empty($def['class'])) {
                 $def['class'] = \hidev\controllers\CommonController::class;
             }
