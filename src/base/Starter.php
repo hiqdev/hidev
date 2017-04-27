@@ -62,17 +62,25 @@ class Starter
     public function getConfig()
     {
         $config = $this->readConfig();
-        /*$config = ArrayHelper::merge($this->readConfig(), [
-            'modules' => $this->goals,
-        ]);*/
+        $config = ArrayHelper::merge($this->readConfig(), [
+            'components' => $this->goals,
+        ]);
+        unset($config['components']['include']);
+        unset($config['components']['plugins']);
+        unset($config['components']['default']);
+        unset($config['components']['install']);
+        unset($config['components']['update']);
+        unset($config['components']['fix']);
+        unset($config['components']['test']);
+        unset($config['components']['build']);
 
         foreach ($config['controllerMap'] as &$def) {
             if (is_array($def) && empty($def['class'])) {
                 $def['class'] = \hidev\controllers\CommonController::class;
             }
         }
-        unset($config['controllerMap']['include']);
-        unset($config['controllerMap']['plugins']);
+
+        #var_dump($config); die;
 
         return $config;
     }

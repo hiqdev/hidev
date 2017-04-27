@@ -12,6 +12,7 @@ namespace hidev\controllers;
 
 /**
  * Abstract controller with collection inside.
+ * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 abstract class CollectionController extends AbstractController implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
 {

@@ -15,7 +15,15 @@ namespace hidev\base;
  */
 class Controller extends \yii\console\Controller
 {
-    public $defaultAction = 'perform';
-
     public $layout = false;
+
+    public function getConfiguration()
+    {
+        return $this->getModule()->getConfiguration();
+    }
+
+    public function getModule()
+    {
+        return $this->module;
+    }
 }

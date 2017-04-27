@@ -52,6 +52,22 @@ return [
         'config' => [
             'class' => \hidev\components\Config::class,
         ],
+        /// operational components
+        'vcsignore' => [
+            'class' => \hidev\components\Vcsignore::class,
+        ],
+        'github' => [
+            'class' => \hidev\components\GitHub::class,
+        ],
+        'package' => [
+            'class' => \hidev\components\Package::class,
+        ],
+        'vendor' => [
+            'class' => \hidev\components\Vendor::class,
+        ],
+        'codeception' => [
+            'class' => \hidev\components\WTF::class,
+        ],
     ],
     'controllerMap' => [
         /// internally used actions
@@ -107,7 +123,7 @@ return [
     ],
     'container' => [
         'singletons' => [
-            \hidev\components\Interpolator::class => [
+            \hidev\base\Interpolator::class => [
             ],
         ],
     ],

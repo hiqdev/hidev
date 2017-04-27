@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\controllers;
+namespace hidev\components;
 
 use hidev\helpers\Helper;
 
@@ -19,7 +19,7 @@ use hidev\helpers\Helper;
  * @property string year
  * @property string source
  */
-class PackageController extends CommonController
+class Package extends \hidev\base\Component
 {
     use \hiqdev\yii2\collection\ObjectTrait;
 
