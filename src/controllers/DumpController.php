@@ -37,7 +37,13 @@ class DumpController extends \yii\console\Controller
         $internals = [
             'aliases' => Yii::$aliases,
             'view.theme.pathMap' => Yii::$app->view->theme->pathMap,
+            'components' => Yii::$app->getComponents(),
         ];
         echo Yaml::dump($internals, 4);
+    }
+
+    public function actionComponents()
+    {
+        echo Yaml::dump(Yii::$app->getComponents(), 4);
     }
 }
