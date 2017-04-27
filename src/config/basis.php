@@ -47,7 +47,7 @@ return [
                 ],
             ],
         ],
-        /// operational components
+        /// goal components
         'vcsignore' => [
             'class' => \hidev\components\Vcsignore::class,
         ],
@@ -68,7 +68,6 @@ return [
         ],
     ],
     'controllerMap' => [
-        /// internally used actions
         'binaries' => [
             'class' => \hidev\controllers\BinariesController::class,
             'composer' => [
@@ -80,43 +79,11 @@ return [
                 'installer' => 'https://bootstrap.pypa.io/get-pip.py',
             ],
         ],
-        /// basic actions
-        'init' => [
-            'class' => 'hidev\controllers\InitController',
-        ],
         '--version' => [
-            'class' => 'hidev\controllers\OwnVersionController',
-        ],
-        'update' => [
-            'before' => [
-                'start/update',
-            ],
-        ],
-        /// standard actions
-        'vendor' => [
-            'class' => 'hidev\controllers\VendorController',
-        ],
-        'package' => [
-            'class' => 'hidev\controllers\PackageController',
-        ],
-        'command' => [
-            'class' => 'hidev\controllers\CommandController',
-        ],
-        'template' => [
-            'class' => 'hidev\controllers\TemplateController',
-        ],
-        'directory' => [
-            'class' => 'hidev\controllers\DirectoryController',
-        ],
-        /// git/vcs actions
-        'github' => [
-            'class' => 'hidev\controllers\GithubController',
-        ],
-        'vcsignore' => [
-            'class' => 'hidev\controllers\VcsignoreController',
+            'class' => \hidev\controllers\OwnVersionController::class,
         ],
         '.gitignore' => [
-            'class' => 'hidev\controllers\GitignoreController',
+            'class' => \hidev\controllers\GitignoreController::class,
         ],
     ],
     'container' => [

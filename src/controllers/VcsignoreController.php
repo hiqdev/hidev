@@ -15,21 +15,6 @@ namespace hidev\controllers;
  */
 class VcsignoreController extends FileController
 {
-    protected $_items = [
-        'hidev-local.yml'           => 'hidev internals',
-        '.hidev/composer.json'      => 'hidev internals',
-        '.hidev/composer.lock'      => 'hidev internals',
-        '.hidev/vendor'             => 'hidev internals',
-        '.*.swp'                    => 'IDE & OS files',
-        '.idea'                     => 'IDE & OS files',
-        'nbproject'                 => 'IDE & OS files',
-        '.buildpath'                => 'IDE & OS files',
-        '.project'                  => 'IDE & OS files',
-        '.settings'                 => 'IDE & OS files',
-        'Thumbs.db'                 => 'IDE & OS files',
-        '.DS_Store'                 => 'IDE & OS files',
-    ];
-
     /**
      * Load action.
      */

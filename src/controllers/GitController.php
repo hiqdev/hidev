@@ -11,9 +11,9 @@
 namespace hidev\controllers;
 
 /**
- * Controller for Git.
+ * Git.
  */
-class GitController extends VcsController
+class GitController extends \hidev\base\Controller
 {
     protected $_before = ['.gitignore'];
 
@@ -47,21 +47,4 @@ class GitController extends VcsController
         return $this->passthru('git', 'push', '--tags');
     }
 
-    public function getUserName()
-    {
-        return trim(`git config --get user.name`);
-    }
-
-    public function getUserEmail()
-    {
-        return trim(`git config --get user.email`);
-    }
-
-    public function getYear()
-    {
-        $date = `git log --reverse --pretty=%ai | head -n 1`;
-        $year = $date ? date('Y', strtotime($date)) : '';
-
-        return $year;
-    }
 }

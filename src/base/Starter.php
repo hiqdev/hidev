@@ -61,11 +61,10 @@ class Starter
 
     public function getConfig()
     {
-        $config = $this->readConfig();
         $config = ArrayHelper::merge($this->readConfig(), [
             'components' => $this->goals,
         ]);
-        unset($config['components']['include']);
+        unset($config['include']);
         unset($config['components']['plugins']);
 
         foreach ($config['components'] as $id => $def) {
@@ -84,7 +83,7 @@ class Starter
             }
         }
 
-        #var_dump($config); die;
+        # var_dump($config); die;
 
         return $config;
     }
@@ -268,7 +267,7 @@ class Starter
         $config = $this->readConfig();
         $files = array_merge(
             (array)$this->goals['include'],
-            (array)$config['controllerMap']['include']
+            (array)$config['include']
         );
         $this->includeGoals($files);
     }
