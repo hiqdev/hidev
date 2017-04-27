@@ -10,7 +10,7 @@
 
 namespace hidev\handlers;
 
-use hidev\components\Interpolator;
+use hidev\base\Interpolator;
 use Symfony\Component\Yaml\Yaml;
 use yii\helpers\ArrayHelper;
 
