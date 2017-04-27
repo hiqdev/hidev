@@ -13,17 +13,9 @@ namespace hidev\base;
 /**
  * Basic controller.
  */
-class Controller extends \yii\console\Controller
+abstract class Controller extends \yii\console\Controller
 {
+    use GettersTrait;
+
     public $layout = false;
-
-    public function getConfiguration()
-    {
-        return $this->getModule()->getConfiguration();
-    }
-
-    public function getModule()
-    {
-        return $this->module;
-    }
 }
