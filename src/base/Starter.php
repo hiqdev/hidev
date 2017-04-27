@@ -67,12 +67,16 @@ class Starter
         ]);
         unset($config['components']['include']);
         unset($config['components']['plugins']);
-        unset($config['components']['default']);
-        unset($config['components']['install']);
-        unset($config['components']['update']);
-        unset($config['components']['fix']);
-        unset($config['components']['test']);
-        unset($config['components']['build']);
+
+        foreach ($config['components'] as $id => $def) {
+            if (empty($def['class'])) {
+                unset($config['components'][$id]);
+                $controllers[$id] = $def;
+            }
+        }
+        $config = ArrayHelper::merge($config, [
+            'controllerMap' => $controllers,
+        ]);
 
         foreach ($config['controllerMap'] as &$def) {
             if (is_array($def) && empty($def['class'])) {

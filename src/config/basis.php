@@ -23,6 +23,7 @@ return [
     'bootstrap'             => ['log'],
     'components'            => [
         'log' => [
+            'class' => \yii\log\Dispatcher::class,
             'targets' => [
                 'console' => [
                     'class' => \hidev\log\ConsoleTarget::class,
@@ -33,9 +34,6 @@ return [
         'cache' => [
             'class' => \yii\caching\FileCache::class,
         ],
-        /*'request' => [
-            'class' => 'hidev\base\Request',
-        ],*/
         'view' => [
             'class' => \yii\base\View::class,
             'renderers' => [
@@ -48,9 +46,6 @@ return [
                     'extensions' => ['Twig_Extension_StringLoader'],
                 ],
             ],
-        ],
-        'config' => [
-            'class' => \hidev\components\Config::class,
         ],
         /// operational components
         'vcsignore' => [
