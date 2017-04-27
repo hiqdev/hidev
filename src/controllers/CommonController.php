@@ -15,17 +15,20 @@ use Yii;
 /**
  * Common controller.
  */
-class CommonController extends AbstractController
+class CommonController extends \yii\console\Controller
 {
-    public $performName;
-    public $performPath;
+    public $before = [];
+    public $after = [];
 
-    public function actionPerform($name = null, $path = null)
+    public function actionIndex()
     {
-        $this->performName = $name;
-        $this->performPath = $path;
         Yii::trace("Started: '$this->id'");
+    }
 
-        return $this->perform();
+    public function behaviors()
+    {
+        return [
+            CommonBehavior::class,
+        ];
     }
 }
