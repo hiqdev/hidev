@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\controllers;
+namespace hidev\components;
 
 /**
- * Controller for VCSs (Version Control Systems).
+ * VCSs (Version Control Systems) component.
  */
-class VcsController extends CommonController
+class Vcs extends \hidev\base\Component
 {
     protected $_ignore;
 

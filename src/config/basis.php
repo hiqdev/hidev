@@ -37,7 +37,7 @@ return [
             'class' => 'hidev\base\Request',
         ],*/
         'view' => [
-            'class' => \hidev\base\View::class,
+            'class' => \yii\base\View::class,
             'renderers' => [
                 'twig' => [
                     'class' => \yii\twig\ViewRenderer::class,
@@ -55,6 +55,9 @@ return [
         /// operational components
         'vcsignore' => [
             'class' => \hidev\components\Vcsignore::class,
+        ],
+        'git' => [
+            'class' => \hidev\components\Git::class,
         ],
         'github' => [
             'class' => \hidev\components\GitHub::class,
