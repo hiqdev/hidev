@@ -10,6 +10,7 @@
 
 namespace hidev\log;
 
+use Yii;
 use yii\helpers\Console;
 use yii\log\Logger;
 
@@ -31,11 +32,19 @@ class ConsoleTarget extends \yii\log\Target
 
     public function out($message, $level)
     {
+        if ($level > $this->getLevel()) {
+            return;
+        }
         $style = self::$styles[$level];
         if ($style) {
             $message = Console::ansiFormat($message, $style);
         }
         Console::stdout($message . "\n");
+    }
+
+    public function getLevel()
+    {
+        return Yii::$app->get('log')->getLevel();
     }
 
     protected function getContextMessage()

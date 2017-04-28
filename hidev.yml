@@ -19,6 +19,9 @@ package:
 
         And more planned. See [ROADMAP](ROADMAP.md).
 
+log:
+    level: info
+
 plugins:
     hiqdev/composer-config-plugin:  "dev-master"
     hiqdev/hidev-box:               "*@dev"

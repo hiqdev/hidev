@@ -23,12 +23,12 @@ return [
     'bootstrap'             => ['log'],
     'components'            => [
         'log' => [
-            'class' => \yii\log\Dispatcher::class,
+            'class' => \hidev\components\Log::class,
             'flushInterval' => 1,
             'targets' => [
                 'console' => [
                     'class' => \hidev\log\ConsoleTarget::class,
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['error', 'warning', 'info'],
                 ],
             ],
         ],
