@@ -66,10 +66,8 @@ return [
         'codeception' => [
             'class' => \hidev\components\WTF::class,
         ],
-    ],
-    'controllerMap' => [
         'binaries' => [
-            'class' => \hidev\controllers\BinariesController::class,
+            'class' => \hidev\components\Binaries::class,
             'composer' => [
                 'class' => \hidev\base\BinaryPhp::class,
                 'installer' => 'https://getcomposer.org/installer',
@@ -79,6 +77,8 @@ return [
                 'installer' => 'https://bootstrap.pypa.io/get-pip.py',
             ],
         ],
+    ],
+    'controllerMap' => [
         '--version' => [
             'class' => \hidev\controllers\OwnVersionController::class,
         ],
