@@ -10,6 +10,7 @@
 
 namespace hidev\base;
 
+use ReflectionClass;
 use Yii;
 use yii\base\ViewContextInterface;
 
@@ -20,6 +21,8 @@ use yii\base\ViewContextInterface;
  */
 class Module extends \yii\base\Module implements ViewContextInterface
 {
+    use GettersTrait;
+
     public function render($view, $params = [])
     {
         return Yii::$app->getView()->render($view, array_merge([
@@ -28,24 +31,10 @@ class Module extends \yii\base\Module implements ViewContextInterface
         ], $params), $this);
     }
 
-    protected $_view;
-
-    public function getView()
+    public function getViewPath()
     {
-        if ($this->_view === null) {
-            $this->_view = Yii::$app->getView();
-        }
+        $ref = new ReflectionClass($this);
 
-        return $this->_view;
-    }
-
-    public function takeGoal($id)
-    {
-        return Yii::$app->getModule($id);
-    }
-
-    public function takeConfig()
-    {
-        return Yii::$app->get('config');
+        return dirname($ref->getFileName()) . '/views';
     }
 }

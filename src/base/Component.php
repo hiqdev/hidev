@@ -10,6 +10,7 @@
 
 namespace hidev\base;
 
+use ReflectionClass;
 use Yii;
 use yii\base\ViewContextInterface;
 
@@ -27,5 +28,12 @@ class Component extends \yii\base\Component implements ViewContextInterface
             'config' => Yii::$app,
             'component' => $this,
         ], $params), $this);
+    }
+
+    public function getViewPath()
+    {
+        $ref = new ReflectionClass($this);
+
+        return dirname(dirname($ref->getFileName())) . '/views';
     }
 }

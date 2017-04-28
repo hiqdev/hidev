@@ -10,7 +10,6 @@
 
 namespace hidev\base;
 
-use ReflectionClass;
 use Yii;
 
 /**
@@ -27,13 +26,6 @@ trait GettersTrait
         }
 
         return $this->_view;
-    }
-
-    public function getViewPath()
-    {
-        $ref = new ReflectionClass($this);
-
-        return dirname(dirname($ref->getFileName())) . '/views';
     }
 
     public function takeGoal($id)
