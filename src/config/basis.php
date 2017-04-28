@@ -24,6 +24,7 @@ return [
     'components'            => [
         'log' => [
             'class' => \yii\log\Dispatcher::class,
+            'flushInterval' => 1,
             'targets' => [
                 'console' => [
                     'class' => \hidev\log\ConsoleTarget::class,
