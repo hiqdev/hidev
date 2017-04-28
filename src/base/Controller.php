@@ -18,4 +18,20 @@ abstract class Controller extends \yii\console\Controller
     use GettersTrait;
 
     public $layout = false;
+
+    public function readline($prompt)
+    {
+        return readline($prompt);
+    }
+
+    public function readpassword($prompt)
+    {
+        echo $prompt;
+        system('stty -echo');
+        $password = rtrim(fgets(STDIN), PHP_EOL);
+        system('stty echo');
+        echo "\n";
+
+        return $password;
+    }
 }
