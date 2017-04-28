@@ -10,7 +10,6 @@
 
 namespace hidev\controllers;
 
-use hidev\base\File;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -21,7 +20,7 @@ use yii\helpers\ArrayHelper;
 class Collection extends \hiqdev\yii2\collection\Object
 {
     public $defaultClass = CommonController::class;
-    
+
     protected $_included = [];
 
     public function hasGoal($id)

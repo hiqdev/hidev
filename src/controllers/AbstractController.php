@@ -12,7 +12,6 @@ namespace hidev\controllers;
 
 use hidev\helpers\Helper;
 use Yii;
-use yii\base\InvalidCallException;
 use yii\console\Response;
 
 /**
@@ -255,5 +254,4 @@ abstract class AbstractController extends \hidev\base\Controller
 
         return $password;
     }
-
 }

@@ -33,7 +33,7 @@ class FileHelper
 
         $level = $die ? Logger::LEVEL_ERROR : Logger::LEVEL_WARNING;
         Yii::getLogger()->log('Failed to read file: ' . $path, $level, 'file');
-        
+
         return false;
     }
 

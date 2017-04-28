@@ -46,5 +46,4 @@ class GitController extends \hidev\base\Controller
     {
         return $this->passthru('git', 'push', '--tags');
     }
-
 }

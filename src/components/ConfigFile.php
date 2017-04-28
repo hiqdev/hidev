@@ -228,5 +228,4 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
             }
         }
     }
-
 }

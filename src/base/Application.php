@@ -10,14 +10,13 @@
 
 namespace hidev\base;
 
-use hidev\helpers\ConfigPlugin;
 use hidev\controllers\AliasController;
 use Yii;
 use yii\base\ViewContextInterface;
-use yii\helpers\ArrayHelper;
 
 /**
  * The Application.
+ * XXX DEPRECATED!
  */
 class Application extends \yii\console\Application implements ViewContextInterface
 {
@@ -30,8 +29,6 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         $res = parent::createController($route);
         if (!is_array($res)) {
             return $res;
-        }
-            list($controller, $subroute);
         }
 
         // module and controller map take precedence
@@ -72,7 +69,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         }
 
         if (strpos($route, '/') !== false) {
-            list ($id, $route) = explode('/', $route, 2);
+            list($id, $route) = explode('/', $route, 2);
         } else {
             $id = $route;
             $route = '';
@@ -93,7 +90,6 @@ class Application extends \yii\console\Application implements ViewContextInterfa
 
     private function returnProxy($result)
     {
-
     }
 
     public function createControllerByID($id)
@@ -106,7 +102,7 @@ class Application extends \yii\console\Application implements ViewContextInterfa
         if ($id === 'readme') {
             var_dump($controller);
             die;
-        };
+        }
         if ($controller instanceof AliasController) {
             $controller = $controller->getController();
         }

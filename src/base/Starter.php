@@ -10,7 +10,6 @@
 
 namespace hidev\base;
 
-use hidev\base\File;
 use hidev\helpers\ConfigPlugin;
 use hidev\helpers\FileHelper;
 use Symfony\Component\Yaml\Yaml;
@@ -83,7 +82,7 @@ class Starter
             }
         }
 
-        # var_dump($config); die;
+        // var_dump($config); die;
 
         return $config;
     }
@@ -114,7 +113,7 @@ class Starter
 
     private function includeGoals($paths)
     {
-        foreach ((array)$paths as $path) {
+        foreach ((array) $paths as $path) {
             $this->goals = ArrayHelper::merge(
                 $this->goals,
                 $this->readYaml($path)
@@ -142,7 +141,7 @@ class Starter
      * - @root alias to current project root dir
      * - @hidev own alias
      * - current package namespace for it could be used from hidev
-     * - aliases listed in config
+     * - aliases listed in config.
      */
     private function addAliases()
     {
@@ -174,7 +173,7 @@ class Starter
     /**
      * - install configured plugins and register their app config
      * - install project dependencies and register
-     * - register application config files
+     * - register application config files.
      */
     private function requireAll()
     {
@@ -266,8 +265,8 @@ class Starter
     {
         $config = $this->readConfig();
         $files = array_merge(
-            (array)$this->goals['include'],
-            (array)$config['include']
+            (array) $this->goals['include'],
+            (array) $config['include']
         );
         $this->includeGoals($files);
     }
@@ -278,7 +277,7 @@ class Starter
     private function moreConfig()
     {
         $paths = $this->goals['config'];
-        foreach ((array)$paths as $path) {
+        foreach ((array) $paths as $path) {
             if ($path) {
                 $this->appFiles[] = $path;
             }

@@ -10,8 +10,6 @@
 
 namespace hidev\components;
 
-use yii\helpers\Json;
-
 /**
  * GitHub component.
  */
@@ -87,5 +85,4 @@ class GitHub extends \hidev\base\Component
 
         return $this->_description;
     }
-
 }

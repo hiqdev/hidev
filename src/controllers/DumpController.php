@@ -12,7 +12,6 @@ namespace hidev\controllers;
 
 use Symfony\Component\Yaml\Yaml;
 use Yii;
-use yii\helpers\ArrayHelper;
 
 /**
  * Dump goal.

@@ -67,5 +67,4 @@ trait GettersTrait
     {
         return $this->take('binaries')->execBinary($name, $args, true);
     }
-
 }

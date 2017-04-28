@@ -37,7 +37,7 @@ class CommonBehavior extends \yii\base\Behavior
 
     public function runRequests($requests)
     {
-        foreach ($requests as $request) {
+        foreach ((array) $requests as $request) {
             $this->runRequest($request);
         }
     }
@@ -57,4 +57,3 @@ class CommonBehavior extends \yii\base\Behavior
         return Yii::$app->handleRequest($request);
     }
 }
-
