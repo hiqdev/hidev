@@ -11,18 +11,24 @@
 namespace hidev\handlers;
 
 use Yii;
+use yii\base\ViewContextInterface;
 
 /**
  * Handler for templated files.
  */
-class TemplateHandler extends BaseHandler
+class TemplateHandler extends BaseHandler implements ViewContextInterface
 {
+    public function getViewPath()
+    {
+        return '@hidev/views';
+    }
+
     /**
      * {@inheritdoc}
      */
     public function renderPrepared(array $data)
     {
-        return $this->getView()->render($this->template, $data);
+        return $this->getView()->render($this->template, $data, $this);
     }
 
     public function renderTemplate($data)
@@ -33,7 +39,8 @@ class TemplateHandler extends BaseHandler
     public function prepareData($data)
     {
         return array_merge([
-            'config'  => Yii::$app->config,
+            'app'     => Yii::$app,
+            'config'  => Yii::$app, /// DEPRECATED
             'file'    => $data->file,
             'handler' => $this,
         ], parent::prepareData($data));
