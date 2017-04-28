@@ -37,9 +37,39 @@ class CommonBehavior extends \yii\base\Behavior
 
     public function runRequests($requests)
     {
-        foreach ((array) $requests as $request) {
-            $this->runRequest($request);
+        foreach ($this->normalizeTasks($requests) as $request => $enabled) {
+            if ($enabled) {
+                $response = $this->runRequest($request);
+                if ($this->isNotOk($response)) {
+                    return $response;
+                }
+            }
         }
+    }
+
+    public function normalizeTasks($tasks)
+    {
+        if (!$tasks) {
+            return [];
+        } elseif (!is_array($tasks)) {
+            $tasks = [(string) $tasks => 1];
+        }
+        $res = [];
+        foreach ($tasks as $dep => $enabled) {
+            $res[(string) (is_int($dep) ? $enabled : $dep)] = (bool) (is_int($dep) ? 1 : $enabled);
+        }
+
+        return $res;
+    }
+
+    /**
+     * Is response NOT Ok.
+     * @param Response|int $response
+     * @return bool
+     */
+    public function isNotOk($response)
+    {
+        return is_object($response) ? $response->exitStatus : $response;
     }
 
     /**

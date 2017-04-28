@@ -10,6 +10,8 @@
 
 namespace hidev\base;
 
+use hidev\controllers\CommonBehavior;
+
 /**
  * Basic controller.
  */
@@ -18,6 +20,36 @@ abstract class Controller extends \yii\console\Controller
     use GettersTrait;
 
     public $layout = false;
+
+    protected $_before = [];
+    protected $_after  = [];
+
+    public function behaviors()
+    {
+        return [
+            CommonBehavior::class,
+        ];
+    }
+
+    public function setBefore($requests)
+    {
+        $this->_before = array_merge($this->getBefore(), $this->normalizeTasks($requests));
+    }
+
+    public function getBefore()
+    {
+        return $this->_before;
+    }
+
+    public function setAfter($requests)
+    {
+        $this->_after = array_merge($this->getAfter(), $this->normalizeTasks($requests));
+    }
+
+    public function getAfter()
+    {
+        return $this->_after;
+    }
 
     public function readline($prompt)
     {

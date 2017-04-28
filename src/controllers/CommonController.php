@@ -15,20 +15,10 @@ use Yii;
 /**
  * Common controller.
  */
-class CommonController extends \yii\console\Controller
+class CommonController extends \hidev\base\Controller
 {
-    public $before = [];
-    public $after = [];
-
     public function actionIndex()
     {
         Yii::trace("Started: '$this->id'");
-    }
-
-    public function behaviors()
-    {
-        return [
-            CommonBehavior::class,
-        ];
     }
 }
