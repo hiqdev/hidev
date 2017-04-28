@@ -45,12 +45,7 @@ trait GettersTrait
 
     public function takeVcs()
     {
-        return $this->getApp()->get($this->detectVcs());
-    }
-
-    public function detectVcs()
-    {
-        return 'git';
+        return $this->takeGoal('vcs');
     }
 
     public function getApp()

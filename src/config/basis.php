@@ -48,6 +48,9 @@ return [
             ],
         ],
         /// goal components
+        'vcs' => [
+            'class' => 'Detect VCS',
+        ],
         'vcsignore' => [
             'class' => \hidev\components\Vcsignore::class,
         ],
@@ -90,6 +93,10 @@ return [
         'singletons' => [
             \hidev\base\Interpolator::class => [
             ],
+            'Detect VCS' => function () {
+                $detectedVCS = 'git';
+                return Yii::$app->get($detectedVCS);
+            },
         ],
     ],
     'params' => [
