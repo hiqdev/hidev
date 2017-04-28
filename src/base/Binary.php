@@ -74,7 +74,7 @@ class Binary extends \yii\base\Object
     public function passthru($args = [])
     {
         $command = $this->prepareCommand($args);
-        Yii::info("| $command");
+        Yii::info("> $command");
         passthru($command, $exitcode);
 
         return $exitcode;
@@ -89,7 +89,7 @@ class Binary extends \yii\base\Object
     public function exec($args = [], $returnExitCode = false)
     {
         $command = $this->prepareCommand($args);
-        Yii::info("> $command");
+        Yii::info("& $command");
         exec($command, $array, $exitcode);
 
         return $returnExitCode ? $exitcode : $array;
