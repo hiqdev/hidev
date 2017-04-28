@@ -11,6 +11,7 @@
 namespace hidev\base;
 
 use hidev\modifiers\ModifierInterface;
+use Yii;
 use yii\base\InvalidConfigException;
 
 class Binary extends \yii\base\Object
@@ -72,7 +73,9 @@ class Binary extends \yii\base\Object
      */
     public function passthru($args = [])
     {
-        passthru($this->prepareCommand($args), $exitcode);
+        $command = $this->prepareCommand($args);
+        Yii::info("| $command");
+        passthru($command, $exitcode);
 
         return $exitcode;
     }
@@ -85,7 +88,9 @@ class Binary extends \yii\base\Object
      */
     public function exec($args = [], $returnExitCode = false)
     {
-        exec($this->prepareCommand($args), $array, $exitcode);
+        $command = $this->prepareCommand($args);
+        Yii::info("> $command");
+        exec($command, $array, $exitcode);
 
         return $returnExitCode ? $exitcode : $array;
     }
