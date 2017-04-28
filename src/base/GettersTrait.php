@@ -37,4 +37,35 @@ trait GettersTrait
     {
         return Yii::$app;
     }
+
+    /**
+     * Runs given binary with given arguments.
+     * Command output passes unchanged to console.
+     * Returns exit code.
+     * @param string $name
+     * @param array|string $args
+     * @return int exit code
+     */
+    public function passthru($name, $args = [])
+    {
+        return $this->take('binaries')->passthruBinary($name, $args);
+    }
+
+    /**
+     * Runs given binary with given arguments. Returns stdout array.
+     * @param string $name
+     * @param string $args
+     * @param bool $returnExitCode, default false
+     * @return array|int stdout or exitcode
+     */
+    public function exec($name, $args = '', $returnExitCode = false)
+    {
+        return $this->take('binaries')->execBinary($name, $args, $returnExitCode);
+    }
+
+    public function execCode($name, $args = '')
+    {
+        return $this->take('binaries')->execBinary($name, $args, true);
+    }
+
 }
