@@ -68,6 +68,11 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
      */
     protected $_template;
 
+    public function init()
+    {
+        $this->load();
+    }
+
     /**
      * Template setter.
      * @param string $template name
@@ -88,7 +93,6 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     /**
      * Returns the file object.
      * Instantiates it if necessary.
-     *
      * @return File
      */
     public function getFile()
@@ -194,7 +198,7 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
         return $this->runActions(['before', 'make', 'after']);
     }
 
-    public function actionLoad()
+    public function load()
     {
         $data = $this->getFile()->load() ?: [];
         if ($data) { /// TODO think what's better
@@ -205,9 +209,17 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     }
 
     /**
-     * {@inheritdoc}
+     * DEPRECATED in favour of save()
      */
     public function actionSave()
+    {
+        return $this->save();
+    }
+
+    /**
+     * Save the file.
+     */
+    public function save()
     {
         if ($this->once && $this->exists()) {
             return 0;
