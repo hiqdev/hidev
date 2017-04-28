@@ -11,9 +11,8 @@
 namespace hidev\controllers;
 
 /**
- * Controller for .gitignore files generation.
+ * `.gitignore` file generation.
  */
 class GitignoreController extends VcsignoreController
 {
-    public $fileType = 'gitignore';
 }

@@ -15,6 +15,8 @@ namespace hidev\components;
  */
 class Vcs extends \hidev\base\Component
 {
+    protected $ignorefile;
+
     protected $_ignore;
 
     public function setIgnore($items, $where = '')

@@ -38,8 +38,23 @@ class CommonBehavior extends \yii\base\Behavior
     public function runRequests($requests)
     {
         foreach ($requests as $request) {
-            Yii::$app->runRequest($request);
+            $this->runRequest($request);
         }
+    }
+
+    /**
+     * Run request.
+     * @param string|array $query
+     * @return Response
+     */
+    public function runRequest($query)
+    {
+        $request = Yii::createObject([
+            'class'  => \yii\console\Request::class,
+            'params' => is_array($query) ? $query : array_filter(explode(' ', $query)),
+        ]);
+
+        return Yii::$app->handleRequest($request);
     }
 }
 

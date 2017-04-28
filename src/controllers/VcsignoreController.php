@@ -11,32 +11,12 @@
 namespace hidev\controllers;
 
 /**
- * Controller for VCS ignore files generation.
+ * VCS ignore file generation.
  */
-class VcsignoreController extends FileController
+class VcsignoreController extends \hidev\base\Controller
 {
-    /**
-     * Load action.
-     */
-    public function actionLoad()
+    public function actionIndex()
     {
-        $items = [];
-        foreach ($this->takeGoal('binaries')->getItems() as $binary) {
-            if ($vcsignore = $binary->getVcsignore()) {
-                $items[$vcsignore] = 'Binaries';
-            }
-        }
-        unset($items['git.phar']);
-        $this->takeVcs()->setIgnore($items);
-        $items = $this->getFile()->load() ?: [];
-        $this->takeVcs()->setIgnore($items);
-    }
-
-    /**
-     * Save action.
-     */
-    public function actionSave()
-    {
-        $this->getFile()->save($this->takeVcs()->getIgnore());
+        $this->takeGoal('vcsignore')->save();
     }
 }

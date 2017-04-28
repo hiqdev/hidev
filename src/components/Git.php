@@ -15,7 +15,7 @@ namespace hidev\components;
  */
 class Git extends Vcs
 {
-    protected $_before = ['.gitignore'];
+    public $ignorefile = '.gitignore';
 
     /**
      * @var string current tag

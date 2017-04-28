@@ -19,14 +19,9 @@ use yii\helpers\ArrayHelper;
  * Configuration file component.
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class ConfigFile extends \yii\base\Component implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
+class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
 {
     use \hiqdev\yii2\collection\ObjectTrait;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected $_make = ['load', 'save', 'modify'];
 
     /**
      * @var string specifies handler to be used

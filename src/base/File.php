@@ -127,6 +127,7 @@ class File extends \yii\base\Object
         'yaml'      => 'yaml',
         'xml'       => 'xml',
         'xml.dist'  => 'xml',
+        'gitignore' => 'gitignore',
     ];
 
     public function getExtensionByType($type)

@@ -13,7 +13,7 @@ namespace hidev\components;
 /**
  * VCS ignore component.
  */
-class Vcsignore extends \hidev\base\Component
+class Vcsignore extends ConfigFile
 {
     protected $_items = [
         'hidev-local.yml'           => 'hidev internals',
@@ -29,4 +29,35 @@ class Vcsignore extends \hidev\base\Component
         'Thumbs.db'                 => 'IDE & OS files',
         '.DS_Store'                 => 'IDE & OS files',
     ];
+
+    public function init()
+    {
+        $this->_path = $this->takeVcs()->ignorefile;
+        $this->load();
+    }
+
+    /**
+     * Load.
+     */
+    public function load()
+    {
+        $items = [];
+        foreach ($this->takeGoal('binaries')->getItems() as $binary) {
+            if ($vcsignore = $binary->getVcsignore()) {
+                $items[$vcsignore] = 'Binaries';
+            }
+        }
+        unset($items['git.phar']);
+        $this->setItems($items);
+        $items = $this->getFile()->load() ?: [];
+        $this->setItems($items);
+    }
+
+    /**
+     * Save.
+     */
+    public function save()
+    {
+        $this->getFile()->save($this->takeVcs()->getIgnore());
+    }
 }
