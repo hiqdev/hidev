@@ -47,12 +47,12 @@ class Package extends \hidev\base\Component
 
     public function getYear()
     {
-        return $this->getItem('year') ?: $this->takeVcs()->getYear();
+        return $this->getItem('year') ?: $this->take('vcs')->getYear();
     }
 
     public function getLicense()
     {
-        return $this->getItem('license') ?: $this->takeVendor()->license ?: 'No license';
+        return $this->getItem('license') ?: $this->take('vendor')->license ?: 'No license';
     }
 
     public function getIssues()
@@ -72,22 +72,22 @@ class Package extends \hidev\base\Component
 
     public function getFullName()
     {
-        return $this->getItem('fullName') ?: ($this->takeVendor()->name . '/' . $this->name);
+        return $this->getItem('fullName') ?: ($this->take('vendor')->name . '/' . $this->name);
     }
 
     public function getSource()
     {
-        return $this->getItem('source') ?: ('https://github.com/' . $this->takeGoal('github')->full_name);
+        return $this->getItem('source') ?: ('https://github.com/' . $this->take('github')->full_name);
     }
 
     public function getVersion()
     {
-        return $this->takeGoal('version')->version;
+        return $this->take('version')->version;
     }
 
     public function getNamespace()
     {
-        return $this->getItem('namespace') ?: $this->getPackageManager()->namespace ?: self::defaultNamespace($this->takeVendor()->name, $this->name);
+        return $this->getItem('namespace') ?: $this->getPackageManager()->namespace ?: self::defaultNamespace($this->take('vendor')->name, $this->name);
     }
 
     public static function defaultNamespace($vendor, $package)
@@ -109,7 +109,7 @@ class Package extends \hidev\base\Component
 
     public function getForum()
     {
-        return $this->getItem('forum') ?: $this->takeVendor()->forum;
+        return $this->getItem('forum') ?: $this->take('vendor')->forum;
     }
 
     public function getLabel()
@@ -144,7 +144,7 @@ class Package extends \hidev\base\Component
 
     public function getAuthors()
     {
-        return $this->getItem('authors') ?: $this->takeVendor()->authors;
+        return $this->getItem('authors') ?: $this->take('vendor')->authors;
     }
 
     /**
@@ -153,7 +153,7 @@ class Package extends \hidev\base\Component
      */
     public function getPackageManager()
     {
-        return $this->takeGoal('composer');
+        return $this->take('composer');
     }
 
     public function hasRequireAny($package)

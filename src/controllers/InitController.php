@@ -109,12 +109,12 @@ class InitController extends TemplateController
 
     public function getAuthor()
     {
-        return $this->getItem('author') ?: $this->takeVcs()->getUserName();
+        return $this->getItem('author') ?: $this->take('vcs')->getUserName();
     }
 
     public function getEmail()
     {
-        return $this->getItem('email') ?: $this->takeVcs()->getUserEmail();
+        return $this->getItem('email') ?: $this->take('vcs')->getUserEmail();
     }
 
     /**

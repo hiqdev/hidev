@@ -229,13 +229,4 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
         }
     }
 
-    public function takeVendor()
-    {
-        return Yii::$app->get('vendor');
-    }
-
-    public function takePackage()
-    {
-        return Yii::$app->get('package');
-    }
 }

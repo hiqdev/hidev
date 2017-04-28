@@ -32,7 +32,7 @@ class Vcsignore extends ConfigFile
 
     public function init()
     {
-        $this->_path = $this->takeVcs()->ignorefile;
+        $this->_path = $this->take('vcs')->ignorefile;
         $this->load();
     }
 
@@ -42,7 +42,7 @@ class Vcsignore extends ConfigFile
     public function load()
     {
         $items = [];
-        foreach ($this->takeGoal('binaries')->getItems() as $binary) {
+        foreach ($this->take('binaries')->getItems() as $binary) {
             if ($vcsignore = $binary->getVcsignore()) {
                 $items[$vcsignore] = 'Binaries';
             }
@@ -58,6 +58,6 @@ class Vcsignore extends ConfigFile
      */
     public function save()
     {
-        $this->getFile()->save($this->takeVcs()->getIgnore());
+        $this->getFile()->save();
     }
 }

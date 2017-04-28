@@ -54,7 +54,7 @@ class GitHub extends \hidev\base\Component
     public function getName()
     {
         if (!$this->_name) {
-            $this->_name = $this->takePackage()->name;
+            $this->_name = $this->take('package')->name;
         }
 
         return $this->_name;
@@ -68,7 +68,7 @@ class GitHub extends \hidev\base\Component
     public function getVendor()
     {
         if (!$this->_vendor) {
-            $this->_vendor = $this->takeVendor()->name;
+            $this->_vendor = $this->take('vendor')->name;
         }
 
         return $this->_vendor;
@@ -82,7 +82,7 @@ class GitHub extends \hidev\base\Component
     public function getDescription()
     {
         if ($this->_description === null) {
-            $this->_description = $this->takePackage()->getTitle();
+            $this->_description = $this->take('package')->getTitle();
         }
 
         return $this->_description;

@@ -24,7 +24,7 @@ class GitController extends \hidev\base\Controller
 
     public function actionRelease($version = null)
     {
-        $version = $this->takeGoal('version')->getVersion($version);
+        $version = $this->take('version')->getVersion($version);
         $message = "version bump to $version";
         $this->actionCommit($message);
         $this->actionTag($version);

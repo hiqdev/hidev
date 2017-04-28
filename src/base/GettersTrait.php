@@ -28,24 +28,9 @@ trait GettersTrait
         return $this->_view;
     }
 
-    public function takeGoal($id)
+    public function take($id)
     {
         return $this->getApp()->get($id);
-    }
-
-    public function takeVendor()
-    {
-        return $this->getApp()->get('vendor');
-    }
-
-    public function takePackage()
-    {
-        return $this->getApp()->get('package');
-    }
-
-    public function takeVcs()
-    {
-        return $this->takeGoal('vcs');
     }
 
     public function getApp()

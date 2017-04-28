@@ -17,6 +17,6 @@ class VcsignoreController extends \hidev\base\Controller
 {
     public function actionIndex()
     {
-        $this->takeGoal('vcsignore')->save();
+        $this->take('vcsignore')->save();
     }
 }

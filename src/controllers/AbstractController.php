@@ -220,7 +220,7 @@ abstract class AbstractController extends \hidev\base\Controller
      */
     public function passthru($name, $args = [])
     {
-        return $this->takeGoal('binaries')->passthruBinary($name, $args);
+        return $this->take('binaries')->passthruBinary($name, $args);
     }
 
     /**
@@ -232,12 +232,12 @@ abstract class AbstractController extends \hidev\base\Controller
      */
     public function exec($name, $args = '', $returnExitCode = false)
     {
-        return $this->takeGoal('binaries')->execBinary($name, $args, $returnExitCode);
+        return $this->take('binaries')->execBinary($name, $args, $returnExitCode);
     }
 
     public function execCode($name, $args = '')
     {
-        return $this->takeGoal('binaries')->execBinary($name, $args, true);
+        return $this->take('binaries')->execBinary($name, $args, true);
     }
 
     public function readline($prompt)
@@ -256,28 +256,4 @@ abstract class AbstractController extends \hidev\base\Controller
         return $password;
     }
 
-    public function takeGoal($id)
-    {
-        return $this->module->createController($id);
-    }
-
-    public function takeConfig()
-    {
-        throw new InvalidCallException('no takeConfig anymore');
-    }
-
-    public function takeVendor()
-    {
-        return $this->takeGoal('vendor');
-    }
-
-    public function takePackage()
-    {
-        return $this->takeGoal('package');
-    }
-
-    public function takeVcs()
-    {
-        return $this->takeConfig()->getVcs();
-    }
 }

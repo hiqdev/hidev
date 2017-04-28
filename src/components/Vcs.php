@@ -29,7 +29,7 @@ class Vcs extends \hidev\base\Component
     public function getIgnore()
     {
         if (!is_object($this->_ignore)) {
-            $this->_ignore = $this->takeGoal('vcsignore');
+            $this->_ignore = $this->take('vcsignore');
         }
 
         return $this->_ignore;

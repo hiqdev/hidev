@@ -54,7 +54,7 @@ class GithubController extends CommonController
     public function getName()
     {
         if (!$this->_name) {
-            $this->_name = $this->takePackage()->name;
+            $this->_name = $this->take('package')->name;
         }
 
         return $this->_name;
@@ -68,7 +68,7 @@ class GithubController extends CommonController
     public function getVendor()
     {
         if (!$this->_vendor) {
-            $this->_vendor = $this->takeVendor()->name;
+            $this->_vendor = $this->take('vendor')->name;
         }
 
         return $this->_vendor;
@@ -82,7 +82,7 @@ class GithubController extends CommonController
     public function getDescription()
     {
         if ($this->_description === null) {
-            $this->_description = $this->takePackage()->getTitle();
+            $this->_description = $this->take('package')->getTitle();
         }
 
         return $this->_description;
@@ -142,8 +142,8 @@ class GithubController extends CommonController
      */
     public function actionRelease($version = null)
     {
-        $version = $this->takeGoal('version')->getVersion($version);
-        $notes = $this->takeGoal('chkipper')->getReleaseNotes();
+        $version = $this->take('version')->getVersion($version);
+        $notes = $this->take('chkipper')->getReleaseNotes();
         $wait = $this->actionWaitPush();
         if ($wait) {
             return $wait;
