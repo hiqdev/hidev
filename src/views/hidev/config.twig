@@ -1,44 +1,44 @@
 package:
-{% if config.init.type %}
-    type:           {{ config.init.type }}
+{% if init.type %}
+    type:           {{ init.type }}
 {% endif %}
-    name:           {{ config.init.package }}
-{% if config.init.namespace %}
-    namespace:      {{ config.init.namespace }}
+    name:           {{ init.package }}
+{% if init.namespace %}
+    namespace:      {{ init.namespace }}
 {% endif %}
-{% if config.init.headline %}
-    headline:       {{ config.init.headline }}
+{% if init.headline %}
+    headline:       {{ init.headline }}
 {% endif %}
-{% if config.init.title %}
-    title:          {{ config.init.title }}
+{% if init.title %}
+    title:          {{ init.title }}
 {% endif %}
-{% if config.init.keywords %}
-    keywords:       {{ config.init.keywords }}
+{% if init.keywords %}
+    keywords:       {{ init.keywords }}
 {% endif %}
-{% if config.init.license %}
-    license:        {{ config.init.license }}
+{% if init.license %}
+    license:        {{ init.license }}
 {% endif %}
-{% if config.init.year %}
-    year:           {{ config.init.year }}
+{% if init.year %}
+    year:           {{ init.year }}
 {% endif %}
-{% if config.init.description %}
-    description:    {{ config.init.description }}
+{% if init.description %}
+    description:    {{ init.description }}
 {% endif %}
-{% if not config.init.novendor %}
+{% if not init.novendor %}
 
 vendor:
-    name:           {{ config.init.vendor }}
-{% if config.init.author and config.init.email %}
+    name:           {{ init.vendor }}
+{% if init.author and init.email %}
     authors:
-        {{ config.init.nick }}:
-            name:       {{ config.init.author }}
-            email:      {{ config.init.email }}
+        {{ init.nick }}:
+            name:       {{ init.author }}
+            email:      {{ init.email }}
 {% endif %}
 {% endif %}
-{% if config.init.plugins %}
+{% if init.plugins %}
 
 plugins:
-{% for plugin, version in config.init.plugins %}
+{% for plugin, version in init.plugins %}
     {{ "%-23s"|format(plugin ~ ':') }} "{{ version|raw }}"
 {% endfor %}
 {% endif %}
