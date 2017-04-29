@@ -10,6 +10,7 @@
 
 namespace hidev\base;
 
+use hidev\components\Request;
 use hidev\helpers\ConfigPlugin;
 use hidev\helpers\FileHelper;
 use Symfony\Component\Yaml\Yaml;
@@ -49,6 +50,22 @@ class Starter
      */
     public function __construct()
     {
+        $request = new Request();
+        list($route, $params) = $request->resolve();
+        list($id, $subroute) = explode('/', $route, 2);
+        if (in_array($id, ['init'], true)) {
+            $this->noProject();
+        } else {
+            $this->startProject();
+        }
+    }
+
+    public function noProject()
+    {
+    }
+
+    public function startProject()
+    {
         $this->getRootDir();
         $this->loadGoals();
         $this->addAliases();
@@ -76,9 +93,11 @@ class Starter
             'controllerMap' => $controllers,
         ]);
 
-        foreach ($config['controllerMap'] as &$def) {
-            if (is_array($def) && empty($def['class'])) {
-                $def['class'] = \hidev\controllers\CommonController::class;
+        if (!empty($config['controllerMap'])) {
+            foreach ($config['controllerMap'] as &$def) {
+                if (is_array($def) && empty($def['class'])) {
+                    $def['class'] = \hidev\controllers\CommonController::class;
+                }
             }
         }
 
