@@ -70,7 +70,6 @@ class Starter
         $this->getRootDir();
         $this->loadGoals();
         $this->addAliases();
-        //  $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
         $this->moreConfig();
@@ -83,7 +82,7 @@ class Starter
         ]);
 
         $config['components']['request']['scriptFile'] = $this->scriptFile;
-        unset($config['include']);
+        unset($config['components']['include']);
         unset($config['components']['plugins']);
 
         foreach ($config['components'] as $id => $def) {
@@ -146,16 +145,6 @@ class Starter
     private function readYaml($path)
     {
         return Yaml::parse(FileHelper::read($path));
-    }
-
-    private function addAutoloader()
-    {
-        $autoloader = Yii::getAlias('@root/vendor/autoload.php');
-        if (file_exists($autoloader)) {
-            spl_autoload_unregister(['Yii', 'autoload']);
-            require $autoloader;
-            spl_autoload_register(['Yii', 'autoload'], true, true);
-        }
     }
 
     /**
@@ -288,7 +277,7 @@ class Starter
         $config = $this->readConfig();
         $files = array_merge(
             (array) $this->goals['include'],
-            (array) $config['include']
+            (array) $config['components']['include']
         );
         $this->includeGoals($files);
     }
