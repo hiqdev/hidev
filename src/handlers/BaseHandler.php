@@ -39,8 +39,7 @@ class BaseHandler extends \yii\base\Object
     /**
      * Returns the view object that can be used to render views or view files.
      * If not set, it will default to the "view" application component.
-     *
-     * @return View|\yii\web\View the view object that can be used to render views or view files
+     * @return View the view object that can be used to render views or view files
      */
     public function getView()
     {

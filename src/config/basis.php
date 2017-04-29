@@ -39,7 +39,7 @@ return [
             'class' => \yii\caching\FileCache::class,
         ],
         'view' => [
-            'class' => \yii\base\View::class,
+            'class' => \hidev\components\View::class,
             'renderers' => [
                 'twig' => [
                     'class' => \yii\twig\ViewRenderer::class,
