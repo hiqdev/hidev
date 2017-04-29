@@ -13,19 +13,55 @@ namespace hidev\controllers;
 use Exception;
 use hidev\base\File;
 use hidev\helpers\Helper;
+use Yii;
 use yii\base\InvalidParamException;
 
 /**
  * Init controller.
  * Builds .hidev/config.yml by template and params.
  */
-class InitController extends TemplateController
+class InitController extends \yii\console\Controller
 {
-    protected $_file = '.hidev/config.yml';
-
+    /**
+     * @var string package full name like: vendor/package
+     */
     public $name;
+
+    /**
+     * @var string package type e.g.: package, yii2-extension
+     */
+    public $type;
+    public $title;
     public $vendor;
     public $package;
+    public $license;
+    public $headline;
+    public $keywords;
+    public $namespace;
+
+    public $vendorRequire;
+
+    /**
+     * @var bool don't put vendor config
+     */
+    public $novendor;
+    /**
+     * @var bool don't put requires
+     */
+    public $norequire;
+
+    /**
+     * @var bool don't generate `composer.json` file
+     */
+    public $nocomposer;
+
+    public function options($actionId)
+    {
+        return array_diff(
+            array_keys(get_object_vars($this)),
+            explode(',', 'color,help,id,module,layout,action,interactive,defaultAction')
+        );
+    }
 
     public function prepareData($name)
     {
@@ -40,8 +76,8 @@ class InitController extends TemplateController
                 $exists = false;
             }
             if ($exists) {
-                $this->setItem('vendorRequire', $vendorPlugin);
-                $this->setItem('novendor', true);
+                $this->vendorRequire = $vendorPlugin;
+                $this->novendor = true;
             }
         }
         if ($package) {
@@ -52,69 +88,92 @@ class InitController extends TemplateController
         }
     }
 
-    public function actionPerform($name = null, $template = '.hidev/config')
+    /**
+     * Creates initial configuration for hidev: `hidev.yml` and `composer.json`
+     * @param string $name package full name like: vendor/package
+     */
+    public function actionIndex($name = null)
     {
-        $this->_template = $template;
         $this->prepareData($name);
-        if (!file_exists($this->dirname)) {
-            mkdir($this->dirname);
-        }
         if (!$this->nocomposer) {
-            $this->actionComposer();
+            $this->writeComposer();
         }
 
-        return parent::actionPerform();
+        return $this->writeConfig();
     }
 
     public function actionComposer()
     {
-        $file = new File(['path' => 'composer.json']);
-        $data = array_filter([
+        return $this->writeComposer();
+    }
+
+    public function writeConfig($path = 'hidev.yml')
+    {
+        $file = new File(['path' => $path]);
+        $file->save(array_filter([
+            'package' => array_filter([
+                'type'      => $this->getType(),
+                'name'      => $this->name,
+                'title'     => $this->getTitle(),
+                'license'   => $this->license,
+                'headline'  => $this->headline,
+                'keywords'  => $this->getKeywords(),
+                'namespace' => $this->namespace,
+            ]),
+            'vendor' => array_filter([
+                'name'      => $this->vendor,
+                'authors'   => array_filter([
+                    $this->getNick() => [
+                        'name'  => $this->getAuthor(),
+                        'email' => $this->getEmail(),
+                    ],
+                ]),
+            ]),
+        ]));
+    }
+
+    public function writeComposer($path = 'composer.json')
+    {
+        $file = new File(['path' => $path]);
+        $file->save(array_filter([
             'name'        => $this->name,
             'type'        => $this->getType(),
             'description' => $this->getTitle(),
             'keywords'    => preg_split('/\s*,\s*/', $this->getKeywords()),
             'require-dev' => $this->getPlugins(),
-            'license'     => $this->getItem('license'),
-        ]);
-        $file->save($data);
-        $this->setItem('norequire', true);
-    }
-
-    public function options($actionId)
-    {
-        return array_merge(parent::options($actionId), explode(',', 'namespace,headline,title,type,license,keywords,description,year,nick,author,email,novendor,norequire,nocomposer'));
+            'license'     => $this->license,
+        ]));
     }
 
     public function getType()
     {
-        return $this->getItem('type') ?: 'project';
+        return $this->type ?: 'project';
     }
 
     public function getTitle()
     {
-        return $this->getItem('title') ?: Helper::titleize($this->package);
+        return $this->title ?: Helper::titleize($this->package);
     }
 
     public function getKeywords()
     {
-        return $this->getItem('keywords') ?: implode(', ', explode('-', $this->package));
+        return $this->keywords ?: implode(', ', explode('-', $this->package));
     }
 
     /// TODO think of better getting nick
     public function getNick()
     {
-        return $this->getItem('nick') ?: preg_replace('/[^a-zA-Z_0-9]+/', '', `id -un`);
+        return $this->nick ?: preg_replace('/[^a-zA-Z_0-9]+/', '', `id -un`);
     }
 
     public function getAuthor()
     {
-        return $this->getItem('author') ?: $this->take('vcs')->getUserName();
+        return $this->author ?: Yii::$app->get('vcs')->getUserName();
     }
 
     public function getEmail()
     {
-        return $this->getItem('email') ?: $this->take('vcs')->getUserEmail();
+        return $this->email ?: Yii::$app->get('vcs')->getUserEmail();
     }
 
     /**
