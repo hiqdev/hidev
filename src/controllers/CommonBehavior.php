@@ -11,6 +11,7 @@
 namespace hidev\controllers;
 
 use Yii;
+use yii\console\Request;
 
 /**
  * Common controller behavior.
@@ -80,7 +81,7 @@ class CommonBehavior extends \yii\base\Behavior
     public function runRequest($query)
     {
         $request = Yii::createObject([
-            'class'  => \yii\console\Request::class,
+            'class'  => Request::class,
             'params' => is_array($query) ? $query : array_filter(explode(' ', $query)),
         ]);
 

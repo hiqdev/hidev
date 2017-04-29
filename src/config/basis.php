@@ -32,6 +32,9 @@ return [
                 ],
             ],
         ],
+        'request' => [
+            'class' => \hidev\components\Request::class,
+        ],
         'cache' => [
             'class' => \yii\caching\FileCache::class,
         ],
