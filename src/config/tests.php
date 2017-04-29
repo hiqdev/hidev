@@ -11,4 +11,9 @@
 return [
     'id' => 'hidev-tests',
     'basePath' => dirname(__DIR__),
+    'components' => [
+        'binaries' => [
+            'class' => \hidev\components\Binaries::class,
+        ],
+    ],
 ];

@@ -51,6 +51,17 @@ return [
                 ],
             ],
         ],
+        'binaries' => [
+            'class' => \hidev\components\Binaries::class,
+            'composer' => [
+                'class' => \hidev\base\BinaryPhp::class,
+                'installer' => 'https://getcomposer.org/installer',
+            ],
+            'pip' => [
+                'class' => \hidev\base\BinaryPython::class,
+                'installer' => 'https://bootstrap.pypa.io/get-pip.py',
+            ],
+        ],
         /// goal components
         'vcs' => [
             'class' => 'Detect VCS',
@@ -72,17 +83,6 @@ return [
         ],
         'codeception' => [
             'class' => \hidev\components\WTF::class,
-        ],
-        'binaries' => [
-            'class' => \hidev\components\Binaries::class,
-            'composer' => [
-                'class' => \hidev\base\BinaryPhp::class,
-                'installer' => 'https://getcomposer.org/installer',
-            ],
-            'pip' => [
-                'class' => \hidev\base\BinaryPython::class,
-                'installer' => 'https://bootstrap.pypa.io/get-pip.py',
-            ],
         ],
     ],
     'controllerMap' => [
