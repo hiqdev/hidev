@@ -89,9 +89,11 @@ class Starter
                 $controllers[$id] = $def;
             }
         }
-        $config = ArrayHelper::merge($config, [
-            'controllerMap' => $controllers,
-        ]);
+        if (!empty($controllers)) {
+            $config = ArrayHelper::merge($config, [
+                'controllerMap' => $controllers,
+            ]);
+        }
 
         if (!empty($config['controllerMap'])) {
             foreach ($config['controllerMap'] as &$def) {
