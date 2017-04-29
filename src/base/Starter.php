@@ -23,8 +23,8 @@ use yii\helpers\ArrayHelper;
  * Chdirs to the project's root directory and loads dependencies and configs.
  *
  * XXX it's important to distinguish:
- * - goals definitions (hidev config)
- * - application config
+ * - goals definitions (hidev config) - YAML files
+ * - application config - PHP files
  */
 class Starter
 {
