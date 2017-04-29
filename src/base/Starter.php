@@ -38,8 +38,6 @@ class Starter
      */
     private $goals = [];
 
-    private $hidevFiles = [];
-
     /**
      * @var array application config files
      */
@@ -52,8 +50,8 @@ class Starter
     {
         $request = new Request();
         $this->scriptFile = $request->getScriptFile();
-        list($route, $params) = $request->resolve();
-        list($id, $subroute) = explode('/', $route, 2);
+        $route = reset($request->resolve());
+        $id = reset(explode('/', $route, 2));
         if (in_array($id, ['init'], true)) {
             $this->noProject();
         } else {
