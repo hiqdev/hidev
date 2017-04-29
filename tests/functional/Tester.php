@@ -10,8 +10,9 @@
 
 namespace hidev\tests\functional;
 
-use hidev\base\Application;
 use Yii;
+use yii\console\Application;
+use yii\console\Request;
 
 class Tester
 {
@@ -77,13 +78,18 @@ class Tester
 
     /**
      * Run hidev.
-     * @param string $request
+     * @param string $query
      */
-    public function hidev($request)
+    public function hidev($query)
     {
         //$command = Yii::getAlias('@hidev/../bin/hidev') . ' ' . $params;
         //exec($command);
-        $this->getApp()->runRequest($request);
+        $request = Yii::createObject([
+            'class'  => Request::class,
+            'params' => is_array($query) ? $query : array_filter(explode(' ', $query)),
+        ]);
+
+        $this->getApp()->handleRequest($request);
     }
 
     public function setAlias($alias, $path)
@@ -98,7 +104,7 @@ class Tester
     public function getApp()
     {
         if ($this->_app === null) {
-            $config = require Yii::getAlias('@hidev/config/main.php');
+            $config = require Yii::getAlias('@hidev/config/basis.php');
             unset($config['components']['log']);
             $this->_app = new Application($config);
         }

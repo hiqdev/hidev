@@ -31,29 +31,35 @@ class InitController extends \yii\console\Controller
      * @var string package type e.g.: package, yii2-extension
      */
     public $type;
+
     public $title;
-    public $vendor;
     public $package;
     public $license;
     public $headline;
     public $keywords;
     public $namespace;
+    public $description;
+
+    public $vendor;
+    public $nick;
+    public $author;
+    public $email;
 
     public $vendorRequire;
 
     /**
      * @var bool don't put vendor config
      */
-    public $novendor;
+    public $noVendor;
     /**
      * @var bool don't put requires
      */
-    public $norequire;
+    public $noRequire;
 
     /**
      * @var bool don't generate `composer.json` file
      */
-    public $nocomposer;
+    public $noComposer;
 
     public function options($actionId)
     {
@@ -77,7 +83,7 @@ class InitController extends \yii\console\Controller
             }
             if ($exists) {
                 $this->vendorRequire = $vendorPlugin;
-                $this->novendor = true;
+                $this->noVendor = true;
             }
         }
         if ($package) {
@@ -95,7 +101,7 @@ class InitController extends \yii\console\Controller
     public function actionIndex($name = null)
     {
         $this->prepareData($name);
-        if (!$this->nocomposer) {
+        if (!$this->noComposer) {
             $this->writeComposer();
         }
 
@@ -112,15 +118,16 @@ class InitController extends \yii\console\Controller
         $file = new File(['path' => $path]);
         $file->save(array_filter([
             'package' => array_filter([
-                'type'      => $this->getType(),
-                'name'      => $this->name,
-                'title'     => $this->getTitle(),
-                'license'   => $this->license,
-                'headline'  => $this->headline,
-                'keywords'  => $this->getKeywords(),
-                'namespace' => $this->namespace,
+                'type'          => $this->getType(),
+                'name'          => $this->package,
+                'title'         => $this->getTitle(),
+                'license'       => $this->license,
+                'headline'      => $this->headline,
+                'keywords'      => $this->getKeywords(),
+                'namespace'     => $this->namespace,
+                'description'   => $this->description,
             ]),
-            'vendor' => array_filter([
+            'vendor' => $this->noVendor ? null : array_filter([
                 'name'      => $this->vendor,
                 'authors'   => array_filter([
                     $this->getNick() => [
@@ -182,7 +189,7 @@ class InitController extends \yii\console\Controller
      */
     public function getPlugins()
     {
-        if ($this->norequire) {
+        if ($this->noRequire) {
             return [];
         }
         $res = [
