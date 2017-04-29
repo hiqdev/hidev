@@ -209,7 +209,7 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     }
 
     /**
-     * DEPRECATED in favour of save()
+     * DEPRECATED in favour of save().
      */
     public function actionSave()
     {

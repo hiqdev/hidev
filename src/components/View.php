@@ -10,7 +10,6 @@
 
 namespace hidev\components;
 
-use Yii;
 use yii\base\ViewContextInterface;
 
 /**

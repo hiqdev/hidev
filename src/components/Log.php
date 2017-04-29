@@ -61,5 +61,4 @@ class Log extends \yii\log\Dispatcher
 
         return $this->names;
     }
-
 }

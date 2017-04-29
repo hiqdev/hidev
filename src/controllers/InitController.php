@@ -95,7 +95,7 @@ class InitController extends \yii\console\Controller
     }
 
     /**
-     * Creates initial configuration for hidev: `hidev.yml` and `composer.json`
+     * Creates initial configuration for hidev: `hidev.yml` and `composer.json`.
      * @param string $name package full name like: vendor/package
      */
     public function actionIndex($name = null)

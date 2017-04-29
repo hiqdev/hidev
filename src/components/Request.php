@@ -10,8 +10,6 @@
 
 namespace hidev\components;
 
-use Yii;
-
 /**
  * The Request.
  * Redefined for aliases.
