@@ -7,10 +7,10 @@
         <testsuite name="Functional Test Suite">
             <directory>./tests/functional/</directory>
         </testsuite>
-    <!--
         <testsuite name="Readme Unit Test Suite">
             <directory>.hidev/vendor/hiqdev/hidev-readme/tests/unit/</directory>
         </testsuite>
+    <!--
         <testsuite name="Readme Functional Test Suite">
             <directory>.hidev/vendor/hiqdev/hidev-readme/tests/functional/</directory>
         </testsuite>
