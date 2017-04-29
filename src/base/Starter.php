@@ -51,6 +51,7 @@ class Starter
     public function __construct()
     {
         $request = new Request();
+        $this->scriptFile = $request->getScriptFile();
         list($route, $params) = $request->resolve();
         list($id, $subroute) = explode('/', $route, 2);
         if (in_array($id, ['init'], true)) {
@@ -80,6 +81,8 @@ class Starter
         $config = ArrayHelper::merge($this->readConfig(), [
             'components' => $this->goals,
         ]);
+
+        $config['components']['request']['scriptFile'] = $this->scriptFile;
         unset($config['include']);
         unset($config['components']['plugins']);
 
