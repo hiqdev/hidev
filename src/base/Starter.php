@@ -61,6 +61,8 @@ class Starter
 
     public function noProject()
     {
+        $this->setRootDir(getcwd());
+        $this->addAliases();
     }
 
     public function startProject()
@@ -158,6 +160,8 @@ class Starter
     {
         Yii::setAlias('@root', $this->getRootDir());
         Yii::setAlias('@hidev', dirname(__DIR__));
+        Yii::setAlias('@runtime', $this->buildRootPath('.hidev/runtime'));
+
         $package = $this->goals['package'];
         $alias  = isset($package['namespace']) ? strtr($package['namespace'], '\\', '/') : '';
         if ($alias && !Yii::getAlias('@' . $alias, false)) {
