@@ -14,16 +14,20 @@ use Symfony\Component\Yaml\Yaml;
 use Yii;
 
 /**
- * Dump goal.
+ * Dump available definitions: components, controllers, aliases.
  */
 class DumpController extends \yii\console\Controller
 {
+    /**
+     * Dump defined components.
+     * @param string $name component name
+     */
     public function actionIndex($name = null)
     {
-        $data = Yii::$app->controllerMap;
+        $data = Yii::$app->getComponents();
         if ($name) {
             if (empty($data[$name])) {
-                echo "'$name' not defined\n";
+                Yii::error("'$name' not defined");
                 return;
             }
             $data = [$name => $data[$name]];
@@ -31,18 +35,38 @@ class DumpController extends \yii\console\Controller
         echo Yaml::dump($data, 4);
     }
 
-    public function actionInternals()
+    /**
+     * Dump defined controllers.
+     * @param string $name controller name
+     */
+    public function actionController($name = null)
     {
-        $internals = [
-            'aliases' => Yii::$aliases,
-            'view.theme.pathMap' => Yii::$app->view->theme->pathMap,
-            'components' => Yii::$app->getComponents(),
-        ];
-        echo Yaml::dump($internals, 4);
+        $data = Yii::$app->controllerMap;
+        if ($name) {
+            if (empty($data[$name])) {
+                Yii::error("'$name' not defined");
+                return;
+            }
+            $data = [$name => $data[$name]];
+        }
+        echo Yaml::dump($data, 4);
     }
 
-    public function actionComponents()
+    /**
+     * Dump defined aliases.
+     * @param string $alias alias to resolve
+     */
+    public function actionAlias($alias = null)
     {
-        echo Yaml::dump(Yii::$app->getComponents(), 4);
+        $data = Yii::$aliases;
+        if ($alias) {
+            $dest = Yii::getAlias($alias, false);
+            if (empty($dest)) {
+                Yii::error("'$alias' not defined");
+                return;
+            }
+            $data = [$alias => $dest];
+        }
+        echo Yaml::dump($data, 4);
     }
 }
