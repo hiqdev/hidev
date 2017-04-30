@@ -16,10 +16,11 @@ namespace hidev\components;
 class Vcsignore extends ConfigFile
 {
     protected $_items = [
-        'hidev-local.yml'           => 'hidev internals',
         '.hidev/composer.json'      => 'hidev internals',
         '.hidev/composer.lock'      => 'hidev internals',
+        '.hidev/runtime'            => 'hidev internals',
         '.hidev/vendor'             => 'hidev internals',
+        'hidev-local.yml'           => 'hidev internals',
         '.*.swp'                    => 'IDE & OS files',
         '.idea'                     => 'IDE & OS files',
         'nbproject'                 => 'IDE & OS files',
@@ -51,13 +52,5 @@ class Vcsignore extends ConfigFile
         $this->setItems($items);
         $items = $this->getFile()->load() ?: [];
         $this->setItems($items);
-    }
-
-    /**
-     * Save.
-     */
-    public function save()
-    {
-        $this->getFile()->save();
     }
 }
