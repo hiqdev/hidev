@@ -1,6 +1,7 @@
 # hidev internals
 .hidev/composer.json
 .hidev/composer.lock
+.hidev/runtime
 .hidev/vendor
 hidev-local.yml
 

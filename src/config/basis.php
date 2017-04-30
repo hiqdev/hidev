@@ -12,13 +12,19 @@ if (!defined('HIDEV_VENDOR_DIR')) {
     define('HIDEV_VENDOR_DIR', dirname(dirname(dirname(dirname(__DIR__)))));
 }
 
+if (empty(Yii::getAlias('@runtime', false))) {
+    Yii::setAlias('@runtime', strncmp(__DIR__, 'phar://', 7)
+        ? dirname($_SERVER['SCRIPT_NAME'])
+        : dirname(HIDEV_VENDOR_DIR) . '/runtime'
+    );
+}
+
 return [
     'id'                    => 'hidev',
     'name'                  => 'HiDev',
     'basePath'              => dirname(__DIR__),
     'vendorPath'            => HIDEV_VENDOR_DIR,
-    'runtimePath'           => '@runtime',
-    // 'runtimePath'           => substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR) . '/runtime',
+    'runtimePath'           => Yii::getAlias('@runtime'),
     'controllerNamespace'   => 'hidev\\controllers',
     'defaultRoute'          => 'default',
     'bootstrap'             => ['log'],
