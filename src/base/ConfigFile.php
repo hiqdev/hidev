@@ -10,7 +10,6 @@
 
 namespace hidev\base;
 
-use hidev\base\File;
 use hidev\helpers\Helper;
 use Yii;
 use yii\helpers\ArrayHelper;

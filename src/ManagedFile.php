@@ -16,8 +16,8 @@ use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
- * Configuration file component.
- * XXX DEPRECATED in favour of base/ConfigFile
+ * Managed file component.
+ * XXX to be done...
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate

@@ -89,8 +89,7 @@ class Package extends \hidev\base\Component
     {
         return $this->getItem('namespace')
             ?: $this->getPackageManager()->getConfiguration()->namespace
-            ?: self::defaultNamespace($this->take('vendor')->name, $this->name)
-        ;
+            ?: self::defaultNamespace($this->take('vendor')->name, $this->name);
     }
 
     public static function defaultNamespace($vendor, $package)
