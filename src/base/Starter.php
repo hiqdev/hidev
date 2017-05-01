@@ -160,7 +160,6 @@ class Starter
     {
         Yii::setAlias('@root', $this->getRootDir());
         Yii::setAlias('@hidev', dirname(__DIR__));
-        Yii::setAlias('@runtime', $this->buildRootPath('.hidev/runtime'));
 
         $package = $this->goals['package'];
         $alias  = isset($package['namespace']) ? strtr($package['namespace'], '\\', '/') : '';
