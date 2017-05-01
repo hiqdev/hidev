@@ -159,16 +159,6 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
         return $this->getFile()->readArray();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function actionPerform($name = null, $path = null)
-    {
-        Yii::trace("Started: '$this->id'");
-
-        return $this->runActions(['before', 'make', 'after']);
-    }
-
     public function load()
     {
         $data = $this->getFile()->load() ?: [];

@@ -13,7 +13,7 @@ namespace hidev\components;
 /**
  * VCS ignore component.
  */
-class Vcsignore extends ConfigFile
+class Vcsignore extends \hidev\base\ConfigFile
 {
     protected $_items = [
         '.hidev/composer.json'      => 'hidev internals',
