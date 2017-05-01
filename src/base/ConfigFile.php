@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\components;
+namespace hidev\base;
 
 use hidev\base\File;
 use hidev\helpers\Helper;
@@ -27,26 +27,6 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
      * @var string specifies handler to be used
      */
     public $fileType;
-
-    /**
-     * @var bool Don't touch file if exists
-     */
-    public $once;
-
-    /**
-     * @var string Username to change file owner to
-     */
-    public $chown;
-
-    /**
-     * @var string Group to change file group to
-     */
-    public $chgrp;
-
-    /**
-     * @var string|integer Permissions to change to
-     */
-    public $chmod;
 
     /**
      * @var array|File the file to be handled
@@ -131,15 +111,6 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     }
 
     /**
-     * Copy setter. Turns this file type to `copy`.
-     */
-    public function setCopy($value)
-    {
-        $this->fileType = 'copy';
-        $this->_copy = $value;
-    }
-
-    /**
      * Copy getter. Processes aliases.
      */
     public function getCopy()
@@ -209,14 +180,6 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     }
 
     /**
-     * DEPRECATED in favour of save().
-     */
-    public function actionSave()
-    {
-        return $this->save();
-    }
-
-    /**
      * Save the file.
      */
     public function save()
@@ -226,18 +189,5 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
         }
         $this->_items = Helper::uniqueConfig($this->_items);
         $this->getFile()->save($this);
-    }
-
-    /**
-     * Modify action.
-     */
-    public function actionModify()
-    {
-        foreach (['chown', 'chgrp', 'chmod'] as $k) {
-            $v = $this->{$k};
-            if ($v) {
-                $this->file->{$k}($v);
-            }
-        }
     }
 }
