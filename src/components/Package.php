@@ -156,7 +156,7 @@ class Package extends \hidev\base\Component
      */
     public function getPackageManager()
     {
-        return $this->take('composer');
+        return $this->getApp()->has('composer') ? $this->take('composer') : null;
     }
 
     public function hasRequireAny($package)
