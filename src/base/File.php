@@ -170,6 +170,16 @@ class File extends \yii\base\Object
         $this->type       = $this->findType();
     }
 
+    public function getAbspath()
+    {
+        $path = $this->getPath();
+        if (strncmp($path, '/', 1)) {
+            $path = getcwd() . '/' . $path;
+        }
+
+        return $path;
+    }
+
     public function getPath()
     {
         return $this->_path;

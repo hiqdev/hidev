@@ -81,13 +81,21 @@ return [
         'vendor' => [
             'class' => \hidev\components\Vendor::class,
         ],
+        'version' => [
+            'class' => \hidev\components\Version::class,
+        ],
+        'own.version' => [
+            'class' => \hidev\components\Version::class,
+            'file'  => dirname(dirname(__DIR__)) . '/version',
+        ],
         'codeception' => [
             'class' => \hidev\components\WTF::class,
         ],
     ],
     'controllerMap' => [
         '--version' => [
-            'class' => \hidev\controllers\OwnVersionController::class,
+            'class' => \hidev\controllers\VersionController::class,
+            'own' => true,
         ],
         '.gitignore' => [
             'class' => \hidev\controllers\GitignoreController::class,

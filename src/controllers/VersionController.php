@@ -11,55 +11,41 @@
 namespace hidev\controllers;
 
 /**
- * Goal for version file management.
+ * Version management.
  */
-class VersionController extends FileController
+class VersionController extends \hidev\base\Controller
 {
-    protected $_file = 'version';
+    public $own;
 
-    public $fileVersion;
+    public $defaultAction = 'show';
 
-    public $version;
-    public $date;
-    public $time;
-    public $zone;
-    public $hash;
-    public $commit;
-
-    public function init()
+    /**
+     * Show current version.
+     * @param string $release 
+     */
+    public function actionShow($release = null)
     {
-        if ($this->exists()) {
-            $line = trim($this->getFile()->read());
-            list($this->version, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $line);
-            $this->fileVersion = $this->version;
-        }
+        $version = $this->getComponent();
+        $version->load();
+        $version->setRelease($release);
+        $dir    = dirname($version->getAbspath());
+        $pretty = $version->pretty();
+        $name   = $this->take('package')->name;
+        echo "$name $pretty\n";
+        echo "(run from $dir)\n";
     }
 
-    public function actionMake($version = null)
+    /**
+     * Update version.
+     * @param string $release 
+     */
+    public function actionUpdate($release = null)
     {
-        $this->setVersion($version);
-        $this->actionLoad();
-        $this->actionSave();
+        $this->getComponent()->update($release);
     }
 
-    public function actionLoad()
+    public function getComponent()
     {
-        $line = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
-        list($this->date, $this->time, $this->zone, $this->hash, $this->commit) = explode(' ', $line, 5);
-    }
-
-    public function actionSave()
-    {
-        $this->getFile()->write(implode(' ', [$this->version, $this->date, $this->time, $this->zone, $this->hash]) . "\n");
-    }
-
-    public function setVersion($version = null)
-    {
-        $this->version = $this->getVersion($version);
-    }
-
-    public function getVersion($version = null)
-    {
-        return $version ?: $this->version ?: 'dev';
+        return $this->take(($this->own ? 'own.' : '') . 'version');
     }
 }
