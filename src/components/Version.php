@@ -58,11 +58,16 @@ class Version extends \hidev\base\ConfigFile
 
     public function renderRelease()
     {
-        if ($this->branch) {
-            return implode('-', [$this->release, $this->branch, substr($this->hash, 0, 7)]);
+        if ($this->release === 'dev') {
+            return implode('-', [$this->release, $this->getBranch(), substr($this->hash, 0, 7)]);
         } else {
             return $this->release;
         }
+    }
+
+    public function getBranch()
+    {
+        return $this->branch ?: 'master';
     }
 
     public function update($release)
@@ -87,10 +92,10 @@ class Version extends \hidev\base\ConfigFile
         $this->getFile()->write($this->renderFile() . "\n");
     }
 
-    public function setRelease($release = null, $branch = null)
+    public function setRelease($release = null, $branch = '')
     {
-        $this->setBranch($branch);
         $this->release = $this->getRelease($release);
+        $this->setBranch($branch, $this->release);
     }
 
     public function getRelease($release = null)
@@ -98,9 +103,9 @@ class Version extends \hidev\base\ConfigFile
         return $release ?: $this->release ?: 'dev';
     }
 
-    public function setBranch($branch)
+    public function setBranch($branch, $release = null)
     {
-        if (isset($branch)) {
+        if (isset($branch) && $release !== 'dev') {
             $this->branch = $branch;
         }
     }
