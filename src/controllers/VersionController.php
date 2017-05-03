@@ -21,7 +21,7 @@ class VersionController extends \hidev\base\Controller
 
     /**
      * Show current version.
-     * @param string $release 
+     * @param string $release
      */
     public function actionShow($release = null)
     {
@@ -35,7 +35,7 @@ class VersionController extends \hidev\base\Controller
 
     /**
      * Update version.
-     * @param string $release 
+     * @param string $release
      */
     public function actionUpdate($release = null)
     {
