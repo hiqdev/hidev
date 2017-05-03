@@ -25,14 +25,43 @@ class Version extends \hidev\base\ConfigFile
     protected $zone;
     protected $hash;
     protected $commit;
+    protected $branch;
 
     public function init()
     {
         if ($this->exists()) {
-            $line = trim($this->getFile()->read());
-            list($this->release, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $line);
+            $this->parseFile();
             $this->fileRelease = $this->release;
             $this->fileHash = $this->hash;
+        }
+    }
+
+    public function parseFile()
+    {
+        $line = trim($this->getFile()->read());
+        list($tmp, $this->release, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $line);
+        $this->parseRelease();
+    }
+
+    public function parseRelease()
+    {
+        if (preg_match('/^(\w+)-([0-9\.]+)-(\S+)/', $this->release, $matches)) {
+            $this->release  = $matches[1];
+            $this->branch   = $matches[2];
+        }
+    }
+
+    public function renderFile()
+    {
+        return implode(' ', [$this->getName(), $this->renderRelease(), $this->date, $this->time, $this->zone, $this->hash]);
+    }
+
+    public function renderRelease()
+    {
+        if ($this->branch) {
+            return implode('-', [$this->release, $this->branch, substr($this->hash, 0, 7)]);
+        } else {
+            return $this->release;
         }
     }
 
@@ -48,17 +77,19 @@ class Version extends \hidev\base\ConfigFile
         $line = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
         list($this->date, $this->time, $this->zone, $this->hash, $this->commit) = explode(' ', $line, 5);
         if ($this->hash !== $this->fileHash) {
-            $this->release = implode('-', ['dev', $this->release, substr($this->hash, 0, 7)]);
+            $this->branch  = $this->release;
+            $this->release = 'dev';
         }
     }
 
     public function save()
     {
-        $this->getFile()->write(implode(' ', [$this->release, $this->date, $this->time, $this->zone, $this->hash]) . "\n");
+        $this->getFile()->write($this->renderFile() . "\n");
     }
 
-    public function setRelease($release = null)
+    public function setRelease($release = null, $branch = null)
     {
+        $this->setBranch($branch);
         $this->release = $this->getRelease($release);
     }
 
@@ -67,13 +98,20 @@ class Version extends \hidev\base\ConfigFile
         return $release ?: $this->release ?: 'dev';
     }
 
-    public function pretty()
+    public function setBranch($branch)
     {
-        return implode(' ', [$this->release, $this->date, $this->time, $this->hash]);
+        if (isset($branch)) {
+            $this->branch = $branch;
+        }
     }
 
     public function getAbspath()
     {
         return $this->getFile()->getAbspath();
+    }
+
+    public function getName()
+    {
+        return $this->take('package')->name;
     }
 }

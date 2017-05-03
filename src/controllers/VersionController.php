@@ -28,10 +28,8 @@ class VersionController extends \hidev\base\Controller
         $version = $this->getComponent();
         $version->load();
         $version->setRelease($release);
-        $dir    = dirname($version->getAbspath());
-        $pretty = $version->pretty();
-        $name   = $this->take('package')->name;
-        echo "$name $pretty\n";
+        $dir = dirname($version->getAbspath());
+        echo $version->renderFile() . PHP_EOL;
         echo "(run from $dir)\n";
     }
 
