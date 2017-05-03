@@ -13,7 +13,7 @@ namespace hidev\components;
 /**
  * Git component.
  */
-class Git extends Vcs
+class Git extends AbstractVcs
 {
     public $ignorefile = '.gitignore';
 
@@ -38,5 +38,20 @@ class Git extends Vcs
         $year = $date ? date('Y', strtotime($date)) : '';
 
         return $year;
+    }
+
+    public function commit($message)
+    {
+        return $this->passthru('git', ['commit', '-am', $message]);
+    }
+
+    public function tag($tag)
+    {
+        return $this->passthru('git', ['tag', $tag]);
+    }
+
+    public function push()
+    {
+        return $this->passthru('git', ['push', '--tags']);
     }
 }

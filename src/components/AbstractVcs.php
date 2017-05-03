@@ -13,7 +13,7 @@ namespace hidev\components;
 /**
  * VCSs (Version Control Systems) component.
  */
-class Vcs extends \hidev\base\Component
+abstract class AbstractVcs extends \hidev\base\Component
 {
     protected $ignorefile;
 
@@ -34,4 +34,6 @@ class Vcs extends \hidev\base\Component
 
         return $this->_ignore;
     }
+
+    abstract public function commit($message);
 }

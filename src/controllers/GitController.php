@@ -26,24 +26,29 @@ class GitController extends \hidev\base\Controller
     {
         $version = $this->take('version')->getVersion($version);
         $message = "version bump to $version";
-        $this->actionCommit($message);
-        $this->actionTag($version);
+        $this->getComponent()->commit($message);
+        $this->getComponent()->tag($version);
 
-        return $this->actionPush();
+        return $this->getComponent()->push();
     }
 
     public function actionCommit($message)
     {
-        return $this->passthru('git', ['commit', '-am', $message]);
+        return $this->getComponent()->commit($message);
     }
 
     public function actionTag($tag)
     {
-        return $this->passthru('git', ['tag', $tag]);
+        return $this->getComponent()->tag($tag);
     }
 
     public function actionPush()
     {
-        return $this->passthru('git', 'push', '--tags');
+        return $this->getComponent()->push();
+    }
+
+    public function getComponent()
+    {
+        return $this->take('git');
     }
 }
