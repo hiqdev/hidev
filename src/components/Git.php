@@ -52,6 +52,11 @@ class Git extends AbstractVcs
 
     public function push()
     {
+        $res = $this->passthru('git', ['push']);
+        if ($res) {
+            return $res;
+        }
+
         return $this->passthru('git', ['push', '--tags']);
     }
 }
