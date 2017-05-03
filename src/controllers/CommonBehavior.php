@@ -10,6 +10,7 @@
 
 namespace hidev\controllers;
 
+use hidev\base\Controller;
 use Yii;
 use yii\console\Request;
 
@@ -21,8 +22,8 @@ class CommonBehavior extends \yii\base\Behavior
     public function events()
     {
         return [
-            CommonController::EVENT_BEFORE_ACTION => 'onBeforeAction',
-            CommonController::EVENT_AFTER_ACTION  => 'onAfterAction',
+            Controller::EVENT_BEFORE_ACTION => 'onBeforeAction',
+            Controller::EVENT_AFTER_ACTION  => 'onAfterAction',
         ];
     }
 
@@ -41,7 +42,7 @@ class CommonBehavior extends \yii\base\Behavior
         foreach ($this->normalizeTasks($requests) as $request => $enabled) {
             if ($enabled) {
                 $response = $this->runRequest($request);
-                if ($this->isNotOk($response)) {
+                if (!Controller::isResponseOk($response)) {
                     return $response;
                 }
             }
@@ -61,16 +62,6 @@ class CommonBehavior extends \yii\base\Behavior
         }
 
         return $res;
-    }
-
-    /**
-     * Is response NOT Ok.
-     * @param Response|int $response
-     * @return bool
-     */
-    public function isNotOk($response)
-    {
-        return is_object($response) ? $response->exitStatus : $response;
     }
 
     /**

@@ -66,4 +66,33 @@ abstract class Controller extends \yii\console\Controller
 
         return $password;
     }
+
+    /**
+     * Runs list of actions.
+     * @param null|string|array $actions
+     * @return int|Response exit code
+     */
+    public function runActions($actions)
+    {
+        foreach ($this->normalizeTasks($actions) as $action => $enabled) {
+            if ($enabled) {
+                $res = $this->runAction($action);
+                if (!static::isResponseOk($res)) {
+                    return $res;
+                }
+            }
+        }
+
+        return 0;
+    }
+
+    /**
+     * Is response Ok.
+     * @param Response|int $response
+     * @return bool
+     */
+    public static function isResponseOk($response)
+    {
+        return !(is_object($response) ? $response->exitStatus : $response);
+    }
 }
