@@ -140,9 +140,9 @@ class GithubController extends CommonController
     /**
      * Creates github release.
      */
-    public function actionRelease($version = null)
+    public function actionRelease($release = null)
     {
-        $version = $this->take('version')->getVersion($version);
+        $release = $this->take('version')->getRelease($release);
         $notes = $this->take('chkipper')->getReleaseNotes();
         $wait = $this->actionWaitPush();
         if ($wait) {
@@ -150,8 +150,8 @@ class GithubController extends CommonController
         }
 
         return $this->request('POST', '/repos/' . $this->getFull_name() . '/releases', [
-            'tag_name'  => $version,
-            'name'      => $version,
+            'tag_name'  => $release,
+            'name'      => $release,
             'body'      => $notes,
         ]);
     }

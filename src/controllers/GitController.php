@@ -22,12 +22,12 @@ class GitController extends \hidev\base\Controller
      */
     protected $tag;
 
-    public function actionRelease($version = null)
+    public function actionRelease($release = null)
     {
-        $version = $this->take('version')->getVersion($version);
-        $message = "version bump to $version";
+        $release = $this->take('version')->getRelease($release);
+        $message = "version bump to $release";
         $this->getComponent()->commit($message);
-        $this->getComponent()->tag($version);
+        $this->getComponent()->tag($release);
 
         return $this->getComponent()->push();
     }
