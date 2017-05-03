@@ -10,19 +10,16 @@
 
 namespace hidev\tests\unit\controllers;
 
-use hidev\controllers\FileController;
+use hidev\controllers\CommonController;
 
-/**
- * Tests from FileController.
- */
-class FileControllerTest extends \PHPUnit\Framework\TestCase
+class CommonControllerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var FileController
+     * @var CommonController
      */
     protected $object;
 
-    protected $template = 'asd';
+    protected $before = 'asd';
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -30,7 +27,7 @@ class FileControllerTest extends \PHPUnit\Framework\TestCase
      */
     protected function setUp()
     {
-        $this->object = new FileController('test', null);
+        $this->object = new CommonController('test', null);
     }
 
     /**
@@ -41,9 +38,9 @@ class FileControllerTest extends \PHPUnit\Framework\TestCase
     {
     }
 
-    public function testSetTemplate()
+    public function testSetBefore()
     {
-        $this->object->setTemplate($this->template);
-        $this->assertSame($this->template, $this->object->getTemplate());
+        $this->object->setBefore($this->before);
+        $this->assertSame([$this->before => true], $this->object->getBefore());
     }
 }
