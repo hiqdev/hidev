@@ -2,6 +2,75 @@
 
 ## [Under development]
 
+    - [fc0d467] 2017-05-01 csfixed [@hiqsol]
+    - [a0f8ddb] 2017-05-01 added license unit test suite [@hiqsol]
+- Improved version management
+    - [85046c8] 2017-05-03 fixed version management [@hiqsol]
+    - [958fffa] 2017-05-02 fixing version management [@hiqsol]
+- Fixed runtime dir to `@root/.hidev/runtime`
+    - [3f2a45b] 2017-05-01 fixing getting runtimePath [@hiqsol]
+    - [66b0067] 2017-04-30 struggling to get proper runtimePath [@hiqsol]
+- Refactored goals, split into controllers and components
+    - [de9b4ee] 2017-05-03 refactored git component and controller [@hiqsol]
+    - [8a453ce] 2017-05-01 removed outdated controllers to .attic [@hiqsol]
+    - [930aace] 2017-05-01 moving ConfigFile to base [@hiqsol]
+    - [8713f68] 2017-05-01 moving ConfigFile to base [@hiqsol]
+    - [e33c675] 2017-05-01 added not finished ManagedFile [@hiqsol]
+    - [5ee555a] 2017-05-01 fixed getting PackageManager [@hiqsol]
+    - [20c8dd5] 2017-04-30 fixing runtime dir [@hiqsol]
+    - [4f50c7c] 2017-04-30 fixed saving vcsignore [@hiqsol]
+    - [cfbca0a] 2017-04-30 fixed getting namespace [@hiqsol]
+    - [0d77deb] 2017-04-30 improved dump controller [@hiqsol]
+    - [aaa1c33] 2017-04-29 added Binaries component to tests config [@hiqsol]
+    - [3774ff4] 2017-04-29 docs [@hiqsol]
+    - [f0ba289] 2017-04-29 fixed merging controllerMap [@hiqsol]
+    - [c13e1ef] 2017-04-29 csfixed [@hiqsol]
+    - [3e613e1] 2017-04-29 fixed readme unit tests [@hiqsol]
+    - [89a7fbd] 2017-04-29 fixed problem with request scriptFile caused by changed dir [@hiqsol]
+    - [4e04435] 2017-04-29 csfixed [@hiqsol]
+    - [4f52ebc] 2017-04-29 fixed tests hooray [@hiqsol]
+    - [10b17df] 2017-04-29 refactored View component [@hiqsol]
+    - [c330f87] 2017-04-29 redone Request component [@hiqsol]
+    - [34ff0f0] 2017-04-28 added load in ConfigFile::init [@hiqsol]
+    - [ad5799f] 2017-04-28 fixed controller events processing (before/after) [@hiqsol]
+    - [e79c778] 2017-04-28 csfixed [@hiqsol]
+    - [7388aca] 2017-04-28 added readline/password to base Controller [@hiqsol]
+    - [0c84548] 2017-04-28 added binary execution functions to GettersTrait [@hiqsol]
+    - [0efc7b7] 2017-04-28 fixed TemplateHandler with ViewContextInterface [@hiqsol]
+    - [e7d0019] 2017-04-28 big renaming `take()` <- takeGoal [@hiqsol]
+    - [c4b267b] 2017-04-28 fixed VCS detecting [@hiqsol]
+    - [0d0732f] 2017-04-28 removed Config component [@hiqsol]
+    - [c960529] 2017-04-28 cleaned up [@hiqsol]
+    - [61b4a40] 2017-04-28 revived .gitignore generation [@hiqsol]
+    - [f9501c1] 2017-04-28 converted Binaries to component [@hiqsol]
+    - [586af37] 2017-04-27 cleaned up a bit more [@hiqsol]
+    - [eb1b7bb] 2017-04-27 cleaned up a bit [@hiqsol]
+    - [bb64fa9] 2017-04-27 added git/vcs/ignore components [@hiqsol]
+    - [6153121] 2017-04-27 added `GettersTrait` [@hiqsol]
+    - [3fb2148] 2017-04-27 REDOING goals to components [@hiqsol]
+    - [7c82e9e] 2017-04-27 added dumping components [@hiqsol]
+    - [ebd33bc] 2017-04-27 moved Interpolator to base [@hiqsol]
+    - [3560f9e] 2017-04-27 somewhere in the middle [@hiqsol]
+    - [5146fef] 2017-04-27 added CommonBehavior [@hiqsol]
+    - [6c33229] 2017-04-26 renamed `controllers/Collection` <- Config [@hiqsol]
+    - [addbdc0] 2017-04-26 improved dump [@hiqsol]
+    - [bce0064] 2017-04-26 revived `dump` and `help` [@hiqsol]
+    - [e04966e] 2017-04-26 added AliasController [@hiqsol]
+    - [3b2dee9] 2017-04-26 changed to `controllerMap` removed config component [@hiqsol]
+- Refactored hidev initialization with `Starter`
+    - [eb7b4e8] 2017-04-29 redone init controller [@hiqsol]
+    - [f360b93] 2017-04-29 redoing template for init hidev.yml [@hiqsol]
+    - [401ff56] 2017-04-29 removed Starter::addAutoloader [@hiqsol]
+    - [2692e21] 2017-04-29 enabled no project initialization (for init) in Starter [@hiqsol]
+    - [c2c2574] 2017-04-26 removed loading extra config madness from Application and simplified createControllerById [@hiqsol]
+- Removed own `Application`
+    - [abae0c5] 2017-04-29 removed own Application hooray [@hiqsol]
+- Refactored logging with `Log` component and `ConsoleTarget`
+    - [0618a21] 2017-04-28 added log component and verbosity level respecting in ConsoleTarget [@hiqsol]
+    - [34e7591] 2017-04-28 added Yii::info for commands being executed [@hiqsol]
+    - [abb4bdd] 2017-04-28 added log dispatcher flushInterval=1 [@hiqsol]
+- Renamed main config file to `hidev.yml`
+    - [593574d] 2017-04-26 renaming main config file to `hidev.yml` <- .hidev/config.yml [@hiqsol]
 - Added `setExtraConfig` providing set extra container configuration
     - [0021373] 2017-04-21 added setExtraContainer [@hiqsol]
 - Fixed problem with reading file from vendor when run as PHAR by creating full paths
@@ -1374,3 +1443,65 @@
 [0021373]: https://github.com/hiqdev/hidev/commit/0021373
 [5024455]: https://github.com/hiqdev/hidev/commit/5024455
 [c2ee93d]: https://github.com/hiqdev/hidev/commit/c2ee93d
+[8a453ce]: https://github.com/hiqdev/hidev/commit/8a453ce
+[fc0d467]: https://github.com/hiqdev/hidev/commit/fc0d467
+[930aace]: https://github.com/hiqdev/hidev/commit/930aace
+[8713f68]: https://github.com/hiqdev/hidev/commit/8713f68
+[e33c675]: https://github.com/hiqdev/hidev/commit/e33c675
+[a0f8ddb]: https://github.com/hiqdev/hidev/commit/a0f8ddb
+[3f2a45b]: https://github.com/hiqdev/hidev/commit/3f2a45b
+[5ee555a]: https://github.com/hiqdev/hidev/commit/5ee555a
+[66b0067]: https://github.com/hiqdev/hidev/commit/66b0067
+[20c8dd5]: https://github.com/hiqdev/hidev/commit/20c8dd5
+[4f50c7c]: https://github.com/hiqdev/hidev/commit/4f50c7c
+[cfbca0a]: https://github.com/hiqdev/hidev/commit/cfbca0a
+[0d77deb]: https://github.com/hiqdev/hidev/commit/0d77deb
+[aaa1c33]: https://github.com/hiqdev/hidev/commit/aaa1c33
+[3774ff4]: https://github.com/hiqdev/hidev/commit/3774ff4
+[f0ba289]: https://github.com/hiqdev/hidev/commit/f0ba289
+[c13e1ef]: https://github.com/hiqdev/hidev/commit/c13e1ef
+[401ff56]: https://github.com/hiqdev/hidev/commit/401ff56
+[3e613e1]: https://github.com/hiqdev/hidev/commit/3e613e1
+[89a7fbd]: https://github.com/hiqdev/hidev/commit/89a7fbd
+[abae0c5]: https://github.com/hiqdev/hidev/commit/abae0c5
+[4e04435]: https://github.com/hiqdev/hidev/commit/4e04435
+[4f52ebc]: https://github.com/hiqdev/hidev/commit/4f52ebc
+[eb7b4e8]: https://github.com/hiqdev/hidev/commit/eb7b4e8
+[2692e21]: https://github.com/hiqdev/hidev/commit/2692e21
+[f360b93]: https://github.com/hiqdev/hidev/commit/f360b93
+[10b17df]: https://github.com/hiqdev/hidev/commit/10b17df
+[c330f87]: https://github.com/hiqdev/hidev/commit/c330f87
+[34ff0f0]: https://github.com/hiqdev/hidev/commit/34ff0f0
+[0618a21]: https://github.com/hiqdev/hidev/commit/0618a21
+[34e7591]: https://github.com/hiqdev/hidev/commit/34e7591
+[ad5799f]: https://github.com/hiqdev/hidev/commit/ad5799f
+[abb4bdd]: https://github.com/hiqdev/hidev/commit/abb4bdd
+[e79c778]: https://github.com/hiqdev/hidev/commit/e79c778
+[7388aca]: https://github.com/hiqdev/hidev/commit/7388aca
+[0c84548]: https://github.com/hiqdev/hidev/commit/0c84548
+[0efc7b7]: https://github.com/hiqdev/hidev/commit/0efc7b7
+[e7d0019]: https://github.com/hiqdev/hidev/commit/e7d0019
+[c4b267b]: https://github.com/hiqdev/hidev/commit/c4b267b
+[0d0732f]: https://github.com/hiqdev/hidev/commit/0d0732f
+[c960529]: https://github.com/hiqdev/hidev/commit/c960529
+[61b4a40]: https://github.com/hiqdev/hidev/commit/61b4a40
+[f9501c1]: https://github.com/hiqdev/hidev/commit/f9501c1
+[586af37]: https://github.com/hiqdev/hidev/commit/586af37
+[eb1b7bb]: https://github.com/hiqdev/hidev/commit/eb1b7bb
+[bb64fa9]: https://github.com/hiqdev/hidev/commit/bb64fa9
+[6153121]: https://github.com/hiqdev/hidev/commit/6153121
+[3fb2148]: https://github.com/hiqdev/hidev/commit/3fb2148
+[7c82e9e]: https://github.com/hiqdev/hidev/commit/7c82e9e
+[ebd33bc]: https://github.com/hiqdev/hidev/commit/ebd33bc
+[3560f9e]: https://github.com/hiqdev/hidev/commit/3560f9e
+[5146fef]: https://github.com/hiqdev/hidev/commit/5146fef
+[6c33229]: https://github.com/hiqdev/hidev/commit/6c33229
+[addbdc0]: https://github.com/hiqdev/hidev/commit/addbdc0
+[bce0064]: https://github.com/hiqdev/hidev/commit/bce0064
+[e04966e]: https://github.com/hiqdev/hidev/commit/e04966e
+[3b2dee9]: https://github.com/hiqdev/hidev/commit/3b2dee9
+[c2c2574]: https://github.com/hiqdev/hidev/commit/c2c2574
+[593574d]: https://github.com/hiqdev/hidev/commit/593574d
+[958fffa]: https://github.com/hiqdev/hidev/commit/958fffa
+[de9b4ee]: https://github.com/hiqdev/hidev/commit/de9b4ee
+[85046c8]: https://github.com/hiqdev/hidev/commit/85046c8

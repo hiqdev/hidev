@@ -2,6 +2,13 @@
 
 ## [Under development]
 
+- Improved version management ([@hiqsol])
+- Fixed runtime dir to `@root/.hidev/runtime` ([@hiqsol])
+- Refactored goals, split into controllers and components ([@hiqsol])
+- Refactored hidev initialization with `Starter` ([@hiqsol])
+- Removed own `Application` ([@hiqsol])
+- Refactored logging with `Log` component and `ConsoleTarget` ([@hiqsol])
+- Renamed main config file to `hidev.yml` ([@hiqsol])
 - Added `setExtraConfig` providing set extra container configuration ([@hiqsol])
 - Fixed problem with reading file from vendor when run as PHAR by creating full paths ([@hiqsol])
 
