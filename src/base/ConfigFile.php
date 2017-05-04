@@ -23,6 +23,26 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     use \hiqdev\yii2\collection\ObjectTrait;
 
     /**
+     * @var bool Don't touch file if exists
+     */
+    public $once;
+
+    /**
+     * @var string Username to change file owner to
+     */
+    public $chown;
+
+    /**
+     * @var string Group to change file group to
+     */
+    public $chgrp;
+
+    /**
+     * @var string|integer Permissions to change to
+     */
+    public $chmod;
+
+    /**
      * @var string specifies handler to be used
      */
     public $fileType;
@@ -110,6 +130,15 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     }
 
     /**
+     * Copy setter. Turns this file type to `copy`.
+     */
+    public function setCopy($value)
+    {
+        $this->fileType = 'copy';
+        $this->_copy = $value;
+    }
+
+    /**
      * Copy getter. Processes aliases.
      */
     public function getCopy()
@@ -169,14 +198,35 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     }
 
     /**
-     * Save the file.
+     * General save: save and modify.
      */
     public function save()
     {
-        if ($this->once && $this->exists()) {
-            return 0;
+        if (!$this->once || !$this->exists()) {
+            $this->saveFile();
         }
+        $this->modifyFile();
+    }
+
+    /**
+     * Save the file.
+     */
+    protected function saveFile()
+    {
         $this->_items = Helper::uniqueConfig($this->_items);
         $this->getFile()->save($this);
+    }
+
+    /**
+     * Applies modifications: chown, chgrp, chmod.
+     */
+    public function modifyFile()
+    {
+        foreach (['chown', 'chgrp', 'chmod'] as $key) {
+            $value = $this->{$key};
+            if ($value) {
+                $this->file->{$key}($value);
+            }
+        }
     }
 }
