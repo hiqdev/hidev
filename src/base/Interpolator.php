@@ -15,11 +15,19 @@ use yii\helpers\ArrayHelper;
 
 class Interpolator
 {
+    public $data;
+
     public function interpolate(&$data)
+    {
+        $this->data = &$data;
+        $this->do($data);
+    }
+
+    private function do(&$data)
     {
         if (is_array($data)) {
             foreach ($data as &$item) {
-                $this->interpolate($item);
+                $this->do($item);
             }
         } elseif (is_string($data)) {
             $data = preg_replace_callback('/\\$(\\w+)\\[\'(.+?)\'\\]/', function ($matches) {
@@ -31,11 +39,9 @@ class Interpolator
     public function get($scope, $name)
     {
         if ($scope === 'params') {
-            return Yii::$app->params[$name];
+            return $this->data['params'][$name];
         } elseif ($scope === '_ENV') {
             return $_ENV[$name];
-        } elseif ($scope === 'config') {
-            return $this->getConfig($name);
         } else {
             return "\$${scope}['$name']";
         }

@@ -68,6 +68,7 @@ class Starter
     public function startProject()
     {
         $this->getRootDir();
+        $this->loadEnv();
         $this->loadGoals();
         $this->addAliases();
         $this->requireAll();
@@ -105,7 +106,8 @@ class Starter
             }
         }
 
-        // var_dump($config); die;
+        $interpolator = new Interpolator();
+        $interpolator->interpolate($config);
 
         return $config;
     }
@@ -124,6 +126,14 @@ class Starter
     public function getGoals()
     {
         return $this->goals;
+    }
+
+    private function loadEnv()
+    {
+        if (class_exists(\Dotenv\Dotenv::class)) {
+            $dotenv = new \Dotenv\Dotenv('.');
+            $dotenv->load();
+        }
     }
 
     private function loadGoals()
