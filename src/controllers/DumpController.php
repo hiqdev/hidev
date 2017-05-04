@@ -18,11 +18,13 @@ use Yii;
  */
 class DumpController extends \yii\console\Controller
 {
+    public $defaultAction = 'component';
+
     /**
      * Dump defined components.
      * @param string $name component name
      */
-    public function actionIndex($name = null)
+    public function actionComponent($name = null)
     {
         $data = Yii::$app->getComponents();
         if ($name) {
