@@ -103,8 +103,6 @@ return [
     ],
     'container' => [
         'singletons' => [
-            \hidev\base\Interpolator::class => [
-            ],
             \hidev\components\AbstractVcs::class => function () {
                 $detectedVCS = 'git';
                 return Yii::$app->get($detectedVCS);
