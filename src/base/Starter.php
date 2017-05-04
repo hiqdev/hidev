@@ -10,6 +10,7 @@
 
 namespace hidev\base;
 
+use Dotenv\Dotenv;
 use hidev\components\Request;
 use hidev\helpers\ConfigPlugin;
 use hidev\helpers\FileHelper;
@@ -130,8 +131,8 @@ class Starter
 
     private function loadEnv()
     {
-        if (class_exists(\Dotenv\Dotenv::class)) {
-            $dotenv = new \Dotenv\Dotenv('.');
+        if (file_exists('.env') && class_exists(Dotenv::class)) {
+            $dotenv = new Dotenv('.');
             $dotenv->load();
         }
     }
