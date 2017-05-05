@@ -13,6 +13,10 @@ namespace hidev\base;
 use Yii;
 use yii\helpers\ArrayHelper;
 
+/**
+ * Interpolates array recursively.
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
 class Interpolator
 {
     public $data;
@@ -20,14 +24,14 @@ class Interpolator
     public function interpolate(&$data)
     {
         $this->data = &$data;
-        $this->do($data);
+        $this->interpolateArray($data);
     }
 
-    private function do(&$data)
+    private function interpolateArray(&$data)
     {
         if (is_array($data)) {
             foreach ($data as &$item) {
-                $this->do($item);
+                $this->interpolateArray($item);
             }
         } elseif (is_string($data)) {
             $data = preg_replace_callback('/\\$(\\w+)\\[\'(.+?)\'\\]/', function ($matches) {

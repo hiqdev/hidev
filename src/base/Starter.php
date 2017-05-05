@@ -26,6 +26,7 @@ use yii\helpers\ArrayHelper;
  * XXX it's important to distinguish:
  * - goals definitions (hidev config) - YAML files
  * - application config - PHP files
+ * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class Starter
 {
