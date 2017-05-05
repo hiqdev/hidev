@@ -12,12 +12,14 @@ if (!defined('HIDEV_VENDOR_DIR')) {
     define('HIDEV_VENDOR_DIR', dirname(dirname(dirname(dirname(__DIR__)))));
 }
 
+$runtimePath = (substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR)) . '/.hidev/runtime';
+
 return [
     'id'                    => 'hidev',
     'name'                  => 'HiDev',
     'basePath'              => dirname(__DIR__),
     'vendorPath'            => HIDEV_VENDOR_DIR,
-    'runtimePath'           => dirname(HIDEV_VENDOR_DIR) . '/.hidev/runtime',
+    'runtimePath'           => $runtimePath,
     'controllerNamespace'   => 'hidev\\controllers',
     'defaultRoute'          => 'default',
     'bootstrap'             => ['log'],
