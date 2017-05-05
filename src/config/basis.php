@@ -103,6 +103,9 @@ return [
         'github' => [
             'class' => \hidev\controllers\GithubController::class,
         ],
+        'dump' => [
+            'class' => \hidev\controllers\DumpController::class,
+        ],
     ],
     'container' => [
         'singletons' => [
