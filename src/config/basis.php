@@ -100,6 +100,9 @@ return [
         '.gitignore' => [
             'class' => \hidev\controllers\GitignoreController::class,
         ],
+        'github' => [
+            'class' => \hidev\controllers\GithubController::class,
+        ],
     ],
     'container' => [
         'singletons' => [
