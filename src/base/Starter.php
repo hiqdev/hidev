@@ -70,6 +70,7 @@ class Starter
     public function startProject()
     {
         $this->getRootDir();
+        $this->addAutoloader();
         $this->loadEnv();
         $this->loadGoals();
         $this->addAliases();
@@ -128,6 +129,16 @@ class Starter
     public function getGoals()
     {
         return $this->goals;
+    }
+
+    public function addAutoloader()
+    {
+        $autoloader = './vendor/autoload.php';
+        if (file_exists($autoloader)) {
+            spl_autoload_unregister(['Yii', 'autoload']);
+            require $autoloader;
+            spl_autoload_register(['Yii', 'autoload'], true, true);
+        }
     }
 
     private function loadEnv()
