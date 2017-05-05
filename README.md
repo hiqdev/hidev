@@ -25,7 +25,7 @@ Functionality is provided and can be extended with [plugins].
 [Composer]:         https://getcomposer.org/
 [Packagist]:        https://packagist.org/
 [Travis]:           https://travis-ci.org/
-[Scrutinizer]:      https://scrutinizer-ci.com/)
+[Scrutinizer]:      https://scrutinizer-ci.com/
 [PHPUnit]:          https://phpunit.de/
 [Codeception]:      http://codeception.com/
 [PHP-CS-Fixer]:     https://github.com/FriendsOfPHP/PHP-CS-Fixer
