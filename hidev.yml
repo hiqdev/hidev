@@ -8,16 +8,27 @@ package:
     description:    |
         Simplifies and automates:
 
-        - package management: [Composer](https://getcomposer.org/), [Packagist](https://packagist.org/)
+        - package management: [Composer], [Packagist]
         - releasing: README, LICENSE, CHANGELOG, version bumping
-        - CI services integration: [Travis](https://travis-ci.org/), [Scrutinizer](https://scrutinizer-ci.com/)
-        - testing: [PHPUnit](https://phpunit.de/), [Codeception](http://codeception.com/)
-        - code quality checking: [PHP-CS-Fixer](http://cs.sensiolabs.org/), [VersionEye](https://www.versioneye.com/)
+        - CI services integration: [Travis], [Scrutinizer]
+        - testing: [PHPUnit], [Codeception]
+        - code quality checking: [PHP-CS-Fixer], [VersionEye]
         - version control management: .gitignore, GitHub
-        - PHAR building with [Box](https://github.com/box-project/box2)
+        - PHAR building with [Box]
         - code generation with php and twig templates
 
-        And more planned. See [ROADMAP](ROADMAP.md).
+        Functionality is provided and can be extended with [plugins].
+
+        [Composer]:         https://getcomposer.org/
+        [Packagist]:        https://packagist.org/
+        [Travis]:           https://travis-ci.org/
+        [Scrutinizer]:      https://scrutinizer-ci.com/)
+        [PHPUnit]:          https://phpunit.de/
+        [Codeception]:      http://codeception.com/
+        [PHP-CS-Fixer]:     https://github.com/FriendsOfPHP/PHP-CS-Fixer
+        [VersionEye]:       https://www.versioneye.com/
+        [Box]:              https://github.com/box-project/box2
+        [plugins]:          docs/Plugins.md
 
 log:
     level: info

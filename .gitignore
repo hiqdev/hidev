@@ -15,11 +15,9 @@ hidev-local.yml
 Thumbs.db
 nbproject
 
-# vendor dirs
-vendor
-
-# composer lock files
-composer.lock
+# composer internals
+/composer.lock
+/vendor
 
 # php-cs-fixer cache
 .php_cs.cache
@@ -36,6 +34,12 @@ ocular.phar
 php-cs-fixer.phar
 phpunit-skelgen.phar
 phpunit.phar
+
+# vendor dirs
+vendor
+
+# composer lock files
+composer.lock
 
 # runtime dir
 /runtime
