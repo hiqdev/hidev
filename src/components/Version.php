@@ -17,8 +17,9 @@ class Version extends \hidev\base\ConfigFile
 {
     protected $_file = 'version';
 
-    protected $fileRelease;
-    protected $fileHash;
+    protected $parsedRelease;
+    protected $parsedHash;
+    protected $parsedName;
     protected $release;
     protected $date;
     protected $time;
@@ -31,21 +32,21 @@ class Version extends \hidev\base\ConfigFile
     {
         if ($this->exists()) {
             $this->parseFile();
-            $this->fileRelease = $this->release;
-            $this->fileHash = $this->hash;
+            $this->parsedRelease = $this->release;
+            $this->parsedHash = $this->hash;
         }
     }
 
     public function parseFile()
     {
         $line = trim($this->getFile()->read());
-        list($tmp, $this->release, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $line);
+        list($this->parsedName, $this->release, $this->date, $this->time, $this->zone, $this->hash) = explode(' ', $line);
         $this->parseRelease();
     }
 
     public function parseRelease()
     {
-        if (preg_match('/^(\w+)-([0-9\.]+)-(\S+)/', $this->release, $matches)) {
+        if (preg_match('/^(\S+)-(\S+)-(\S+)/', $this->release, $matches)) {
             $this->release  = $matches[1];
             $this->branch   = $matches[2];
         }
@@ -81,8 +82,10 @@ class Version extends \hidev\base\ConfigFile
     {
         $line = trim($this->exec('git', ['log', '-n', '1', '--pretty=%ai %H %s'])[0]);
         list($this->date, $this->time, $this->zone, $this->hash, $this->commit) = explode(' ', $line, 5);
-        if ($this->hash !== $this->fileHash) {
-            $this->branch  = $this->release;
+        if ($this->hash !== $this->parsedHash) {
+            if ($this->release !== 'dev') {
+                $this->branch = $this->release;
+            }
             $this->release = 'dev';
         }
     }
