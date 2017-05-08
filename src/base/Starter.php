@@ -74,7 +74,6 @@ class Starter
         $this->loadEnv();
         $this->loadGoals();
         $this->addAliases();
-        $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
         $this->moreConfig();
@@ -206,16 +205,6 @@ class Starter
         $pos = strpos($alias, '/');
 
         return $pos === false ? isset(Yii::$aliases[$alias]) : isset(Yii::$aliases[substr($alias, 0, $pos)][$alias]);
-    }
-
-    public function addAutoloader()
-    {
-        $autoloader = './vendor/autoload.php';
-        if (file_exists($autoloader)) {
-            spl_autoload_unregister(['Yii', 'autoload']);
-            require $autoloader;
-            spl_autoload_register(['Yii', 'autoload'], true, true);
-        }
     }
 
     /**
