@@ -64,7 +64,6 @@ return [
                 'installer' => 'https://bootstrap.pypa.io/get-pip.py',
             ],
         ],
-        /// goal components
         'vcs' => [
             'class' => \hidev\components\AbstractVcs::class,
         ],
@@ -90,9 +89,6 @@ return [
             'class' => \hidev\components\Version::class,
             'file'  => dirname(dirname(__DIR__)) . '/version',
         ],
-        'codeception' => [
-            'class' => \hidev\components\WTF::class,
-        ],
     ],
     'controllerMap' => [
         '--version' => [
@@ -112,11 +108,14 @@ return [
     'container' => [
         'singletons' => [
             \hidev\components\AbstractVcs::class => function () {
-                $detectedVCS = 'git';
+                $detectedVCS = 'git'; /// TODO actual detection to be added
                 return Yii::$app->get($detectedVCS);
             },
         ],
-    ],
-    'params' => [
+        'definitions' => [
+            'file'      => \hidev\components\File::class,
+            'command'   => \hidev\components\Command::class,
+            'directory' => \hidev\components\Directory::class,
+        ],
     ],
 ];
