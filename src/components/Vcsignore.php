@@ -16,12 +16,12 @@ namespace hidev\components;
 class Vcsignore extends \hidev\base\ConfigFile
 {
     protected $_items = [
-        '.hidev/composer.json'      => 'hidev internals',
-        '.hidev/composer.lock'      => 'hidev internals',
-        '.hidev/runtime'            => 'hidev internals',
-        '.hidev/vendor'             => 'hidev internals',
-        '.env'                      => 'local config',
-        'hidev-local.yml'           => 'local config',
+        '/.hidev/composer.json'     => 'hidev internals',
+        '/.hidev/composer.lock'     => 'hidev internals',
+        '/.hidev/runtime'           => 'hidev internals',
+        '/.hidev/vendor'            => 'hidev internals',
+        '/.env'                     => 'local config',
+        '/hidev-local.yml'          => 'local config',
         '.*.swp'                    => 'IDE & OS files',
         '.idea'                     => 'IDE & OS files',
         'nbproject'                 => 'IDE & OS files',
