@@ -1,10 +1,18 @@
 # Plugins
 
-## Description
-
 - [box] - [PHAR] building with [Box](https://github.com/box-project/box2)
 - [php] - basic configuration for PHP projects
-- [nginx] - [NGINX] management and config generation
+- [nginx] - [NGINX](https://nginx.com) management and config generation
+- [webapp] - standard tasks for web applications
+- [readme] - `README` file generation
+- [travis] - [Travis-CI](https://travis-ci.org) integration
+- [license] - `LICENSE` file generation
+- [phpunit] - running [PHPUnit](https://phpunit.de) tests
+- [chkipper] - `CHANGELOG` file generation with [chkipper](https://github.com/hiqdev/chkipper) tool
+- [composer] - `composer.json` generation
+- [scrutinizer] - [Scrutinizer-CI](https://scrutinizer-ci.com/) integration
+- [php-cs-fixer] - [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) support
+- [hiqdev] - example of vendor specific configuration
 
 [phar]:     http://php.net/manual/en/intro.phar.php
 
