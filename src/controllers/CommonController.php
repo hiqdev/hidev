@@ -24,10 +24,6 @@ class CommonController extends \hidev\base\Controller
         Yii::trace("Started: '$this->id'");
     }
 
-    public function init()
-    {
-    }
-
     public function actions()
     {
         $actions = [];
