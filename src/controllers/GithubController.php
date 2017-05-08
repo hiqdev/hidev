@@ -118,7 +118,7 @@ class GithubController extends CommonController
     }
 
     /**
-     * Action to check if repo exists.
+     * Checks if repo exists.
      * @param string $repo full name vendor/package defaults to this repo name
      * @return int exit code
      */
