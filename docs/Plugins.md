@@ -1,5 +1,15 @@
 # Plugins
 
+## Description
+
+- [box] - [PHAR] building with [Box](https://github.com/box-project/box2)
+- [php] - basic configuration for PHP projects
+- [nginx] - [NGINX] management and config generation
+
+[phar]:     http://php.net/manual/en/intro.phar.php
+
+## Status
+
 | name | GitHub | version | Packagist | Travis | tests | Scrutinizer |
 |------|--------|---------|-----------|--------|-------|-------------|
 | [box] | [![GitHub stars](https://img.shields.io/github/stars/hiqdev/hidev-box.svg?style=social&label=Star)](https://github.com/hiqdev/hidev-box) | [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev-box/v/stable)](https://packagist.org/packages/hiqdev/hidev-box) | [![Total Downloads](https://img.shields.io/packagist/dt/hiqdev/hidev-box.svg?label=total&colorB=0475b5)](https://packagist.org/packages/hiqdev/hidev-box) | [![Build Status](https://img.shields.io/travis/hiqdev/hidev-box.svg)](https://travis-ci.org/hiqdev/hidev-box) | [![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/hidev-box.svg)](https://scrutinizer-ci.com/g/hiqdev/hidev-box/) | [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/hidev-box.svg?label=quality)](https://scrutinizer-ci.com/g/hiqdev/hidev-box/) |
