@@ -13,7 +13,7 @@ namespace hidev\components;
 /**
  * `version` file component.
  */
-class Version extends \hidev\base\ConfigFile
+class Version extends File
 {
     protected $_file = 'version';
 
