@@ -10,8 +10,6 @@
 
 namespace hidev\controllers;
 
-use Yii;
-
 /**
  * Common controller action.
  */

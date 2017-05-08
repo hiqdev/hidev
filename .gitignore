@@ -1,9 +1,12 @@
 # hidev internals
-.hidev/composer.json
-.hidev/composer.lock
-.hidev/runtime
-.hidev/vendor
-hidev-local.yml
+/.hidev/composer.json
+/.hidev/composer.lock
+/.hidev/runtime
+/.hidev/vendor
+
+# local config
+/.env
+/hidev-local.yml
 
 # IDE & OS files
 .*.swp
@@ -34,12 +37,3 @@ ocular.phar
 php-cs-fixer.phar
 phpunit-skelgen.phar
 phpunit.phar
-
-# vendor dirs
-vendor
-
-# composer lock files
-composer.lock
-
-# runtime dir
-/runtime
