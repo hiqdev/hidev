@@ -17,8 +17,24 @@ use Yii;
  */
 class CommonController extends \hidev\base\Controller
 {
+    use \hiqdev\yii2\collection\ManagerTrait;
+
     public function actionIndex()
     {
         Yii::trace("Started: '$this->id'");
+    }
+
+    public function init()
+    {
+    }
+
+    public function actions()
+    {
+        $actions = [];
+        foreach ($this->keys() as $name) {
+            $actions[$name] = ['class' => CommonAction::class];
+        }
+
+        return $actions;
     }
 }
