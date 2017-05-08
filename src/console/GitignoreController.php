@@ -8,12 +8,11 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\controllers;
+namespace hidev\console;
 
 /**
- * Controller for svn:ignore.
+ * `.gitignore` file generation.
  */
-class SvnignoreController extends VcsignoreController
+class GitignoreController extends VcsignoreController
 {
-    public $fileType = 'svnignore';
 }

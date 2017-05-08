@@ -10,7 +10,7 @@
 
 namespace hidev\base;
 
-use hidev\controllers\CommonBehavior;
+use hidev\console\CommonBehavior;
 
 /**
  * Basic controller.

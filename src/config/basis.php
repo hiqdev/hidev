@@ -20,7 +20,7 @@ return [
     'basePath'              => dirname(__DIR__),
     'vendorPath'            => HIDEV_VENDOR_DIR,
     'runtimePath'           => $runtimePath,
-    'controllerNamespace'   => 'hidev\\controllers',
+    'controllerNamespace'   => 'hidev\\console',
     'defaultRoute'          => 'default',
     'bootstrap'             => ['log'],
     'components'            => [
@@ -92,17 +92,17 @@ return [
     ],
     'controllerMap' => [
         '--version' => [
-            'class' => \hidev\controllers\VersionController::class,
+            'class' => \hidev\console\VersionController::class,
             'own' => true,
         ],
         '.gitignore' => [
-            'class' => \hidev\controllers\GitignoreController::class,
+            'class' => \hidev\console\GitignoreController::class,
         ],
         'github' => [
-            'class' => \hidev\controllers\GithubController::class,
+            'class' => \hidev\console\GithubController::class,
         ],
         'dump' => [
-            'class' => \hidev\controllers\DumpController::class,
+            'class' => \hidev\console\DumpController::class,
         ],
     ],
     'container' => [

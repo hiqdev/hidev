@@ -74,6 +74,7 @@ class Starter
         $this->loadEnv();
         $this->loadGoals();
         $this->addAliases();
+        $this->addAutoloader();
         $this->requireAll();
         $this->includeAll();
         $this->moreConfig();
@@ -104,7 +105,7 @@ class Starter
         if (!empty($config['controllerMap'])) {
             foreach ($config['controllerMap'] as &$def) {
                 if (is_array($def) && empty($def['class'])) {
-                    $def['class'] = \hidev\controllers\CommonController::class;
+                    $def['class'] = \hidev\console\CommonController::class;
                 }
             }
         }
@@ -205,6 +206,16 @@ class Starter
         $pos = strpos($alias, '/');
 
         return $pos === false ? isset(Yii::$aliases[$alias]) : isset(Yii::$aliases[substr($alias, 0, $pos)][$alias]);
+    }
+
+    public function addAutoloader()
+    {
+        $autoloader = './vendor/autoload.php';
+        if (file_exists($autoloader)) {
+            spl_autoload_unregister(['Yii', 'autoload']);
+            require $autoloader;
+            spl_autoload_register(['Yii', 'autoload'], true, true);
+        }
     }
 
     /**
