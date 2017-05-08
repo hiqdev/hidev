@@ -8,17 +8,18 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\base;
+namespace hidev\components;
 
+use hidev\base\File as FileObj;
 use hidev\helpers\Helper;
 use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
- * Configuration file component.
+ * File component.
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
+class File extends \hidev\base\Component implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
 {
     use \hiqdev\yii2\collection\ObjectTrait;
 
@@ -48,7 +49,7 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     public $fileType;
 
     /**
-     * @var array|File the file to be handled
+     * @var array|FileObj the file to be handled
      */
     protected $_file;
 
@@ -92,13 +93,13 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
     /**
      * Returns the file object.
      * Instantiates it if necessary.
-     * @return File
+     * @return FileObj
      */
     public function getFile()
     {
         if (!is_object($this->_file)) {
             $this->_file = Yii::createObject(array_merge([
-                'class'    => File::class,
+                'class'    => FileObj::class,
                 'template' => $this->getTemplate(),
                 'goal'     => $this,
                 'path'     => $this->_path ?: $this->id,
@@ -113,7 +114,7 @@ class ConfigFile extends \hidev\base\Component implements \yii\base\Arrayable, \
 
     /**
      * Sets file with given info.
-     * @param mixed $info could be anything that is good for File::create
+     * @param mixed $info could be anything that is good for FileObj::create
      */
     public function setFile($info)
     {
