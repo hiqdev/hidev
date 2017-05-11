@@ -53,11 +53,8 @@ class BaseHandler extends \yii\base\Object
     /**
      * Renders prepared data.
      * Must be redefined in child.
-     *
      * @param array $data
-     *
      * @throws InvalidConfigException
-     *
      * @return string file content
      */
     public function renderPrepared(array $data)
@@ -68,9 +65,7 @@ class BaseHandler extends \yii\base\Object
     /**
      * Renders raw data.
      * Prepares data with ArrayHelper::toArray.
-     *
      * @param mixed $data
-     *
      * @return string file content
      */
     public function render($data)
@@ -87,9 +82,7 @@ class BaseHandler extends \yii\base\Object
     /**
      * Renders file content using given data.
      * Converts to array with ArrayHelper::toArray.
-     *
      * @param mixed $data
-     *
      * @return string file content
      */
     public function renderPath($path, $data)

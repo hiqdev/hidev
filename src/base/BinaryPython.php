@@ -20,7 +20,6 @@ class BinaryPython extends Binary
      * 1. exexcutable in project's root directory
      * 2. XXX ??? vendor directory
      * 3. /home/user/.local/bin.
-     *
      * @param string $name
      * @return string path to the binary
      */

@@ -20,7 +20,6 @@ class BinaryPhp extends Binary
      * 1. PHAR in project's root directory
      * 2. projects's vendor/bin directory
      * 3. composer global vendor/bin directory.
-     *
      * @param string $name
      * @return string path to the binary
      */
