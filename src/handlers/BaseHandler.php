@@ -148,7 +148,7 @@ class BaseHandler extends \yii\base\Object
 
             return $asArray ? file($path) : file_get_contents($path);
         } else {
-            Yii::error('Couldn\'t read file: ' . $path, 'file');
+            Yii::warning('Couldn\'t read file: ' . $path, 'file');
 
             return;
         }
