@@ -20,15 +20,13 @@ class Directory extends File
 {
     public function save()
     {
-        if (!file_exists($this->path)) {
-            FileHelper::mkdir($this->path);
-        }
+        FileHelper::mkdir($this->_path);
 
         foreach ($this->getItems() as $id => $config) {
             $type = isset($config['template']) || isset($config['copy']) ? 'File' : 'Directory';
             $defaults = [
                 'class' => "hidev\\components\\$type",
-                'path'  => $this->path . '/' . $id,
+                'path'  => $this->_path . '/' . $id,
             ];
             $config = array_merge($defaults, $config ?: []);
             $object = Yii::createObject($config);
@@ -36,5 +34,9 @@ class Directory extends File
         }
 
         $this->modifyFile();
+    }
+
+    public function load()
+    {
     }
 }
