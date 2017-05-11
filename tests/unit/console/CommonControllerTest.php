@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\tests\unit\controllers;
+namespace hidev\tests\unit\console;
 
-use hidev\controllers\CommonController;
+use hidev\console\CommonController;
 
 class CommonControllerTest extends \PHPUnit\Framework\TestCase
 {
