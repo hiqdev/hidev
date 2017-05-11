@@ -1,7 +1,4 @@
-HiDev keeps everything it needs: configs, plugins, intermediate files and so on
-in `.hidev` directory in the root of your project.
-
-The main config file is: `.hidev/config.yml`.
+The main config file is: `hidev.yml`.
 
 You can generate basic config file with **init** command:
 
@@ -24,9 +21,6 @@ vendor:
         hiqsol:
             name:       Andrii Vasyliev
             email:      sol@hiqdev.com
-
-plugins:
-    hiqdev/hidev-php: "*"
 ```
 
 Package section holds info about the package:
@@ -48,12 +42,11 @@ Vendor section holds info about you or your company:
 - **license**: will be used if package does not specify one
 - **authors**: array of authors, see: [HiQDev's config](https://github.com/hiqdev/hidev-hiqdev/blob/master/src/config/goals.yml)
 
-Best way of configuring vendor is to create and use your vendor plugin for HiDev.
+Best way to configure vendor is to create and use your vendor plugin for HiDev.
 It's easy, just fork `hiqdev/hidev-hiqdev`, change it appropriately and publish
 to Packagist.
 
-Plugins section lists the plugins mentioning versions to be used for your package.
-Version constraints will be used with composer so must follow it's rules.
+For examples of HiDev configuration you can see [our repos on GitHub],
+all of them are automated with HiDev.
 
-Good example of configuration is HiDev's own [.hidev/config.yml](.hidev/config.yml).
-
+[our repos on GitHub]: https://github.com/hiqdev

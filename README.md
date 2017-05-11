@@ -52,7 +52,6 @@ of course. But firstly generate all the files that can be generated, e.g.:
 - `.travis.yml`, `.scrutinizer.yml`
 - `phpunit.xml`, `codeception.yml`
 - `.php_cs`
-- skeleton source and test files
 
 You write a simple config specifying general information about your package
 and plugins to be used. HiDev alone does nothing at all! You specify what
@@ -62,12 +61,11 @@ generally usable configs or you can create plugins yourself.
 For example, `hiqdev/hidev-php` plugin is a general config for PHP projects and
 will enable HiDev to create all the listed above files and adds goals to use:
 
-- `hidev all` or simply `hidev` will update config files according to the changes you made
+- `hidev default` or simply `hidev` will update config files according to the changes you made
 - `hidev fix`: will update `.php_cs` file and run `php-cs-fixer` to fix code style of your PHP files
 - `hidev test`: will update `phpunit.xml` and run your tests with `phpunit`
 - `hidev build`: will do fix and test alltogether
-- `hidev codeception`: will bootstrap `codeception`, update it's config and run tests with it
-- `hidev bump` and `hidev bump/release` will bump project version and publish release to GitHub
+- `hidev bump` and `hidev release` will bump project version and publish release to GitHub
 
 HiDev can generate different files: sources, tests, anything else based on templates and
 all the information available in config files or elsewhere.
@@ -80,10 +78,7 @@ Now I'm working to enable HiDev to do more:
 
 ## Configuration
 
-HiDev keeps everything it needs: configs, plugins, intermediate files and so on
-in `.hidev` directory in the root of your project.
-
-The main config file is: `.hidev/config.yml`.
+The main config file is: `hidev.yml`.
 
 You can generate basic config file with **init** command:
 
@@ -106,9 +101,6 @@ vendor:
         hiqsol:
             name:       Andrii Vasyliev
             email:      sol@hiqdev.com
-
-plugins:
-    hiqdev/hidev-php: "*"
 ```
 
 Package section holds info about the package:
@@ -130,14 +122,14 @@ Vendor section holds info about you or your company:
 - **license**: will be used if package does not specify one
 - **authors**: array of authors, see: [HiQDev's config](https://github.com/hiqdev/hidev-hiqdev/blob/master/src/config/goals.yml)
 
-Best way of configuring vendor is to create and use your vendor plugin for HiDev.
+Best way to configure vendor is to create and use your vendor plugin for HiDev.
 It's easy, just fork `hiqdev/hidev-hiqdev`, change it appropriately and publish
 to Packagist.
 
-Plugins section lists the plugins mentioning versions to be used for your package.
-Version constraints will be used with composer so must follow it's rules.
+For examples of HiDev configuration you can see [our repos on GitHub],
+all of them are automated with HiDev.
 
-Good example of configuration is HiDev's own [.hidev/config.yml](.hidev/config.yml).
+[our repos on GitHub]: https://github.com/hiqdev
 
 ## Usage
 
