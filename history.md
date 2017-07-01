@@ -1,10 +1,61 @@
 # hiqdev/hidev
 
-## [Under development]
+## [0.6.0] - 2017-05-12
 
+- Renamed to `console` from controllers
+    - [e6fafe2] 2017-05-12 added require `common` in Starter::requireAll [@hiqsol]
+    - [056636d] 2017-05-11 docs [@hiqsol]
+    - [6d7979c] 2017-05-11 still moving to `console` <- controllers [@hiqsol]
+    - [ac2af31] 2017-05-11 csfixed [@hiqsol]
+    - [2cac0a2] 2017-05-11 changed couldnt read file to warning [@hiqsol]
+    - [5507f71] 2017-05-10 still moving to `console` <- controllers [@hiqsol]
+    - [0621edb] 2017-05-08 renamed `console` <- controllers [@hiqsol]
+    - [54b8af9] 2017-05-08 docs [@hiqsol]
+    - [da50b2a] 2017-05-08 docs [@hiqsol]
+    - [89dab62] 2017-05-08 csfixed [@hiqsol]
+    - [b5bfa86] 2017-05-08 removed attic [@hiqsol]
+    - [bf9d29d] 2017-05-08 added Command component [@hiqsol]
+    - [a1acae7] 2017-05-08 fixed list of vcsignored files [@hiqsol]
+- Added `dump` commands
+    - [420db4a] 2017-05-05 added dump controller [@hiqsol]
+    - [f53f7d7] 2017-05-05 revived GithubController [@hiqsol]
+    - [85c261f] 2017-05-05 docs [@hiqsol]
+    - [88acb8d] 2017-05-05 csfixed [@hiqsol]
+    - [87bdd53] 2017-05-04 renamed action `dump/component` <- dump/index [@hiqsol]
+    - [0d77deb] 2017-04-30 improved dump controller [@hiqsol]
+    - [7c82e9e] 2017-04-27 added dumping components [@hiqsol]
+    - [addbdc0] 2017-04-26 improved dump [@hiqsol]
+    - [bce0064] 2017-04-26 revived `dump` and `help` [@hiqsol]
+- Fixed loading `env`
+    - [3e9b4b2] 2017-05-07 added .env to vcsignore [@hiqsol]
+    - [94c1006] 2017-05-04 fixed loading `.env` [@hiqsol]
+    - [78e4efa] 2017-05-04 fixed directory creation and modification [@hiqsol]
+    - [6c4739a] 2017-05-04 removed Interpolator singleton configuration [@hiqsol]
+    - [2a8094d] 2017-05-04 added interpolation and loadEnv in Starter [@hiqsol]
+- Added `Directory` component
+    - [fbc8faa] 2017-05-11 Merge pull request #2 from edgardmessias/patch-1 [@hiqsol]
+    - [ee7d517] 2017-05-11 Fixed Directory class [edgardmessias@gmail.com]
+    - [867a34c] 2017-05-08 still renaming `File` <- ConfigFile [@hiqsol]
+    - [3931e5f] 2017-05-08 moved File and Directory to components [@hiqsol]
+    - [cf925b1] 2017-05-08 added actions to CommonController with `CommonAction` [@hiqsol]
+    - [51fc386] 2017-05-08 renamed ConfigFile to `components/File` [@hiqsol]
+    - [48aefa2] 2017-05-04 added Directory component, not tested [@hiqsol]
+- Added page with plugins table
+    - [c47496c] 2017-05-05 added nginx and webapp to list of plugins [@hiqsol]
+    - [af3cd24] 2017-05-03 added plugins table [@hiqsol]
+    - [fb5463d] 2017-05-03 doc [@hiqsol]
+    - [af46775] 2017-05-03 doc [@hiqsol]
+    - [eb7c3fa] 2017-05-03 improved `git/push` to push together with tags [@hiqsol]
+    - [2f71f65] 2017-05-03 fixed travis config generation [@hiqsol]
+    - [1d1b5f1] 2017-05-03 added runActions and isResponseOk to base Controller [@hiqsol]
+- Fixed tests
+    - [ea0e143] 2017-05-03 fixed test for CommonController [@hiqsol]
     - [fc0d467] 2017-05-01 csfixed [@hiqsol]
     - [a0f8ddb] 2017-05-01 added license unit test suite [@hiqsol]
 - Improved version management
+    - [2e5b925] 2017-05-06 fixed version calculation again [@hiqsol]
+    - [e5d6f90] 2017-05-03 fixing version management [@hiqsol]
+    - [73cf89d] 2017-05-03 renamed getVersion -> getRelease [@hiqsol]
     - [85046c8] 2017-05-03 fixed version management [@hiqsol]
     - [958fffa] 2017-05-02 fixing version management [@hiqsol]
 - Fixed runtime dir to `@root/.hidev/runtime`
@@ -20,7 +71,6 @@
     - [20c8dd5] 2017-04-30 fixing runtime dir [@hiqsol]
     - [4f50c7c] 2017-04-30 fixed saving vcsignore [@hiqsol]
     - [cfbca0a] 2017-04-30 fixed getting namespace [@hiqsol]
-    - [0d77deb] 2017-04-30 improved dump controller [@hiqsol]
     - [aaa1c33] 2017-04-29 added Binaries component to tests config [@hiqsol]
     - [3774ff4] 2017-04-29 docs [@hiqsol]
     - [f0ba289] 2017-04-29 fixed merging controllerMap [@hiqsol]
@@ -48,16 +98,15 @@
     - [bb64fa9] 2017-04-27 added git/vcs/ignore components [@hiqsol]
     - [6153121] 2017-04-27 added `GettersTrait` [@hiqsol]
     - [3fb2148] 2017-04-27 REDOING goals to components [@hiqsol]
-    - [7c82e9e] 2017-04-27 added dumping components [@hiqsol]
     - [ebd33bc] 2017-04-27 moved Interpolator to base [@hiqsol]
     - [3560f9e] 2017-04-27 somewhere in the middle [@hiqsol]
     - [5146fef] 2017-04-27 added CommonBehavior [@hiqsol]
     - [6c33229] 2017-04-26 renamed `controllers/Collection` <- Config [@hiqsol]
-    - [addbdc0] 2017-04-26 improved dump [@hiqsol]
-    - [bce0064] 2017-04-26 revived `dump` and `help` [@hiqsol]
     - [e04966e] 2017-04-26 added AliasController [@hiqsol]
     - [3b2dee9] 2017-04-26 changed to `controllerMap` removed config component [@hiqsol]
 - Refactored hidev initialization with `Starter`
+    - [889408f] 2017-05-08 fixed doubled addAutoloaded [@hiqsol]
+    - [572ce64] 2017-05-05 added adding autoloader in Starter [@hiqsol]
     - [eb7b4e8] 2017-04-29 redone init controller [@hiqsol]
     - [f360b93] 2017-04-29 redoing template for init hidev.yml [@hiqsol]
     - [401ff56] 2017-04-29 removed Starter::addAutoloader [@hiqsol]
@@ -74,6 +123,7 @@
 - Added `setExtraConfig` providing set extra container configuration
     - [0021373] 2017-04-21 added setExtraContainer [@hiqsol]
 - Fixed problem with reading file from vendor when run as PHAR by creating full paths
+    - [1645e7b] 2017-05-05 fixed phar version to work [@hiqsol]
     - [5024455] 2017-04-20 fixed problem with reading file from vendor when run as phar by creating full paths [@hiqsol]
     - [c2ee93d] 2017-04-20 fixing strange bug [@hiqsol]
 
@@ -1505,3 +1555,48 @@
 [958fffa]: https://github.com/hiqdev/hidev/commit/958fffa
 [de9b4ee]: https://github.com/hiqdev/hidev/commit/de9b4ee
 [85046c8]: https://github.com/hiqdev/hidev/commit/85046c8
+[e6fafe2]: https://github.com/hiqdev/hidev/commit/e6fafe2
+[056636d]: https://github.com/hiqdev/hidev/commit/056636d
+[6d7979c]: https://github.com/hiqdev/hidev/commit/6d7979c
+[ac2af31]: https://github.com/hiqdev/hidev/commit/ac2af31
+[2cac0a2]: https://github.com/hiqdev/hidev/commit/2cac0a2
+[fbc8faa]: https://github.com/hiqdev/hidev/commit/fbc8faa
+[ee7d517]: https://github.com/hiqdev/hidev/commit/ee7d517
+[5507f71]: https://github.com/hiqdev/hidev/commit/5507f71
+[889408f]: https://github.com/hiqdev/hidev/commit/889408f
+[0621edb]: https://github.com/hiqdev/hidev/commit/0621edb
+[54b8af9]: https://github.com/hiqdev/hidev/commit/54b8af9
+[da50b2a]: https://github.com/hiqdev/hidev/commit/da50b2a
+[89dab62]: https://github.com/hiqdev/hidev/commit/89dab62
+[b5bfa86]: https://github.com/hiqdev/hidev/commit/b5bfa86
+[867a34c]: https://github.com/hiqdev/hidev/commit/867a34c
+[3931e5f]: https://github.com/hiqdev/hidev/commit/3931e5f
+[cf925b1]: https://github.com/hiqdev/hidev/commit/cf925b1
+[51fc386]: https://github.com/hiqdev/hidev/commit/51fc386
+[bf9d29d]: https://github.com/hiqdev/hidev/commit/bf9d29d
+[a1acae7]: https://github.com/hiqdev/hidev/commit/a1acae7
+[3e9b4b2]: https://github.com/hiqdev/hidev/commit/3e9b4b2
+[2e5b925]: https://github.com/hiqdev/hidev/commit/2e5b925
+[1645e7b]: https://github.com/hiqdev/hidev/commit/1645e7b
+[572ce64]: https://github.com/hiqdev/hidev/commit/572ce64
+[420db4a]: https://github.com/hiqdev/hidev/commit/420db4a
+[f53f7d7]: https://github.com/hiqdev/hidev/commit/f53f7d7
+[c47496c]: https://github.com/hiqdev/hidev/commit/c47496c
+[85c261f]: https://github.com/hiqdev/hidev/commit/85c261f
+[88acb8d]: https://github.com/hiqdev/hidev/commit/88acb8d
+[94c1006]: https://github.com/hiqdev/hidev/commit/94c1006
+[87bdd53]: https://github.com/hiqdev/hidev/commit/87bdd53
+[78e4efa]: https://github.com/hiqdev/hidev/commit/78e4efa
+[6c4739a]: https://github.com/hiqdev/hidev/commit/6c4739a
+[2a8094d]: https://github.com/hiqdev/hidev/commit/2a8094d
+[48aefa2]: https://github.com/hiqdev/hidev/commit/48aefa2
+[af3cd24]: https://github.com/hiqdev/hidev/commit/af3cd24
+[fb5463d]: https://github.com/hiqdev/hidev/commit/fb5463d
+[af46775]: https://github.com/hiqdev/hidev/commit/af46775
+[eb7c3fa]: https://github.com/hiqdev/hidev/commit/eb7c3fa
+[e5d6f90]: https://github.com/hiqdev/hidev/commit/e5d6f90
+[73cf89d]: https://github.com/hiqdev/hidev/commit/73cf89d
+[2f71f65]: https://github.com/hiqdev/hidev/commit/2f71f65
+[1d1b5f1]: https://github.com/hiqdev/hidev/commit/1d1b5f1
+[ea0e143]: https://github.com/hiqdev/hidev/commit/ea0e143
+[0.6.0]: https://github.com/hiqdev/hidev/compare/0.5.2...0.6.0

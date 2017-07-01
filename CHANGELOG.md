@@ -1,7 +1,13 @@
 # hiqdev/hidev
 
-## [Under development]
+## [0.6.0] - 2017-05-12
 
+- Renamed to `console` from controllers ([@hiqsol])
+- Added `dump` commands ([@hiqsol])
+- Fixed loading `env` ([@hiqsol])
+- Added `Directory` component ([@hiqsol], [edgardmessias@gmail.com])
+- Added page with plugins table ([@hiqsol])
+- Fixed tests ([@hiqsol])
 - Improved version management ([@hiqsol])
 - Fixed runtime dir to `@root/.hidev/runtime` ([@hiqsol])
 - Refactored goals, split into controllers and components ([@hiqsol])
@@ -305,3 +311,4 @@
 [0.0.1]: https://github.com/hiqdev/hidev/releases/tag/0.0.1
 [0.5.1]: https://github.com/hiqdev/hidev/compare/0.5.0...0.5.1
 [0.5.2]: https://github.com/hiqdev/hidev/compare/0.5.1...0.5.2
+[0.6.0]: https://github.com/hiqdev/hidev/compare/0.5.2...0.6.0
