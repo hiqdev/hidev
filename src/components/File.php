@@ -1,11 +1,11 @@
 <?php
 /**
- * Automation tool mixed with code generator for easier continuous development.
+ * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\components;
@@ -192,9 +192,9 @@ class File extends \hidev\base\Component implements \yii\base\Arrayable, \ArrayA
     {
         $data = $this->getFile()->load() ?: [];
         if ($data) { /// TODO think what's better
-        //  $this->setItems(ArrayHelper::merge($data, $this->toArray()));
+            //  $this->setItems(ArrayHelper::merge($data, $this->toArray()));
             $this->setItems(ArrayHelper::merge($this->toArray(), $data));
-        //  $this->setItems($data);
+            //  $this->setItems($data);
         }
     }
 

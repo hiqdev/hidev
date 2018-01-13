@@ -1,11 +1,11 @@
 <?php
 /**
- * Automation tool mixed with code generator for easier continuous development.
+ * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\components;
@@ -31,6 +31,7 @@ class Log extends \yii\log\Dispatcher
     {
         if (isset($this->levels[$value])) {
             $this->_level = $this->levels[$value];
+
             return;
         }
         if (in_array($value, $this->levels, false)) {
@@ -50,6 +51,7 @@ class Log extends \yii\log\Dispatcher
         if ($level === null) {
             $level = $this->_level;
         }
+
         return isset($this->levelNames[$level]) ? $this->levelNames[$level] : null;
     }
 

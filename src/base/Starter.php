@@ -1,11 +1,11 @@
 <?php
 /**
- * Automation tool mixed with code generator for easier continuous development.
+ * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\base;
@@ -278,21 +278,21 @@ class Starter
 
         return true;
 
-    /*
-        $data = File::create('composer.json')->load();
-        foreach (['require', 'require-dev'] as $key) {
-            if (isset($data[$key])) {
-                foreach ($data[$key] as $package => $version) {
-                    list(, $name) = explode('/', $package);
-                    if (strncmp($name, 'hidev-', 6) === 0) {
-                        return true;
+        /*
+            $data = File::create('composer.json')->load();
+            foreach (['require', 'require-dev'] as $key) {
+                if (isset($data[$key])) {
+                    foreach ($data[$key] as $package => $version) {
+                        list(, $name) = explode('/', $package);
+                        if (strncmp($name, 'hidev-', 6) === 0) {
+                            return true;
+                        }
                     }
                 }
             }
-        }
 
-        return false;
-    */
+            return false;
+        */
     }
 
     /**

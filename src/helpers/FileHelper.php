@@ -1,11 +1,11 @@
 <?php
 /**
- * Automation tool mixed with code generator for easier continuous development.
+ * Automation tool mixed with code generator for easier continuous development
  *
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2017, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\helpers;
@@ -102,6 +102,7 @@ class FileHelper
         } catch (\Exception $e) {
             if (posix_isatty(0)) {
                 passthru("sudo ln -s $src $dst", $retval);
+
                 return $retval === 0;
             }
         }
