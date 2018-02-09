@@ -19,7 +19,7 @@ use Yii;
  *
  * @property string $minimalPath path to minimal example file
  */
-class File extends \yii\base\Object
+class File extends \yii\base\BaseObject
 {
     /**
      * @var Goal

@@ -14,7 +14,7 @@ use hidev\modifiers\ModifierInterface;
 use Yii;
 use yii\base\InvalidConfigException;
 
-class Binary extends \yii\base\Object
+class Binary extends \yii\base\BaseObject
 {
     /**
      * @var BinariesController parent controller

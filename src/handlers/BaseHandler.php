@@ -19,7 +19,7 @@ use yii\helpers\ArrayHelper;
  * Base Handler.
  * Knows how to parse and render it's file type.
  */
-class BaseHandler extends \yii\base\Object
+class BaseHandler extends \yii\base\BaseObject
 {
     /**
      * @var Goal
