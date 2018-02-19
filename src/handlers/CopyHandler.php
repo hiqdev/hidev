@@ -22,7 +22,11 @@ class CopyHandler extends BaseHandler
      */
     public function renderPath($path, $data)
     {
-        copy($data->getCopy(), $path);
+        try {
+            copy($data->getCopy(), $path);
+        } catch (\Exception $e) {
+            throw new \RuntimeException("Failed to copy file \"{$data->getCopy()}\" to \"$path\": {$e->getMessage()}");
+        }
         Yii::warning('Copied file: ' . $path);
     }
 
