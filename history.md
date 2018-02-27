@@ -1,6 +1,16 @@
 # hiqdev/hidev
 
-## [0.6.0] - 2017-05-12
+## [0.6.1] - 2018-02-27
+
+- Fixed PHP 7.2 compatibility
+    - [951c10d] 2018-02-27 csfixed [@hiqsol]
+    - [01c94b9] 2018-02-19 Merge pull request #3 from hiqdev/copy-error-handling [@hiqsol]
+    - [1d470ca] 2018-02-19 enhanced error handling in CopyHandler [@SilverFire]
+    - [867a721] 2018-02-09 changed to `yii\base\BaseObject` <- Object for PHP 7.2 compatibility [@hiqsol]
+    - [e245d4e] 2018-01-13 csfixed [@hiqsol]
+    - [1f2b81f] 2017-11-10 removed PHP 5.6 and 7.0 from Travis build [@hiqsol]
+
+## [0.6.0] - 2017-07-01
 
 - Renamed to `console` from controllers
     - [e6fafe2] 2017-05-12 added require `common` in Starter::requireAll [@hiqsol]
@@ -1427,7 +1437,7 @@
 [2977a70]: https://github.com/hiqdev/hidev/commit/2977a70
 [9e216ec]: https://github.com/hiqdev/hidev/commit/9e216ec
 [9e02ac4]: https://github.com/hiqdev/hidev/commit/9e02ac4
-[Under development]: https://github.com/hiqdev/hidev/compare/0.5.2...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.6.0...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
@@ -1600,3 +1610,10 @@
 [1d1b5f1]: https://github.com/hiqdev/hidev/commit/1d1b5f1
 [ea0e143]: https://github.com/hiqdev/hidev/commit/ea0e143
 [0.6.0]: https://github.com/hiqdev/hidev/compare/0.5.2...0.6.0
+[951c10d]: https://github.com/hiqdev/hidev/commit/951c10d
+[01c94b9]: https://github.com/hiqdev/hidev/commit/01c94b9
+[1d470ca]: https://github.com/hiqdev/hidev/commit/1d470ca
+[867a721]: https://github.com/hiqdev/hidev/commit/867a721
+[e245d4e]: https://github.com/hiqdev/hidev/commit/e245d4e
+[1f2b81f]: https://github.com/hiqdev/hidev/commit/1f2b81f
+[0.6.1]: https://github.com/hiqdev/hidev/compare/0.6.0...0.6.1

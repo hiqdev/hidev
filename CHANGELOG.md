@@ -1,6 +1,10 @@
 # hiqdev/hidev
 
-## [0.6.0] - 2017-05-12
+## [0.6.1] - 2018-02-27
+
+- Fixed PHP 7.2 compatibility ([@hiqsol], [@SilverFire])
+
+## [0.6.0] - 2017-07-01
 
 - Renamed to `console` from controllers ([@hiqsol])
 - Added `dump` commands ([@hiqsol])
@@ -277,7 +281,7 @@
 [@SilverFire]: https://github.com/SilverFire
 [d.naumenko.a@gmail.com]: https://github.com/SilverFire
 [Yii built-in controllers]: http://www.yiiframework.com/doc-2.0/guide-tutorial-console.html
-[Under development]: https://github.com/hiqdev/hidev/compare/0.5.2...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.6.0...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
@@ -312,3 +316,4 @@
 [0.5.1]: https://github.com/hiqdev/hidev/compare/0.5.0...0.5.1
 [0.5.2]: https://github.com/hiqdev/hidev/compare/0.5.1...0.5.2
 [0.6.0]: https://github.com/hiqdev/hidev/compare/0.5.2...0.6.0
+[0.6.1]: https://github.com/hiqdev/hidev/compare/0.6.0...0.6.1
