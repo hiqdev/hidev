@@ -11,9 +11,7 @@
 namespace hidev\log;
 
 use Psr\Log\LogLevel;
-use Yii;
 use yii\helpers\Console;
-use yii\log\Logger;
 
 class ConsoleTarget extends \yii\log\Target
 {
@@ -25,7 +23,6 @@ class ConsoleTarget extends \yii\log\Target
         LogLevel::CRITICAL  => [Console::FG_RED],
         LogLevel::ERROR     => [Console::FG_RED],
         LogLevel::WARNING   => [Console::FG_YELLOW],
-        LogLevel::NOTICE    => [Console::FG_YELLOW],
     ];
 
     public function export()
@@ -37,12 +34,15 @@ class ConsoleTarget extends \yii\log\Target
 
     public function out($level, $message)
     {
-        /*if ($level > $this->getLevel()) {
+        /* XXX add minimum log severity to show
+         * if ($level > $this->getLevel()) {
             return;
         }*/
         $style = self::$styles[$level];
         if ($style) {
             $message = Console::ansiFormat($message, $style);
+        } else {
+            return;
         }
         Console::stdout($message . "\n");
     }
