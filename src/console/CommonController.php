@@ -21,7 +21,7 @@ class CommonController extends \hidev\base\Controller
 
     public function actionIndex()
     {
-        Yii::trace("Started: '$this->id'");
+        Yii::debug("Started: '$this->id'");
     }
 
     public function actions()

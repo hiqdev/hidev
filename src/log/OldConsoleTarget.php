@@ -10,22 +10,17 @@
 
 namespace hidev\log;
 
-use Psr\Log\LogLevel;
 use Yii;
 use yii\helpers\Console;
 use yii\log\Logger;
 
-class ConsoleTarget extends \yii\log\Target
+class OldConsoleTarget extends \yii\log\Target
 {
     public $exportInterval = 1;
 
     public static $styles = [
-        LogLevel::EMERGENCY => [Console::FG_RED],
-        LogLevel::ALERT     => [Console::FG_RED],
-        LogLevel::CRITICAL  => [Console::FG_RED],
-        LogLevel::ERROR     => [Console::FG_RED],
-        LogLevel::WARNING   => [Console::FG_YELLOW],
-        LogLevel::NOTICE    => [Console::FG_YELLOW],
+        Logger::LEVEL_WARNING => [Console::FG_YELLOW],
+        Logger::LEVEL_ERROR   => [Console::FG_RED],
     ];
 
     public function export()
@@ -35,16 +30,21 @@ class ConsoleTarget extends \yii\log\Target
         }
     }
 
-    public function out($level, $message)
+    public function out($message, $level)
     {
-        /*if ($level > $this->getLevel()) {
+        if ($level > $this->getLevel()) {
             return;
-        }*/
+        }
         $style = self::$styles[$level];
         if ($style) {
             $message = Console::ansiFormat($message, $style);
         }
         Console::stdout($message . "\n");
+    }
+
+    public function getLevel()
+    {
+        return Yii::$app->get('log')->getLevel();
     }
 
     protected function getContextMessage()

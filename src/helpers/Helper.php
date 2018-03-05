@@ -11,6 +11,7 @@
 namespace hidev\helpers;
 
 use hiqdev\php\collection\ArrayHelper;
+use Yii;
 use yii\helpers\Inflector;
 
 /**
@@ -18,6 +19,11 @@ use yii\helpers\Inflector;
  */
 class Helper
 {
+    public static function isYii20()
+    {
+        return method_exists(Yii::class, 'autoload');
+    }
+
     public static function bad2sep($str, $separator = '-')
     {
         return preg_replace('/[^a-zA-Z0-9-]/', $separator, $str);

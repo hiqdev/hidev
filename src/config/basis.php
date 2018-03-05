@@ -7,13 +7,18 @@
  * @license   BSD-3-Clause
  * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
+
+use hidev\helpers\Helper;
+
 if (!defined('HIDEV_VENDOR_DIR')) {
     define('HIDEV_VENDOR_DIR', dirname(dirname(dirname(dirname(__DIR__)))));
 }
 
+$__class = Helper::isYii20() ? 'class' : '__class';
+
 $runtimePath = (substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR)) . '/.hidev/runtime';
 
-return [
+return array_filter([
     'id'                    => 'hidev',
     'name'                  => 'HiDev',
     'basePath'              => dirname(__DIR__),
@@ -21,26 +26,40 @@ return [
     'runtimePath'           => $runtimePath,
     'controllerNamespace'   => 'hidev\\console',
     'defaultRoute'          => 'default',
-    'bootstrap'             => ['log'],
-    'components'            => [
-        'log' => [
+    'bootstrap'             => Helper::isYii20() ? ['log'] : null,
+    'logger'                => Helper::isYii20() ? null : [
+        'flushInterval' => 1,
+        'targets' => [
+            'console' => [
+                $__class => \hidev\log\ConsoleTarget::class,
+                'levels' => ['error', 'warning', 'info'],
+            ],
+        ],
+    ],
+    'components'            => array_filter([
+        'log' => Helper::isYii20() ? [
             'class' => \hidev\components\Log::class,
             'flushInterval' => 1,
             'targets' => [
                 'console' => [
-                    'class' => \hidev\log\ConsoleTarget::class,
+                    'class' => \hidev\log\OldConsoleTarget::class,
                     'levels' => ['error', 'warning', 'info'],
                 ],
             ],
-        ],
+        ] : null,
         'request' => [
-            'class' => \hidev\components\Request::class,
+            $__class => \hidev\components\Request::class,
         ],
-        'cache' => [
+        'cache' => Helper::isYii20() ? [
             'class' => \yii\caching\FileCache::class,
+        ] : [
+            $__class => \yii\caching\Cache::class,
+            'handler' => [
+                $__class => \yii\caching\FileCache::class,
+            ]
         ],
         'view' => [
-            'class' => \hidev\components\View::class,
+            $__class => \hidev\components\View::class,
             'renderers' => [
                 'twig' => [
                     'class' => \yii\twig\ViewRenderer::class,
@@ -88,7 +107,7 @@ return [
             'class' => \hidev\components\Version::class,
             'file'  => dirname(dirname(__DIR__)) . '/version',
         ],
-    ],
+    ]),
     'controllerMap' => [
         '--version' => [
             'class' => \hidev\console\VersionController::class,
@@ -117,4 +136,4 @@ return [
             'directory' => \hidev\components\Directory::class,
         ],
     ],
-];
+]);

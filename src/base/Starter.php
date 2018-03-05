@@ -14,6 +14,7 @@ use Dotenv\Dotenv;
 use hidev\components\Request;
 use hidev\helpers\ConfigPlugin;
 use hidev\helpers\FileHelper;
+use hidev\helpers\Helper;
 use Symfony\Component\Yaml\Yaml;
 use Yii;
 use yii\base\InvalidParamException;
@@ -135,9 +136,13 @@ class Starter
     {
         $autoloader = './vendor/autoload.php';
         if (file_exists($autoloader)) {
-            spl_autoload_unregister(['Yii', 'autoload']);
+            if (Helper::isYii20()) {
+                spl_autoload_unregister(['Yii', 'autoload']);
+            }
             require $autoloader;
-            spl_autoload_register(['Yii', 'autoload'], true, true);
+            if (Helper::isYii20()) {
+                spl_autoload_register(['Yii', 'autoload'], true, true);
+            }
         }
     }
 
