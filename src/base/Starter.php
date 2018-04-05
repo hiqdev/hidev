@@ -237,7 +237,7 @@ class Starter
         $vendors[] = $this->buildRootPath('vendor');
 
         foreach ($vendors as $vendor) {
-            foreach (['common', 'console', 'hidev'] as $name) {
+            foreach (['console', 'hidev'] as $name) {
                 $path = ConfigPlugin::path($name, $vendor);
                 if (file_exists($path)) {
                     $this->appFiles[] = $path;
