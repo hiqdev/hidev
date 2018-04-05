@@ -91,7 +91,7 @@ class Starter
         unset($config['components']['plugins']);
 
         foreach ($config['components'] as $id => $def) {
-            if (empty($def['class'])) {
+            if (empty($def['class']) && empty($def['__class'])) {
                 unset($config['components'][$id]);
                 $controllers[$id] = $def;
             }
@@ -104,8 +104,8 @@ class Starter
 
         if (!empty($config['controllerMap'])) {
             foreach ($config['controllerMap'] as &$def) {
-                if (is_array($def) && empty($def['class'])) {
-                    $def['class'] = \hidev\console\CommonController::class;
+                if (is_array($def) && empty($def['class']) && empty($def['__class'])) {
+                    $def[Helper::isYii20() ? 'class' : '__class'] = \hidev\console\CommonController::class;
                 }
             }
         }
