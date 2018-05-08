@@ -33,4 +33,11 @@ class CommonController extends \hidev\base\Controller
 
         return $actions;
     }
+
+    public function runAction($id, $params = [])
+    {
+        $result = parent::runAction($id, $params);
+
+        return isset($this->beforeResult) ? $this->beforeResult : $result;
+    }
 }

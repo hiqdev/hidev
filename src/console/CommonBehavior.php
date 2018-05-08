@@ -27,9 +27,20 @@ class CommonBehavior extends \yii\base\Behavior
         ];
     }
 
+    protected $beforeResult;
+
     public function onBeforeAction($event)
     {
-        $this->runRequests($event->sender->before);
+        $result = $this->runRequests($event->sender->before);
+        if (!Controller::isResponseOk($result)) {
+            $this->beforeResult = $result;
+            $event->isValid = false;
+        }
+    }
+
+    public function getBeforeResult()
+    {
+        return $this->beforeResult;
     }
 
     public function onAfterAction($event)
