@@ -10,8 +10,6 @@
 
 namespace hidev\helpers;
 
-use Yii;
-
 /**
  * Hidev helper.
  */

@@ -7,7 +7,6 @@
  * @license   BSD-3-Clause
  * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
-
 use hidev\helpers\Helper;
 
 if (!defined('HIDEV_VENDOR_DIR')) {
@@ -56,7 +55,7 @@ return array_filter([
             $__class => \yii\caching\Cache::class,
             'handler' => [
                 $__class => \yii\caching\FileCache::class,
-            ]
+            ],
         ],
         'view' => [
             $__class => \hidev\components\View::class,
