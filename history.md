@@ -1,5 +1,19 @@
 # hiqdev/hidev
 
+## [Under development]
+
+- Enhanced `ConsoleTarget`
+    - [ae09f81] 2018-05-15 Enhanced ConsoleTarget [@SilverFire]
+    - [295de32] 2018-05-08 csfixed [@hiqsol]
+- Added Yii 2.1 compatibility
+    - [f9eb6d0] 2018-04-05 removed requiring `common` config in Starter [@hiqsol]
+    - [8bfa971] 2018-04-05 Fixed Yii 2.1 compatibility [@SilverFire]
+    - [a5ea1de] 2018-03-05 quickfixed logging severity [@hiqsol]
+    - [20183c1] 2018-03-05 NOT FINISHED implementing Yii 2.1 compatibility [@hiqsol]
+- Fixed stopping at error
+    - [61512d8] 2018-05-08 added handling and passing of error and result in before actions [@hiqsol]
+    - [e149f73] 2018-04-12 added `Hidev` helper [@hiqsol]
+
 ## [0.6.1] - 2018-02-27
 
 - Fixed PHP 7.2 compatibility
@@ -1437,7 +1451,7 @@
 [2977a70]: https://github.com/hiqdev/hidev/commit/2977a70
 [9e216ec]: https://github.com/hiqdev/hidev/commit/9e216ec
 [9e02ac4]: https://github.com/hiqdev/hidev/commit/9e02ac4
-[Under development]: https://github.com/hiqdev/hidev/compare/0.6.0...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.6.1...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
@@ -1617,3 +1631,11 @@
 [e245d4e]: https://github.com/hiqdev/hidev/commit/e245d4e
 [1f2b81f]: https://github.com/hiqdev/hidev/commit/1f2b81f
 [0.6.1]: https://github.com/hiqdev/hidev/compare/0.6.0...0.6.1
+[ae09f81]: https://github.com/hiqdev/hidev/commit/ae09f81
+[295de32]: https://github.com/hiqdev/hidev/commit/295de32
+[61512d8]: https://github.com/hiqdev/hidev/commit/61512d8
+[e149f73]: https://github.com/hiqdev/hidev/commit/e149f73
+[f9eb6d0]: https://github.com/hiqdev/hidev/commit/f9eb6d0
+[8bfa971]: https://github.com/hiqdev/hidev/commit/8bfa971
+[a5ea1de]: https://github.com/hiqdev/hidev/commit/a5ea1de
+[20183c1]: https://github.com/hiqdev/hidev/commit/20183c1
