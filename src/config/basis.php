@@ -115,6 +115,9 @@ return array_filter([
         '.gitignore' => [
             'class' => \hidev\console\GitignoreController::class,
         ],
+        'git' => [
+            'class' => \hidev\console\GitController::class,
+        ],
         'github' => [
             'class' => \hidev\console\GithubController::class,
         ],
