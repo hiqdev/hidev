@@ -33,7 +33,7 @@ class YamlHandler extends TypeHandler
     public function renderType($data)
     {
         /// XXX TODO fix getItems crutch
-        return Yaml::dump(ArrayHelper::toArray(method_exists($data, 'getItems') ? $data->getItems() : $data), 4);
+        return Yaml::dump(ArrayHelper::toArray(method_exists($data, 'getItems') ? $data->getItems() : $data), 5);
     }
 
     /**
