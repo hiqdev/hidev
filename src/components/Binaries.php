@@ -38,7 +38,7 @@ class Binaries extends \hidev\base\Component
         return array_merge([
             'name'  => $name,
             'class' => $this->defaultClass,
-            'controller' => $this,
+            'binaries' => $this,
         ], $config);
     }
 

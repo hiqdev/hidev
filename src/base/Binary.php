@@ -10,12 +10,16 @@
 
 namespace hidev\base;
 
+use hidev\components\Binaries;
 use hidev\modifiers\ModifierInterface;
 use Yii;
 use yii\base\InvalidConfigException;
 
 class Binary extends \yii\base\BaseObject
 {
+    /** @var Binaries component */
+    public $binaries;
+
     /**
      * @var string command name, eg.: phpunit, composer
      */
