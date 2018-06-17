@@ -17,11 +17,6 @@ use yii\base\InvalidConfigException;
 class Binary extends \yii\base\BaseObject
 {
     /**
-     * @var BinariesController parent controller
-     */
-    public $controller;
-
-    /**
      * @var string command name, eg.: phpunit, composer
      */
     public $name;
