@@ -39,6 +39,7 @@ plugins:
     hiqdev/hidev-readme:            "*@dev"
     hiqdev/hidev-travis:            "*@dev"
     hiqdev/hidev-license:           "*@dev"
+    hiqdev/hidev-phpstan:           "*@dev"
     hiqdev/hidev-phpunit:           "*@dev"
     hiqdev/hidev-chkipper:          "*@dev"
     hiqdev/hidev-composer:          "*@dev"
