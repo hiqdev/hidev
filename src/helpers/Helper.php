@@ -108,4 +108,14 @@ class Helper
 
         return $password;
     }
+
+    /**
+     * Is response Ok.
+     * @param Response|int $response
+     * @return bool
+     */
+    public static function isResponseOk($response)
+    {
+        return !(is_object($response) ? $response->exitStatus : $response);
+    }
 }

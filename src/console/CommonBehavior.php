@@ -11,6 +11,7 @@
 namespace hidev\console;
 
 use hidev\base\Controller;
+use hidev\helpers\Helper;
 use Yii;
 use yii\console\Request;
 
@@ -32,7 +33,7 @@ class CommonBehavior extends \yii\base\Behavior
     public function onBeforeAction($event)
     {
         $result = $this->runRequests($event->sender->before);
-        if (!Controller::isResponseOk($result)) {
+        if (!Helper::isResponseOk($result)) {
             $this->beforeResult = $result;
             $event->isValid = false;
         }
@@ -53,7 +54,7 @@ class CommonBehavior extends \yii\base\Behavior
         foreach ($this->normalizeTasks($requests) as $request => $enabled) {
             if ($enabled) {
                 $response = $this->runRequest($request);
-                if (!Controller::isResponseOk($response)) {
+                if (!Helper::isResponseOk($response)) {
                     return $response;
                 }
             }

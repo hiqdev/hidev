@@ -11,6 +11,7 @@
 namespace hidev\base;
 
 use hidev\console\CommonBehavior;
+use hidev\helpers\Helper;
 
 /**
  * Basic controller.
@@ -61,22 +62,12 @@ abstract class Controller extends \yii\console\Controller
         foreach ($this->normalizeTasks($actions) as $action => $enabled) {
             if ($enabled) {
                 $res = $this->runAction($action);
-                if (!static::isResponseOk($res)) {
+                if (!Helper::isResponseOk($res)) {
                     return $res;
                 }
             }
         }
 
         return 0;
-    }
-
-    /**
-     * Is response Ok.
-     * @param Response|int $response
-     * @return bool
-     */
-    public static function isResponseOk($response)
-    {
-        return !(is_object($response) ? $response->exitStatus : $response);
     }
 }
