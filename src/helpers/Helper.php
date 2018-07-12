@@ -92,4 +92,20 @@ class Helper
     {
         return ArrayHelper::unique($array);
     }
+
+    public static function readline($prompt)
+    {
+        return readline($prompt);
+    }
+
+    public static function readpassword($prompt)
+    {
+        echo $prompt;
+        system('stty -echo');
+        $password = rtrim(fgets(STDIN), PHP_EOL);
+        system('stty echo');
+        echo "\n";
+
+        return $password;
+    }
 }

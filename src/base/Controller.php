@@ -51,22 +51,6 @@ abstract class Controller extends \yii\console\Controller
         return $this->_after;
     }
 
-    public function readline($prompt)
-    {
-        return readline($prompt);
-    }
-
-    public function readpassword($prompt)
-    {
-        echo $prompt;
-        system('stty -echo');
-        $password = rtrim(fgets(STDIN), PHP_EOL);
-        system('stty echo');
-        echo "\n";
-
-        return $password;
-    }
-
     /**
      * Runs list of actions.
      * @param null|string|array $actions
