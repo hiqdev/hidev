@@ -10,100 +10,20 @@
 
 namespace hidev\console;
 
-use yii\helpers\Json;
-
 /**
  * Goal for GitHub.
  */
 class GithubController extends CommonController
 {
-    protected $_name;
-    protected $_vendor;
-    protected $_description;
-
-    /**
-     * @var string GitHub OAuth access token
-     */
-    protected $_token;
-
-    public function setFull_name($value)
-    {
-        list($this->_vendor, $this->_name) = explode('/', $value, 2);
-    }
-
-    public function getFull_name()
-    {
-        return $this->getVendor() . '/' . $this->getName();
-    }
-
-    public function setFullName($value)
-    {
-        return $this->setFull_name($value);
-    }
-
-    public function getFullName()
-    {
-        return $this->getFull_name();
-    }
-
-    public function setName($value)
-    {
-        $this->_name = $value;
-    }
-
-    public function getName()
-    {
-        if (!$this->_name) {
-            $this->_name = $this->take('package')->name;
-        }
-
-        return $this->_name;
-    }
-
-    public function setVendor($value)
-    {
-        $this->_vendor = $value;
-    }
-
-    public function getVendor()
-    {
-        if (!$this->_vendor) {
-            $this->_vendor = $this->take('vendor')->name;
-        }
-
-        return $this->_vendor;
-    }
-
-    public function setDescription($value)
-    {
-        $this->_description = $value;
-    }
-
-    public function getDescription()
-    {
-        if ($this->_description === null) {
-            $this->_description = $this->take('package')->getTitle();
-        }
-
-        return $this->_description;
-    }
-
     /**
      * Create the repo on GitHub.
+     * If name not given, repo for current project created.
+     * @param string $repo full name
      * @return int exit code
      */
-    public function actionCreate()
+    public function actionCreate(string $repo = null)
     {
-        $res = $this->request('POST', '/orgs/' . $this->getVendor() . '/repos', [
-            'name'        => $this->getName(),
-            'description' => $this->getDescription(),
-        ]);
-        if (static::isResponseOk($res)) {
-            echo "\ngit remote add origin git@github.com:{$this->getFullName()}.git\n";
-            echo "git push -u origin master\n";
-        }
-
-        return $res;
+        return $this->getComponent()->createRepo($repo);
     }
 
     /**
@@ -112,9 +32,9 @@ class GithubController extends CommonController
      * @param string $repo full name vendor/package
      * @return int exit code
      */
-    public function actionClone($repo)
+    public function actionClone(string $repo)
     {
-        return $this->passthru('git', ['clone', 'git@github.com:' . $repo]);
+        return $this->getComponent()->cloneRepo($repo);
     }
 
     /**
@@ -124,68 +44,20 @@ class GithubController extends CommonController
      */
     public function actionExists($repo = null)
     {
-        return static::exists($repo ?: $this->getFull_name());
+        return $this->getComponent()->existsRepo($repo);
     }
 
     /**
-     * Check if repo exists.
-     * @param string $repo
-     * @return bool
+     * Creates github release for current project repo.
+     * @param string $release version number
      */
-    public static function exists($repo)
+    public function releaseRepo($release = null)
     {
-        return !static::exec('git', ['ls-remote', 'git@github.com:' . $repo], true);
+        return $this->getComponent()->releaseRepo($repo);
     }
 
-    /**
-     * Creates github release.
-     */
-    public function actionRelease($release = null)
+    public function getComponent()
     {
-        $release = $this->take('version')->getRelease($release);
-        $notes = $this->take('chkipper')->getReleaseNotes();
-        $wait = $this->actionWaitPush();
-        if ($wait) {
-            return $wait;
-        }
-
-        return $this->request('POST', '/repos/' . $this->getFull_name() . '/releases', [
-            'tag_name'  => $release,
-            'name'      => $release,
-            'body'      => $notes,
-        ]);
-    }
-
-    /**
-     * Waits until push is actually finished.
-     * TODO Check github if it really has latest local commit.
-     * @return int 0 - success, 1 - failed
-     */
-    public function actionWaitPush()
-    {
-        sleep(7);
-
-        return 0;
-    }
-
-    public function request($method, $path, $data)
-    {
-        $url = 'https://api.github.com' . $path;
-
-        return $this->passthru('curl', ['-X', $method, '-H', 'Authorization: token ' . $this->getToken(), '--data', Json::encode($data), $url]);
-    }
-
-    public function findToken()
-    {
-        return $_SERVER['GITHUB_TOKEN'] ?: $this->readpassword('GitHub token:');
-    }
-
-    public function getToken()
-    {
-        if ($this->_token === null) {
-            $this->_token = $this->findToken();
-        }
-
-        return $this->_token;
+        return $this->take('github');
     }
 }
