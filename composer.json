@@ -46,9 +46,9 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "^2.0 | ^3.0",
+        "yiisoft/yii2": "^2.0 || ^3.0",
         "yiisoft/yii2-twig": "^2.0",
-        "symfony/yaml": "^3.0 | ^2.0",
+        "symfony/yaml": "^3.0 || ^2.0",
         "hiqdev/yii2-collection": "*"
     },
     "require-dev": {
