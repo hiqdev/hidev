@@ -51,7 +51,7 @@ class GithubController extends CommonController
      * Creates github release for current project repo.
      * @param string $release version number
      */
-    public function releaseRepo($release = null)
+    public function actionRelease($release = null)
     {
         return $this->getComponent()->releaseRepo($repo);
     }
