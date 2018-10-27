@@ -3,6 +3,7 @@
 ## [0.6.2] - 2018-10-27
 
 - Refactored GitHub component
+    - [1862305] 2018-10-27 Fixed `github/release` action [@hiqsol]
     - [e4002dc] 2018-10-27 Started demo script/doc [@hiqsol]
     - [6eecc34] 2018-10-24 Fixed typo in dependencies versions constraints [@hiqsol]
     - [8b4b165] 2018-07-12 greatly refactored GitHub controller and component [@hiqsol]
@@ -1466,7 +1467,7 @@
 [2977a70]: https://github.com/hiqdev/hidev/commit/2977a70
 [9e216ec]: https://github.com/hiqdev/hidev/commit/9e216ec
 [9e02ac4]: https://github.com/hiqdev/hidev/commit/9e02ac4
-[Under development]: https://github.com/hiqdev/hidev/compare/0.6.1...HEAD
+[Under development]: https://github.com/hiqdev/hidev/compare/0.6.2...HEAD
 [0.5.0]: https://github.com/hiqdev/hidev/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/hiqdev/hidev/compare/0.3.9...0.4.0
 [0.3.9]: https://github.com/hiqdev/hidev/compare/0.3.8...0.3.9
@@ -1667,3 +1668,4 @@
 [4343412]: https://github.com/hiqdev/hidev/commit/4343412
 [972831d]: https://github.com/hiqdev/hidev/commit/972831d
 [0.6.2]: https://github.com/hiqdev/hidev/compare/0.6.1...0.6.2
+[1862305]: https://github.com/hiqdev/hidev/commit/1862305
