@@ -1,7 +1,22 @@
 # hiqdev/hidev
 
-## [Under development]
+## [0.6.2] - 2018-10-27
 
+- Refactored GitHub component
+    - [e4002dc] 2018-10-27 Started demo script/doc [@hiqsol]
+    - [6eecc34] 2018-10-24 Fixed typo in dependencies versions constraints [@hiqsol]
+    - [8b4b165] 2018-07-12 greatly refactored GitHub controller and component [@hiqsol]
+    - [7b05d35] 2018-07-12 moved `isResponseOk()` to Helper class [@hiqsol]
+    - [804c16a] 2018-07-12 moved `readline` and `readpassword` to Helper [@hiqsol]
+    - [cb4a398] 2018-06-17 fixed binaries to pass binaries component [@hiqsol]
+    - [96a99cd] 2018-06-17 redone BinaryPython without outdated controller [@hiqsol]
+    - [7f339e9] 2018-06-17 removed controller property cause outdated [@hiqsol]
+    - [4343412] 2018-06-15 increased YAML dump depth to 5 <- 4 [@hiqsol]
+    - [972831d] 2018-05-25 added back GitController to basis config [@hiqsol]
+- Added phpstan
+    - [b16aa1c] 2018-06-17 added phpstan [@hiqsol]
+- Allowed Yii2 3.0
+    - [ff6e90b] 2018-06-18 Allowed Yii 2 3.0 [@SilverFire]
 - Enhanced `ConsoleTarget`
     - [ae09f81] 2018-05-15 Enhanced ConsoleTarget [@SilverFire]
     - [295de32] 2018-05-08 csfixed [@hiqsol]
@@ -1639,3 +1654,16 @@
 [8bfa971]: https://github.com/hiqdev/hidev/commit/8bfa971
 [a5ea1de]: https://github.com/hiqdev/hidev/commit/a5ea1de
 [20183c1]: https://github.com/hiqdev/hidev/commit/20183c1
+[e4002dc]: https://github.com/hiqdev/hidev/commit/e4002dc
+[6eecc34]: https://github.com/hiqdev/hidev/commit/6eecc34
+[8b4b165]: https://github.com/hiqdev/hidev/commit/8b4b165
+[7b05d35]: https://github.com/hiqdev/hidev/commit/7b05d35
+[804c16a]: https://github.com/hiqdev/hidev/commit/804c16a
+[ff6e90b]: https://github.com/hiqdev/hidev/commit/ff6e90b
+[b16aa1c]: https://github.com/hiqdev/hidev/commit/b16aa1c
+[cb4a398]: https://github.com/hiqdev/hidev/commit/cb4a398
+[96a99cd]: https://github.com/hiqdev/hidev/commit/96a99cd
+[7f339e9]: https://github.com/hiqdev/hidev/commit/7f339e9
+[4343412]: https://github.com/hiqdev/hidev/commit/4343412
+[972831d]: https://github.com/hiqdev/hidev/commit/972831d
+[0.6.2]: https://github.com/hiqdev/hidev/compare/0.6.1...0.6.2

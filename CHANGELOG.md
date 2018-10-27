@@ -1,7 +1,10 @@
 # hiqdev/hidev
 
-## [Under development]
+## [0.6.2] - 2018-10-27
 
+- Refactored GitHub component ([@hiqsol])
+- Added phpstan ([@hiqsol])
+- Allowed Yii2 3.0 ([@SilverFire])
 - Enhanced `ConsoleTarget` ([@SilverFire], [@hiqsol])
 - Added Yii 2.1 compatibility ([@hiqsol], [@SilverFire])
 - Fixed stopping at error ([@hiqsol])
@@ -323,3 +326,4 @@
 [0.5.2]: https://github.com/hiqdev/hidev/compare/0.5.1...0.5.2
 [0.6.0]: https://github.com/hiqdev/hidev/compare/0.5.2...0.6.0
 [0.6.1]: https://github.com/hiqdev/hidev/compare/0.6.0...0.6.1
+[0.6.2]: https://github.com/hiqdev/hidev/compare/0.6.1...0.6.2
