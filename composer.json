@@ -46,13 +46,16 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "^2.0 || ^3.0",
-        "yiisoft/yii2-twig": "^2.0",
-        "symfony/yaml": "^3.0 || ^2.0",
-        "hiqdev/yii2-collection": "*"
+        "yiisoft/yii-core": "^3.0",
+        "yiisoft/yii-twig": "^3.0",
+        "symfony/yaml": "^3.0 || ^2.0"
     },
     "require-dev": {
-        "yiisoft/yii2": "dev-master",
+        "yiisoft/yii-core": "dev-master",
+        "yiisoft/yii-twig": "dev-master",
+        "yiisoft/di": "dev-master",
+        "yiisoft/log": "dev-master",
+        "yiisoft/cache": "dev-master",
         "hiqdev/composer-config-plugin": "dev-master"
     },
     "autoload": {
