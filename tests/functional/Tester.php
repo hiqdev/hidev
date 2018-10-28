@@ -104,7 +104,7 @@ class Tester
     public function getApp()
     {
         if ($this->_app === null) {
-            $config = require Yii::getAlias('@hidev/config/basis.php');
+            $config = require Yii::getAlias('@hidev/../config/basis.php');
             unset($config['components']['log']);
             $this->_app = new Application($config);
         }

@@ -44,7 +44,7 @@ class Starter
     /**
      * @var array application config files
      */
-    private $appFiles = ['@hidev/config/basis.php'];
+    private $appFiles = ['@hidev/../config/basis.php'];
 
     /**
      * Make action.
