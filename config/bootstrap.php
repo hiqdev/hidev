@@ -10,7 +10,7 @@
 require_once __DIR__ . '/defines.php';
 
 if (!defined('HIDEV_VENDOR_DIR')) {
-    foreach ([dirname(dirname(__DIR__)) . '/vendor', dirname(dirname(dirname(dirname(__DIR__))))] as $dir) {
+    foreach ([dirname(__DIR__) . '/vendor', dirname(dirname(dirname(__DIR__)))] as $dir) {
         if (file_exists($dir . '/autoload.php')) {
             define('HIDEV_VENDOR_DIR', $dir);
             break;

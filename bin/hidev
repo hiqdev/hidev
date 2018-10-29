@@ -10,7 +10,7 @@
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_NOTICE);
+ini_set('error_reporting', E_ALL);
 
 require_once __DIR__ . '/../config/bootstrap.php';
 
