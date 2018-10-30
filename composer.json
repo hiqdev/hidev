@@ -46,12 +46,13 @@
         }
     ],
     "require": {
-        "yiisoft/yii-core": "^3.0",
+        "yiisoft/yii-console": "^3.0",
         "yiisoft/yii-twig": "^3.0",
         "symfony/yaml": "^3.0 || ^2.0"
     },
     "require-dev": {
         "yiisoft/yii-core": "dev-master",
+        "yiisoft/yii-console": "dev-master",
         "yiisoft/yii-twig": "dev-master",
         "yiisoft/di": "dev-master",
         "yiisoft/log": "dev-master",
@@ -69,7 +70,7 @@
     ],
     "extra": {
         "config-plugin": {
-            "hidev": "config/hidev.php",
+            "hidev": ["$console", "config/hidev.php"],
             "tests": "config/tests.php"
         }
     },
