@@ -24,7 +24,3 @@ if (!defined('HIDEV_VENDOR_DIR') || !file_exists(HIDEV_VENDOR_DIR . '/autoload.p
 }
 
 require_once HIDEV_VENDOR_DIR . '/autoload.php';
-require_once HIDEV_VENDOR_DIR . '/yiisoft/yii2/Yii.php';
-
-Yii::setAlias('@hidev', dirname(__DIR__));
-Yii::setAlias('@vendor', HIDEV_VENDOR_DIR);

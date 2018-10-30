@@ -12,10 +12,17 @@
 
 ini_set('error_reporting', E_ALL);
 
-require_once __DIR__ . '/../config/bootstrap.php';
 
-$starter = new \hidev\base\Starter();
-$app = new \yii\console\Application($starter->getConfig());
-$exitCode = $app->run();
+use hiqdev\composer\config\Builder;
+use yii\di\Container;
+use yii\helpers\Yii;
 
-exit($exitCode);
+(function () {
+    require_once __DIR__ . '/../config/bootstrap.php';
+
+    $container = new Container(require Builder::path('hidev'));
+    Yii::setContainer($container);
+    $exitCode = $container->get('app')->run();
+
+    exit($exitCode);
+})();
