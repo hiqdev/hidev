@@ -48,6 +48,7 @@
     "require": {
         "yiisoft/yii-console": "^3.0",
         "yiisoft/yii-twig": "^3.0",
+        "yiisoft/view": "^3.0",
         "symfony/yaml": "^3.0 || ^2.0"
     },
     "require-dev": {
@@ -56,6 +57,7 @@
         "yiisoft/yii-twig": "dev-master",
         "yiisoft/di": "dev-master",
         "yiisoft/log": "dev-master",
+        "yiisoft/view": "dev-master",
         "yiisoft/cache": "dev-master",
         "hiqdev/composer-config-plugin": "dev-master"
     },
