@@ -24,7 +24,6 @@ return array_filter([
         'runtimePath'           => $runtimePath,
         'controllerNamespace'   => 'hidev\\console',
         'defaultRoute'          => 'default',
-        'bootstrap'             => Helper::isYii20() ? ['log'] : null,
         'controllerMap' => [
             '--version' => [
                 'class' => \hidev\console\VersionController::class,
