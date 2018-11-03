@@ -20,20 +20,20 @@ return array_filter([
         'defaultRoute'          => 'default',
         'controllerMap' => [
             '--version' => [
-                'class' => \hidev\console\VersionController::class,
+                '__class' => \hidev\console\VersionController::class,
                 'own' => true,
             ],
             '.gitignore' => [
-                'class' => \hidev\console\GitignoreController::class,
+                '__class' => \hidev\console\GitignoreController::class,
             ],
             'git' => [
-                'class' => \hidev\console\GitController::class,
+                '__class' => \hidev\console\GitController::class,
             ],
             'github' => [
-                'class' => \hidev\console\GithubController::class,
+                '__class' => \hidev\console\GithubController::class,
             ],
             'dump' => [
-                'class' => \hidev\console\DumpController::class,
+                '__class' => \hidev\console\DumpController::class,
             ],
         ],
     ],
@@ -59,7 +59,7 @@ return array_filter([
         '__class' => \hidev\components\View::class,
         'renderers' => [
             'twig' => [
-                'class' => \yii\twig\ViewRenderer::class,
+                '__class' => \yii\twig\ViewRenderer::class,
                 'cachePath' => '@runtime/Twig/cache',
                 'options' => [
                     'auto_reload' => true,
@@ -69,39 +69,39 @@ return array_filter([
         ],
     ],
     'binaries' => [
-        'class' => \hidev\components\Binaries::class,
+        '__class' => \hidev\components\Binaries::class,
         'composer' => [
-            'class' => \hidev\base\BinaryPhp::class,
+            '__class' => \hidev\base\BinaryPhp::class,
             'installer' => 'https://getcomposer.org/installer',
         ],
         'pip' => [
-            'class' => \hidev\base\BinaryPython::class,
+            '__class' => \hidev\base\BinaryPython::class,
             'installer' => 'https://bootstrap.pypa.io/get-pip.py',
         ],
     ],
     'vcs' => [
-        'class' => \hidev\components\AbstractVcs::class,
+        '__class' => \hidev\components\AbstractVcs::class,
     ],
     'vcsignore' => [
-        'class' => \hidev\components\Vcsignore::class,
+        '__class' => \hidev\components\Vcsignore::class,
     ],
     'git' => [
-        'class' => \hidev\components\Git::class,
+        '__class' => \hidev\components\Git::class,
     ],
     'github' => [
-        'class' => \hidev\components\GitHub::class,
+        '__class' => \hidev\components\GitHub::class,
     ],
     'package' => [
-        'class' => \hidev\components\Package::class,
+        '__class' => \hidev\components\Package::class,
     ],
     'vendor' => [
-        'class' => \hidev\components\Vendor::class,
+        '__class' => \hidev\components\Vendor::class,
     ],
     'version' => [
-        'class' => \hidev\components\Version::class,
+        '__class' => \hidev\components\Version::class,
     ],
     'own.version' => [
-        'class' => \hidev\components\Version::class,
+        '__class' => \hidev\components\Version::class,
         'file'  => dirname(__DIR__) . '/version',
     ],
     \hidev\components\AbstractVcs::class => function () {
