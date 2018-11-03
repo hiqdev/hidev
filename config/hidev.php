@@ -15,9 +15,8 @@ return array_filter([
         'id'                    => 'hidev',
         'name'                  => 'HiDev',
         'basePath'              => dirname(__DIR__),
-        //'vendorPath'            => HIDEV_VENDOR_DIR,
         'runtimePath'           => $runtimePath,
-        'controllerNamespace'   => 'hidev\\console',
+        'controllerNamespace'   => \hidev\console::class,
         'defaultRoute'          => 'default',
         'controllerMap' => [
             '--version' => [
