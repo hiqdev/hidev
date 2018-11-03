@@ -7,7 +7,6 @@
  * @license   BSD-3-Clause
  * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
-require_once __DIR__ . '/defines.php';
 
 if (!defined('HIDEV_VENDOR_DIR')) {
     foreach ([dirname(__DIR__) . '/vendor', dirname(dirname(dirname(__DIR__)))] as $dir) {

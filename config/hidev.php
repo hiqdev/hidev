@@ -7,11 +7,6 @@
  * @license   BSD-3-Clause
  * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
-use hidev\helpers\Helper;
-
-if (!defined('HIDEV_VENDOR_DIR')) {
-    define('HIDEV_VENDOR_DIR', dirname(dirname(dirname(dirname(__DIR__)))));
-}
 
 $runtimePath = (substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR)) . '/.hidev/runtime';
 
