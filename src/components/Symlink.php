@@ -21,6 +21,12 @@ class Symlink extends File
 {
     public $symlink;
 
+
+    public function init()
+    {
+
+    }
+
     /**
      * General save: save and modify.
      */
