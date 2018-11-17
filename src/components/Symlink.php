@@ -10,10 +10,6 @@
 
 namespace hidev\components;
 
-use hidev\base\File as FileObj;
-use hidev\helpers\Helper;
-use Yii;
-use yii\helpers\ArrayHelper;
 use hidev\helpers\FileHelper;
 
 /**
