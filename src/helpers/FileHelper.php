@@ -98,6 +98,10 @@ class FileHelper
     public static function symlink($src, $dst)
     {
         try {
+            if(is_link($dst)) {
+                unlink($dst);
+            }
+
             return symlink($src, $dst);
         } catch (\Exception $e) {
             if (posix_isatty(0)) {
