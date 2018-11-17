@@ -23,10 +23,7 @@ use hidev\helpers\FileHelper;
  */
 class Symlink extends File
 {
-    /**
-     * @var list destimation
-     */
-    public $dest;
+    public $symlink;
 
     /**
      * General save: save and modify.
@@ -34,7 +31,7 @@ class Symlink extends File
     public function save()
     {
         if (!$this->once || !$this->exists()) {
-            FileHelper::symlink($this->dest, $this->_path);
+            FileHelper::symlink($this->symlink, $this->_path);
         }
     }
 

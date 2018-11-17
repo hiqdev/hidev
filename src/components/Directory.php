@@ -26,7 +26,7 @@ class Directory extends File
             $type = 'Directory';
             if (isset($config['template']) || isset($config['copy'])) {
                 $type = 'File';
-            } elseif (isset($config['dest'])) {
+            } elseif (isset($config['symlink'])) {
                 $type = 'Symlink';
             }
             $defaults = [
