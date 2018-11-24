@@ -98,11 +98,15 @@ class FileHelper
     public static function symlink($src, $dst)
     {
         try {
-            if(is_link($dst)) {
+            // remove old link
+            if (is_link($dst) && readlink($dst) !== $src) {
                 unlink($dst);
             }
 
-            return symlink($src, $dst);
+            if (!is_link($dst)) {
+
+                return symlink($src, $dst);
+            }
         } catch (\Exception $e) {
             if (posix_isatty(0)) {
                 passthru("sudo ln -s $src $dst", $retval);
