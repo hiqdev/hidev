@@ -22,11 +22,16 @@ class Directory extends File
     {
         FileHelper::mkdir($this->_path);
 
-        foreach ($this->getItems() as $id => $config) {
-            $type = isset($config['template']) || isset($config['copy']) ? 'File' : 'Directory';
+       foreach ($this->getItems() as $id => $config) {
+            $type = 'Directory';
+            if (isset($config['template']) || isset($config['copy'])) {
+                $type = 'File';
+            } elseif (isset($config['symlink'])) {
+                $type = 'Symlink';
+            }
             $defaults = [
                 'class' => "hidev\\components\\$type",
-                'path'  => $this->_path . '/' . $id,
+                'path' => $this->_path . '/' . $id,
             ];
             $config = array_merge($defaults, $config ?: []);
             $object = Yii::createObject($config);
