@@ -8,14 +8,14 @@
  * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
  */
 
-$runtimePath = (substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR)) . '/.hidev/runtime';
+#$runtimePath = (substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_NAME']) : dirname(HIDEV_VENDOR_DIR)) . '/.hidev/runtime';
 
 return array_filter([
     'app' => [
         'id'                    => 'hidev',
         'name'                  => 'HiDev',
         'basePath'              => dirname(__DIR__),
-        'runtimePath'           => $runtimePath,
+#       'runtimePath'           => $runtimePath,
         'controllerNamespace'   => \hidev\console::class,
         'defaultRoute'          => 'default',
         'controllerMap' => [
