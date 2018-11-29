@@ -33,11 +33,6 @@ trait GettersTrait
         return $this->getApp()->get($id);
     }
 
-    public function getApp()
-    {
-        return Yii::$app;
-    }
-
     /**
      * Runs given binary with given arguments.
      * Command output passes unchanged to console.

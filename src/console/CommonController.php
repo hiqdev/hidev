@@ -10,26 +10,24 @@
 
 namespace hidev\console;
 
-use Yii;
-
 /**
  * Common controller.
  */
 class CommonController extends \hidev\base\Controller
 {
-    use \hiqdev\yii2\collection\ManagerTrait;
+    // XXX use \hiqdev\yii2\collection\ManagerTrait;
 
     public function actionIndex()
     {
-        Yii::debug("Started: '$this->id'");
+        $this->app->debug("Started: '$this->id'");
     }
 
     public function actions()
     {
         $actions = [];
-        foreach ($this->keys() as $name) {
+        /*foreach ($this->keys() as $name) {
             $actions[$name] = ['class' => CommonAction::class];
-        }
+        }*/
 
         return $actions;
     }

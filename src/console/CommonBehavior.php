@@ -12,7 +12,7 @@ namespace hidev\console;
 
 use hidev\base\Controller;
 use hidev\helpers\Helper;
-use Yii;
+use yii\base\ActionEvent;
 use yii\console\Request;
 
 /**
@@ -23,8 +23,8 @@ class CommonBehavior extends \yii\base\Behavior
     public function events()
     {
         return [
-            Controller::EVENT_BEFORE_ACTION => 'onBeforeAction',
-            Controller::EVENT_AFTER_ACTION  => 'onAfterAction',
+            ActionEvent::BEFORE => 'onBeforeAction',
+            ActionEvent::AFTER  => 'onAfterAction',
         ];
     }
 
@@ -83,11 +83,11 @@ class CommonBehavior extends \yii\base\Behavior
      */
     public function runRequest($query)
     {
-        $request = Yii::createObject([
+        $request = $this->app->createObject([
             'class'  => Request::class,
             'params' => is_array($query) ? $query : array_filter(explode(' ', $query)),
         ]);
 
-        return Yii::$app->handleRequest($request);
+        return $this->app->handleRequest($request);
     }
 }
