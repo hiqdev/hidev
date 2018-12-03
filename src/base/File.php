@@ -12,7 +12,7 @@ namespace hidev\base;
 
 use hidev\helpers\FileHelper;
 use hidev\helpers\Helper;
-use Yii;
+use yii\helpers\Yii;
 
 /**
  * A file to be processed with hidev.

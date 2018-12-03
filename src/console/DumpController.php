@@ -11,7 +11,7 @@
 namespace hidev\console;
 
 use Symfony\Component\Yaml\Yaml;
-use Yii;
+use yii\helpers\Yii;
 
 /**
  * Dump available definitions: components, controllers, aliases.

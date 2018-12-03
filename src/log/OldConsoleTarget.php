@@ -10,7 +10,7 @@
 
 namespace hidev\log;
 
-use Yii;
+use yii\helpers\Yii;
 use yii\helpers\Console;
 use yii\log\Logger;
 

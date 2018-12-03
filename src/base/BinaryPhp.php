@@ -10,7 +10,7 @@
 
 namespace hidev\base;
 
-use Yii;
+use yii\helpers\Yii;
 
 class BinaryPhp extends Binary
 {

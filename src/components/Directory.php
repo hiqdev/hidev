@@ -11,7 +11,7 @@
 namespace hidev\components;
 
 use hidev\helpers\FileHelper;
-use Yii;
+use yii\helpers\Yii;
 
 /**
  * Directory manipulation component.

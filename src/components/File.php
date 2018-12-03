@@ -12,7 +12,7 @@ namespace hidev\components;
 
 use hidev\base\File as FileObj;
 use hidev\helpers\Helper;
-use Yii;
+use yii\helpers\Yii;
 use yii\helpers\ArrayHelper;
 
 /**

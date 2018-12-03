@@ -11,7 +11,7 @@
 namespace hidev\base;
 
 use ReflectionClass;
-use Yii;
+use yii\helpers\Yii;
 use yii\base\ViewContextInterface;
 
 /**

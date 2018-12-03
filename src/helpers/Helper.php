@@ -11,7 +11,7 @@
 namespace hidev\helpers;
 
 use hiqdev\php\collection\ArrayHelper;
-use Yii;
+use yii\helpers\Yii;
 use yii\helpers\Inflector;
 
 /**

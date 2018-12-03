@@ -10,7 +10,7 @@
 
 namespace hidev\helpers;
 
-use Yii;
+use yii\helpers\Yii;
 use yii\log\Logger;
 
 /**

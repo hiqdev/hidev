@@ -10,7 +10,7 @@
 
 namespace hidev\handlers;
 
-use Yii;
+use yii\helpers\Yii;
 
 /**
  * Handler for copying.

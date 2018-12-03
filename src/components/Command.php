@@ -10,7 +10,7 @@
 
 namespace hidev\components;
 
-use Yii;
+use yii\helpers\Yii;
 
 /**
  * Command goal.

@@ -12,7 +12,7 @@ namespace hidev\base;
 
 use hidev\components\Binaries;
 use hidev\modifiers\ModifierInterface;
-use Yii;
+use yii\helpers\Yii;
 use yii\base\InvalidConfigException;
 
 class Binary extends \yii\base\BaseObject

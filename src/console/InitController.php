@@ -13,7 +13,7 @@ namespace hidev\console;
 use Exception;
 use hidev\base\File;
 use hidev\helpers\Helper;
-use Yii;
+use yii\helpers\Yii;
 use yii\base\InvalidParamException;
 
 /**

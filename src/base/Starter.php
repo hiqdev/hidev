@@ -16,7 +16,7 @@ use hidev\helpers\ConfigPlugin;
 use hidev\helpers\FileHelper;
 use hidev\helpers\Helper;
 use Symfony\Component\Yaml\Yaml;
-use Yii;
+use yii\helpers\Yii;
 use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
 

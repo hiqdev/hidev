@@ -10,7 +10,7 @@
 
 namespace hidev\tests\functional;
 
-use Yii;
+use yii\helpers\Yii;
 use yii\console\Application;
 use yii\console\Request;
 

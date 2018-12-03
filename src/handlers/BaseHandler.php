@@ -11,7 +11,7 @@
 namespace hidev\handlers;
 
 use hidev\helpers\FileHelper;
-use Yii;
+use yii\helpers\Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 
