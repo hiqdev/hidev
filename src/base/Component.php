@@ -11,8 +11,8 @@
 namespace hidev\base;
 
 use ReflectionClass;
-use yii\helpers\Yii;
-use yii\base\ViewContextInterface;
+use yii\base\Application;
+use yii\view\ViewContextInterface;
 
 /**
  * Base for components.
@@ -21,11 +21,21 @@ class Component extends \yii\base\Component implements ViewContextInterface
 {
     use GettersTrait;
 
+    /**
+     * @var Application
+     */
+    protected $app;
+
+    public function __construct(Application $app)
+    {
+        $this->app = $app;
+    }
+
     public function render($view, $params = [])
     {
-        return Yii::$app->getView()->render($view, array_merge([
-            'app' => Yii::$app,
-            'config' => Yii::$app,
+        return $this->app->getView()->render($view, array_merge([
+            'app' => $this->app,
+            'config' => $this->app,
             'component' => $this,
         ], $params), $this);
     }

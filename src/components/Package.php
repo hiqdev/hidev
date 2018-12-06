@@ -20,12 +20,15 @@ use hidev\helpers\Helper;
  */
 class Package extends \hidev\base\Component
 {
-    use \hiqdev\yii2\collection\ObjectTrait;
+    public $type = 'project';
 
-    public function getType()
-    {
-        return $this->getItem('type') ?: 'project';
-    }
+    public $name;
+    public $title;
+    public $headline;
+    public $description;
+
+
+    protected $_keywords = [];
 
     public function getLanguage()
     {
@@ -64,9 +67,19 @@ class Package extends \hidev\base\Component
         return $this->getItem('wiki') ?: ($this->source . '/wiki');
     }
 
+    public function setKeywords($keywords): self
+    {
+        if (!is_array($keywords)) {
+            $keywords = Helper::csplit((string)$keywords);
+        }
+        $this->_keywords = $keywords;
+
+        return $this;
+    }
+
     public function getKeywords()
     {
-        return Helper::csplit($this->getItem('keywords'));
+        return $this->_keywords;
     }
 
     public function getFullName()
@@ -125,17 +138,7 @@ class Package extends \hidev\base\Component
 
     public function getTitle()
     {
-        return $this->getItem('title') ?: ($this->isDomain() ? $this->name : Helper::titleize($this->name));
-    }
-
-    public function getHeadline()
-    {
-        return $this->getItem('headline');
-    }
-
-    public function getDescription()
-    {
-        return $this->getItem('description');
+        return $this->_title ?: ($this->isDomain() ? $this->name : Helper::titleize($this->name));
     }
 
     public function getRepositoryUrl($file)

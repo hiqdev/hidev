@@ -10,12 +10,12 @@
 
 namespace hidev\components;
 
-use yii\base\ViewContextInterface;
+use yii\view\ViewContextInterface;
 
 /**
  * Our View.
  */
-class View extends \yii\base\View implements ViewContextInterface
+class View extends \yii\view\View implements ViewContextInterface
 {
     /**
      * {@inheritdoc}
