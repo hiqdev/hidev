@@ -17,16 +17,33 @@ use hidev\helpers\Helper;
  */
 class Vendor extends \hidev\base\Component
 {
-    use \hiqdev\yii2\collection\ObjectTrait;
+    public $name;
+    public $homepage;
+    public $license;
+    public $github;
+    public $forum;
+    public $email;
+    public $authors = [];
+
+    protected $_label;
+    protected $_title;
+    protected $_description;
 
     public function getLabel()
     {
-        return $this->getItem('label') ?: ucfirst($this->name);
+        return $this->_label ?: ucfirst($this->name);
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->_title = $title;
+
+        return $this;
     }
 
     public function getTitle()
     {
-        return $this->getItem('title') ?: $this->getItem('description') ?: Helper::titleize($this->name);
+        return $this->_title ?: $this->_description ?: Helper::titleize($this->name);
     }
 
     public function getTitleAndHomepage()
@@ -36,6 +53,6 @@ class Vendor extends \hidev\base\Component
 
     public function getDescription()
     {
-        return $this->getItem('description') ?: $this->getTitle();
+        return $this->_description ?: $this->getTitle();
     }
 }

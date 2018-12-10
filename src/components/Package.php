@@ -27,8 +27,11 @@ class Package extends \hidev\base\Component
     public $headline;
     public $description;
 
-
     protected $_keywords = [];
+    protected $_fullName;
+    protected $_license;
+    protected $_years;
+    protected $_year;
 
     public function getLanguage()
     {
@@ -37,10 +40,10 @@ class Package extends \hidev\base\Component
 
     public function getYears()
     {
-        $years = $this->getItem('years');
-        if (!empty($years)) {
-            return $years;
+        if (!empty($this->_years)) {
+            return $this->_years;
         }
+
         $cur = (int) date('Y');
         $old = (int) $this->year;
 
@@ -49,12 +52,21 @@ class Package extends \hidev\base\Component
 
     public function getYear()
     {
-        return $this->getItem('year') ?: $this->take('vcs')->getYear();
+        return $this->_year ?: null;
+        /// TODO enable it back
+        #return $this->_year ?: $this->take('vcs')->getYear();
+    }
+
+    public function setLicense(string $license): self
+    {
+        $this->_license = $license;
+
+        return $this;
     }
 
     public function getLicense()
     {
-        return $this->getItem('license') ?: $this->take('vendor')->license ?: 'No license';
+        return $this->_license ?: $this->take('vendor')->license ?: 'No license';
     }
 
     public function getIssues()
@@ -84,7 +96,7 @@ class Package extends \hidev\base\Component
 
     public function getFullName()
     {
-        return $this->getItem('fullName') ?: ($this->take('vendor')->name . '/' . $this->name);
+        return $this->_fullName ?: ($this->take('vendor')->name . '/' . $this->name);
     }
 
     public function getSource()

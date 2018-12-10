@@ -83,11 +83,11 @@ class CommonBehavior extends \yii\base\Behavior
      */
     public function runRequest($query)
     {
-        $request = $this->app->createObject([
-            'class'  => Request::class,
+        $request = $this->owner->app->createObject([
+            '__class'  => Request::class,
             'params' => is_array($query) ? $query : array_filter(explode(' ', $query)),
         ]);
 
-        return $this->app->handleRequest($request);
+        return $this->owner->app->handleRequest($request);
     }
 }

@@ -94,7 +94,7 @@ class File extends \yii\base\BaseObject
     public static function create($path)
     {
         $config = is_array($path) ? $path : compact('path');
-        $config['class'] = get_called_class();
+        $config['__class'] = get_called_class();
 
         return Yii::createObject($config);
     }
@@ -107,7 +107,7 @@ class File extends \yii\base\BaseObject
     public static function plain($path)
     {
         return Yii::createObject([
-            'class' => get_called_class(),
+            '__class' => get_called_class(),
             'type'  => 'plain',
             'path'  => $path,
         ]);
@@ -268,7 +268,7 @@ class File extends \yii\base\BaseObject
     {
         if (!is_object($this->_handler)) {
             $this->_handler = Yii::createObject([
-                'class'    => 'hidev\handlers\\' . $this->getCtype() . 'Handler',
+                '__class'  => 'hidev\handlers\\' . $this->getCtype() . 'Handler',
                 'template' => $this->template,
                 'goal'     => $this->goal,
             ]);

@@ -50,9 +50,8 @@ return array_filter([
         '__class' => \hidev\components\Request::class,
     ],
     'cache' => [
-        '__class' => \yii\caching\Cache::class,
         'handler' => [
-            '__class' => \yii\caching\FileCache::class,
+            '__class' => \yii\cache\FileCache::class,
         ],
     ],
     'view' => [

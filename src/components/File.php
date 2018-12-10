@@ -19,9 +19,9 @@ use yii\helpers\ArrayHelper;
  * File component.
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
-class File extends \hidev\base\Component implements \yii\base\Arrayable, \ArrayAccess, \IteratorAggregate
+class File extends \hidev\base\Component
 {
-    use \hiqdev\yii2\collection\ObjectTrait;
+    #use \hiqdev\yii2\collection\ObjectTrait;
 
     /**
      * @var bool Don't touch file if exists
@@ -99,7 +99,7 @@ class File extends \hidev\base\Component implements \yii\base\Arrayable, \ArrayA
     {
         if (!is_object($this->_file)) {
             $this->_file = Yii::createObject(array_merge([
-                'class'    => FileObj::class,
+                '__class'  => FileObj::class,
                 'template' => $this->getTemplate(),
                 'goal'     => $this,
                 'path'     => $this->_path ?: $this->id,

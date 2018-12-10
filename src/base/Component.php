@@ -31,6 +31,11 @@ class Component extends \yii\base\Component implements ViewContextInterface
         $this->app = $app;
     }
 
+    public function getApp()
+    {
+        return $this->app;
+    }
+
     public function render($view, $params = [])
     {
         return $this->app->getView()->render($view, array_merge([
