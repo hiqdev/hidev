@@ -21,9 +21,8 @@ class YamlHandler extends TypeHandler
 {
     protected $interpolator;
 
-    public function __construct(Interpolator $interpolator, $options = [])
+    public function __construct(Interpolator $interpolator)
     {
-        parent::__construct($options);
         $this->interpolator = $interpolator;
     }
 

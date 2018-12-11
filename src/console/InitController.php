@@ -115,7 +115,7 @@ class InitController extends \yii\console\Controller
 
     public function writeConfig($path = 'hidev.yml')
     {
-        $file = new File(['path' => $path]);
+        $file = new File($path);
         $file->save(array_filter([
             'package' => array_filter([
                 'type'          => $this->getType(),
@@ -141,7 +141,7 @@ class InitController extends \yii\console\Controller
 
     public function writeComposer($path = 'composer.json')
     {
-        $file = new File(['path' => $path]);
+        $file = new File($path);
         $file->save(array_filter([
             'name'        => $this->name,
             'type'        => $this->getType(),

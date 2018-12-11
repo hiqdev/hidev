@@ -35,6 +35,9 @@ return array_filter([
             'dump' => [
                 '__class' => \hidev\console\DumpController::class,
             ],
+            'init' => [
+                '__class' => \hidev\console\InitController::class,
+            ],
         ],
     ],
     'logger' => [

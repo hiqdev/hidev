@@ -19,7 +19,7 @@ use yii\helpers\Yii;
  *
  * @property string $minimalPath path to minimal example file
  */
-class File extends \yii\base\BaseObject
+class File
 {
     /**
      * @var Goal
@@ -85,6 +85,15 @@ class File extends \yii\base\BaseObject
      * @var string path to minimal example file
      */
     public $minimal;
+
+
+    /**
+     * @param string mixed $path
+     */
+    public function __construct(string $path)
+    {
+        $this->setPath($path);
+    }
 
     /**
      * Create file object.
