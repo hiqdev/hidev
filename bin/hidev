@@ -16,6 +16,11 @@ use yii\di\Container;
 use yii\helpers\Yii;
 
 (function () {
+    foreach ($_SERVER as $key => $value) {
+        if (!isset($_ENV[$key])) {
+            $_ENV[$key] = $value;
+        }
+    }
     require_once __DIR__ . '/../config/bootstrap.php';
 
     $config = require Builder::path('hidev');
