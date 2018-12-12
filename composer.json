@@ -49,6 +49,7 @@
         "yiisoft/yii-console": "^3.0",
         "yiisoft/yii-twig": "^3.0",
         "yiisoft/view": "^3.0",
+        "hiqdev/php-collection": "dev-master",
         "symfony/yaml": "^3.0 || ^2.0"
     },
     "require-dev": {
