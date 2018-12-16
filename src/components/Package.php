@@ -50,6 +50,13 @@ class Package extends \hidev\base\Component
         return ($old && $old < $cur ? $this->year . '-' : '') . $cur;
     }
 
+    public function setYear(int $year): self
+    {
+        $this->_year = $year;
+
+        return $this;
+    }
+
     public function getYear()
     {
         return $this->_year ?: null;
