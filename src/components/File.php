@@ -21,7 +21,7 @@ use yii\helpers\ArrayHelper;
  */
 class File extends \hidev\base\Component
 {
-    #use \hiqdev\yii2\collection\ObjectTrait;
+    use \hiqdev\php\collection\yii\ObjectTrait;
 
     /**
      * @var bool Don't touch file if exists
@@ -68,6 +68,16 @@ class File extends \hidev\base\Component
      */
     protected $_template;
 
+    /**
+     * @param string|FileObj $file
+     */
+    public function __construct($file = null)
+    {
+        if ($file) {
+            $this->_file = $file;
+        }
+    }
+
     public function init()
     {
         $this->load();
@@ -100,9 +110,11 @@ class File extends \hidev\base\Component
         if (!is_object($this->_file)) {
             $this->_file = Yii::createObject(array_merge([
                 '__class'  => FileObj::class,
+                '__construct()' => [
+                    'path' => $this->_path ?: $this->id,
+                ],
                 'template' => $this->getTemplate(),
                 'goal'     => $this,
-                'path'     => $this->_path ?: $this->id,
             ], is_string($this->_file)
                 ? ['path' => $this->_file]
                 : (array) $this->_file
