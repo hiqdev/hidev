@@ -38,6 +38,27 @@ return array_filter([
             'init' => [
                 '__class' => \hidev\console\InitController::class,
             ],
+            'default' => [
+                '__class' => \hidev\console\CommonController::class,
+            ],
+            'build' => [
+                '__class' => \hidev\console\CommonController::class,
+            ],
+            'check' => [
+                '__class' => \hidev\console\CommonController::class,
+            ],
+            'fix' => [
+                '__class' => \hidev\console\CommonController::class,
+            ],
+            'test' => [
+                '__class' => \hidev\console\CommonController::class,
+            ],
+            'install' => [
+                '__class' => \hidev\console\CommonController::class,
+            ],
+            'update' => [
+                '__class' => \hidev\console\CommonController::class,
+            ],
         ],
     ],
     'logger' => [
