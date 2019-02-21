@@ -8,6 +8,6 @@
         "package"
     ],
     "require-dev": {
-        "hiqdev/hidev-php": "<2.0 || dev-master"
+        "hiqdev/hidev-php": "dev-master"
     }
 }
