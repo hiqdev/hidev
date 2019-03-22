@@ -149,7 +149,7 @@ class Starter
     private function loadEnv()
     {
         if (file_exists('.env') && class_exists(Dotenv::class)) {
-            $dotenv = new Dotenv('.');
+            $dotenv = Dotenv::create('.');
             $dotenv->load();
         }
     }
