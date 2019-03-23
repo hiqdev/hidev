@@ -149,8 +149,24 @@ class Starter
     private function loadEnv()
     {
         if (file_exists('.env') && class_exists(Dotenv::class)) {
-            $dotenv = new Dotenv('.');
+            $dotenv = $this->createDotenv('.');
             $dotenv->load();
+        }
+    }
+
+    /**
+     * Creates Dotenv object.
+     * Supports both 2 and 3 version of `phpdotenv`
+     * @param mixed $dir
+     * @param mixed $file
+     * @return Dotenv
+     */
+    private function createDotenv($dir)
+    {
+        if (method_exists(Dotenv::class, 'create')) {
+            return Dotenv::create($dir);
+        } else {
+            return new Dotenv($dir);
         }
     }
 
