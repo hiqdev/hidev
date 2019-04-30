@@ -193,10 +193,10 @@ class InitController extends \yii\console\Controller
             return [];
         }
         $res = [
-            'hiqdev/hidev-php' => '<2.0 || dev-master',
+            'hiqdev/hidev-php' => 'dev-master',
         ];
         if ($this->vendorRequire) {
-            $res[$this->vendorRequire] = '<2.0 || dev-master';
+            $res[$this->vendorRequire] = 'dev-master';
         }
 
         return $res;
