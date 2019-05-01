@@ -12,6 +12,11 @@
 ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_NOTICE);
 
 (function () {
+    foreach ($_SERVER as $key => $value) {
+        if (!isset($_ENV[$key])) {
+            $_ENV[$key] = $value;
+        }
+    }
     require_once __DIR__ . '/../src/config/bootstrap.php';
 
     $starter = new \hidev\base\Starter();
