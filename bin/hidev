@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-ini_set('error_reporting', E_ALL);
+ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_NOTICE);
 
 use hiqdev\composer\config\Builder;
 use yii\di\Container;
@@ -26,7 +26,8 @@ use yii\helpers\Yii;
     $config = require Builder::path('hidev');
     $container = new Container($config);
     Yii::setContainer($container);
-    $exitCode = $container->get('app')->run();
+    $app = $container->get('app');
+    $exitCode = $app->run();
 
     exit($exitCode);
 })();
