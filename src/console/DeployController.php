@@ -16,7 +16,7 @@ use hidev\components\Deployer;
  * Deploy Controller.
  * TODO REDO the whole thing to be configurable
  */
-class DeployController extends \yii\console\Controller
+class DeployController extends CommonController
 {
     public $defaultAction = 'all';
 

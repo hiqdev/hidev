@@ -2,6 +2,8 @@
 
 namespace hidev\components;
 
+use hidev\helpers\Sys;
+
 class Composer
 {
     public function __construct(string $dir)
@@ -25,7 +27,7 @@ class Composer
 
     public function run(string $command, array $args = [])
     {
-        sys::passthru("{$this->getCmd()} $command");
+        Sys::passthru("{$this->getCmd()} $command");
     }
 
     public function getCmd(): string

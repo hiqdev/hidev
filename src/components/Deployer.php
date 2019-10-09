@@ -13,9 +13,13 @@ class Deployer
     private $tier;
     private $dotenv;
 
-    public function __construct(string $path)
+    public function __construct(string $path = null)
     {
-        $path = trim($path);
+        if ($path === null) {
+            $path = $this->findDefaultPath();
+        } else {
+            $path = trim($path);
+        }
         if (strncmp($path, '/', 1) !== 0) {
             $path = getcwd() . '/' . $path;
         }
@@ -41,6 +45,26 @@ class Deployer
         $this->dotenv->load();
 
         $this->checkHost();
+    }
+
+    private static $pathVariants = ['beta', 'dev', 'sol-beta', 'sol-dev', 'bladeroot-beta'];
+
+    private function findDefaultPath(): string
+    {
+        $dir = basename($this->getCwd());
+        foreach ($this->findVariants() as $path) {
+            $name = pathinfo($path, PATHINFO_EXTENSION);
+            if (strncmp($dir, "${name}-", strlen($name)+1) === 0) {
+                return $path;
+            }
+        }
+
+        return '.env.dist';
+    }
+
+    private function findVariants(): array
+    {
+        return glob('.env.*');
     }
 
     private function checkHost()

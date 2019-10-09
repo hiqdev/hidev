@@ -2,6 +2,8 @@
 
 namespace hidev\components;
 
+use hidev\helpers\Sys;
+
 class Systemd
 {
     private $name;
@@ -52,7 +54,7 @@ class Systemd
         $temp = "/tmp/$name.service";
         $dest = $this->getPath();
         file_put_contents($temp, $config);
-        sys::passthru("sudo cp $temp $dest");
+        Sys::passthru("sudo cp $temp $dest");
     }
 
     public function enable()
@@ -89,6 +91,6 @@ class Systemd
     {
         $this->checkConfig();
         $sudo = $command === 'status' ? '' : 'sudo';
-        sys::passthru("$sudo systemctl $command {$this->name}");
+        Sys::passthru("$sudo systemctl $command {$this->name}");
     }
 }
