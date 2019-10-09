@@ -2,6 +2,9 @@
 
 namespace hidev\components;
 
+use Dotenv\Dotenv;
+use hidev\helpers\Sys;
+
 class Deployer
 {
     private $dir;
@@ -90,8 +93,8 @@ class Deployer
         $docSrc = $this->findDocker();
         $docDst = $this->getPath('docker-compose.yml');
 
-        sys::passthru("ln -sf $envSrc $envDst");
-        sys::passthru("ln -sf $docSrc $docDst");
+        Sys::passthru("ln -sf $envSrc $envDst");
+        Sys::passthru("ln -sf $docSrc $docDst");
     }
 
     private function findDocker(): string
@@ -121,7 +124,7 @@ class Deployer
 
     public function chmod()
     {
-        sys::chmod('a+w', 'runtime public/assets');
+        Sys::chmod('a+w', 'runtime public/assets');
     }
 
     public function phplog()
@@ -129,12 +132,12 @@ class Deployer
         $phplog = $this->getPath('.docker/php/var/log/php/php.log');
         $dir = dirname($phplog);
         if (!file_exists($dir)) {
-            sys::mkdir($dir);
+            Sys::mkdir($dir);
         }
         if (!file_exists($phplog)) {
-            sys::passthru("sudo touch $phplog");
+            Sys::passthru("sudo touch $phplog");
         }
-        sys::chmod('a+w', $phplog);
+        Sys::chmod('a+w', $phplog);
     }
 
     private $composer;
@@ -236,7 +239,7 @@ class Deployer
                 'HOST'  => $this->getHost(),
                 'DIR'   => $this->dir,
             ],
-            $this->getEnv(),
+            $this->getEnv()
         );
     }
 
