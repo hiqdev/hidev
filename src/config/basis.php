@@ -121,9 +121,6 @@ return array_filter([
         'github' => [
             'class' => \hidev\console\GithubController::class,
         ],
-        'deploy' => [
-            'class' => \hidev\console\DeployController::class,
-        ],
         'dump' => [
             'class' => \hidev\console\DumpController::class,
         ],
