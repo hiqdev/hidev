@@ -41,7 +41,7 @@ class YamlHandler extends TypeHandler
      */
     public function parse($yaml)
     {
-        $data = (array) Yaml::parse($yaml);
+        $data = (array) Yaml::parse($yaml ?? '');
         $this->interpolator->interpolate($data);
 
         return $data;
