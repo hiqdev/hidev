@@ -25,6 +25,7 @@ class Vcsignore extends File
         '.settings'                 => 'IDE & OS files',
         'Thumbs.db'                 => 'IDE & OS files',
         '.DS_Store'                 => 'IDE & OS files',
+        '/lsp'                      => 'IDE & OS files',
     ];
 
     public function init()
