@@ -19,6 +19,10 @@ class ConfigPlugin
     {
         /// doesn't work when dependencies are not installed
         /// return \hiqdev\composer\config\Builder::path($name, $vendor);
-        return "$vendor/hiqdev/composer-config-plugin-output/$name.php";
+
+        $yiiPath = "$vendor/yiisoft/composer-config-plugin-output/$name.php";
+        $hiqPath = "$vendor/hiqdev/composer-config-plugin-output/$name.php";
+
+        return file_exists($yiiPath) ? $yiiPath : $hiqPath;
     }
 }
