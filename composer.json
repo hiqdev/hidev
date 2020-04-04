@@ -53,7 +53,7 @@
     },
     "require-dev": {
         "yiisoft/yii2": "dev-master",
-        "hiqdev/composer-config-plugin": "dev-master"
+        "yiisoft/composer-config-plugin": "dev-master"
     },
     "autoload": {
         "psr-4": {
