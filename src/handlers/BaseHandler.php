@@ -5,7 +5,7 @@
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\handlers;
@@ -53,7 +53,6 @@ class BaseHandler extends \yii\base\BaseObject
     /**
      * Renders prepared data.
      * Must be redefined in child.
-     * @param array $data
      * @throws InvalidConfigException
      * @return string file content
      */

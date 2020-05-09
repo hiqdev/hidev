@@ -5,7 +5,7 @@
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\helpers;
@@ -104,7 +104,6 @@ class FileHelper
             }
 
             if (!is_link($dst)) {
-
                 return symlink($src, $dst);
             }
         } catch (\Exception $e) {

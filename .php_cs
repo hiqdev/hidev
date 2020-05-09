@@ -6,7 +6,7 @@ Automation tool mixed with code generator for easier continuous development
 @link      https://github.com/hiqdev/hidev
 @package   hidev
 @license   BSD-3-Clause
-@copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
+@copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
 EOF;
 
 return PhpCsFixer\Config::create()
@@ -31,6 +31,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_scalar'                              =>  false,
         'phpdoc_separation'                          =>  false,
         'phpdoc_to_comment'                          =>  false,
+        'phpdoc_var_without_name'                    =>  false,
         'method_argument_space'                      =>  false,
         'ereg_to_preg'                               =>  true,
         'blank_line_after_opening_tag'               =>  true,
@@ -50,5 +51,7 @@ return PhpCsFixer\Config::create()
             ->notPath('vendor')
             ->notPath('runtime')
             ->notPath('web/assets')
+            ->notPath('public/assets')
+            ->notPath('tests/_support/_generated')
         )
 ;

@@ -5,7 +5,7 @@
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\base;
@@ -54,7 +54,7 @@ abstract class Controller extends \yii\console\Controller
 
     /**
      * Runs list of actions.
-     * @param null|string|array $actions
+     * @param string|array|null $actions
      * @return int|Response exit code
      */
     public function runActions($actions)

@@ -5,8 +5,9 @@
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
  */
+
 use hidev\helpers\Helper;
 
 if (!defined('HIDEV_VENDOR_DIR')) {

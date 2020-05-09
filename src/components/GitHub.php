@@ -5,7 +5,7 @@
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\components;
@@ -111,9 +111,8 @@ class GitHub extends \hidev\base\Component
     public function createRepo(string $repo = null)
     {
         $end = $this->getVendorType() === 'org'
-            ?'/orgs/' . $this->getVendor() . '/repos'
-            : '/user/repos'
-        ;
+            ? '/orgs/' . $this->getVendor() . '/repos'
+            : '/user/repos';
         $res = $this->request('POST', $end, [
             'name'        => $this->getName(),
             'description' => $this->getDescription(),

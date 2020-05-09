@@ -5,7 +5,7 @@
  * @link      https://github.com/hiqdev/hidev
  * @package   hidev
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2018, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
  */
 
 namespace hidev\components;
@@ -22,7 +22,7 @@ class Directory extends File
     {
         FileHelper::mkdir($this->_path);
 
-       foreach ($this->getItems() as $id => $config) {
+        foreach ($this->getItems() as $id => $config) {
             $type = 'Directory';
             if (isset($config['template']) || isset($config['copy'])) {
                 $type = 'File';
