@@ -66,7 +66,7 @@ return array_filter([
                     'options' => [
                         'auto_reload' => true,
                     ],
-                    'extensions' => ['Twig_Extension_StringLoader'],
+                    'extensions' => ['Twig\Extension\StringLoaderExtension'],
                 ],
             ],
         ],
