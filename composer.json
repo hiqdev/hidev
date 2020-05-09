@@ -53,6 +53,8 @@
     },
     "require-dev": {
         "yiisoft/yii2": "dev-master",
+        "yiisoft/arrays": "*@dev",
+        "yiisoft/strings": "*@dev",
         "yiisoft/composer-config-plugin": "dev-master"
     },
     "autoload": {

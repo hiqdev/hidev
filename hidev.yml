@@ -33,7 +33,6 @@ log:
     level: info
 
 plugins:
-    hiqdev/composer-config-plugin:  "dev-master"
     hiqdev/hidev-box:               "*@dev"
     hiqdev/hidev-php:               "*@dev"
     hiqdev/hidev-readme:            "*@dev"
