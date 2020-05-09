@@ -100,12 +100,25 @@ class InitController extends \yii\console\Controller
      */
     public function actionIndex($name = null)
     {
+        $name = $this->guessName($name);
         $this->prepareData($name);
         if (!$this->noComposer) {
             $this->writeComposer();
         }
 
         return $this->writeConfig();
+    }
+
+    public function guessName($name)
+    {
+        if (empty($name)) {
+            $ps = explode(DIRECTORY_SEPARATOR, getcwd());
+            $project = array_pop($ps);
+            $vendor = array_pop($ps);
+            $name = "$vendor/$project";
+        }
+
+        return $name;
     }
 
     public function actionComposer()
