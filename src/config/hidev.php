@@ -8,4 +8,6 @@
  * @copyright Copyright (c) 2015-2020, HiQDev (http://hiqdev.com/)
  */
 
-return [];
+return [
+    'aliases' => $aliases,
+];
