@@ -10,7 +10,7 @@
 
 return [
     'id' => 'hidev-tests',
-    'basePath' => dirname(__DIR__),
+    'basePath' => dirname(__DIR__) . '/src',
     'components' => [
         'binaries' => [
             'class' => \hidev\components\Binaries::class,

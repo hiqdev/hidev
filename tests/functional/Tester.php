@@ -26,10 +26,6 @@ class Tester
 
     public function __construct($test)
     {
-        if (!Yii::getAlias('@app', false)) {
-            $this->loadAliases('./vendor/hiqdev/config/aliases.php');
-            $this->loadAliases('./.hidev/vendor/hiqdev/config/aliases.php');
-        }
         static $no = 0;
         ++$no;
         $this->test = $test;
@@ -104,7 +100,7 @@ class Tester
     public function getApp()
     {
         if ($this->_app === null) {
-            $config = require Yii::getAlias('@hidev/config/basis.php');
+            $config = require Yii::getAlias('@hidev/../config/basis.php');
             unset($config['components']['log']);
             $this->_app = new Application($config);
         }

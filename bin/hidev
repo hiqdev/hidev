@@ -17,7 +17,7 @@ ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_NOTICE);
             $_ENV[$key] = $value;
         }
     }
-    require_once __DIR__ . '/../src/config/bootstrap.php';
+    require_once __DIR__ . '/../config/bootstrap.php';
 
     $starter = new \hidev\base\Starter();
     $app = new \yii\console\Application($starter->getConfig());

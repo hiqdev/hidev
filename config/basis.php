@@ -11,7 +11,7 @@
 use hidev\helpers\Helper;
 
 if (!defined('HIDEV_VENDOR_DIR')) {
-    define('HIDEV_VENDOR_DIR', dirname(dirname(dirname(dirname(__DIR__)))));
+    define('HIDEV_VENDOR_DIR', dirname(dirname(dirname(__DIR__))));
 }
 
 $__class = Helper::isYii20() ? 'class' : '__class';
@@ -21,7 +21,7 @@ $runtimePath = (substr(__DIR__, 0, 7) === 'phar://' ? dirname($_SERVER['SCRIPT_N
 return array_filter([
     'id'                    => 'hidev',
     'name'                  => 'HiDev',
-    'basePath'              => dirname(__DIR__),
+    'basePath'              => dirname(__DIR__) . '/src',
     'vendorPath'            => HIDEV_VENDOR_DIR,
     'runtimePath'           => $runtimePath,
     'controllerNamespace'   => 'hidev\\console',
@@ -105,7 +105,7 @@ return array_filter([
         ],
         'own.version' => [
             'class' => \hidev\components\Version::class,
-            'file'  => dirname(dirname(__DIR__)) . '/version',
+            'file'  => dirname(__DIR__) . '/version',
         ],
     ]),
     'controllerMap' => [
