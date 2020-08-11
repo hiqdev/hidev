@@ -9,5 +9,4 @@
  */
 
 return [
-    'aliases' => $aliases,
 ];
