@@ -37,7 +37,8 @@ class OldConsoleTarget extends \yii\log\Target
         }
         $style = self::$styles[$level];
         if ($style) {
-            $message = Console::ansiFormat($message, $style);
+            $messageText = is_array($message) ? $message['message'] : $message;
+            $message = Console::ansiFormat($messageText, $style);
         }
         Console::stdout($message . "\n");
     }
