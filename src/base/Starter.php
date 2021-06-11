@@ -31,6 +31,8 @@ use yii\helpers\ArrayHelper;
  */
 class Starter
 {
+    /** @var string */
+    private $scriptFile;
     /**
      * @var string absolute path to the project root directory
      */
@@ -53,9 +55,12 @@ class Starter
     {
         $request = new Request();
         $this->scriptFile = $request->getScriptFile();
-        $route = reset($request->resolve());
-        $id = reset(explode('/', $route, 2));
-        if (in_array($id, ['init'], true)) {
+
+        $resolvingResult = $request->resolve();
+        $route = reset($resolvingResult);
+
+        [$id,] = explode('/', $route, 2);
+        if ($id === 'init') {
             $this->noProject();
         } else {
             $this->startProject();
@@ -87,8 +92,7 @@ class Starter
         ]);
 
         $config['components']['request']['scriptFile'] = $this->scriptFile;
-        unset($config['components']['include']);
-        unset($config['components']['plugins']);
+        unset($config['components']['include'], $config['components']['plugins']);
 
         foreach ($config['components'] as $id => $def) {
             if (empty($def['class']) && empty($def['__class'])) {
@@ -108,6 +112,7 @@ class Starter
                     $def[Helper::isYii20() ? 'class' : '__class'] = \hidev\console\CommonController::class;
                 }
             }
+            unset($def);
         }
 
         $interpolator = new Interpolator();
@@ -135,7 +140,7 @@ class Starter
     public function addAutoloader()
     {
         $autoloader = './vendor/autoload.php';
-        if (file_exists($autoloader)) {
+        if (is_file($autoloader)) {
             if (Helper::isYii20()) {
                 spl_autoload_unregister(['Yii', 'autoload']);
             }
@@ -165,9 +170,9 @@ class Starter
     {
         if (method_exists(Dotenv::class, 'create')) {
             return Dotenv::create($dir);
-        } else {
-            return new Dotenv($dir);
         }
+
+        return new Dotenv($dir);
     }
 
     private function loadGoals()
@@ -211,7 +216,7 @@ class Starter
             $srcdir = Yii::getAlias('@root/' . ($package['src'] ?: 'src'));
             Yii::setAlias($alias, $srcdir);
         }
-        $aliases = $this->goals['aliases'];
+        $aliases = $this->goals['aliases'] ?? [];
         if (!empty($aliases) && is_array($aliases)) {
             foreach ($aliases as $alias => $path) {
                 if (!$this->hasAlias($alias)) {
@@ -236,7 +241,7 @@ class Starter
     private function requireAll()
     {
         $vendors = [];
-        $plugins = $this->goals['plugins'];
+        $plugins = $this->goals['plugins'] ?? null;
         if ($plugins) {
             $file = File::create('.hidev/composer.json');
             $data = ArrayHelper::merge($file->load(), ['require' => $plugins]);
@@ -323,8 +328,8 @@ class Starter
     {
         $config = $this->readConfig();
         $files = array_merge(
-            (array) $this->goals['include'],
-            (array) $config['components']['include']
+            (array) ($this->goals['include'] ?? []),
+            (array) ($config['components']['include'] ?? [])
         );
         $this->includeGoals($files);
     }
@@ -334,7 +339,7 @@ class Starter
      */
     private function moreConfig()
     {
-        $paths = $this->goals['config'];
+        $paths = $this->goals['config'] ?? [];
         foreach ((array) $paths as $path) {
             if ($path) {
                 $this->appFiles[] = $path;
