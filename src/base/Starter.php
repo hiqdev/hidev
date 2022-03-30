@@ -168,11 +168,14 @@ class Starter
      */
     private function createDotenv($dir)
     {
-        if (method_exists(Dotenv::class, 'create')) {
+        if (method_exists(Dotenv::class, 'createImmutable')) { // Dotenv 5.x
+            return Dotenv::createImmutable($dir);
+        }
+        if (method_exists(Dotenv::class, 'create')) { // Dotenv 2.x
             return Dotenv::create($dir);
         }
 
-        return new Dotenv($dir);
+        return new Dotenv($dir); // Dotenv 1.x
     }
 
     private function loadGoals()
