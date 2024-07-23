@@ -23,7 +23,7 @@ trait HasContext
 
     public static function make(string $message, array $context): self
     {
-        $exception = new self($message);
+        $exception = new static($message);
         $exception->addContext($context);
 
         return $exception;
