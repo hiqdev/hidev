@@ -55,7 +55,8 @@
         "yiisoft/yii2": "dev-master",
         "yiisoft/arrays": "*@dev",
         "yiisoft/strings": "*@dev",
-        "yiisoft/composer-config-plugin": "dev-master"
+        "yiisoft/composer-config-plugin": "dev-master",
+        "opis/closure": "3.x-dev as 3.6.x-dev"
     },
     "autoload": {
         "psr-4": {
