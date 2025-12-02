@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false" backupStaticAttributes="false" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="false" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" bootstrap="tests/_bootstrap.php">
     <testsuites>
-        <testsuite name="Unit Test Suite">
+        <testsuite name="unit">
             <directory>./tests/unit/</directory>
         </testsuite>
         <testsuite name="Functional Test Suite">
             <directory>./tests/functional/</directory>
         </testsuite>
+    <!--
         <testsuite name="Readme Unit Test Suite">
             <directory>.hidev/vendor/hiqdev/hidev-readme/tests/unit/</directory>
         </testsuite>
         <testsuite name="License Unit Test Suite">
             <directory>.hidev/vendor/hiqdev/hidev-license/tests/unit/</directory>
         </testsuite>
+    -->
     <!--
         <testsuite name="Readme Functional Test Suite">
             <directory>.hidev/vendor/hiqdev/hidev-readme/tests/functional/</directory>

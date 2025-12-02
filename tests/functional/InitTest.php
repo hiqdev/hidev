@@ -17,13 +17,25 @@ class InitTest extends \PHPUnit\Framework\TestCase
      */
     protected $tester;
 
-    protected function setUp()
+    protected function setUp(): void
     {
+        parent::setUp();
+
+        $this->previousExceptionHandler = set_exception_handler(function() {});
+        restore_exception_handler();
+
         $this->tester = new Tester($this);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
+        // Restore handlers altered during hidev execution
+        if ($this->previousExceptionHandler !== null) {
+            set_exception_handler($this->previousExceptionHandler);
+        } else {
+            restore_exception_handler();
+        }
+
         $this->tester = null;
     }
 
