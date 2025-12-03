@@ -11,6 +11,7 @@
 namespace hidev\tests\functional;
 
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\console\Application;
 use yii\console\Request;
 
@@ -74,7 +75,8 @@ class Tester
 
     /**
      * Run hidev.
-     * @param string $query
+     * @param string|string[] $query
+     * @throws InvalidConfigException
      */
     public function hidev($query)
     {

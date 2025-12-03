@@ -1,8 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace hidev\exception;
 
 use Throwable;
+use yii\helpers\ArrayHelper;
 
 trait HasContext
 {
@@ -13,6 +16,7 @@ trait HasContext
     public function addContext(array $data): self
     {
         $this->context = array_merge($this->context, $data);
+
         return $this;
     }
 
@@ -27,5 +31,10 @@ trait HasContext
         $exception->addContext($context);
 
         return $exception;
+    }
+
+    public function getContextValue(string $fieldName)
+    {
+        return ArrayHelper::getValue($this->context, $fieldName, '');
     }
 }

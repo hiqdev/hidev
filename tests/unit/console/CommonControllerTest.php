@@ -14,10 +14,7 @@ use hidev\console\CommonController;
 
 class CommonControllerTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var CommonController
-     */
-    protected $object;
+    protected CommonController $object;
 
     protected $before = 'asd';
 
@@ -25,16 +22,23 @@ class CommonControllerTest extends \PHPUnit\Framework\TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->object = new CommonController('test', null);
+        $this->object = new CommonController('test', null, [
+            'request' => [
+                'class' => \yii\console\Request::class,
+            ],
+            'response' => [
+                'class' => \yii\console\Response::class,
+            ],
+        ]);
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 
