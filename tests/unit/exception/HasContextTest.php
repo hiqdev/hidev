@@ -59,4 +59,59 @@ class HasContextTest extends TestCase
 
         $this->assertSame('', $e->getContextValue('missing.key'));
     }
+
+    // -----------------------------------------------------
+    // getFormattedContext() Tests
+    // -----------------------------------------------------
+
+    public function testGetFormattedContextReturnsEmptyStringWhenNoContext(): void
+    {
+        $e = new TestException('Error');
+
+        $this->assertSame('', $e->getFormattedContext());
+    }
+
+    public function testGetFormattedContextFormatsSimpleContext(): void
+    {
+        $e = new TestException('Error');
+        $e->addContext([
+            'key' => 'value',
+            'number' => 123,
+        ]);
+
+        $output = $e->getFormattedContext();
+
+        $this->assertStringContainsString('Context:', $output);
+        $this->assertStringContainsString('key: value', $output);
+        $this->assertStringContainsString('number: 123', $output);
+    }
+
+    public function testGetFormattedContextFormatsArrayValuesAsJson(): void
+    {
+        $e = new TestException('Error');
+        $e->addContext([
+            'data' => ['a' => 1, 'b' => 2],
+        ]);
+
+        $output = $e->getFormattedContext();
+
+        // Pretty-printed JSON
+        $this->assertStringContainsString('"a": 1', $output);
+        $this->assertStringContainsString('"b": 2', $output);
+    }
+
+    public function testGetFormattedContextIncludesPreviousException(): void
+    {
+        $previous = new TestException('Previous error');
+        $previous->addContext(['prevKey' => 'prevValue']);
+
+        $e = new TestException('Main error', 0, $previous);
+        $e->addContext(['key' => 'value']);
+
+        $output = $e->getFormattedContext();
+
+        $this->assertStringContainsString('previousException', $output);
+        $this->assertStringContainsString('prevKey', $output);
+        $this->assertStringContainsString('prevValue', $output);
+    }
 }
