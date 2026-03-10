@@ -66,7 +66,8 @@
         }
     },
     "bin": [
-        "bin/hidev"
+        "bin/hidev",
+        "bin/webapp"
     ],
     "extra": {
         "config-plugin": {

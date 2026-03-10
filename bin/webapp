@@ -1,0 +1,261 @@
+#!/usr/bin/env bash
+#
+# webapp — reusable setup and management tool for hisite projects
+# (hiapi, hipanel, hiam, etc.)
+#
+# Installed via Composer as vendor/bin/webapp.
+# Usage: webapp <command> [args]
+#
+
+set -euo pipefail
+
+# --- Project root detection ---
+# Walk up from $PWD looking for composer.json
+find_project_root() {
+    local dir="$PWD"
+    while [[ "$dir" != "/" ]]; do
+        if [[ -f "$dir/composer.json" && -d "$dir/vendor" ]]; then
+            echo "$dir"
+            return
+        fi
+        dir="$(dirname "$dir")"
+    done
+    echo ""
+}
+
+PROJECT_ROOT="$(find_project_root)"
+if [[ -z "$PROJECT_ROOT" ]]; then
+    echo "Error: could not find project root (no composer.json with vendor/ found)"
+    exit 1
+fi
+cd "$PROJECT_ROOT"
+
+# --- Dependency check ---
+if ! command -v jq &>/dev/null; then
+    echo "Error: jq is required but not installed."
+    echo "Install it with:"
+    echo "  sudo apt install jq        # Debian/Ubuntu"
+    echo "  brew install jq             # macOS"
+    echo "  sudo dnf install jq         # Fedora/RHEL"
+    exit 1
+fi
+
+# --- Commands ---
+
+cmd_setup() {
+    local TIER="${1:-}"
+
+    if [[ -z "$TIER" ]]; then
+        echo "Usage: webapp setup <tier>"
+        echo "Available tiers:"
+        for f in .env.*; do
+            [[ -f "$f" ]] && echo "  ${f#.env.}"
+        done
+        exit 1
+    fi
+
+    local ENV_FILE=".env.${TIER}"
+    if [[ ! -f "$ENV_FILE" ]]; then
+        echo "Error: $ENV_FILE not found"
+        exit 1
+    fi
+
+    # 1. Symlink .env
+    ln -sfn "$ENV_FILE" .env
+    echo "Linked .env -> $ENV_FILE"
+
+    # 2. Find docker-compose variant
+    local COMPOSE_FILE
+    COMPOSE_FILE=$(find_compose "$TIER")
+    if [[ -z "$COMPOSE_FILE" ]]; then
+        echo "Error: no docker-compose variant found for tier '$TIER'"
+        exit 1
+    fi
+    ln -sfn "$COMPOSE_FILE" docker-compose.yml
+    echo "Linked docker-compose.yml -> $COMPOSE_FILE"
+
+    # 3. Create directories
+    mkdir -p runtime public .docker/php/var/log/php .docker/nginx/var/log/nginx
+    echo "Created directories: runtime/ public/ .docker/..."
+
+    # 4. Symlink public entry points (skip if already exists)
+    for file in index.php robots.txt favicon.ico; do
+        if [[ -f "core/public/$file" && ! -e "public/$file" ]]; then
+            ln -sfn "../core/public/$file" "public/$file"
+            echo "Linked public/$file -> ../core/public/$file"
+        fi
+    done
+
+    # 5. Create assets directory and set permissions
+    mkdir -p public/assets
+    chmod a+w runtime/ public/assets/
+    echo "Set permissions on runtime/ and public/assets/"
+
+    # 6. Check /etc/hosts
+    check_etc_hosts
+
+    # 7. Composer dump-autoload
+    if command -v composer &>/dev/null; then
+        composer dump-autoload
+    elif [[ -f vendor/bin/composer ]]; then
+        vendor/bin/composer dump-autoload
+    else
+        echo "Note: composer not found — run 'composer dump-autoload' manually"
+    fi
+
+    # 8. Create external Docker networks/volumes
+    cmd_docker_init
+
+    # 9. Summary
+    echo ""
+    echo "=== Setup complete for tier: $TIER ==="
+    echo "  .env           -> $(readlink .env)"
+    echo "  docker-compose -> $(readlink docker-compose.yml 2>/dev/null || echo 'NOT SET')"
+    echo "  public/        -> $(ls -C public/)"
+    echo ""
+    echo "Next steps:"
+    echo "  make up                   # start containers"
+}
+
+check_etc_hosts() {
+    # Source .env to get REAL_IP and HOSTS
+    local real_ip="" hosts_name=""
+    if [[ -f .env ]]; then
+        real_ip=$(grep -E '^REAL_IP=' .env | cut -d= -f2- | tr -d '"' | tr -d "'")
+        hosts_name=$(grep -E '^HOSTS=' .env | cut -d= -f2- | tr -d '"' | tr -d "'")
+    fi
+
+    if [[ -z "$real_ip" || -z "$hosts_name" ]]; then
+        echo "Skipping /etc/hosts check (REAL_IP or HOSTS not set in .env)"
+        return
+    fi
+
+    # Only add for loopback addresses (local development)
+    if [[ "$real_ip" != 127.* ]]; then
+        echo "Skipping /etc/hosts check (REAL_IP=$real_ip is not local)"
+        return
+    fi
+
+    if grep -qE "^${real_ip}[[:space:]].*${hosts_name}" /etc/hosts 2>/dev/null; then
+        echo "/etc/hosts already has $real_ip $hosts_name"
+    else
+        echo "Adding $real_ip $hosts_name to /etc/hosts (requires sudo)..."
+        echo "$real_ip $hosts_name" | sudo tee -a /etc/hosts >/dev/null
+        echo "Added $real_ip $hosts_name to /etc/hosts"
+    fi
+}
+
+find_compose() {
+    local tier="$1"
+    local candidates=(
+        "core/docker-compose.yml.${tier}"
+    )
+
+    # Extract base tier: "sol-beta" → "beta"
+    local base_tier="${tier##*-}"
+    if [[ "$base_tier" != "$tier" ]]; then
+        candidates+=("core/docker-compose.yml.${base_tier}")
+    fi
+
+    candidates+=(
+        "core/docker-compose.yml.dist"
+        "docker-compose.yml.dist"
+    )
+
+    for candidate in "${candidates[@]}"; do
+        if [[ -f "$candidate" ]]; then
+            echo "$candidate"
+            return
+        fi
+    done
+    echo ""
+}
+
+cmd_status() {
+    echo "Project: $PROJECT_ROOT"
+    echo "Env:     $(readlink .env 2>/dev/null || echo 'NOT SET')"
+    echo "Compose: $(readlink docker-compose.yml 2>/dev/null || echo 'NOT SET')"
+    echo ""
+    docker compose ps 2>/dev/null || echo "Docker Compose not running or not available"
+}
+
+cmd_docker_init() {
+    if [[ ! -f docker-compose.yml ]]; then
+        echo "Error: docker-compose.yml not found. Run 'webapp setup <tier>' first."
+        exit 1
+    fi
+
+    echo "Parsing docker-compose.yml for external resources..."
+
+    local config_json
+    config_json="$(docker compose config --format json 2>/dev/null)" || {
+        echo "Error: failed to parse docker-compose.yml"
+        exit 1
+    }
+
+    # Extract and create external networks
+    local networks
+    networks=$(echo "$config_json" | jq -r '.networks // {} | to_entries[] | select(.value.external == true) | .value.name // .key')
+
+    if [[ -n "$networks" ]]; then
+        echo "Creating external networks..."
+        while IFS= read -r net; do
+            docker network create "$net" 2>/dev/null && echo "  Created network: $net" || echo "  Network exists:  $net"
+        done <<< "$networks"
+    else
+        echo "No external networks found."
+    fi
+
+    # Extract and create external volumes
+    local volumes
+    volumes=$(echo "$config_json" | jq -r '.volumes // {} | to_entries[] | select(.value.external == true) | .value.name // .key')
+
+    if [[ -n "$volumes" ]]; then
+        echo "Creating external volumes..."
+        while IFS= read -r vol; do
+            docker volume create "$vol" 2>/dev/null && echo "  Created volume:  $vol" || echo "  Volume exists:   $vol"
+        done <<< "$volumes"
+    else
+        echo "No external volumes found."
+    fi
+
+    echo ""
+    echo "Docker init complete."
+}
+
+cmd_help() {
+    cat <<'USAGE'
+webapp — setup and management tool for hisite projects
+
+Usage: webapp <command> [args]
+
+Commands:
+  setup <tier>    Full project setup (symlinks, dirs, permissions, composer dump)
+  status          Show current configuration and container status
+  docker-init     Create external Docker networks and volumes from docker-compose.yml
+  help            Show this help message
+
+Examples:
+  webapp setup local
+  webapp setup sol-beta
+  webapp status
+  webapp docker-init
+USAGE
+}
+
+# --- Main dispatch ---
+
+COMMAND="${1:-help}"
+shift || true
+
+case "$COMMAND" in
+    setup)       cmd_setup "$@" ;;
+    status)      cmd_status "$@" ;;
+    docker-init) cmd_docker_init "$@" ;;
+    help|--help|-h) cmd_help ;;
+    *)
+        echo "Unknown command: $COMMAND"
+        echo "Run 'webapp help' for usage."
+        exit 1
+        ;;
+esac
