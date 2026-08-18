@@ -47,7 +47,7 @@ class Interpolator
         } elseif ($scope === '_ENV') {
             return $_ENV[$name];
         } else {
-            return "\$${scope}['$name']";
+            return '$' . $scope . "['$name']";
         }
     }
 
