@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2015 HiQDev
  */
 
-error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_WARNING);
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_WARNING);
 
 (function () {
     foreach ($_SERVER as $key => $value) {
