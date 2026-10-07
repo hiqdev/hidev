@@ -87,12 +87,8 @@ class Starter
 
     public function getConfig()
     {
-        $goals = $this->goals;
-        $app = $goals['app'] ?? [];
-        unset($goals['app']);
-
-        $config = ArrayHelper::merge($this->readConfig(), $app, [
-            'components' => $goals,
+        $config = ArrayHelper::merge($this->readConfig(), [
+            'components' => $this->goals,
         ]);
 
         $config['components']['request']['scriptFile'] = $this->scriptFile;
@@ -121,7 +117,7 @@ class Starter
 
         if (!empty($config['modules'])) {
             foreach ($config['modules'] as $id => $def) {
-                if (is_array($def) && empty($def['class']) && empty($def['__class'])) {
+                if (is_array($def) && !is_callable($def, true) && empty($def['class']) && empty($def['__class'])) {
                     unset($config['modules'][$id]);
                 }
             }
@@ -201,11 +197,6 @@ class Starter
     private function includeGoals($paths)
     {
         foreach ((array) $paths as $path) {
-            $path = Yii::getAlias($path);
-            if (!file_exists($path)) {
-                $path = str_replace('src/config/goals.yml', 'config/goals.yml', $path);
-            }
-
             $goals = $this->readYaml($path);
             if (is_array($goals)) {
                 $this->goals = ArrayHelper::merge($this->goals, $goals);
