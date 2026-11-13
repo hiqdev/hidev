@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['8.3']
+        php: ['8.5']
         coverage-driver: [pcov]
     name: PHP ${{ matrix.php }}
     steps:
@@ -37,7 +37,6 @@ jobs:
         run: composer self-update
 
       - name: Composer install
-        if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install -n
 
       - name: PHPUnit
